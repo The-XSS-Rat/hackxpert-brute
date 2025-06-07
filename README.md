@@ -1,4 +1,4 @@
-# Recursive Dir Bruteforce GUI
+# FileDirBrute
 
 A Python-based tool combining recursive directory brute-forcing and content discovery with both a graphical interface (Tkinter) and a command-line mode.
 
