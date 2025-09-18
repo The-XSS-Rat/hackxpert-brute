@@ -9,6 +9,7 @@ import time
 import urllib.parse
 import webbrowser
 from pathlib import Path
+from typing import Callable, Optional
 
 import requests
 import tkinter as tk
@@ -16,6 +17,55 @@ from tkinter import filedialog, messagebox, simpledialog
 from tkinter import ttk
 from tkinter.scrolledtext import ScrolledText
 from PIL import Image, ImageTk
+
+SEC_WORDLISTS = {
+    "API Recon - Mega": "https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/Web-Content/api/api-endpoints.txt",
+    "API Recon - Minimal": "https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/Web-Content/api/objects.txt",
+    "Web Content - Common": "https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/Web-Content/common.txt",
+    "Fuzz - Directory quickhit": "https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/Web-Content/quickhits.txt",
+    "WordPress API": "https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/Web-Content/CMS/wp-plugins.fuzz.txt",
+}
+
+PARAMETER_WORDLISTS = {
+    "Authentication": [
+        "access_token",
+        "auth",
+        "auth_token",
+        "authorization",
+        "jwt",
+        "key",
+        "refresh_token",
+        "secret",
+        "session",
+        "token",
+        "user",
+    ],
+    "Filtering & Sorting": [
+        "active",
+        "direction",
+        "filter",
+        "include",
+        "limit",
+        "offset",
+        "order",
+        "page",
+        "q",
+        "search",
+        "sort",
+    ],
+    "Injection Primitives": [
+        "callback",
+        "command",
+        "file",
+        "id",
+        "path",
+        "query",
+        "redirect",
+        "target",
+        "template",
+        "url",
+    ],
+}
 
 CONFIG_PATH = Path.home() / ".dir_bruteforce_config.json"
 BASELINE_PATH = Path.home() / ".hackxpert_surface_baselines.json"
@@ -622,6 +672,10 @@ class App(tk.Tk):
         self.settings = Settings()
         self.forcers = {}
         self.scan_count = 0
+        self.wordlist_store = Path.home() / ".hackxpert_wordlists"
+        self.wordlist_store.mkdir(parents=True, exist_ok=True)
+        self._wordlist_helpers = []
+        self.api_tree_results = {}
 
         self._init_style()
         self._build_header()
@@ -654,6 +708,138 @@ class App(tk.Tk):
         style.configure("StatValueSuccess.TLabel", background="#1e293b", foreground="#4ade80", font=("Helvetica", 20, "bold"))
         style.configure("StatValueFocus.TLabel", background="#1e293b", foreground="#f472b6", font=("Helvetica", 20, "bold"))
         style.configure("StatusBadge.TLabel", background="#111827", foreground="#fbbf24", font=("Helvetica", 12, "bold"))
+
+    def _sanitize_wordlist_name(self, name: str) -> str:
+        cleaned = re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
+        return cleaned or "wordlist"
+
+    def _ensure_wordlist(self, name: str) -> Optional[Path]:
+        url = SEC_WORDLISTS.get(name)
+        if not url:
+            return None
+        path = self.wordlist_store / f"{self._sanitize_wordlist_name(name)}.txt"
+        if not path.exists():
+            return self._download_wordlist(name, url, path)
+        return path
+
+    def _download_wordlist(self, name: str, url: str, path: Optional[Path] = None) -> Optional[Path]:
+        destination = path or self.wordlist_store / f"{self._sanitize_wordlist_name(name)}.txt"
+        try:
+            response = requests.get(url, timeout=30)
+            response.raise_for_status()
+        except Exception as exc:
+            messagebox.showerror("Wordlist Download Failed", f"Could not fetch {name}: {exc}")
+            return None
+        try:
+            destination.write_bytes(response.content)
+        except Exception as exc:  # pragma: no cover - IO failure
+            messagebox.showerror("Wordlist Save Failed", f"Could not store {name}: {exc}")
+            return None
+        self.status_var.set(f"Downloaded {name} ({len(response.content)} bytes)") if hasattr(
+            self, "status_var"
+        ) else None
+        return destination
+
+    def _attach_wordlist_autocomplete(self, entry: ttk.Entry, variable: tk.StringVar) -> None:
+        popup = tk.Toplevel(self)
+        popup.withdraw()
+        popup.overrideredirect(True)
+        popup.configure(bg="#0f172a")
+        listbox = tk.Listbox(
+            popup,
+            bg="#0b1120",
+            fg="#38bdf8",
+            selectbackground="#22d3ee",
+            selectforeground="#0f172a",
+            highlightthickness=0,
+            relief="flat",
+        )
+        listbox.pack(fill="both", expand=True)
+
+        helper = {"popup": popup, "listbox": listbox, "entry": entry, "variable": variable}
+        self._wordlist_helpers.append(helper)
+
+        def hide_popup():
+            popup.withdraw()
+
+        def select_current(_event=None):
+            selection = listbox.curselection()
+            if not selection:
+                hide_popup()
+                return
+            name = listbox.get(selection[0])
+            path = self._ensure_wordlist(name)
+            if path:
+                variable.set(str(path))
+            hide_popup()
+
+        def update_suggestions(_event=None):
+            text = variable.get()
+            matches = [name for name in SEC_WORDLISTS if text.lower() in name.lower()] if text else []
+            listbox.delete(0, "end")
+            if not matches:
+                hide_popup()
+                return
+            for name in matches[:8]:
+                listbox.insert("end", name)
+            listbox.selection_clear(0, "end")
+            listbox.selection_set(0)
+            listbox.activate(0)
+            entry_x = entry.winfo_rootx()
+            entry_y = entry.winfo_rooty() + entry.winfo_height()
+            popup.geometry(f"240x180+{entry_x}+{entry_y}")
+            popup.deiconify()
+            popup.lift()
+
+        def focus_list(_event=None):
+            if listbox.size() > 0:
+                listbox.focus_set()
+
+        entry.bind("<KeyRelease>", update_suggestions, add="+")
+        entry.bind("<FocusOut>", lambda _e: self.after(150, hide_popup), add="+")
+        entry.bind("<Down>", focus_list, add="+")
+        listbox.bind("<ButtonRelease-1>", select_current)
+        listbox.bind("<Return>", select_current)
+        listbox.bind("<Escape>", lambda _e: hide_popup())
+
+    def _attach_tree_context_menu(self, tree: ttk.Treeview, lookup: Callable[[str], Optional[dict]]):
+        menu = tk.Menu(tree, tearoff=0, bg="#0b1120", fg="#38bdf8", activebackground="#22d3ee", activeforeground="#0f172a")
+        menu.add_command(
+            label="Send to Parameter Explorer",
+            command=lambda: self._tree_to_parameter_explorer(tree, lookup),
+        )
+
+        def show_menu(event):
+            row = tree.identify_row(event.y)
+            if not row:
+                return
+            tree.selection_set(row)
+            try:
+                menu.tk_popup(event.x_root, event.y_root)
+            finally:
+                menu.grab_release()
+
+        tree.bind("<Button-3>", show_menu)
+
+    def _tree_to_parameter_explorer(self, tree: ttk.Treeview, lookup):
+        selection = tree.selection()
+        if not selection:
+            return
+        info = lookup(selection[0]) if callable(lookup) else None
+        if not info:
+            return
+        self._send_to_parameter_explorer(info)
+
+    def _compose_headers_from_settings(self) -> dict[str, str]:
+        headers = {}
+        extra = str(self.settings.data.get("extra_headers", ""))
+        for line in extra.splitlines():
+            if not line.strip() or ":" not in line:
+                continue
+            key, value = line.split(":", 1)
+            headers[key.strip()] = value.strip()
+        headers.setdefault("User-Agent", self.settings.data.get("user_agent", Settings.DEFAULTS["user_agent"]))
+        return headers
 
     def _build_header(self):
         header = ttk.Frame(self, style="Header.TFrame")
@@ -694,6 +880,8 @@ class App(tk.Tk):
         self.nb.bind("<Double-1>", self._rename_tab)
         self._build_instructions_tab()
         self._build_scan_tab()
+        self._build_endpoint_explorer()
+        self._build_parameter_explorer()
         self._build_settings_tab()
 
     def _build_instructions_tab(self):
@@ -711,10 +899,19 @@ class App(tk.Tk):
         text.pack(fill="both", expand=True, padx=10, pady=10)
         briefing = (
             "Welcome to the HackXpert API Surface Explorer!\n\n"
-            "• Launch high-speed brute-forcing with recursive intelligence.\n"
-            "• Inspect live response previews with instant syntax highlighting cues.\n"
-            "• Export discoveries in JSON or CSV for reporting and replay.\n\n"
-            "Tip: fine-tune threads, filters, and extension combos in the Settings tab before you unleash the scanner."
+            "Step 1 — Stage the target:\n"
+            "  • Feed an API base URL and pick a brutal wordlist (the entry box autocompletes SecLists for you).\n"
+            "  • Tweak threading, recursion, methods and headers in the Settings tab if you need stealth.\n\n"
+            "Step 2 — Recon like a menace:\n"
+            "  • Launch a classic surface scan from the Recon Lab tab to map directories, files and intel paths.\n"
+            "  • Jump into the API Endpoint Explorer to auto-hunt specs, Swagger docs and hidden endpoints.\n\n"
+            "Step 3 — Weaponise the findings:\n"
+            "  • Double click any request to open the request workbench and replay or mutate it.\n"
+            "  • Right click requests anywhere to sling them into the Parameter Explorer for focused fuzzing.\n\n"
+            "Step 4 — Export proof:\n"
+            "  • Save hits as JSON or CSV, or copy URLs directly for follow-up exploitation.\n"
+            "  • Baseline drift detection highlights new, changed and retired surfaces automatically.\n\n"
+            "Need help? Hover labels for hints, and watch the status HUD for live telemetry while you hack stylishly."
         )
         text.insert("1.0", briefing)
         text.configure(state="disabled")
@@ -729,7 +926,12 @@ class App(tk.Tk):
 
         ttk.Label(frame, text="Wordlist:").grid(row=1, column=0, padx=5, pady=5, sticky="e")
         self.wordlist_path = tk.StringVar()
-        ttk.Entry(frame, textvariable=self.wordlist_path, width=50).grid(row=1, column=1, padx=5, pady=5, sticky="w")
+        wordlist_entry = ttk.Entry(frame, textvariable=self.wordlist_path, width=50)
+        wordlist_entry.grid(row=1, column=1, padx=5, pady=5, sticky="w")
+        self._attach_wordlist_autocomplete(wordlist_entry, self.wordlist_path)
+        default_list = self._ensure_wordlist("API Recon - Mega")
+        if default_list:
+            self.wordlist_path.set(str(default_list))
         ttk.Button(frame, text="Browse", command=self._browse_wordlist).grid(row=1, column=2, padx=5, pady=5)
 
         ttk.Button(frame, text="Launch Scan", command=self._new_scan).grid(row=2, column=1, pady=15)
@@ -767,6 +969,494 @@ class App(tk.Tk):
         ttk.Label(status_frame, textvariable=self.status_var, style="StatusBadge.TLabel").pack(
             anchor="w", padx=12, pady=8
         )
+
+    def _build_endpoint_explorer(self):
+        frame = ttk.Frame(self.nb, style="Card.TFrame")
+        self.endpoint_frame = frame
+        self.nb.add(frame, text="API Endpoint Explorer")
+
+        ttk.Label(frame, text="Target Base URL:").grid(row=0, column=0, padx=6, pady=6, sticky="e")
+        self.endpoint_url = tk.StringVar()
+        ttk.Entry(frame, textvariable=self.endpoint_url, width=60).grid(row=0, column=1, padx=6, pady=6, sticky="w")
+
+        ttk.Label(frame, text="Wordlist:").grid(row=1, column=0, padx=6, pady=6, sticky="e")
+        self.endpoint_wordlist = tk.StringVar()
+        endpoint_entry = ttk.Entry(frame, textvariable=self.endpoint_wordlist, width=50)
+        endpoint_entry.grid(row=1, column=1, padx=6, pady=6, sticky="w")
+        self._attach_wordlist_autocomplete(endpoint_entry, self.endpoint_wordlist)
+        endpoint_default = self._ensure_wordlist("API Recon - Minimal")
+        if endpoint_default:
+            self.endpoint_wordlist.set(str(endpoint_default))
+        ttk.Button(frame, text="Browse", command=lambda: self._browse_generic_wordlist(self.endpoint_wordlist)).grid(
+            row=1, column=2, padx=6, pady=6
+        )
+
+        ttk.Button(frame, text="Run Discovery", command=self._start_api_endpoint_explorer).grid(
+            row=2, column=1, pady=10
+        )
+
+        columns = ("status", "detail")
+        tree = ttk.Treeview(
+            frame,
+            columns=columns,
+            show="tree headings",
+            height=14,
+        )
+        tree.heading("status", text="STATUS")
+        tree.heading("detail", text="DETAIL")
+        tree.column("#0", width=320, stretch=True)
+        tree.column("status", width=100, anchor="center")
+        tree.column("detail", width=360, anchor="w")
+        tree.grid(row=3, column=0, columnspan=3, sticky="nsew", padx=10, pady=10)
+        frame.grid_rowconfigure(3, weight=1)
+        frame.grid_columnconfigure(1, weight=1)
+
+        self.api_tree = tree
+        self.api_specs_node = tree.insert("", "end", text="Specification Hunts", values=("", ""), open=True)
+        self.api_endpoints_node = tree.insert("", "end", text="Endpoint Hits", values=("", ""), open=True)
+        self.api_tree_results = {}
+        tree.bind("<Double-1>", self._on_api_tree_double)
+        self._attach_tree_context_menu(tree, lambda iid: self.api_tree_results.get(iid))
+
+        status_frame = ttk.Frame(frame, style="Card.TFrame")
+        status_frame.grid(row=4, column=0, columnspan=3, sticky="ew", padx=10, pady=(0, 10))
+        self.api_status_var = tk.StringVar(value="Idle — feed the explorer a target and wordlist.")
+        ttk.Label(status_frame, textvariable=self.api_status_var, style="StatusBadge.TLabel").pack(anchor="w", padx=4, pady=4)
+
+    def _build_parameter_explorer(self):
+        frame = ttk.Frame(self.nb, style="Card.TFrame")
+        self.parameter_frame = frame
+        self.nb.add(frame, text="API Parameter Explorer")
+
+        ttk.Label(frame, text="Request URL:").grid(row=0, column=0, padx=6, pady=6, sticky="e")
+        self.param_url = tk.StringVar()
+        ttk.Entry(frame, textvariable=self.param_url, width=70).grid(row=0, column=1, columnspan=2, padx=6, pady=6, sticky="we")
+
+        ttk.Label(frame, text="Method:").grid(row=1, column=0, padx=6, pady=6, sticky="e")
+        self.param_method = tk.StringVar(value="GET")
+        self.param_method_combo = ttk.Combobox(
+            frame,
+            textvariable=self.param_method,
+            values=["GET", "POST", "PUT", "PATCH", "DELETE"],
+            width=8,
+            state="readonly",
+        )
+        self.param_method_combo.grid(row=1, column=1, padx=6, pady=6, sticky="w")
+
+        ttk.Label(frame, text="Parameter Wordlist:").grid(row=1, column=2, padx=6, pady=6, sticky="e")
+        self.param_wordlist = tk.StringVar(value=list(PARAMETER_WORDLISTS.keys())[0])
+        ttk.Combobox(
+            frame,
+            textvariable=self.param_wordlist,
+            values=list(PARAMETER_WORDLISTS.keys()),
+            state="readonly",
+            width=24,
+        ).grid(row=1, column=3, padx=6, pady=6, sticky="w")
+
+        ttk.Label(frame, text="Headers (Key: Value per line):").grid(row=2, column=0, padx=6, pady=6, sticky="ne")
+        self.param_headers = ScrolledText(frame, height=6, width=40, bg="#0b1120", fg="#e2e8f0", insertbackground="#22d3ee")
+        self.param_headers.grid(row=2, column=1, padx=6, pady=6, sticky="we")
+
+        ttk.Label(frame, text="Body (optional):").grid(row=2, column=2, padx=6, pady=6, sticky="ne")
+        self.param_body = ScrolledText(frame, height=6, width=40, bg="#0b1120", fg="#e2e8f0", insertbackground="#22d3ee")
+        self.param_body.grid(row=2, column=3, padx=6, pady=6, sticky="we")
+
+        ttk.Button(frame, text="Launch Parameter Fuzz", command=self._start_parameter_explorer).grid(
+            row=3, column=0, columnspan=4, pady=10
+        )
+
+        columns = ("parameter", "status", "delta", "length")
+        tree = ttk.Treeview(frame, columns=columns, show="headings", height=12)
+        tree.heading("parameter", text="PARAMETER")
+        tree.heading("status", text="STATUS")
+        tree.heading("delta", text="DELTA")
+        tree.heading("length", text="LENGTH")
+        tree.column("parameter", width=200, anchor="w")
+        tree.column("status", width=90, anchor="center")
+        tree.column("delta", width=240, anchor="w")
+        tree.column("length", width=120, anchor="center")
+        tree.grid(row=4, column=0, columnspan=4, sticky="nsew", padx=10, pady=10)
+        frame.grid_rowconfigure(4, weight=1)
+        for idx in range(4):
+            frame.grid_columnconfigure(idx, weight=1)
+
+        self.param_tree = tree
+        self.parameter_results = {}
+        tree.bind("<Double-1>", self._on_parameter_double)
+
+        status_frame = ttk.Frame(frame, style="Card.TFrame")
+        status_frame.grid(row=5, column=0, columnspan=4, sticky="ew", padx=10, pady=(0, 10))
+        self.param_status_var = tk.StringVar(value="Awaiting a request to probe.")
+        ttk.Label(status_frame, textvariable=self.param_status_var, style="StatusBadge.TLabel").pack(anchor="w", padx=4, pady=4)
+
+    def _browse_generic_wordlist(self, variable: tk.StringVar) -> None:
+        path = filedialog.askopenfilename(
+            title="Choose wordlist",
+            filetypes=[("Wordlists", "*.txt"), ("All files", "*.*")],
+        )
+        if path:
+            variable.set(path)
+
+    def _start_api_endpoint_explorer(self) -> None:
+        base = self.endpoint_url.get().strip()
+        if not base:
+            messagebox.showerror("API Explorer", "Provide a base URL to explore.")
+            return
+        wordlist_path = self.endpoint_wordlist.get().strip()
+        if not wordlist_path or not os.path.isfile(wordlist_path):
+            fallback = self._ensure_wordlist("API Recon - Mega")
+            if fallback:
+                wordlist_path = str(fallback)
+                self.endpoint_wordlist.set(wordlist_path)
+            else:
+                messagebox.showerror("API Explorer", "Select or download a valid wordlist first.")
+                return
+        self.api_status_var.set(f"Reconning {base} — hunting specifications and endpoints…")
+        for node in (self.api_specs_node, self.api_endpoints_node):
+            for child in self.api_tree.get_children(node):
+                self.api_tree.delete(child)
+        self.api_tree_results.clear()
+        thread = threading.Thread(
+            target=self._run_api_endpoint_explorer,
+            args=(base, wordlist_path),
+            daemon=True,
+        )
+        thread.start()
+
+    def _run_api_endpoint_explorer(self, base_url: str, wordlist_path: str) -> None:
+        parsed = urllib.parse.urlparse(base_url)
+        if not parsed.scheme:
+            base_url = f"http://{base_url}"
+        headers = self._compose_headers_from_settings()
+        specs = [
+            "/openapi.json",
+            "/swagger.json",
+            "/swagger/v1/swagger.json",
+            "/v3/api-docs",
+            "/api-docs",
+            "/docs",
+            "/redoc",
+        ]
+        timeout = self.settings.data.get("timeout", 5)
+        spec_hits = 0
+        for path in specs:
+            target = urllib.parse.urljoin(f"{base_url.rstrip('/')}/", path.lstrip("/"))
+            try:
+                response = requests.get(target, headers=headers, timeout=timeout, allow_redirects=True)
+                length = len(response.content)
+                info = {
+                    "url": target,
+                    "method": "GET",
+                    "status": response.status_code,
+                    "detail": f"{length} bytes",
+                    "label": path,
+                    "headers": dict(response.headers),
+                    "body": response.text if length < 50_000 else response.content[:2000].decode("utf-8", "ignore"),
+                }
+                if response.status_code < 400:
+                    spec_hits += 1
+                self.after(0, lambda data=info: self._insert_api_result(self.api_specs_node, data))
+            except Exception as exc:
+                note = {
+                    "url": target,
+                    "method": "GET",
+                    "status": "ERR",
+                    "detail": str(exc),
+                    "label": path,
+                    "headers": headers,
+                    "body": "",
+                }
+                self.after(0, lambda data=note: self._insert_api_result(self.api_specs_node, data))
+
+        if spec_hits == 0:
+            self.after(0, lambda: self.api_status_var.set("No live specs detected — brute forcing endpoints."))
+        else:
+            self.after(0, lambda: self.api_status_var.set(f"Captured {spec_hits} spec artefacts — sweeping endpoints next."))
+
+        def on_found(info):
+            self.after(0, lambda data=info: self._insert_api_result(self.api_endpoints_node, data))
+
+        def on_finish():
+            self.after(0, lambda: self.api_status_var.set("API endpoint sweep complete."))
+
+        def on_progress(pct):
+            self.after(0, lambda: self.progress.configure(value=pct))
+
+        forcer = DirBruteForcer(base_url, wordlist_path, self.settings, on_found=on_found, on_finish=on_finish, on_progress=on_progress)
+        self.api_forcer = forcer
+        forcer.start()
+
+    def _insert_api_result(self, parent, info):
+        label = info.get("label") or info.get("url", "")
+        status = info.get("status", "-")
+        detail = info.get("detail") or info.get("notes") or info.get("type", "")
+        item = self.api_tree.insert(parent, "end", text=label, values=(status, detail))
+        enriched = dict(info)
+        enriched.setdefault("headers", self._compose_headers_from_settings())
+        self.api_tree_results[item] = enriched
+        self.api_tree.see(item)
+        if isinstance(status, int):
+            self.api_status_var.set(f"Hit {label} — status {status}")
+
+    def _on_api_tree_double(self, _event):
+        selection = self.api_tree.selection()
+        if not selection:
+            return
+        info = self.api_tree_results.get(selection[0])
+        if not info:
+            return
+        self._open_request_workbench(info)
+
+    def _open_request_workbench(self, info):
+        tab = ttk.Frame(self.nb, style="Card.TFrame")
+        title = info.get("url", "Request")
+        short = urllib.parse.urlparse(title).path or title
+        self.nb.add(tab, text=f"Request ▶ {short[-16:]}" if short else "Request")
+        self.nb.select(tab)
+
+        method_var = tk.StringVar(value=info.get("method", "GET"))
+        url_var = tk.StringVar(value=info.get("url", ""))
+        params = info.get("params")
+        headers_text = "\n".join(f"{k}: {v}" for k, v in (info.get("headers") or {}).items())
+        body_seed = info.get("body") or info.get("preview") or ""
+
+        top_row = ttk.Frame(tab, style="Card.TFrame")
+        top_row.pack(fill="x", padx=10, pady=8)
+        ttk.Label(top_row, text="Method:").pack(side="left")
+        method_box = ttk.Combobox(top_row, textvariable=method_var, values=["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"], width=10, state="readonly")
+        method_box.pack(side="left", padx=4)
+        ttk.Label(top_row, text="URL:").pack(side="left", padx=(12, 2))
+        url_entry = ttk.Entry(top_row, textvariable=url_var, width=70)
+        url_entry.pack(side="left", fill="x", expand=True)
+
+        button_row = ttk.Frame(tab, style="Card.TFrame")
+        button_row.pack(fill="x", padx=10)
+
+        headers_label = ttk.Label(button_row, text="Headers")
+        headers_label.pack(anchor="w")
+        headers_box = ScrolledText(tab, height=8, bg="#0b1120", fg="#e2e8f0", insertbackground="#22d3ee")
+        headers_box.pack(fill="x", padx=10, pady=(0, 6))
+        if headers_text:
+            headers_box.insert("1.0", headers_text)
+
+        ttk.Label(tab, text="Body").pack(anchor="w", padx=10)
+        body_box = ScrolledText(tab, height=8, bg="#0b1120", fg="#e2e8f0", insertbackground="#22d3ee")
+        body_box.pack(fill="both", expand=True, padx=10, pady=(0, 6))
+        if body_seed:
+            body_box.insert("1.0", body_seed)
+
+        response_label = ttk.Label(tab, text="Response")
+        response_label.pack(anchor="w", padx=10)
+        response_box = ScrolledText(tab, height=14, bg="#030712", fg="#38bdf8", insertbackground="#22d3ee")
+        response_box.pack(fill="both", expand=True, padx=10, pady=(0, 10))
+        response_box.configure(state="disabled")
+
+        def send_request():
+            method = method_var.get().strip().upper() or "GET"
+            target_url = url_var.get().strip()
+            if not target_url:
+                messagebox.showerror("Request", "Set a target URL first.")
+                return
+            header_data = self._parse_headers_text(headers_box.get("1.0", "end"))
+            merged_headers = self._compose_headers_from_settings()
+            merged_headers.update(header_data)
+            body = body_box.get("1.0", "end").strip()
+            use_body = body if method in {"POST", "PUT", "PATCH", "DELETE"} else None
+            query_params = dict(params or {})
+            timeout = self.settings.data.get("timeout", 5)
+            try:
+                response = requests.request(
+                    method,
+                    target_url,
+                    params=query_params if query_params else None,
+                    data=use_body,
+                    headers=merged_headers,
+                    timeout=timeout,
+                    allow_redirects=self.settings.data.get("follow_redirects", True),
+                )
+            except Exception as exc:
+                messagebox.showerror("Request", f"Request failed: {exc}")
+                return
+            display = [
+                f"Status: {response.status_code}",
+                f"URL: {response.url}",
+                "Headers:",
+            ]
+            for key, value in response.headers.items():
+                display.append(f"  {key}: {value}")
+            display.append("\nBody:\n")
+            try:
+                text = response.text
+            except Exception:
+                text = response.content.decode("utf-8", "ignore")
+            display.append(text)
+            response_box.configure(state="normal")
+            response_box.delete("1.0", "end")
+            response_box.insert("end", "\n".join(display))
+            response_box.configure(state="disabled")
+
+        ttk.Button(button_row, text="Send Request", command=send_request).pack(side="left", padx=4, pady=4)
+        ttk.Button(button_row, text="Send to Parameter Explorer", command=lambda: self._send_to_parameter_explorer({
+            "url": url_var.get(),
+            "method": method_var.get(),
+            "headers": self._parse_headers_text(headers_box.get("1.0", "end")),
+            "body": body_box.get("1.0", "end").strip(),
+        })).pack(side="left", padx=4, pady=4)
+
+    def _parse_headers_text(self, text: str) -> dict[str, str]:
+        headers = {}
+        for line in text.splitlines():
+            if not line.strip() or ":" not in line:
+                continue
+            key, value = line.split(":", 1)
+            headers[key.strip()] = value.strip()
+        return headers
+
+    def _on_parameter_double(self, _event):
+        selection = self.param_tree.selection()
+        if not selection:
+            return
+        info = self.parameter_results.get(selection[0])
+        if not info:
+            return
+        self._open_request_workbench(info)
+
+    def _start_parameter_explorer(self):
+        target = self.param_url.get().strip()
+        if not target:
+            messagebox.showerror("Parameter Explorer", "Provide a request URL to fuzz.")
+            return
+        method = self.param_method.get().strip().upper() or "GET"
+        wordlist_name = self.param_wordlist.get()
+        payloads = PARAMETER_WORDLISTS.get(wordlist_name)
+        if not payloads:
+            messagebox.showerror("Parameter Explorer", "Select a valid parameter wordlist.")
+            return
+        headers = self._compose_headers_from_settings()
+        headers.update(self._parse_headers_text(self.param_headers.get("1.0", "end")))
+        body = self.param_body.get("1.0", "end").strip()
+        for child in self.param_tree.get_children():
+            self.param_tree.delete(child)
+        self.parameter_results.clear()
+        self.param_status_var.set(f"Fuzzing {len(payloads)} parameters against {target}…")
+        thread = threading.Thread(
+            target=self._run_parameter_fuzzer,
+            args=(target, method, payloads, headers, body),
+            daemon=True,
+        )
+        thread.start()
+
+    def _run_parameter_fuzzer(self, url: str, method: str, payloads: list[str], headers: dict[str, str], body: str) -> None:
+        parsed = urllib.parse.urlsplit(url)
+        if not parsed.scheme:
+            url = f"http://{url}"
+            parsed = urllib.parse.urlsplit(url)
+        base_params = dict(urllib.parse.parse_qsl(parsed.query, keep_blank_values=True))
+        base_url = urllib.parse.urlunsplit((parsed.scheme, parsed.netloc, parsed.path, "", parsed.fragment))
+        timeout = self.settings.data.get("timeout", 5)
+        redirect_flag = self.settings.data.get("follow_redirects", True)
+        baseline_status = None
+        baseline_length = None
+        use_body = body if method in {"POST", "PUT", "PATCH", "DELETE"} and body else None
+        try:
+            baseline_resp = requests.request(
+                method,
+                base_url,
+                params=base_params if base_params else None,
+                data=use_body,
+                headers=headers,
+                timeout=timeout,
+                allow_redirects=redirect_flag,
+            )
+            baseline_status = baseline_resp.status_code
+            baseline_length = len(baseline_resp.content)
+        except Exception as exc:
+            self.after(0, lambda: self.param_status_var.set(f"Baseline request failed: {exc}"))
+
+        for name in payloads:
+            params = dict(base_params)
+            params[name] = "FUZZ"
+            try:
+                response = requests.request(
+                    method,
+                    base_url,
+                    params=params,
+                    data=use_body,
+                    headers=headers,
+                    timeout=timeout,
+                    allow_redirects=redirect_flag,
+                )
+                status = response.status_code
+                length = len(response.content)
+                delta_status = ""
+                if baseline_status is not None and status != baseline_status:
+                    delta_status = f"Status drift {baseline_status}->{status}"
+                delta_length = ""
+                if baseline_length is not None:
+                    diff = length - baseline_length
+                    if diff:
+                        delta_length = f"Length Δ{diff:+}"
+                delta = ", ".join(filter(None, [delta_status, delta_length])) or "No change"
+                length_display = f"{length} bytes"
+                info = {
+                    "url": base_url,
+                    "method": method,
+                    "status": status,
+                    "detail": delta,
+                    "label": f"?{name}=FUZZ",
+                    "headers": headers,
+                    "params": params,
+                    "body": use_body or "",
+                }
+                self.after(
+                    0,
+                    lambda data=info, length_display=length_display, delta=delta, status=status: self._add_parameter_result(
+                        data, status, delta, length_display
+                    ),
+                )
+                self.after(0, lambda param=name, code=status: self.param_status_var.set(f"{param} → {code}"))
+            except Exception as exc:
+                info = {
+                    "url": base_url,
+                    "method": method,
+                    "status": "ERR",
+                    "detail": str(exc),
+                    "label": f"?{name}=FUZZ",
+                    "headers": headers,
+                    "params": params,
+                    "body": use_body or "",
+                }
+                self.after(0, lambda data=info: self._add_parameter_result(data, "ERR", str(exc), "-"))
+                self.after(0, lambda param=name, err=exc: self.param_status_var.set(f"{param} failed: {err}"))
+
+        self.after(0, lambda: self.param_status_var.set("Parameter fuzzing complete."))
+
+    def _add_parameter_result(self, info, status, delta, length_display):
+        item = self.param_tree.insert("", "end", values=(info.get("label", ""), status, delta, length_display))
+        self.parameter_results[item] = info
+        self.param_tree.see(item)
+
+    def _send_to_parameter_explorer(self, info):
+        self.nb.select(self.parameter_frame)
+        if info.get("url"):
+            self.param_url.set(info["url"])
+        method = info.get("method")
+        if method:
+            method_upper = method.upper()
+            existing = list(self.param_method_combo["values"])
+            if method_upper not in existing:
+                existing.append(method_upper)
+                self.param_method_combo.configure(values=existing)
+            self.param_method.set(method_upper)
+        headers_text = "\n".join(f"{k}: {v}" for k, v in (info.get("headers") or {}).items())
+        self.param_headers.delete("1.0", "end")
+        if headers_text:
+            self.param_headers.insert("1.0", headers_text)
+        body = info.get("body") or info.get("preview") or ""
+        self.param_body.delete("1.0", "end")
+        if body:
+            self.param_body.insert("1.0", body)
+        self.param_status_var.set("Loaded request from recon — ready to fuzz parameters.")
 
     def _build_settings_tab(self):
         frame = ttk.Frame(self.nb, style="Card.TFrame")
@@ -923,6 +1613,7 @@ class App(tk.Tk):
             "drift_new": 0,
             "drift_changed": 0,
         }
+        self._attach_tree_context_menu(tree, lambda iid: results.get(iid))
 
         def refresh_hud():
             for key in ["total", "success", "alerts", "secrets", "slow", "drift"]:
