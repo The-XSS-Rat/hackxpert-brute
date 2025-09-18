@@ -1,77 +1,125 @@
-# FileDirBrute
+# HackXpert API Surface Explorer
 
-A Python-based tool combining recursive directory brute-forcing and content discovery with both a graphical interface (Tkinter) and a command-line mode.
+HackXpert API Surface Explorer is a hybrid GUI/CLI recon assistant purpose-built for quickly enumerating API endpoints, collecting live response context, and exporting results in formats your blueprints or reports can use. It fuses the speed of threaded brute-forcing with recursive discovery smarts inside a polished dark UI, while still offering a scriptable command line for pipelines and servers.
 
-## Features
+## Why choose HackXpert over other API discovery tools?
 
-- **Integrated GUI & CLI**  
-  - GUI with multiple scan tabs, logo, links, progress bar, and configurable settings.  
-  - CLI mode for headless scanning and output to JSON/CSV.
+* **Surface Drift Radar** – HackXpert baselines every environment locally, then live-flags brand new, status-changed, or vanished endpoints so you spot release drift before it lands in prod.
+* **High-signal previews** – Every hit in the GUI streams a syntax-aware preview, letting you triage JSON/text responses in seconds without juggling a separate HTTP client.
+* **Recursive intelligence** – Responses that look like HTML get parsed automatically so newly uncovered paths are scheduled without you lifting a finger.
+* **Rapid iteration controls** – Fine-tune threads, timeouts, recursion depth, status filters, and extension permutations, then persist the profile for your next engagement.
+* **Command center workflow** – Run multiple scans at once, rename tabs, monitor the neon recon HUD, colour-code statuses at a glance, export to CSV/JSON, or copy hits directly for follow-up testing.
+* **Headless ready** – The CLI mirrors the GUI logic so you can bake recon sweeps into CI, cron jobs, or containerised playbooks with identical output.
+* **OffSec preflight** – The engine auto-hunts `robots.txt`, `.well-known/security.txt`, Swagger/OpenAPI docs, and GraphQL introspection targets before the main brute-force wave so you never miss low-hanging intel.
 
-- **Recursive Discovery**  
-  - Brute-force directories using customizable wordlists.  
-  - Automatically parse `text/html` responses to enqueue discovered links.
+## Ten power features ethical hackers asked for
 
-- **Configurable Settings**  
-  - Threads, timeout, recursion depth, status code filters, file extensions, and redirect handling.  
-  - Persisted across runs via `~/.dir_bruteforce_config.json`.
+1. **Multi-method blasting** – Supply `GET,HEAD,POST` (or any combo) and the explorer will cycle through each verb per path so you can spot sneaky behaviour differences or method-specific exposures.
+2. **Header loadouts** – Drop custom headers (auth tokens, API keys, experimental Origins) into the Settings tab once and every request—GUI, CLI, and preflight—will reuse them.
+3. **Recon jitter control** – Add a random delay between requests to mimic human traffic and side-step fragile rate-limiters while still leveraging concurrency.
+4. **CORS misconfiguration radar** – Optional probing highlights endpoints that reflect hostile Origins or serve wildcard CORS policies, surfacing juicy pivot points immediately.
+5. **Intel path extraction** – JSON and text previews are parsed for `/api/...` style paths, which are automatically queued for follow-up enumeration inside scope and depth limits.
+6. **Latency radar** – Each response is timed, highlighted, and graphed in the HUD so lethargic endpoints (≥1.2s) stand out for DoS and performance investigations.
+7. **Header intel analyzer** – Server, X-Powered-By, authentication, and proxy headers are called out automatically to accelerate tech fingerprinting and perimeter mapping.
+8. **Secret sniffer** – The preview pane flags JWTs, AWS keys, API tokens, and other credential patterns as soon as they appear so you can escalate quickly.
+9. **Directory exposure watch** – Classic “Index of /” listings and other directory disclosures are labelled the moment they appear.
+10. **Rate-limit and auth mapping** – 401/403/429/500 responses receive contextual notes so you can chart the access boundaries while the scan runs.
 
-- **Results Management**  
-  - Multiple result tabs with renamable labels.  
-  - Export results per tab to CSV or JSON.  
-  - CLI output supports both JSON and CSV formats.
+## Requirements
 
-- **Convenience Links & Branding**  
-  - Top-right clickable links to Hackxpert Labs, X, and course page.  
-  - Proportional `logo.png` display in header.
+* Python 3.9+
+* `requests`
+* `pillow`
 
-## Installation
+Install dependencies:
 
-1. **Clone or download** this repository.
-2. **Install dependencies**:
+```bash
+pip install -r requirements.txt  # or pip install requests pillow
+```
+
+> ℹ️ The UI optionally loads `logo.png` from the repository root to brand the header. If you drop in your own image, it will be scaled automatically.
+
+## Quickstart (GUI)
+
+1. **Launch the explorer**
    ```bash
-   pip install requests pillow
+   python main.py
    ```
-3. **Ensure** `logo.png` is placed alongside the script if you want the branded header.
+2. **Briefing tab** – Read the high-level workflow primer and tips.
+3. **Settings tab** – Adjust threads, timeout, recursion depth, status-code filter, extension permutations, HTTP methods, jitter, custom headers, and CORS/preflight toggles. Click **Save** to persist to `~/.dir_bruteforce_config.json`.
+4. **Recon Lab tab**
+   * Enter the target base URL (protocol optional; `https://` is auto-assumed when supplied).
+   * Select a wordlist (any newline-delimited list of directories/files).
+   * Hit **Launch Scan** to start a new tabbed session.
+5. **During the scan**
+   * Watch coloured status rows (plus highlights for CORS, intel hits, secrets, slow endpoints, and drift states) stream in with their HTTP method and latency.
+   * Track the neon recon HUD for totals, 2xx wins, intel count, secret hits, slow endpoints, and live surface drift counts.
+   * Select any row to see the response preview rendered beneath the table, including intel notes, latency, and pre-parsed follow-up paths.
+   * Track progress with the global header bar and mission status badge.
+6. **After discovery**
+   * Export hits (URL, method, status, drift delta, previous status, latency, length, notes, intel signals) from the active scan tab via **Export CSV** or **Export JSON**.
+   * Use **Copy URL** to grab a single endpoint for manual testing.
+   * Double-click a tab title to rename it (e.g., to the environment or scope being tested).
 
-## Usage
+## Quickstart (CLI)
 
-### GUI Mode
+Run in headless mode with the same engine used by the GUI:
+
 ```bash
-python recursive_dir_bruteforce_gui.py
+python main.py --cli --url https://target.tld/api --wordlist wordlist.txt \
+  --output findings.json --format json \
+  --threads 20 --timeout 8 --depth 3 --codes "<400" --exts "json,php"
 ```
-- Interact with tabs:
-  - **Instructions**: Overview and comparison to wfuzz/ZAP Spider/pure brute-forcing.
-  - **Scan**: Start new scans.
-  - **Settings**: Adjust and persist scan parameters.
-  - **Results**: View and rename results, export data.
 
-### CLI Mode
-```bash
-python recursive_dir_bruteforce_gui.py --cli --url <URL> --wordlist <WORDLIST> --output <FILE> [--format csv|json]
-```
-- **Options**:
-  - `--threads`: Number of parallel workers.
-  - `--timeout`: HTTP request timeout in seconds.
-  - `--depth`: Recursion depth limit.
-  - `--codes`: Status code filter (e.g. `<400`, `200,301`).
-  - `--exts`: Comma-separated file extensions to include.
-  - `--no-redirect`: Disable following HTTP redirects.
-  - `--output`: Path to write results.
-  - `--format`: `json` (default) or `csv`.
+* `--threads` – Worker count (default 10).
+* `--timeout` – Per-request timeout in seconds (default 5).
+* `--depth` – Maximum recursion depth from the base URL (default 5).
+* `--codes` – Status filter (`<400`, `200,302`, etc.).
+* `--exts` – Comma-separated list of extensions to append to each wordlist entry.
+* `--methods` – Comma-separated HTTP verbs to attempt per path (default `GET`).
+* `--header` – Repeatable flag for custom headers (`--header "Authorization: Bearer …"`).
+* `--intel-paths` – Custom list of passive intel endpoints (comma/newline separated).
+* `--jitter` – Maximum random delay (seconds) inserted after each request.
+* `--no-redirect` – Disable following HTTP redirects.
+* `--no-preflight` – Skip the passive intel sweep (default enabled).
+* `--no-cors-probe` – Disable CORS origin testing.
+* `--format` – Output file format (`json` default, or `csv`).
 
-## Configuration
+CLI exports now include latency, intel signals, and baseline drift deltas so dashboards can visualise hotspots instantly. The tool prints a summary line once the scan finishes showing new/changed/retired endpoints and writes the structured results to the chosen file, ready for dashboards, diffing, or replay scripts.
 
-Settings are saved in:
-```
+## Field guide: maximising signal
+
+1. **Curate your wordlists** – Blend general discovery lists (e.g. SecLists API directories) with project-specific artefacts such as OpenAPI specs or repo paths.
+2. **Layer extension combos** – Populate the **Extensions** setting with `json,xml,bak` to automatically test API variants and backup files in one pass.
+3. **Start broad, then tighten filters** – Begin with a permissive status filter like `<500` to observe the surface, then switch to `200,204,301,302` when reporting only meaningful assets.
+4. **Use response previews as triage** – The preview pane clips responses to fit, ideal for spotting credentials, error traces, or feature flags without issuing new requests.
+5. **Arm headers once** – Set bearer tokens, custom Origins, or testing headers in the Settings tab so every method and preflight request carries them.
+6. **Parallelise environments** – Run multiple scans (dev/staging/prod) simultaneously in separate tabs, rename them, and export each dataset for comparison.
+7. **Export early** – CSV exports feed spreadsheets or BI tools; JSON exports drop straight into Postman collections or follow-on scripts.
+8. **Tread lightly** – When probing sensitive targets, add a small jitter (e.g. `0.4`) to keep concurrency but soften traffic bursts.
+
+## Configuration storage
+
+Settings persist between sessions inside:
+
+```text
 ~/.dir_bruteforce_config.json
 ```
-You can edit this file manually or via the **Settings** tab in the GUI.
 
-## License
+You can edit this file directly or rely on the Settings tab controls. Deleting it resets the explorer to the built-in defaults.
 
-[MIT License](LICENSE)
+The Surface Drift Radar feature stores per-base-URL baselines here:
 
----
+```text
+~/.hackxpert_surface_baselines.json
+```
 
-© 2025 The XSS Rat
+Remove the file if you want to reset the drift history for all targets.
+
+## Troubleshooting
+
+* **GUI won’t start?** Ensure you have a display environment (X11/Wayland) or use the CLI mode when operating on servers.
+* **SSL errors?** Supply the full `https://` URL and consider exporting `REQUESTS_CA_BUNDLE` if a custom CA is required.
+* **Slow scans?** Reduce recursion depth, adjust thread count based on target stability, or trim wordlists for higher-value paths.
+
+Happy hunting! 🎯

@@ -1,19 +1,25 @@
-import requests
-import threading
-import queue
-import os
-import json
 import argparse
+import json
+import os
+import queue
+import random
+import re
+import threading
+import time
 import urllib.parse
+import webbrowser
+from pathlib import Path
+
+import requests
 import tkinter as tk
 from tkinter import filedialog, messagebox, simpledialog
 from tkinter import ttk
 from tkinter.scrolledtext import ScrolledText
-from pathlib import Path
-import webbrowser
 from PIL import Image, ImageTk
 
 CONFIG_PATH = Path.home() / ".dir_bruteforce_config.json"
+BASELINE_PATH = Path.home() / ".hackxpert_surface_baselines.json"
+
 
 class Settings:
     DEFAULTS = {
@@ -23,291 +29,1240 @@ class Settings:
         "recursion_depth": 5,
         "include_status_codes": "<400",
         "file_extensions": "",
-        "follow_redirects": True
+        "follow_redirects": True,
+        "http_methods": "GET",
+        "extra_headers": "",
+        "delay_jitter": 0.0,
+        "intel_paths": "/robots.txt,/.well-known/security.txt,/openapi.json,/swagger.json,/graphql",
+        "enable_preflight": True,
+        "probe_cors": True,
     }
 
-    def __init__(self, path=CONFIG_PATH):
+    def __init__(self, path: Path = CONFIG_PATH):
         self.path = path
+        self.data: dict = {}
         self.load()
 
-    def load(self):
+    def load(self) -> None:
         if self.path.exists():
             try:
-                with open(self.path, 'r') as f:
-                    data = json.load(f)
+                with open(self.path, "r", encoding="utf-8") as fh:
+                    stored = json.load(fh)
             except Exception:
-                data = {}
+                stored = {}
         else:
-            data = {}
-        self.data = {**Settings.DEFAULTS, **data}
+            stored = {}
+        self.data = {**Settings.DEFAULTS, **stored}
 
-    def save(self):
+    def save(self) -> None:
         try:
-            with open(self.path, 'w') as f:
-                json.dump(self.data, f, indent=2)
-        except Exception as e:
-            messagebox.showerror("Save Error", f"Failed to save settings: {e}")
+            with open(self.path, "w", encoding="utf-8") as fh:
+                json.dump(self.data, fh, indent=2)
+        except Exception as exc:
+            messagebox.showerror("Save Error", f"Failed to save settings: {exc}")
+
 
 class DirBruteForcer:
     def __init__(self, base_url, wordlist_file, settings, on_found, on_finish, on_progress=None):
-        self.base_url = base_url.rstrip('/')
+        self.base_url = base_url.rstrip("/")
         self.wordlist_file = wordlist_file
         self.settings = settings
         self.on_found = on_found
         self.on_finish = on_finish
         self.on_progress = on_progress or (lambda p: None)
-        self.to_scan = queue.Queue()
+        self.to_scan: queue.Queue = queue.Queue()
         self.seen = set()
+        self.path_seen = set()
         self.running = False
         self.total = 0
         self.processed = 0
         self.threads = []
+        self.word_variants = []
+        self.lock = threading.Lock()
+        self.method_list = ["GET"]
+        self.method_count = 1
+        self.delay_jitter = 0.0
+        self.base_headers: dict[str, str] = {}
+        self.enable_preflight = True
+        self.preflight_thread = None
+        self.cors_origin = "https://offsec.hackxpert"
+        self.preflight_targets = []
+        self.intel_paths = []
+        self.secret_patterns = [
+            ("AWS Access Key", re.compile(r"AKIA[0-9A-Z]{16}")),
+            ("Google API Key", re.compile(r"AIza[0-9A-Za-z\-_]{35}")),
+            ("Slack Token", re.compile(r"xox[baprs]-[0-9A-Za-z\-]{10,48}")),
+            (
+                "JWT",
+                re.compile(r"eyJ[a-zA-Z0-9_\-]{10,}\.[a-zA-Z0-9_\-]{10,}\.[a-zA-Z0-9_\-]{10,}"),
+            ),
+        ]
+        self.base_key = self._normalize(self.base_url)
+        self.baseline_snapshot: dict[str, int] = {}
+        self.current_snapshot: dict[str, int] = {}
+        self.baseline_highlights = {"new": 0, "changed": 0, "retired": 0, "retired_items": []}
 
     def load_wordlist(self):
-        with open(self.wordlist_file, 'r', encoding='utf-8', errors='ignore') as f:
-            return [w.strip() for w in f if w.strip()]
+        with open(self.wordlist_file, "r", encoding="utf-8", errors="ignore") as fh:
+            return [line.strip() for line in fh if line.strip()]
+
+    def _expand_words(self, words):
+        exts = [ext.strip().lstrip(".") for ext in str(self.settings.data.get("file_extensions", "")).split(",") if ext.strip()]
+        if not exts:
+            return words
+        expanded = []
+        for word in words:
+            expanded.append(word)
+            expanded.extend(f"{word}.{ext}" for ext in exts)
+        return expanded
+
+    def _parse_methods(self):
+        raw = str(self.settings.data.get("http_methods", "GET"))
+        methods = [part.strip().upper() for part in raw.split(",") if part.strip()]
+        return methods or ["GET"]
+
+    def _normalize(self, url):
+        stripped = url.rstrip("/")
+        return stripped or url
+
+    def _build_headers(self, user_agent):
+        headers = {}
+        extra = str(self.settings.data.get("extra_headers", ""))
+        for line in extra.splitlines():
+            if not line.strip() or ":" not in line:
+                continue
+            key, value = line.split(":", 1)
+            headers[key.strip()] = value.strip()
+        headers.setdefault("User-Agent", user_agent)
+        if self.settings.data.get("probe_cors", True):
+            headers.setdefault("Origin", self.cors_origin)
+        return headers
+
+    def _get_delay_jitter(self):
+        try:
+            return max(0.0, float(self.settings.data.get("delay_jitter", 0.0)))
+        except (TypeError, ValueError):
+            return 0.0
+
+    def _parse_intel_paths(self):
+        raw = str(self.settings.data.get("intel_paths", ""))
+        paths = []
+        for part in re.split(r"[\n,]", raw):
+            cleaned = part.strip()
+            if not cleaned:
+                continue
+            if not cleaned.startswith("/"):
+                cleaned = f"/{cleaned}"
+            paths.append(cleaned)
+        return paths
+
+    def _maybe_delay(self):
+        if self.delay_jitter > 0:
+            time.sleep(random.uniform(0, self.delay_jitter))
+
+    def _get_timeout(self):
+        try:
+            return max(0.1, float(self.settings.data.get("timeout", 5)))
+        except (TypeError, ValueError):
+            return 5.0
+
+    def _get_thread_count(self):
+        try:
+            return max(1, int(self.settings.data.get("threads", 1)))
+        except (TypeError, ValueError):
+            return 1
+
+    def _get_recursion_depth(self):
+        try:
+            return max(0, int(self.settings.data.get("recursion_depth", 0)))
+        except (TypeError, ValueError):
+            return 0
+
+    def _should_follow_redirects(self):
+        value = self.settings.data.get("follow_redirects", True)
+        if isinstance(value, str):
+            return value.lower() in {"1", "true", "yes", "on"}
+        return bool(value)
+
+    def _status_allowed(self, code):
+        cond = str(self.settings.data.get("include_status_codes", "")).strip()
+        if not cond:
+            return True
+        try:
+            if cond.startswith("<="):
+                return code <= int(cond[2:])
+            if cond.startswith("<"):
+                return code < int(cond[1:])
+            if cond.startswith(">="):
+                return code >= int(cond[2:])
+            if cond.startswith(">"):
+                return code > int(cond[1:])
+            if "," in cond:
+                allowed = [int(part.strip()) for part in cond.split(",") if part.strip()]
+                return code in allowed
+            return code == int(cond)
+        except (TypeError, ValueError):
+            return False
 
     def start(self):
         if self.running:
             return
+        try:
+            words = self.load_wordlist()
+        except FileNotFoundError:
+            self.on_finish()
+            return
+        if not words:
+            self.on_finish()
+            return
+
         self.running = True
-        # clear queue
-        while not self.to_scan.empty():
-            self.to_scan.get_nowait()
-            self.to_scan.task_done()
-        # seed
-        self.to_scan.put((self.base_url, 0))
-        words = self.load_wordlist()
-        self.total = len(words)
+        self.to_scan = queue.Queue()
+        self.seen = set()
+        normalized_base = self._normalize(self.base_url)
+        self.base_key = normalized_base
+        self.path_seen = {normalized_base}
+        self.threads = []
+        self.word_variants = self._expand_words(words) or words
         self.processed = 0
-        # launch worker threads
-        for _ in range(int(self.settings.data['threads'])):
-            t = threading.Thread(target=self.worker, daemon=True)
-            t.start()
-            self.threads.append(t)
-        # monitor thread
+        self.method_list = self._parse_methods()
+        self.method_count = max(1, len(self.method_list))
+        self.delay_jitter = self._get_delay_jitter()
+        self.enable_preflight = bool(self.settings.data.get("enable_preflight", True))
+        self.user_agent = self.settings.data.get("user_agent", Settings.DEFAULTS["user_agent"])
+        self.base_headers = self._build_headers(self.user_agent)
+        self.total = len(self.word_variants) * self.method_count
+        self.intel_paths = self._parse_intel_paths()
+        store = self._read_baseline_store()
+        snapshot = store.get(self.base_key, {}) if isinstance(store, dict) else {}
+        if not isinstance(snapshot, dict):
+            snapshot = {}
+        self.baseline_snapshot = snapshot
+        self.current_snapshot = {}
+        self.baseline_highlights = {"new": 0, "changed": 0, "retired": 0, "retired_items": []}
+        self.preflight_targets = [
+            urllib.parse.urljoin(f"{self.base_url}/", path.lstrip("/"))
+            for path in self.intel_paths
+        ]
+        if self.enable_preflight:
+            self.total += len(self.preflight_targets) * self.method_count
+        self.to_scan.put((normalized_base, 0))
+
+        if self.enable_preflight and self.preflight_targets:
+            self.preflight_thread = threading.Thread(target=self._run_preflight, daemon=True)
+            self.preflight_thread.start()
+        else:
+            self.preflight_thread = None
+
+        for _ in range(self._get_thread_count()):
+            thread = threading.Thread(target=self.worker, daemon=True)
+            thread.start()
+            self.threads.append(thread)
+
         monitor = threading.Thread(target=self._monitor, daemon=True)
         monitor.start()
 
     def stop(self):
         self.running = False
-
-    def worker(self):
-        words = self.load_wordlist()
-        while self.running:
+        while not self.to_scan.empty():
             try:
-                url, depth = self.to_scan.get(timeout=1)
+                self.to_scan.get_nowait()
+                self.to_scan.task_done()
             except queue.Empty:
                 break
-            if depth > int(self.settings.data['recursion_depth']):
-                self.to_scan.task_done()
+
+    def worker(self):
+        timeout = self._get_timeout()
+        recursion_depth = self._get_recursion_depth()
+        follow_redirects = self._should_follow_redirects()
+
+        while self.running:
+            try:
+                url, depth = self.to_scan.get(timeout=0.5)
+            except queue.Empty:
                 continue
-            for word in words:
+
+            try:
+                if depth > recursion_depth:
+                    self._advance_batch(len(self.word_variants) * self.method_count)
+                    continue
+
+                for word in self.word_variants:
+                    if not self.running:
+                        break
+
+                    target = f"{url}/{word}" if not url.endswith('/') else f"{url}{word}"
+                    for method in self.method_list:
+                        if not self.running:
+                            break
+
+                        normalized_target = self._normalize(target)
+                        key = (method, normalized_target)
+                        with self.lock:
+                            if key in self.seen:
+                                already_seen = True
+                            else:
+                                self.seen.add(key)
+                                already_seen = False
+
+                        if already_seen:
+                            self._update_progress()
+                            continue
+
+                        headers = dict(self.base_headers)
+                        try:
+                            response = requests.request(
+                                method,
+                                target,
+                                timeout=timeout,
+                                allow_redirects=follow_redirects,
+                                headers=headers,
+                            )
+                        except requests.RequestException:
+                            self._update_progress()
+                            self._maybe_delay()
+                            continue
+
+                        self._handle_response(target, method, response, depth)
+                        self._update_progress()
+                        self._maybe_delay()
+            finally:
+                self.to_scan.task_done()
+
+    def _run_preflight(self):
+        timeout = self._get_timeout()
+        follow_redirects = self._should_follow_redirects()
+        for target in self.preflight_targets:
+            if not self.running:
+                break
+            for method in self.method_list:
                 if not self.running:
                     break
-                target = f"{url}/{word}" if not url.endswith('/') else f"{url}{word}"
-                try:
-                    resp = requests.get(target,
-                                         timeout=float(self.settings.data['timeout']),
-                                         allow_redirects=bool(self.settings.data['follow_redirects']),
-                                         headers={'User-Agent': self.settings.data['user_agent']})
-                except requests.RequestException:
+                normalized_target = self._normalize(target)
+                key = (method, normalized_target)
+                with self.lock:
+                    if key in self.seen:
+                        already_seen = True
+                    else:
+                        self.seen.add(key)
+                        already_seen = False
+                if already_seen:
                     self._update_progress()
                     continue
-                code = resp.status_code
-                cond = self.settings.data['include_status_codes']
-                ok = False
-                if cond.startswith('<') and code < int(cond[1:]): ok = True
-                elif cond.startswith('<=') and code <= int(cond[2:]): ok = True
-                elif cond.startswith('>') and code > int(cond[1:]): ok = True
-                elif cond.startswith('>=') and code >= int(cond[2:]): ok = True
-                elif ',' in cond:
-                    if code in [int(x) for x in cond.split(',')]: ok = True
-                if ok and target not in self.seen:
-                    self.seen.add(target)
-                    info = {'url': target, 'status': code, 'type': resp.headers.get('Content-Type','')}
-                    self.on_found(info)
-                    if 'text/html' in resp.headers.get('Content-Type',''):
-                        self.to_scan.put((target, depth+1))
+                headers = dict(self.base_headers)
+                try:
+                    response = requests.request(
+                        method,
+                        target,
+                        timeout=timeout,
+                        allow_redirects=follow_redirects,
+                        headers=headers,
+                    )
+                except requests.RequestException:
+                    self._update_progress()
+                    self._maybe_delay()
+                    continue
+
+                self._handle_response(target, method, response, 0)
                 self._update_progress()
-            self.to_scan.task_done()
+                self._maybe_delay()
+
+    def _build_preview(self, response, content_type):
+        try:
+            if "application/json" in content_type:
+                data = response.json()
+                return json.dumps(data, indent=2)[:800]
+            if "text" in content_type:
+                text = response.text
+                return text[:800] if text else "<empty response>"
+            return f"<{len(response.content)} bytes>"
+        except Exception:
+            try:
+                text = response.text
+                return text[:400] if text else "<unable to decode>"
+            except Exception:
+                return "<unable to decode>"
+
+    def _assess_cors(self, response):
+        if not self.settings.data.get("probe_cors", True):
+            return None
+        allow_origin = response.headers.get("Access-Control-Allow-Origin")
+        if not allow_origin:
+            return None
+        origin = self.cors_origin
+        if allow_origin == "*":
+            allow_creds = response.headers.get("Access-Control-Allow-Credentials", "").lower() == "true"
+            if allow_creds:
+                return "CORS: wildcard origin with credentials"
+            return "CORS: wildcard origin"
+        if allow_origin == origin:
+            return f"CORS: reflects Origin {origin}"
+        return None
+
+    def _discover_paths(self, response):
+        try:
+            text = response.text
+        except Exception:
+            return set()
+        candidates = set()
+        for match in re.findall(r'"(/[A-Za-z0-9_\-\./]{3,})"', text):
+            if match.startswith("//"):
+                continue
+            candidates.add(match.split("?")[0])
+        return candidates
+
+    def _highlight_latency(self, response):
+        latency = getattr(response, "elapsed", None)
+        if not latency:
+            return None, False
+        try:
+            latency_ms = max(0.0, latency.total_seconds() * 1000.0)
+        except Exception:
+            return None, False
+        return latency_ms, latency_ms >= 1200
+
+    def _header_intel(self, response):
+        notes = []
+        headers = response.headers
+        server = headers.get("Server")
+        powered = headers.get("X-Powered-By")
+        if server:
+            notes.append(f"Tech fingerprint: Server={server}")
+        if powered:
+            notes.append(f"Powered by {powered}")
+        if headers.get("X-AspNet-Version"):
+            notes.append("ASP.NET version leaked")
+        if headers.get("X-Amzn-RequestId") and "AWS" not in "".join(notes):
+            notes.append("AWS stack identifier exposed")
+        if headers.get("X-Forwarded-For"):
+            notes.append("Reverse proxy reveals origin hint")
+        if headers.get("WWW-Authenticate"):
+            notes.append("Authentication realm advertised")
+        if (
+            headers.get("Access-Control-Allow-Origin") == "*"
+            and headers.get("Access-Control-Allow-Credentials", "").lower() == "true"
+        ):
+            notes.append("CORS allows credentials for wildcard origin")
+        if headers.get("Retry-After"):
+            notes.append("Rate limiting hinted via Retry-After")
+        if not headers.get("X-Frame-Options"):
+            notes.append("Missing clickjacking protection header")
+        return notes
+
+    def _detect_directory_listing(self, response, body_text):
+        if not body_text:
+            return False
+        lowered = body_text.lower()
+        return "index of /" in lowered or "directory listing" in lowered
+
+    def _body_secrets(self, body_text):
+        hits = []
+        if not body_text:
+            return hits
+        sample = body_text[:5000]
+        for label, pattern in self.secret_patterns:
+            if pattern.search(sample):
+                hits.append(f"{label} detected")
+        if re.search(r"(?i)(api[_-]?key|auth[_-]?token)\s*[:=]\s*[\'\"]?[A-Za-z0-9\-_]{16,}", sample):
+            hits.append("Generic API token keyword + value")
+        return hits
+
+    def _read_baseline_store(self):
+        if not BASELINE_PATH.exists():
+            return {}
+        try:
+            with open(BASELINE_PATH, "r", encoding="utf-8") as fh:
+                data = json.load(fh)
+            if isinstance(data, dict):
+                return data
+        except Exception:
+            pass
+        return {}
+
+    def _write_baseline_store(self, store):
+        try:
+            with open(BASELINE_PATH, "w", encoding="utf-8") as fh:
+                json.dump(store, fh, indent=2, sort_keys=True)
+        except Exception:
+            pass
+
+    def _signature(self, method, url):
+        return f"{method} {url}"
+
+    def _status_intel(self, status):
+        if status in {401, 403}:
+            return "Restricted resource discovered"
+        if status == 429:
+            return "Rate limiting endpoint"
+        if status == 500:
+            return "Server error surface"
+        if status == 302:
+            return "Redirect trap"  # highlight potential auth bounce
+        return None
+
+    def _handle_response(self, target, method, response, depth):
+        code = response.status_code
+        if not self._status_allowed(code):
+            return
+        content_type = response.headers.get("Content-Type", "")
+        preview = self._build_preview(response, content_type)
+        cors_note = self._assess_cors(response)
+        latency_ms, slow_hit = self._highlight_latency(response)
+        try:
+            body_text = response.text
+        except Exception:
+            body_text = ""
+
+        intel_notes = []
+        if cors_note:
+            intel_notes.append(cors_note)
+        intel_notes.extend(self._header_intel(response))
+        status_insight = self._status_intel(code)
+        if status_insight:
+            intel_notes.append(status_insight)
+        if slow_hit:
+            intel_notes.append("Slow response (≥1.2s)")
+        if self._detect_directory_listing(response, body_text):
+            intel_notes.append("Directory listing exposure")
+        secret_hits = self._body_secrets(body_text)
+        intel_notes.extend(secret_hits)
+        normalized_target = self._normalize(target)
+        signature = self._signature(method, normalized_target)
+        previous_status = self.baseline_snapshot.get(signature)
+        if previous_status is None:
+            delta = "NEW"
+            intel_notes.append("Surface drift: brand new endpoint")
+            self.baseline_highlights["new"] = self.baseline_highlights.get("new", 0) + 1
+        elif previous_status != code:
+            delta = f"CHANGED ({previous_status}->{code})"
+            intel_notes.append("Surface drift: status changed since last run")
+            self.baseline_highlights["changed"] = self.baseline_highlights.get("changed", 0) + 1
+        else:
+            delta = "BASELINE"
+        intel_notes = [note for note in intel_notes if note]
+        info = {
+            "url": target,
+            "method": method,
+            "status": code,
+            "type": content_type,
+            "length": len(response.content),
+            "preview": preview,
+            "cors": cors_note,
+            "notes": " | ".join(intel_notes),
+            "signals": intel_notes,
+            "latency": latency_ms,
+            "slow": slow_hit,
+            "secrets": len(secret_hits),
+            "delta": delta,
+            "previous_status": previous_status,
+        }
+        self.on_found(info)
+
+        self.current_snapshot[signature] = code
+        if "text/html" in content_type:
+            with self.lock:
+                if normalized_target not in self.path_seen:
+                    self.path_seen.add(normalized_target)
+                    self.total += len(self.word_variants) * self.method_count
+                    self.to_scan.put((normalized_target, depth + 1))
+
+        if "application/json" in content_type or "text" in content_type:
+            for path in self._discover_paths(response):
+                absolute = urllib.parse.urljoin(f"{self.base_url}/", path.lstrip("/"))
+                normalized = self._normalize(absolute)
+                with self.lock:
+                    if normalized not in self.path_seen:
+                        self.path_seen.add(normalized)
+                        self.total += len(self.word_variants) * self.method_count
+                        self.to_scan.put((normalized, depth + 1))
 
     def _update_progress(self):
-        self.processed += 1
-        self.on_progress((self.processed / max(self.total,1)) * 100)
+        with self.lock:
+            self.processed += 1
+            total = max(self.total, 1)
+            progress = min(100.0, (self.processed / total) * 100)
+        self.on_progress(progress)
+
+    def _advance_batch(self, count):
+        with self.lock:
+            self.processed += count
+            total = max(self.total, 1)
+            progress = min(100.0, (self.processed / total) * 100)
+        self.on_progress(progress)
+
+    def _finalize_baseline(self):
+        store = self._read_baseline_store()
+        retired = [
+            signature
+            for signature in self.baseline_snapshot
+            if signature not in self.current_snapshot
+        ]
+        self.baseline_highlights["retired"] = len(retired)
+        self.baseline_highlights["retired_items"] = retired
+        store[self.base_key] = self.current_snapshot
+        self._write_baseline_store(store)
 
     def _monitor(self):
         self.to_scan.join()
-        for t in self.threads:
-            t.join(timeout=0)
+        if self.preflight_thread:
+            self.preflight_thread.join()
         self.running = False
+        for thread in self.threads:
+            thread.join()
+        self._finalize_baseline()
         self.on_finish()
+
 
 class App(tk.Tk):
     def __init__(self):
         super().__init__()
-        self.title("Recursive Dir Brute Forcer")
-        self.geometry("900x650")
+        self.title("HackXpert API Surface Explorer")
+        self.geometry("960x720")
+        self.configure(bg="#0f172a")
         self.settings = Settings()
         self.forcers = {}
         self.scan_count = 0
+
+        self._init_style()
         self._build_header()
         self._build_notebook()
 
-    def _build_header(self):
-        header = ttk.Frame(self)
-        header.pack(fill='x', pady=5)
-        # logo
+    def _init_style(self):
+        style = ttk.Style(self)
         try:
-            img = Image.open('logo.png')
-            self.update_idletasks()
-            max_w = int(self.winfo_width()*0.1)
-            ratio = max_w/img.width
-            img = img.resize((max_w,int(img.height*ratio)),Image.ANTIALIAS)
-            logo_img = ImageTk.PhotoImage(img)
-            lbl = ttk.Label(header,image=logo_img)
-            lbl.image=logo_img
-            lbl.pack(side='left',padx=10)
-        except:
+            style.theme_use("clam")
+        except tk.TclError:
             pass
-        # links
-        for text,url in [("Hackxpert Labs","https://labs.hackxpert.com/"),
-                         ("X", "https://x.com/theXSSrat"),
-                         ("Courses","https://thexssrat.com/")]:
-            l = ttk.Label(header,text=text,foreground='blue',cursor='hand2')
-            l.pack(side='right',padx=5)
-            l.bind('<Button-1>',lambda e,u=url:webbrowser.open(u))
-        self.progress=ttk.Progressbar(header,mode='determinate',length=200)
-        self.progress.pack(side='right',padx=10)
+        primary = "#0f172a"
+        accent = "#22d3ee"
+        style.configure("TFrame", background=primary)
+        style.configure("Header.TFrame", background=primary)
+        style.configure("Card.TFrame", background="#111827", relief="ridge", borderwidth=1)
+        style.configure("TNotebook", background=primary, borderwidth=0)
+        style.configure("TNotebook.Tab", padding=(12, 6), background="#1f2937", foreground="#e2e8f0")
+        style.map("TNotebook.Tab", background=[("selected", "#22d3ee")], foreground=[("selected", "#0f172a")])
+        style.configure("TLabel", background=primary, foreground="#e2e8f0")
+        style.configure("Accent.TLabel", background=primary, foreground=accent, font=("Helvetica", 16, "bold"))
+        style.configure("TButton", background="#1f2937", foreground="#e2e8f0", padding=(10, 5))
+        style.map("TButton", background=[("active", accent)], foreground=[("active", "#0f172a")])
+        style.configure("Treeview", background="#0f172a", fieldbackground="#0f172a", foreground="#e2e8f0", bordercolor="#22d3ee", rowheight=26)
+        style.configure("Treeview.Heading", background="#1e293b", foreground="#38bdf8", font=("Helvetica", 11, "bold"))
+        style.configure("HUDCard.TFrame", background="#1e293b", relief="ridge", borderwidth=1)
+        style.configure("StatLabel.TLabel", background="#1e293b", foreground="#38bdf8", font=("Helvetica", 10, "bold"))
+        style.configure("StatValuePrimary.TLabel", background="#1e293b", foreground="#22d3ee", font=("Helvetica", 20, "bold"))
+        style.configure("StatValueAlert.TLabel", background="#1e293b", foreground="#f87171", font=("Helvetica", 20, "bold"))
+        style.configure("StatValueSuccess.TLabel", background="#1e293b", foreground="#4ade80", font=("Helvetica", 20, "bold"))
+        style.configure("StatValueFocus.TLabel", background="#1e293b", foreground="#f472b6", font=("Helvetica", 20, "bold"))
+        style.configure("StatusBadge.TLabel", background="#111827", foreground="#fbbf24", font=("Helvetica", 12, "bold"))
+
+    def _build_header(self):
+        header = ttk.Frame(self, style="Header.TFrame")
+        header.pack(fill="x", pady=5)
+
+        try:
+            image = Image.open("logo.png")
+            self.update_idletasks()
+            max_width = max(80, int(self.winfo_width() * 0.1))
+            ratio = max_width / image.width
+            resample = getattr(getattr(Image, "Resampling", Image), "LANCZOS", Image.BILINEAR)
+            resized = image.resize((max_width, int(image.height * ratio)), resample)
+            logo_image = ImageTk.PhotoImage(resized)
+            logo_label = ttk.Label(header, image=logo_image, style="Header.TFrame")
+            logo_label.image = logo_image
+            logo_label.pack(side="left", padx=10)
+        except Exception:
+            pass
+
+        tagline = ttk.Label(header, text="Discover hidden API endpoints with style ✨", style="Accent.TLabel")
+        tagline.pack(side="left", padx=10)
+
+        self.progress = ttk.Progressbar(header, mode="determinate", length=240)
+        self.progress.pack(side="right", padx=10)
+
+        for text, url in [
+            ("Hackxpert Labs", "https://labs.hackxpert.com/"),
+            ("X", "https://x.com/theXSSrat"),
+            ("Courses", "https://thexssrat.com/"),
+        ]:
+            link = ttk.Label(header, text=text, foreground="#38bdf8", cursor="hand2")
+            link.pack(side="right", padx=5)
+            link.bind("<Button-1>", lambda _e, target=url: webbrowser.open(target))
 
     def _build_notebook(self):
-        self.nb=ttk.Notebook(self)
-        self.nb.pack(fill='both',expand=True)
-        self.nb.bind('<Double-1>',self._rename_tab)
-        self._build_instruct_tab()
+        self.nb = ttk.Notebook(self)
+        self.nb.pack(fill="both", expand=True, padx=10, pady=10)
+        self.nb.bind("<Double-1>", self._rename_tab)
+        self._build_instructions_tab()
         self._build_scan_tab()
         self._build_settings_tab()
 
-    def _build_instruct_tab(self):
-        f=ttk.Frame(self.nb);self.nb.add(f,text='Instructions')
-        t=ScrolledText(f,wrap='word');t.pack(fill='both',expand=True,padx=10,pady=10)
-        txt=("Combines brute-forcing and crawl: wfuzz only names, ZAP only links, this does both..." )
-        t.insert('1.0',txt);t.configure(state='disabled')
+    def _build_instructions_tab(self):
+        frame = ttk.Frame(self.nb, style="Card.TFrame")
+        self.nb.add(frame, text="Briefing")
+        text = ScrolledText(
+            frame,
+            wrap="word",
+            font=("Consolas", 11),
+            bg="#0f172a",
+            fg="#22d3ee",
+            insertbackground="#22d3ee",
+            relief="flat",
+        )
+        text.pack(fill="both", expand=True, padx=10, pady=10)
+        briefing = (
+            "Welcome to the HackXpert API Surface Explorer!\n\n"
+            "• Launch high-speed brute-forcing with recursive intelligence.\n"
+            "• Inspect live response previews with instant syntax highlighting cues.\n"
+            "• Export discoveries in JSON or CSV for reporting and replay.\n\n"
+            "Tip: fine-tune threads, filters, and extension combos in the Settings tab before you unleash the scanner."
+        )
+        text.insert("1.0", briefing)
+        text.configure(state="disabled")
 
     def _build_scan_tab(self):
-        f=ttk.Frame(self.nb);self.nb.add(f,text='Scan')
-        ttk.Label(f,text='Base URL:').grid(row=0,column=0,padx=5,pady=5)
-        self.url= tk.StringVar();ttk.Entry(f,textvariable=self.url,width=60).grid(row=0,column=1)
-        ttk.Label(f,text='Wordlist:').grid(row=1,column=0,padx=5)
-        self.wl= tk.StringVar();ttk.Entry(f,textvariable=self.wl,width=50).grid(row=1,column=1)
-        ttk.Button(f,text='Browse',command=self._browse).grid(row=1,column=2)
-        ttk.Button(f,text='New Scan',command=self._new_scan).grid(row=2,column=1,pady=10)
+        frame = ttk.Frame(self.nb, style="Card.TFrame")
+        self.nb.add(frame, text="Recon Lab")
+
+        ttk.Label(frame, text="API Base URL:").grid(row=0, column=0, padx=5, pady=5, sticky="e")
+        self.url = tk.StringVar()
+        ttk.Entry(frame, textvariable=self.url, width=60).grid(row=0, column=1, padx=5, pady=5, sticky="w")
+
+        ttk.Label(frame, text="Wordlist:").grid(row=1, column=0, padx=5, pady=5, sticky="e")
+        self.wordlist_path = tk.StringVar()
+        ttk.Entry(frame, textvariable=self.wordlist_path, width=50).grid(row=1, column=1, padx=5, pady=5, sticky="w")
+        ttk.Button(frame, text="Browse", command=self._browse_wordlist).grid(row=1, column=2, padx=5, pady=5)
+
+        ttk.Button(frame, text="Launch Scan", command=self._new_scan).grid(row=2, column=1, pady=15)
+
+        hud = ttk.Frame(frame, style="Card.TFrame")
+        hud.grid(row=3, column=0, columnspan=3, sticky="ew", padx=5, pady=(0, 10))
+        for idx in range(6):
+            hud.grid_columnconfigure(idx, weight=1)
+
+        self.hud_metrics = {
+            "total": tk.StringVar(value="0"),
+            "success": tk.StringVar(value="0"),
+            "alerts": tk.StringVar(value="0"),
+            "secrets": tk.StringVar(value="0"),
+            "slow": tk.StringVar(value="0"),
+            "drift": tk.StringVar(value="0"),
+        }
+        cards = [
+            ("Total Hits", "total", "StatValuePrimary.TLabel"),
+            ("2xx Wins", "success", "StatValueSuccess.TLabel"),
+            ("Intel Alerts", "alerts", "StatValueAlert.TLabel"),
+            ("Secrets Flagged", "secrets", "StatValueFocus.TLabel"),
+            ("Slow Endpoints", "slow", "StatValueAlert.TLabel"),
+            ("Surface Drift", "drift", "StatValueFocus.TLabel"),
+        ]
+        for idx, (label, key, style_name) in enumerate(cards):
+            card = ttk.Frame(hud, style="HUDCard.TFrame", padding=10)
+            card.grid(row=0, column=idx, padx=6, pady=6, sticky="nsew")
+            ttk.Label(card, text=label, style="StatLabel.TLabel").pack(anchor="w")
+            ttk.Label(card, textvariable=self.hud_metrics[key], style=style_name).pack(anchor="w")
+
+        status_frame = ttk.Frame(frame, style="Card.TFrame")
+        status_frame.grid(row=4, column=0, columnspan=3, sticky="ew", padx=5, pady=(0, 15))
+        self.status_var = tk.StringVar(value="Awaiting mission launch…")
+        ttk.Label(status_frame, textvariable=self.status_var, style="StatusBadge.TLabel").pack(
+            anchor="w", padx=12, pady=8
+        )
 
     def _build_settings_tab(self):
-        f=ttk.Frame(self.nb);self.nb.add(f,text='Settings')
-        opts=[('Threads','threads'),('Timeout','timeout'),('UA','user_agent'),
-              ('Depth','recursion_depth'),('Codes','include_status_codes'),('Exts','file_extensions')]
-        for i,(lab,key) in enumerate(opts):
-            ttk.Label(f,text=lab+':').grid(row=i,column=0,sticky='w',padx=5,pady=5)
-            var=tk.StringVar(value=str(self.settings.data[key]))
-            setattr(self,f'{key}_var',var)
-            ttk.Entry(f,textvariable=var,width=30).grid(row=i,column=1)
-        self.redir=tk.BooleanVar(value=self.settings.data['follow_redirects'])
-        ttk.Checkbutton(f,text='Follow Redirects',variable=self.redir).grid(row=len(opts),column=1,sticky='w')
-        ttk.Button(f,text='Save',command=self._save).grid(row=len(opts)+1,column=1,pady=10)
+        frame = ttk.Frame(self.nb, style="Card.TFrame")
+        self.nb.add(frame, text="Settings")
 
-    def _browse(self):
-        p=filedialog.askopenfilename(filetypes=[('TXT','*.txt'),('All','*')]);self.wl.set(p)
+        frame.grid_columnconfigure(1, weight=1)
+
+        options = [
+            ("Threads", "threads"),
+            ("Timeout", "timeout"),
+            ("User Agent", "user_agent"),
+            ("Depth", "recursion_depth"),
+            ("Status Filter", "include_status_codes"),
+            ("Extensions", "file_extensions"),
+            ("HTTP Methods", "http_methods"),
+            ("Delay Jitter (s)", "delay_jitter"),
+        ]
+        self._setting_vars = {}
+        for idx, (label, key) in enumerate(options):
+            ttk.Label(frame, text=f"{label}:").grid(row=idx, column=0, sticky="w", padx=5, pady=5)
+            var = tk.StringVar(value=str(self.settings.data.get(key, Settings.DEFAULTS.get(key, ""))))
+            self._setting_vars[key] = var
+            ttk.Entry(frame, textvariable=var, width=30).grid(row=idx, column=1, padx=5, pady=5, sticky="w")
+
+        row_offset = len(options)
+
+        self.follow_redirects = tk.BooleanVar(value=bool(self.settings.data.get("follow_redirects", True)))
+        ttk.Checkbutton(frame, text="Follow Redirects", variable=self.follow_redirects).grid(
+            row=row_offset, column=1, sticky="w", padx=5, pady=5
+        )
+
+        self.enable_preflight = tk.BooleanVar(value=bool(self.settings.data.get("enable_preflight", True)))
+        ttk.Checkbutton(frame, text="Run intel preflight", variable=self.enable_preflight).grid(
+            row=row_offset + 1, column=1, sticky="w", padx=5, pady=5
+        )
+
+        self.probe_cors = tk.BooleanVar(value=bool(self.settings.data.get("probe_cors", True)))
+        ttk.Checkbutton(frame, text="Probe permissive CORS", variable=self.probe_cors).grid(
+            row=row_offset + 2, column=1, sticky="w", padx=5, pady=5
+        )
+
+        ttk.Label(frame, text="Custom Headers (Header: value)").grid(
+            row=row_offset + 3, column=0, columnspan=2, sticky="w", padx=5
+        )
+        self._headers_text = ScrolledText(frame, height=4, width=40)
+        self._headers_text.grid(row=row_offset + 4, column=0, columnspan=2, padx=5, pady=5, sticky="we")
+        self._headers_text.insert("1.0", str(self.settings.data.get("extra_headers", "")))
+
+        ttk.Label(frame, text="Intel Paths (comma or newline separated)").grid(
+            row=row_offset + 5, column=0, columnspan=2, sticky="w", padx=5
+        )
+        self._intel_text = ScrolledText(frame, height=3, width=40)
+        self._intel_text.grid(row=row_offset + 6, column=0, columnspan=2, padx=5, pady=5, sticky="we")
+        self._intel_text.insert("1.0", str(self.settings.data.get("intel_paths", "")))
+
+        ttk.Button(frame, text="Save", command=self._save_settings).grid(
+            row=row_offset + 7, column=1, pady=10, sticky="e"
+        )
+
+    def _browse_wordlist(self):
+        path = filedialog.askopenfilename(filetypes=[("Text", "*.txt"), ("All", "*.*")])
+        if path:
+            self.wordlist_path.set(path)
 
     def _new_scan(self):
-        u,w=self.url.get(),self.wl.get()
-        if not u or not w or not os.path.isfile(w):
-            return messagebox.showerror('Err','URL or WL invalid')
-        self.scan_count+=1
-        tab=ttk.Frame(self.nb);self.nb.add(tab,text=f'Results {self.scan_count}')
-        tree=ttk.Treeview(tab,columns=('url','status','type'),show='headings')
-        for c in ('url','status','type'):tree.heading(c,text=c);tree.column(c,width=250)
-        tree.pack(fill='both',expand=True)
-        btnf=ttk.Frame(tab);btnf.pack(fill='x',pady=5)
-        ttk.Button(btnf,text='CSV',command=lambda t=tree:self._exp_csv(t)).pack(side='left',padx=5)
-        ttk.Button(btnf,text='JSON',command=lambda t=tree:self._exp_json(t)).pack(side='left')
+        url = self.url.get().strip()
+        wordlist = self.wordlist_path.get().strip()
+        if not url or not wordlist or not os.path.isfile(wordlist):
+            messagebox.showerror("Scan Error", "Provide a valid API base URL and wordlist file.")
+            return
+
+        parsed = urllib.parse.urlparse(url)
+        if not parsed.scheme:
+            url = f"http://{url}"
+
+        self._apply_setting_values()
+
+        self.status_var.set(f"Deploying recon on {url}…")
+        for key in self.hud_metrics:
+            self.hud_metrics[key].set("0")
+
+        self.scan_count += 1
+        scan_id = self.scan_count
+
+        tab = ttk.Frame(self.nb, style="Card.TFrame")
+        self.nb.add(tab, text=f"Scan #{scan_id}")
         self.nb.select(tab)
-        # update settings
-        for key in ['threads','timeout','user_agent','recursion_depth','include_status_codes','file_extensions']:
-            self.settings.data[key]=getattr(self,f'{key}_var').get()
-        self.settings.data['follow_redirects']=self.redir.get()
-        self.settings.save()
-        # run
-        fns=DirBruteForcer(u,w,self.settings,
-            on_found=lambda i,tr=tree:tr.insert('','end',values=(i['url'],i['status'],i['type'])),
-            on_finish=lambda:messagebox.showinfo('Done',f'Scan#{self.scan_count} done'),
-            on_progress=lambda p:self.progress.configure(value=p)
+
+        columns = ("url", "method", "status", "delta", "latency", "type", "length", "notes")
+        tree = ttk.Treeview(
+            tab,
+            columns=columns,
+            show="headings",
+            displaycolumns=("url", "method", "status", "delta", "latency", "type"),
+            height=12,
         )
-        self.forcers[self.scan_count]=fns;fns.start()
+        tree.heading("url", text="URL")
+        tree.heading("method", text="METHOD")
+        tree.heading("status", text="STATUS")
+        tree.heading("delta", text="DRIFT")
+        tree.heading("latency", text="LATENCY")
+        tree.heading("type", text="TYPE")
+        tree.column("url", width=320, anchor="w")
+        tree.column("method", width=90, anchor="center")
+        tree.column("status", width=90, anchor="center")
+        tree.column("delta", width=140, anchor="center")
+        tree.column("latency", width=110, anchor="center")
+        tree.column("type", width=220, anchor="w")
+        tree.column("length", width=0, stretch=False)
+        tree.column("notes", width=0, stretch=False)
+        tree.pack(fill="both", expand=True, padx=10, pady=10)
 
-    def _save(self):
-        for key in ['threads','timeout','user_agent','recursion_depth','include_status_codes','file_extensions']:
-            self.settings.data[key]=getattr(self,f'{key}_var').get()
-        self.settings.data['follow_redirects']=self.redir.get()
-        self.settings.save();messagebox.showinfo('Saved','Settings saved')
+        tree.tag_configure("success", background="#064e3b", foreground="#22d3ee")
+        tree.tag_configure("redirect", background="#7c2d12", foreground="#fbbf24")
+        tree.tag_configure("client", background="#1f2937", foreground="#f87171")
+        tree.tag_configure("server", background="#450a0a", foreground="#f87171")
+        tree.tag_configure("cors", background="#7c3aed", foreground="#fde68a")
+        tree.tag_configure("intel", background="#1e3a8a", foreground="#f8fafc")
+        tree.tag_configure("secret", background="#831843", foreground="#fdf2f8")
+        tree.tag_configure("slow", background="#1f2937", foreground="#fde047")
+        tree.tag_configure("delta-new", background="#0f172a", foreground="#facc15")
+        tree.tag_configure("delta-changed", background="#0f172a", foreground="#c084fc")
 
-    def _exp_csv(self,tree):
-        f=filedialog.asksaveasfilename(defaultextension='.csv');
-        if f:
-            with open(f,'w')as fh:
-                fh.write('URL,Status,Type\n')
-                for r in tree.get_children():u,s,t=tree.item(r)['values'];fh.write(f'"{u}",{s},"{t}"\n')
+        detail = ScrolledText(tab, height=10, font=("Consolas", 10), bg="#111827", fg="#e2e8f0", insertbackground="#22d3ee")
+        detail.pack(fill="both", expand=True, padx=10, pady=(0, 10))
+        detail.configure(state="disabled")
 
-    def _exp_json(self,tree):
-        f=filedialog.asksaveasfilename(defaultextension='.json');
-        if f:
-            arr=[{'url':tree.item(r)['values'][0],'status':tree.item(r)['values'][1],'type':tree.item(r)['values'][2]}for r in tree.get_children()]
-            with open(f,'w')as fh:json.dump(arr,fh,indent=2)
+        btn_frame = ttk.Frame(tab, style="Card.TFrame")
+        btn_frame.pack(fill="x", padx=10, pady=5)
+        ttk.Button(
+            btn_frame,
+            text="Export CSV",
+            command=lambda t=tree, r=results: self._export_csv(t, r),
+        ).pack(side="left", padx=5)
+        ttk.Button(
+            btn_frame,
+            text="Export JSON",
+            command=lambda t=tree, r=results: self._export_json(t, r),
+        ).pack(side="left", padx=5)
+        ttk.Button(
+            btn_frame,
+            text="Copy URL",
+            command=lambda t=tree: self._copy_selected(t),
+        ).pack(side="left", padx=5)
 
-    def _rename_tab(self,event):
-        if self.nb.identify(event.x,event.y)=='label':
-            i=self.nb.index(f"@{event.x},{event.y}");old=self.nb.tab(i,'text')
-            new=simpledialog.askstring('Rename',initialvalue=old)
-            if new:self.nb.tab(i,text=new)
+        results = {}
+        metrics = {
+            "total": 0,
+            "success": 0,
+            "alerts": 0,
+            "secrets": 0,
+            "slow": 0,
+            "drift": 0,
+            "drift_new": 0,
+            "drift_changed": 0,
+        }
+
+        def refresh_hud():
+            for key in ["total", "success", "alerts", "secrets", "slow", "drift"]:
+                self.hud_metrics[key].set(str(metrics[key]))
+
+        def render_info(info):
+            status = info["status"]
+            if 200 <= status < 300:
+                tag = "success"
+            elif 300 <= status < 400:
+                tag = "redirect"
+            elif 400 <= status < 500:
+                tag = "client"
+            else:
+                tag = "server"
+
+            tags = [tag]
+            if info.get("cors"):
+                tags.append("cors")
+            if info.get("signals"):
+                tags.append("intel")
+            if info.get("secrets"):
+                tags.append("secret")
+            if info.get("slow"):
+                tags.append("slow")
+            delta_label = info.get("delta")
+            if delta_label == "NEW":
+                tags.append("delta-new")
+            elif isinstance(delta_label, str) and delta_label.startswith("CHANGED"):
+                tags.append("delta-changed")
+            latency_display = "-"
+            if info.get("latency") is not None:
+                latency_display = f"{info['latency']:.0f} ms"
+            item_id = tree.insert(
+                "",
+                "end",
+                values=(
+                    info["url"],
+                    info["method"],
+                    info["status"],
+                    info.get("delta", "-"),
+                    latency_display,
+                    info["type"],
+                    info["length"],
+                    info.get("notes", ""),
+                ),
+                tags=tuple(tags),
+            )
+            results[item_id] = info
+            metrics["total"] += 1
+            if 200 <= status < 300:
+                metrics["success"] += 1
+            if info.get("signals"):
+                metrics["alerts"] += len(info["signals"])
+            status_message = None
+            if info.get("secrets"):
+                metrics["secrets"] += info.get("secrets", 0)
+                status_message = "Secret material detected! Review intel panel."
+            if info.get("slow"):
+                metrics["slow"] += 1
+            if delta_label == "NEW":
+                metrics["drift"] += 1
+                metrics["drift_new"] += 1
+                status_message = status_message or f"Surface drift: NEW endpoint {info['url']}"
+            elif isinstance(delta_label, str) and delta_label.startswith("CHANGED"):
+                metrics["drift"] += 1
+                metrics["drift_changed"] += 1
+                status_message = status_message or f"Surface drift: {delta_label} @ {info['url']}"
+            if status_message is None:
+                status_message = f"Latest hit: {info['url']} ({info['status']})"
+            self.status_var.set(status_message)
+            refresh_hud()
+            if len(results) == 1:
+                tree.selection_set(item_id)
+                update_detail(item_id)
+
+        def update_detail(item_id):
+            info = results.get(item_id)
+            if not info:
+                return
+            detail.configure(state="normal")
+            detail.delete("1.0", "end")
+            sections = [
+                f"URL: {info['url']}",
+                f"Method: {info['method']}",
+                f"Status: {info['status']}",
+                f"Baseline Delta: {info.get('delta', '-')}",
+                f"Type: {info['type']}",
+                f"Length: {info['length']} bytes",
+            ]
+            if info.get("previous_status") is not None:
+                sections.append(f"Baseline Status: {info['previous_status']}")
+            if info.get("latency") is not None:
+                sections.append(f"Latency: {info['latency']:.1f} ms")
+            detail.insert("end", "\n".join(sections) + "\n\n")
+            if info.get("signals"):
+                detail.insert("end", "Intel Signals:\n")
+                for note in info["signals"]:
+                    detail.insert("end", f"  • {note}\n")
+                detail.insert("end", "\n")
+            detail.insert("end", info["preview"])
+            detail.configure(state="disabled")
+
+        def on_select(_event):
+            selected = tree.selection()
+            if selected:
+                update_detail(selected[0])
+
+        tree.bind("<<TreeviewSelect>>", on_select)
+
+        def finish_message():
+            drift_total = metrics.get("drift", 0)
+            drift_new = metrics.get("drift_new", 0)
+            drift_changed = metrics.get("drift_changed", 0)
+            retired = forcer.baseline_highlights.get("retired", 0)
+            summary = (
+                f"Scan #{scan_id} complete — {metrics['alerts']} intel alerts, {metrics['secrets']} secrets, "
+                f"{metrics['slow']} slow endpoints, {drift_total} surface drift alerts "
+                f"({drift_new} new / {drift_changed} changed, {retired} retired)"
+            )
+            self.status_var.set(summary)
+            retired_items = forcer.baseline_highlights.get("retired_items") or []
+            if retired_items:
+                retired_block = "\n\nRetired endpoints since last baseline:\n" + "\n".join(retired_items[:10])
+                if len(retired_items) > 10:
+                    retired_block += "\n…"
+            else:
+                retired_block = ""
+            messagebox.showinfo("Scan Complete", summary + retired_block)
+
+        forcer = DirBruteForcer(
+            url,
+            wordlist,
+            self.settings,
+            on_found=lambda info: self.after(0, lambda: render_info(info)),
+            on_finish=lambda: self.after(0, finish_message),
+            on_progress=lambda pct: self.after(0, lambda: self.progress.configure(value=pct)),
+        )
+        self.forcers[scan_id] = forcer
+        self.progress.configure(value=0)
+        forcer.start()
+
+    def _apply_setting_values(self):
+        for key, var in self._setting_vars.items():
+            value = var.get()
+            if key in {"threads", "recursion_depth"}:
+                try:
+                    self.settings.data[key] = int(value)
+                except ValueError:
+                    self.settings.data[key] = Settings.DEFAULTS.get(key)
+            elif key == "timeout":
+                try:
+                    self.settings.data[key] = float(value)
+                except ValueError:
+                    self.settings.data[key] = Settings.DEFAULTS.get(key)
+            elif key == "delay_jitter":
+                try:
+                    self.settings.data[key] = float(value)
+                except ValueError:
+                    self.settings.data[key] = Settings.DEFAULTS.get(key)
+            else:
+                self.settings.data[key] = value
+        self.settings.data["follow_redirects"] = self.follow_redirects.get()
+        self.settings.data["enable_preflight"] = self.enable_preflight.get()
+        self.settings.data["probe_cors"] = self.probe_cors.get()
+        self.settings.data["extra_headers"] = self._headers_text.get("1.0", "end").strip()
+        self.settings.data["intel_paths"] = self._intel_text.get("1.0", "end").strip()
+        self.settings.save()
+
+    def _save_settings(self):
+        self._apply_setting_values()
+        messagebox.showinfo("Settings", "Settings saved successfully.")
+
+    def _export_csv(self, tree, results):
+        path = filedialog.asksaveasfilename(defaultextension=".csv")
+        if not path:
+            return
+        with open(path, "w", encoding="utf-8") as fh:
+            fh.write("URL,Method,Status,Delta,PreviousStatus,Latency(ms),Type,Length,Notes,Signals\n")
+            for item in tree.get_children():
+                info = results.get(item)
+                if not info:
+                    continue
+                url = info["url"].replace('"', '""')
+                ctype = (info.get("type") or "").replace('"', '""')
+                notes = info.get("notes", "").replace('"', '""')
+                latency = info.get("latency")
+                latency_val = f"{latency:.1f}" if latency is not None else ""
+                signals = ";".join(info.get("signals", []))
+                signals = signals.replace('"', '""')
+                delta = (info.get("delta") or "").replace('"', '""')
+                previous = "" if info.get("previous_status") is None else str(info["previous_status"])
+                fh.write(
+                    f'"{url}",{info["method"]},{info["status"]},"{delta}",{previous},{latency_val},'
+                    f'"{ctype}",{info["length"]},"{notes}","{signals}"\n'
+                )
+
+    def _export_json(self, tree, results):
+        path = filedialog.asksaveasfilename(defaultextension=".json")
+        if not path:
+            return
+        data = []
+        for item in tree.get_children():
+            info = results.get(item)
+            if not info:
+                continue
+            data.append(
+                {
+                    "url": info["url"],
+                    "method": info["method"],
+                    "status": info["status"],
+                    "latency_ms": info.get("latency"),
+                    "type": info["type"],
+                    "length": info["length"],
+                    "notes": info.get("notes", ""),
+                    "signals": info.get("signals", []),
+                    "baseline_delta": info.get("delta"),
+                    "previous_status": info.get("previous_status"),
+                }
+            )
+        with open(path, "w", encoding="utf-8") as fh:
+            json.dump(data, fh, indent=2)
+
+    def _copy_selected(self, tree):
+        selection = tree.selection()
+        if not selection:
+            messagebox.showinfo("Copy URL", "Select a result to copy its URL.")
+            return
+        url = tree.item(selection[0])["values"][0]
+        self.clipboard_clear()
+        self.clipboard_append(url)
+        messagebox.showinfo("Copied", f"URL copied to clipboard:\n{url}")
+
+    def _rename_tab(self, event):
+        if self.nb.identify(event.x, event.y) != "label":
+            return
+        index = self.nb.index(f"@{event.x},{event.y}")
+        current = self.nb.tab(index, "text")
+        new_title = simpledialog.askstring("Rename", "Rename tab", initialvalue=current)
+        if new_title:
+            self.nb.tab(index, text=new_title)
 
     def on_close(self):
-        for f in self.forcers.values():f.stop()
+        for forcer in self.forcers.values():
+            forcer.stop()
         self.destroy()
 
-def cli_mode():
-    p=argparse.ArgumentParser()
-    p.add_argument('--url',required=True)
-    p.add_argument('--wordlist',required=True)
-    p.add_argument('--threads',type=int)
-    p.add_argument('--timeout',type=float)
-    p.add_argument('--depth',type=int)
-    p.add_argument('--codes',type=str)
-    p.add_argument('--exts',type=str)
-    p.add_argument('--no-redirect',action='store_true')
-    p.add_argument('--output',required=True)
-    p.add_argument('--format',choices=['csv','json'],default='json')
-    args=p.parse_args()
-    settings=Settings()
-    for k,v in [('threads',args.threads),('timeout',args.timeout),('recursion_depth',args.depth),('include_status_codes',args.codes),('file_extensions',args.exts)]:
-        if v is not None:settings.data[k]=v
-    settings.data['follow_redirects']=not args.no_redirect
-    results=[]
-    done=threading.Event()
-    def on_found(i):results.append(i)
-    def on_finish():done.set()
-    f=DirBruteForcer(args.url,args.wordlist,settings,on_found,on_finish)
-    f.start()
-    done.wait()
-    if args.format=='json':
-        with open(args.output,'w')as fh:json.dump(results,fh,indent=2)
-    else:
-        with open(args.output,'w')as fh:fh.write('URL,Status,Type\n')
-        for i in results:fh.write(f'"{i["url"]}",{i["status"]},"{i["type"]}"\n')
-    print(f"Saved {len(results)} entries to {args.output}")
 
-if __name__=='__main__':
+def cli_mode():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--url", required=True)
+    parser.add_argument("--wordlist", required=True)
+    parser.add_argument("--threads", type=int)
+    parser.add_argument("--timeout", type=float)
+    parser.add_argument("--depth", type=int)
+    parser.add_argument("--codes", type=str)
+    parser.add_argument("--exts", type=str)
+    parser.add_argument("--no-redirect", action="store_true")
+    parser.add_argument("--methods", type=str)
+    parser.add_argument("--header", action="append", default=[])
+    parser.add_argument("--intel-paths", type=str)
+    parser.add_argument("--jitter", type=float)
+    parser.add_argument("--no-preflight", action="store_true")
+    parser.add_argument("--no-cors-probe", action="store_true")
+    parser.add_argument("--output", required=True)
+    parser.add_argument("--format", choices=["csv", "json"], default="json")
+    args = parser.parse_args()
+
+    settings = Settings()
+    if args.threads is not None:
+        settings.data["threads"] = args.threads
+    if args.timeout is not None:
+        settings.data["timeout"] = args.timeout
+    if args.depth is not None:
+        settings.data["recursion_depth"] = args.depth
+    if args.codes is not None:
+        settings.data["include_status_codes"] = args.codes
+    if args.exts is not None:
+        settings.data["file_extensions"] = args.exts
+    if args.methods is not None:
+        settings.data["http_methods"] = args.methods
+    if args.header:
+        settings.data["extra_headers"] = "\n".join(args.header)
+    if args.intel_paths is not None:
+        settings.data["intel_paths"] = args.intel_paths
+    if args.jitter is not None:
+        settings.data["delay_jitter"] = args.jitter
+    settings.data["follow_redirects"] = not args.no_redirect
+    settings.data["enable_preflight"] = not args.no_preflight
+    settings.data["probe_cors"] = not args.no_cors_probe
+
+    results = []
+    finished = threading.Event()
+
+    def on_found(info):
+        results.append(info)
+
+    def on_finish():
+        finished.set()
+
+    forcer = DirBruteForcer(args.url, args.wordlist, settings, on_found, on_finish)
+    forcer.start()
+    finished.wait()
+
+    if args.format == "json":
+        with open(args.output, "w", encoding="utf-8") as fh:
+            json.dump(results, fh, indent=2)
+    else:
+        with open(args.output, "w", encoding="utf-8") as fh:
+            fh.write("URL,Method,Status,Delta,PreviousStatus,Latency(ms),Type,Length,Notes,Signals\n")
+            for item in results:
+                url = item["url"].replace('"', '""')
+                ctype = (item.get("type") or "").replace('"', '""')
+                notes = item.get("notes", "").replace('"', '""')
+                latency = item.get("latency")
+                latency_val = f"{latency:.1f}" if latency is not None else ""
+                signals = ";".join(item.get("signals", []))
+                signals = signals.replace('"', '""')
+                delta = (item.get("delta") or "").replace('"', '""')
+                previous = "" if item.get("previous_status") is None else str(item["previous_status"])
+                fh.write(
+                    f'"{url}",{item["method"]},{item["status"]},"{delta}",{previous},{latency_val},'
+                    f'"{ctype}",{item["length"]},"{notes}","{signals}"\n'
+                )
+    drift_new = sum(1 for entry in results if entry.get("delta") == "NEW")
+    drift_changed = sum(
+        1 for entry in results if isinstance(entry.get("delta"), str) and entry["delta"].startswith("CHANGED")
+    )
+    retired = forcer.baseline_highlights.get("retired", 0)
+    print(
+        f"Saved {len(results)} entries to {args.output} (drift: {drift_new} new / {drift_changed} changed / {retired} retired)"
+    )
+
+
+if __name__ == "__main__":
     import sys
-    if '--cli' in sys.argv:
+
+    if "--cli" in sys.argv:
         cli_mode()
     else:
-        app=App();app.protocol('WM_DELETE_WINDOW',app.on_close);app.mainloop()
+        app = App()
+        app.protocol("WM_DELETE_WINDOW", app.on_close)
+        app.mainloop()
