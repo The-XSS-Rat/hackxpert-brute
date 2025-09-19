@@ -4,12 +4,15 @@ import os
 import queue
 import random
 import re
+import socket
+import ssl
 import threading
 import time
 import urllib.parse
 import webbrowser
+from datetime import datetime
 from pathlib import Path
-from typing import Callable, Optional
+from typing import Any, Callable, Optional
 
 import requests
 import tkinter as tk
@@ -206,6 +209,9 @@ class Settings:
         "intel_paths": "/robots.txt,/.well-known/security.txt,/openapi.json,/swagger.json,/graphql",
         "enable_preflight": True,
         "probe_cors": True,
+        "burp_proxy_enabled": False,
+        "burp_proxy_host": "127.0.0.1",
+        "burp_proxy_port": 8080,
     }
 
     def __init__(self, path: Path = CONFIG_PATH):
@@ -232,14 +238,497 @@ class Settings:
             messagebox.showerror("Save Error", f"Failed to save settings: {exc}")
 
 
+class APISurfaceReport:
+    def __init__(self, base_url: str):
+        self.base_url = base_url.rstrip("/")
+        self.lock = threading.Lock()
+        self.endpoints: dict[str, dict[str, dict[str, Any]]] = {}
+        self.technologies: set[str] = set()
+        self.auth_schemes: set[str] = set()
+        self.graphql_operations: set[str] = set()
+        self.spec_documents: set[str] = set()
+        self.asset_links: set[str] = set()
+        self.form_targets: set[str] = set()
+        self.json_links: set[str] = set()
+        self.passive_hosts: set[str] = set()
+        self.robots_paths: set[str] = set()
+        self.sitemap_urls: set[str] = set()
+        self.websocket_links: set[str] = set()
+        self.link_relations: set[str] = set()
+        self.csp_report_uris: set[str] = set()
+        self.well_known_links: set[str] = set()
+        self.config_endpoints: set[str] = set()
+        self.certificate: Optional[dict[str, Any]] = None
+
+    def _safe_json(self, response) -> Any:
+        try:
+            return response.json()
+        except Exception:
+            return None
+
+    def attach_certificate(self, data: dict[str, Any]) -> None:
+        if not data:
+            return
+        with self.lock:
+            self.certificate = data
+            alt_names = data.get("alt_names")
+            if isinstance(alt_names, (list, tuple, set)):
+                self.passive_hosts.update(str(name) for name in alt_names if name)
+
+    def _walk_json_fields(self, data: Any) -> set[str]:
+        fields: set[str] = set()
+        if isinstance(data, dict):
+            for key, value in data.items():
+                try:
+                    fields.add(str(key))
+                except Exception:
+                    continue
+                fields.update(self._walk_json_fields(value))
+        elif isinstance(data, list):
+            for item in data:
+                fields.update(self._walk_json_fields(item))
+        return fields
+
+    def _extract_parameters(self, url: str) -> set[str]:
+        params = set()
+        parsed = urllib.parse.urlsplit(url)
+        for key, _ in urllib.parse.parse_qsl(parsed.query, keep_blank_values=True):
+            params.add(key)
+        return params
+
+    def _extract_request_body_parameters(self, response) -> set[str]:
+        req = getattr(response, "request", None)
+        if not req:
+            return set()
+        params: set[str] = set()
+        body = getattr(req, "body", None)
+        if not body:
+            return params
+        if isinstance(body, bytes):
+            try:
+                body_text = body.decode("utf-8", "ignore")
+            except Exception:
+                body_text = ""
+        else:
+            body_text = str(body)
+        text = body_text.strip()
+        if not text:
+            return params
+        if text.startswith("{") or text.startswith("["):
+            try:
+                payload = json.loads(text)
+            except Exception:
+                payload = None
+            if payload is not None:
+                params.update(self._walk_json_fields(payload))
+                return params
+        for piece in text.split("&"):
+            if "=" in piece:
+                key = piece.split("=", 1)[0]
+                if key:
+                    params.add(key)
+        return params
+
+    def _infer_technologies(self, headers: dict[str, str], body_text: str) -> set[str]:
+        hints: set[str] = set()
+        server = headers.get("Server")
+        powered = headers.get("X-Powered-By")
+        if server:
+            hints.add(server.split(" ")[0])
+        if powered:
+            hints.add(powered.split(" ")[0])
+        if headers.get("X-AspNet-Version"):
+            hints.add("ASP.NET")
+        if headers.get("CF-Ray") or headers.get("CF-Cache-Status"):
+            hints.add("Cloudflare")
+        if headers.get("X-Served-By") and "varnish" in headers.get("X-Served-By", "").lower():
+            hints.add("Varnish")
+        if headers.get("Via"):
+            hints.add("Via Proxy")
+        sample = (body_text or "").lower()
+        if "wordpress" in sample:
+            hints.add("WordPress")
+        if "drupal" in sample:
+            hints.add("Drupal")
+        return hints
+
+    def _parse_auth_schemes(self, headers: dict[str, str]) -> set[str]:
+        value = headers.get("WWW-Authenticate")
+        if not value:
+            return set()
+        schemes = set()
+        for part in value.split(","):
+            scheme = part.strip().split(" ", 1)[0]
+            if scheme:
+                schemes.add(scheme)
+        return schemes
+
+    def _extract_rate_limits(self, headers: dict[str, str]) -> list[str]:
+        hits = []
+        for key in [
+            "RateLimit-Limit",
+            "RateLimit-Remaining",
+            "RateLimit-Reset",
+            "X-RateLimit-Limit",
+            "X-RateLimit-Remaining",
+            "X-RateLimit-Reset",
+        ]:
+            if headers.get(key):
+                hits.append(f"{key}={headers[key]}")
+        return hits
+
+    def _spec_hints(self, content_type: str, json_payload: Any, body_text: str) -> set[str]:
+        hints: set[str] = set()
+        lowered_type = (content_type or "").lower()
+        lowered_body = (body_text or "").lower()
+        if "openapi" in lowered_type or "application/vnd.oai.openapi" in lowered_type:
+            hints.add("OpenAPI specification")
+        if "swagger" in lowered_body and "paths" in lowered_body:
+            hints.add("Swagger definition")
+        if "openapi" in lowered_body and "info" in lowered_body and "paths" in lowered_body:
+            hints.add("OpenAPI-like document")
+        if json_payload and isinstance(json_payload, dict):
+            if "openapi" in json_payload:
+                hints.add(f"OpenAPI {json_payload.get('openapi')}")
+            if "swagger" in json_payload:
+                hints.add(f"Swagger {json_payload.get('swagger')}")
+            data_block = json_payload.get("data")
+            if isinstance(data_block, dict) and "__schema" in data_block:
+                hints.add("GraphQL introspection data")
+        if "graphql" in lowered_type or "graphql" in lowered_body:
+            hints.add("GraphQL endpoint")
+        return hints
+
+    def _normalize_discoveries(self, origin: str, discoveries: set[str]) -> set[str]:
+        normalized: set[str] = set()
+        if not discoveries:
+            return normalized
+        base = origin or self.base_url
+        if base:
+            base = base.rstrip("/") + "/"
+        for item in discoveries:
+            if not item:
+                continue
+            if item.startswith("http://") or item.startswith("https://"):
+                normalized.add(item)
+            else:
+                normalized.add(urllib.parse.urljoin(base, item.lstrip("/")))
+        return normalized
+
+    def ingest(
+        self,
+        url: str,
+        method: str,
+        response,
+        body_text: str,
+        intel_notes: list[str],
+        secret_hits: list[str],
+        discovered_paths: set[str],
+        asset_links: Optional[set[str]] = None,
+        form_targets: Optional[set[str]] = None,
+        json_links: Optional[set[str]] = None,
+        host_hints: Optional[set[str]] = None,
+        robots_paths: Optional[set[str]] = None,
+        sitemap_urls: Optional[set[str]] = None,
+        websocket_links: Optional[set[str]] = None,
+        link_relations: Optional[set[str]] = None,
+        csp_reports: Optional[set[str]] = None,
+        well_known_links: Optional[set[str]] = None,
+        config_endpoints: Optional[set[str]] = None,
+        json_payload: Any = None,
+    ) -> dict[str, Any]:
+        if json_payload is None:
+            json_payload = self._safe_json(response)
+        json_fields = self._walk_json_fields(json_payload) if json_payload is not None else set()
+        parameters = self._extract_parameters(url)
+        parameters.update(self._extract_request_body_parameters(response))
+        technologies = self._infer_technologies(response.headers, body_text)
+        auth_schemes = self._parse_auth_schemes(response.headers)
+        rate_limits = self._extract_rate_limits(response.headers)
+        spec_hints = self._spec_hints(response.headers.get("Content-Type", ""), json_payload, body_text)
+        discoveries = self._normalize_discoveries(url, discovered_paths)
+        normalized_assets = self._normalize_discoveries(url, set(asset_links or set()))
+        normalized_forms = self._normalize_discoveries(url, set(form_targets or set()))
+        normalized_json = self._normalize_discoveries(url, set(json_links or set()))
+        normalized_robots = self._normalize_discoveries(url, set(robots_paths or set()))
+        normalized_sitemaps = self._normalize_discoveries(url, set(sitemap_urls or set()))
+        normalized_websocket = self._normalize_discoveries(url, set(websocket_links or set()))
+        normalized_link_relations = self._normalize_discoveries(url, set(link_relations or set()))
+        normalized_csp_reports = self._normalize_discoveries(url, set(csp_reports or set()))
+        normalized_well_known = self._normalize_discoveries(url, set(well_known_links or set()))
+        normalized_config = self._normalize_discoveries(url, set(config_endpoints or set()))
+        host_hints = set(host_hints or set())
+
+        graphql_flag = False
+        graphql_ops: set[str] = set()
+        if isinstance(json_payload, dict):
+            if {"data", "errors"}.issubset(json_payload.keys()):
+                graphql_flag = True
+            data_block = json_payload.get("data")
+            if isinstance(data_block, dict):
+                graphql_ops.update(str(key) for key in data_block.keys() if key)
+                if "__schema" in data_block:
+                    graphql_flag = True
+            errors = json_payload.get("errors")
+            if isinstance(errors, list) and errors:
+                graphql_flag = True
+        content_type = response.headers.get("Content-Type", "")
+        if "graphql" in content_type.lower():
+            graphql_flag = True
+        if body_text and "graphql" in body_text.lower():
+            graphql_flag = True
+        if not graphql_flag:
+            graphql_ops.clear()
+
+        with self.lock:
+            endpoint = self.endpoints.setdefault(url, {})
+            record = endpoint.setdefault(
+                method,
+                {
+                    "last_status": None,
+                    "status_history": [],
+                    "content_types": set(),
+                    "parameters": set(),
+                    "json_fields": set(),
+                    "linked_paths": set(),
+                    "asset_links": set(),
+                    "form_targets": set(),
+                    "json_links": set(),
+                    "host_hints": set(),
+                    "robots_paths": set(),
+                    "sitemap_urls": set(),
+                    "websocket_links": set(),
+                    "link_relations": set(),
+                    "csp_reports": set(),
+                    "well_known_links": set(),
+                    "config_endpoints": set(),
+                    "intel": set(),
+                    "secrets": set(),
+                    "technologies": set(),
+                    "auth_schemes": set(),
+                    "graphql": False,
+                    "graphql_operations": set(),
+                    "spec_hints": set(),
+                    "rate_limits": set(),
+                },
+            )
+            record["last_status"] = response.status_code
+            history = record["status_history"]
+            history.append(response.status_code)
+            if len(history) > 20:
+                del history[:-20]
+            if content_type:
+                record["content_types"].add(content_type.split(";")[0])
+            record["parameters"].update(parameters)
+            record["json_fields"].update(json_fields)
+            record["linked_paths"].update(discoveries)
+            record["asset_links"].update(normalized_assets)
+            record["form_targets"].update(normalized_forms)
+            record["json_links"].update(normalized_json)
+            record["host_hints"].update(host_hints)
+            record["robots_paths"].update(normalized_robots)
+            record["sitemap_urls"].update(normalized_sitemaps)
+            record["websocket_links"].update(normalized_websocket)
+            record["link_relations"].update(normalized_link_relations)
+            record["csp_reports"].update(normalized_csp_reports)
+            record["well_known_links"].update(normalized_well_known)
+            record["config_endpoints"].update(normalized_config)
+            record["intel"].update(intel_notes)
+            record["secrets"].update(secret_hits)
+            record["technologies"].update(technologies)
+            record["auth_schemes"].update(auth_schemes)
+            record["spec_hints"].update(spec_hints)
+            if rate_limits:
+                record["rate_limits"].update(rate_limits)
+            if graphql_flag:
+                record["graphql"] = True
+                record["graphql_operations"].update(graphql_ops)
+            self.technologies.update(technologies)
+            self.auth_schemes.update(auth_schemes)
+            self.graphql_operations.update(graphql_ops)
+            self.spec_documents.update(spec_hints)
+            self.asset_links.update(normalized_assets)
+            self.form_targets.update(normalized_forms)
+            self.json_links.update(normalized_json)
+            self.passive_hosts.update(host_hints)
+            self.robots_paths.update(normalized_robots)
+            self.sitemap_urls.update(normalized_sitemaps)
+            self.websocket_links.update(normalized_websocket)
+            self.link_relations.update(normalized_link_relations)
+            self.csp_report_uris.update(normalized_csp_reports)
+            self.well_known_links.update(normalized_well_known)
+            self.config_endpoints.update(normalized_config)
+
+            snapshot = {
+                "parameters": sorted(record["parameters"]),
+                "json_fields": sorted(record["json_fields"])[:40],
+                "linked_paths": sorted(record["linked_paths"])[:40],
+                "asset_links": sorted(record["asset_links"])[:40],
+                "form_targets": sorted(record["form_targets"])[:40],
+                "json_links": sorted(record["json_links"])[:40],
+                "host_hints": sorted(record["host_hints"])[:40],
+                "robots_paths": sorted(record["robots_paths"])[:40],
+                "sitemap_urls": sorted(record["sitemap_urls"])[:40],
+                "websocket_links": sorted(record["websocket_links"])[:40],
+                "link_relations": sorted(record["link_relations"])[:40],
+                "csp_reports": sorted(record["csp_reports"])[:40],
+                "well_known_links": sorted(record["well_known_links"])[:40],
+                "config_endpoints": sorted(record["config_endpoints"])[:40],
+                "technologies": sorted(record["technologies"]),
+                "intel": sorted(record["intel"])[:20],
+                "secrets": sorted(record["secrets"]),
+                "auth_schemes": sorted(record["auth_schemes"]),
+                "graphql": record["graphql"],
+                "graphql_operations": sorted(record["graphql_operations"])[:20],
+                "spec_hints": sorted(record["spec_hints"]),
+                "rate_limits": sorted(record["rate_limits"]),
+                "global_technologies": sorted(self.technologies),
+                "global_auth_schemes": sorted(self.auth_schemes),
+                "global_spec_documents": sorted(self.spec_documents),
+                "global_asset_links": sorted(self.asset_links)[:60],
+                "global_form_targets": sorted(self.form_targets)[:60],
+                "global_json_links": sorted(self.json_links)[:60],
+                "global_host_hints": sorted(self.passive_hosts)[:60],
+                "global_robots_paths": sorted(self.robots_paths)[:60],
+                "global_sitemap_urls": sorted(self.sitemap_urls)[:60],
+                "global_websocket_links": sorted(self.websocket_links)[:60],
+                "global_link_relations": sorted(self.link_relations)[:60],
+                "global_csp_reports": sorted(self.csp_report_uris)[:60],
+                "global_well_known_links": sorted(self.well_known_links)[:60],
+                "global_config_endpoints": sorted(self.config_endpoints)[:60],
+                "certificate": self.certificate,
+            }
+
+        return snapshot
+
+    def to_dict(self) -> dict[str, Any]:
+        with self.lock:
+            endpoints: dict[str, dict[str, Any]] = {}
+            for url, methods in self.endpoints.items():
+                endpoint_entry: dict[str, Any] = {}
+                for method, record in methods.items():
+                    endpoint_entry[method] = {
+                        "last_status": record["last_status"],
+                        "status_history": list(record["status_history"]),
+                        "content_types": sorted(record["content_types"]),
+                        "parameters": sorted(record["parameters"]),
+                        "json_fields": sorted(record["json_fields"]),
+                        "linked_paths": sorted(record["linked_paths"]),
+                        "asset_links": sorted(record["asset_links"]),
+                        "form_targets": sorted(record["form_targets"]),
+                        "json_links": sorted(record["json_links"]),
+                        "host_hints": sorted(record["host_hints"]),
+                        "robots_paths": sorted(record["robots_paths"]),
+                        "sitemap_urls": sorted(record["sitemap_urls"]),
+                        "websocket_links": sorted(record["websocket_links"]),
+                        "link_relations": sorted(record["link_relations"]),
+                        "csp_reports": sorted(record["csp_reports"]),
+                        "well_known_links": sorted(record["well_known_links"]),
+                        "config_endpoints": sorted(record["config_endpoints"]),
+                        "intel": sorted(record["intel"]),
+                        "secrets": sorted(record["secrets"]),
+                        "technologies": sorted(record["technologies"]),
+                        "auth_schemes": sorted(record["auth_schemes"]),
+                        "graphql": record["graphql"],
+                        "graphql_operations": sorted(record["graphql_operations"]),
+                        "spec_hints": sorted(record["spec_hints"]),
+                        "rate_limits": sorted(record["rate_limits"]),
+                    }
+                endpoints[url] = endpoint_entry
+            return {
+                "base_url": self.base_url,
+                "generated_at": time.time(),
+                "technologies": sorted(self.technologies),
+                "auth_schemes": sorted(self.auth_schemes),
+                "graphql_operations": sorted(self.graphql_operations),
+                "spec_documents": sorted(self.spec_documents),
+                "asset_links": sorted(self.asset_links),
+                "form_targets": sorted(self.form_targets),
+                "json_links": sorted(self.json_links),
+                "host_hints": sorted(self.passive_hosts),
+                "robots_paths": sorted(self.robots_paths),
+                "sitemap_urls": sorted(self.sitemap_urls),
+                "websocket_links": sorted(self.websocket_links),
+                "link_relations": sorted(self.link_relations),
+                "csp_reports": sorted(self.csp_report_uris),
+                "well_known_links": sorted(self.well_known_links),
+                "config_endpoints": sorted(self.config_endpoints),
+                "certificate": self.certificate,
+                "endpoints": endpoints,
+            }
+
+    def render_highlights(self) -> str:
+        with self.lock:
+            highlights = []
+            if self.technologies:
+                highlights.append(f"Technologies: {', '.join(sorted(self.technologies))}")
+            if self.auth_schemes:
+                highlights.append(f"Auth schemes: {', '.join(sorted(self.auth_schemes))}")
+            if self.graphql_operations:
+                highlights.append(
+                    "GraphQL operations: " + ", ".join(sorted(list(self.graphql_operations))[:6])
+                )
+            if self.spec_documents:
+                highlights.append(f"Spec clues: {', '.join(sorted(self.spec_documents))}")
+            if self.websocket_links:
+                highlights.append(f"WebSocket hints: {len(self.websocket_links)}")
+            if self.link_relations:
+                highlights.append(f"Link headers: {len(self.link_relations)} targets")
+            if self.csp_report_uris:
+                previews = ", ".join(sorted(list(self.csp_report_uris))[:3])
+                highlights.append(f"CSP reporting: {previews}")
+            if self.well_known_links:
+                highlights.append(f"Well-known paths: {len(self.well_known_links)}")
+            if self.config_endpoints:
+                highlights.append(f"Config endpoints: {len(self.config_endpoints)}")
+            if self.certificate:
+                subject = self.certificate.get("subject") if isinstance(self.certificate, dict) else None
+                if subject:
+                    highlights.append(f"TLS subject: {subject}")
+                expiry = self.certificate.get("expires") if isinstance(self.certificate, dict) else None
+                if expiry:
+                    highlights.append(f"TLS expires: {expiry}")
+            if self.passive_hosts:
+                highlights.append(
+                    "Passive hosts: "
+                    + ", ".join(sorted(list(self.passive_hosts))[:4])
+                    + ("…" if len(self.passive_hosts) > 4 else "")
+                )
+            if self.robots_paths:
+                highlights.append(
+                    "Robots hints: "
+                    + ", ".join(sorted(list(self.robots_paths))[:3])
+                    + ("…" if len(self.robots_paths) > 3 else "")
+                )
+            if self.sitemap_urls:
+                highlights.append(
+                    "Sitemap URLs: "
+                    + ", ".join(sorted(list(self.sitemap_urls))[:3])
+                    + ("…" if len(self.sitemap_urls) > 3 else "")
+                )
+        if not highlights:
+            return ""
+        return "Forensics highlights:\n  • " + "\n  • ".join(highlights)
+
+
 class DirBruteForcer:
-    def __init__(self, base_url, wordlist_file, settings, on_found, on_finish, on_progress=None):
+    def __init__(
+        self,
+        base_url,
+        wordlist_file,
+        settings,
+        on_found,
+        on_finish,
+        on_progress=None,
+        on_certificate=None,
+    ):
         self.base_url = base_url.rstrip("/")
         self.wordlist_file = wordlist_file
         self.settings = settings
         self.on_found = on_found
         self.on_finish = on_finish
         self.on_progress = on_progress or (lambda p: None)
+        self.on_certificate = on_certificate
         self.to_scan: queue.Queue = queue.Queue()
         self.seen = set()
         self.path_seen = set()
@@ -271,6 +760,11 @@ class DirBruteForcer:
         self.baseline_snapshot: dict[str, int] = {}
         self.current_snapshot: dict[str, int] = {}
         self.baseline_highlights = {"new": 0, "changed": 0, "retired": 0, "retired_items": []}
+        self.forensics = APISurfaceReport(self.base_url)
+        self.proxies: Optional[dict[str, str]] = None
+        self.certificate_info: Optional[dict[str, Any]] = None
+        base_reference = self.base_url if "://" in self.base_url else f"http://{self.base_url}"
+        self.base_host = urllib.parse.urlsplit(base_reference).netloc
 
     def load_wordlist(self):
         with open(self.wordlist_file, "r", encoding="utf-8", errors="ignore") as fh:
@@ -307,6 +801,257 @@ class DirBruteForcer:
         if self.settings.data.get("probe_cors", True):
             headers.setdefault("Origin", self.cors_origin)
         return headers
+
+    def _build_proxies(self) -> Optional[dict[str, str]]:
+        enabled = self.settings.data.get("burp_proxy_enabled")
+        if isinstance(enabled, str):
+            enabled = enabled.lower() in {"1", "true", "yes", "on"}
+        if not enabled:
+            return None
+        host = str(self.settings.data.get("burp_proxy_host", "")).strip()
+        port_value = self.settings.data.get("burp_proxy_port", 0)
+        try:
+            port = int(port_value)
+        except (TypeError, ValueError):
+            return None
+        if not host or port <= 0:
+            return None
+        address = f"http://{host}:{port}"
+        return {"http": address, "https": address}
+
+    def _fetch_certificate(self, target_url: str) -> Optional[dict[str, Any]]:
+        try:
+            parsed = urllib.parse.urlsplit(target_url)
+        except Exception:
+            return None
+        if parsed.scheme.lower() != "https":
+            return None
+        host = parsed.hostname
+        if not host:
+            return None
+        port = parsed.port or 443
+        context = ssl.create_default_context()
+        try:
+            with socket.create_connection((host, port), timeout=min(10, self._get_timeout() + 5)) as sock:
+                with context.wrap_socket(sock, server_hostname=host) as wrapped:
+                    cert = wrapped.getpeercert()
+        except Exception:
+            return None
+        subject = dict(x[0] for x in cert.get("subject", [])).get("commonName")
+        issuer = dict(x[0] for x in cert.get("issuer", [])).get("commonName")
+        not_after = cert.get("notAfter")
+        expires = None
+        if not_after:
+            try:
+                expires_dt = datetime.strptime(not_after, "%b %d %H:%M:%S %Y %Z")
+                expires = expires_dt.isoformat()
+            except Exception:
+                expires = not_after
+        alt_names = [
+            entry[1]
+            for entry in cert.get("subjectAltName", [])
+            if isinstance(entry, tuple) and len(entry) == 2 and entry[0].lower() == "dns"
+        ]
+        return {
+            "subject": subject or host,
+            "issuer": issuer,
+            "expires": expires,
+            "alt_names": alt_names,
+        }
+
+    def _looks_like_url(self, value: str) -> bool:
+        if not value or not isinstance(value, str):
+            return False
+        if value.startswith(("mailto:", "javascript:")):
+            return False
+        if value.startswith("//"):
+            return True
+        parsed = urllib.parse.urlparse(value)
+        if parsed.scheme and parsed.netloc:
+            return True
+        if value.startswith("/"):
+            return True
+        return False
+
+    def _extract_links_from_json(self, payload: Any) -> set[str]:
+        hits: set[str] = set()
+        if isinstance(payload, dict):
+            for key, value in payload.items():
+                if isinstance(value, str) and self._looks_like_url(value):
+                    hits.add(value)
+                elif isinstance(value, (dict, list)):
+                    hits.update(self._extract_links_from_json(value))
+        elif isinstance(payload, list):
+            for item in payload:
+                hits.update(self._extract_links_from_json(item))
+        return hits
+
+    def _passive_discovery(
+        self,
+        target: str,
+        body_text: str,
+        content_type: str,
+        json_payload: Any,
+    ) -> dict[str, set[str]]:
+        findings: dict[str, set[str]] = {
+            "paths": set(),
+            "asset_links": set(),
+            "form_targets": set(),
+            "json_links": set(),
+            "host_hints": set(),
+            "robots_paths": set(),
+            "sitemap_urls": set(),
+            "websocket_links": set(),
+            "config_endpoints": set(),
+            "well_known_links": set(),
+            "link_relations": set(),
+            "csp_reports": set(),
+        }
+        if not body_text:
+            return findings
+        lowered = body_text.lower()
+        lower_type = (content_type or "").lower()
+        base_reference = self.base_url if "://" in self.base_url else f"http://{self.base_url}"
+        base_host = urllib.parse.urlsplit(base_reference).netloc
+
+        def register(value: str, bucket: str, allow_external: bool = False) -> None:
+            if not value:
+                return
+            candidate = value.strip()
+            if not candidate or candidate.startswith("#"):
+                return
+            if candidate.startswith("//"):
+                candidate = f"https:{candidate}"
+            if candidate.startswith(("mailto:", "javascript:")):
+                return
+            parsed = urllib.parse.urlparse(candidate)
+            if parsed.scheme and parsed.netloc:
+                host = parsed.netloc
+                if host == base_host:
+                    findings[bucket].add(candidate)
+                elif allow_external:
+                    findings[bucket].add(candidate)
+                else:
+                    findings["host_hints"].add(host)
+            else:
+                findings[bucket].add(candidate)
+
+        if "html" in lower_type or "<html" in lowered:
+            for href in re.findall(r'href=["\']([^"\']+)["\']', body_text, flags=re.IGNORECASE):
+                register(href, "paths")
+            for action in re.findall(r'action=["\']([^"\']+)["\']', body_text, flags=re.IGNORECASE):
+                register(action, "form_targets")
+            for script in re.findall(r'src=["\']([^"\']+\.js)["\']', body_text, flags=re.IGNORECASE):
+                register(script, "asset_links")
+            for fetch_call in re.findall(r'fetch\((?:"|\')([^"\']+)', body_text, flags=re.IGNORECASE):
+                register(fetch_call, "json_links")
+            for ajax_call in re.findall(r'axios\.[a-z]+\((?:"|\')([^"\']+)', body_text, flags=re.IGNORECASE):
+                register(ajax_call, "json_links")
+
+        if isinstance(json_payload, (dict, list)):
+            extracted = self._extract_links_from_json(json_payload)
+            for link in extracted:
+                register(link, "json_links", allow_external=True)
+                if ".well-known/" in link:
+                    register(link, "well_known_links", allow_external=True)
+
+        for quoted in re.findall(r'"(/[A-Za-z0-9_\-\./]{3,})"', body_text):
+            if quoted.startswith("//"):
+                continue
+            register(quoted, "paths")
+
+        for ws_link in re.findall(r'wss?://[^"\'\s<>]+', body_text, flags=re.IGNORECASE):
+            register(ws_link, "websocket_links", allow_external=True)
+
+        for config_hit in re.findall(
+            r"(?i)(?:api|endpoint|base)[-_]?(?:url|uri)\s*(?:[:=]|=>)\s*[\"']([^\"']+)",
+            body_text,
+        ):
+            register(config_hit, "config_endpoints", allow_external=True)
+
+        for well_known in re.findall(r"[\"'](/\.well-known/[^\"'\s<>]+)", body_text):
+            register(well_known, "well_known_links")
+
+        if target.lower().endswith("robots.txt"):
+            for line in body_text.splitlines():
+                parts = line.split(":", 1)
+                if len(parts) != 2:
+                    continue
+                directive, value = parts[0].strip().lower(), parts[1].strip()
+                if directive in {"disallow", "allow"} and value:
+                    register(value, "robots_paths")
+
+        if "<urlset" in lowered or "<sitemapindex" in lowered:
+            for match in re.findall(r"<loc>([^<]+)</loc>", body_text, flags=re.IGNORECASE):
+                register(match.strip(), "sitemap_urls", allow_external=True)
+
+        return findings
+
+    def _parse_link_header(self, header: str) -> set[str]:
+        if not header:
+            return set()
+        parts = re.split(r",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", header)
+        links: set[str] = set()
+        for part in parts:
+            fragment = part.strip()
+            if not fragment or not fragment.startswith("<"):
+                continue
+            closing = fragment.find(">")
+            if closing == -1:
+                continue
+            url = fragment[1:closing].strip()
+            if url:
+                links.add(url)
+        return links
+
+    def _extract_csp_reports(self, header: str) -> set[str]:
+        reports: set[str] = set()
+        if not header:
+            return reports
+        for directive in header.split(";"):
+            cleaned = directive.strip()
+            if not cleaned:
+                continue
+            lower = cleaned.lower()
+            if lower.startswith("report-uri"):
+                tokens = cleaned.split(None, 1)
+                if len(tokens) == 2:
+                    for candidate in tokens[1].split():
+                        clean = candidate.strip()
+                        if clean and (
+                            clean.startswith("http://")
+                            or clean.startswith("https://")
+                            or clean.startswith("/")
+                        ):
+                            reports.add(clean)
+        return reports
+
+    def _extract_report_to_header(self, header: str) -> set[str]:
+        endpoints: set[str] = set()
+        if not header:
+            return endpoints
+        candidates = []
+        try:
+            parsed = json.loads(header)
+            candidates = parsed if isinstance(parsed, list) else [parsed]
+        except Exception:
+            try:
+                parsed = json.loads(f"[{header}]")
+                candidates = parsed if isinstance(parsed, list) else []
+            except Exception:
+                return endpoints
+        for item in candidates:
+            if not isinstance(item, dict):
+                continue
+            reports = item.get("endpoints")
+            if not isinstance(reports, list):
+                continue
+            for entry in reports:
+                if isinstance(entry, dict):
+                    url = entry.get("url")
+                    if url:
+                        endpoints.add(str(url))
+        return endpoints
 
     def _get_delay_jitter(self):
         try:
@@ -377,6 +1122,9 @@ class DirBruteForcer:
     def start(self):
         if self.running:
             return
+        if not urllib.parse.urlsplit(self.base_url).scheme:
+            self.base_url = f"http://{self.base_url}"
+            self.forensics.base_url = self.base_url.rstrip("/")
         try:
             words = self.load_wordlist()
         except FileNotFoundError:
@@ -401,6 +1149,9 @@ class DirBruteForcer:
         self.enable_preflight = bool(self.settings.data.get("enable_preflight", True))
         self.user_agent = self.settings.data.get("user_agent", Settings.DEFAULTS["user_agent"])
         self.base_headers = self._build_headers(self.user_agent)
+        self.proxies = self._build_proxies()
+        base_reference = self.base_url if "://" in self.base_url else f"http://{self.base_url}"
+        self.base_host = urllib.parse.urlsplit(base_reference).netloc
         self.total = len(self.word_variants) * self.method_count
         self.intel_paths = self._parse_intel_paths()
         store = self._read_baseline_store()
@@ -417,6 +1168,19 @@ class DirBruteForcer:
         if self.enable_preflight:
             self.total += len(self.preflight_targets) * self.method_count
         self.to_scan.put((normalized_base, 0))
+
+        def gather_certificate():
+            info = self._fetch_certificate(base_reference)
+            if info:
+                self.certificate_info = info
+                self.forensics.attach_certificate(info)
+                if callable(self.on_certificate):
+                    try:
+                        self.on_certificate(dict(info))
+                    except Exception:
+                        pass
+
+        threading.Thread(target=gather_certificate, daemon=True).start()
 
         if self.enable_preflight and self.preflight_targets:
             self.preflight_thread = threading.Thread(target=self._run_preflight, daemon=True)
@@ -487,6 +1251,7 @@ class DirBruteForcer:
                                 timeout=timeout,
                                 allow_redirects=follow_redirects,
                                 headers=headers,
+                                proxies=self.proxies,
                             )
                         except requests.RequestException:
                             self._update_progress()
@@ -527,6 +1292,7 @@ class DirBruteForcer:
                         timeout=timeout,
                         allow_redirects=follow_redirects,
                         headers=headers,
+                        proxies=self.proxies,
                     )
                 except requests.RequestException:
                     self._update_progress()
@@ -710,6 +1476,73 @@ class DirBruteForcer:
         else:
             delta = "BASELINE"
         intel_notes = [note for note in intel_notes if note]
+        if getattr(response, "url", None):
+            parsed_final = urllib.parse.urlsplit(response.url)
+            aggregator_url = urllib.parse.urlunsplit(
+                (parsed_final.scheme, parsed_final.netloc, parsed_final.path, "", parsed_final.fragment)
+            )
+        else:
+            aggregator_url = normalized_target
+        json_payload = None
+        if "json" in content_type.lower():
+            try:
+                json_payload = response.json()
+            except Exception:
+                json_payload = None
+        passive = self._passive_discovery(aggregator_url, body_text, content_type, json_payload)
+        header_links = self._parse_link_header(response.headers.get("Link", ""))
+        location = response.headers.get("Location")
+        if location:
+            header_links.add(location)
+        if header_links:
+            passive["link_relations"].update(header_links)
+        csp_reports = self._extract_csp_reports(response.headers.get("Content-Security-Policy", ""))
+        csp_reports.update(self._extract_report_to_header(response.headers.get("Report-To", "")))
+        if csp_reports:
+            passive["csp_reports"].update(csp_reports)
+        if passive["form_targets"]:
+            intel_notes.append(f"Passive forms → {len(passive['form_targets'])}")
+        if passive["asset_links"]:
+            intel_notes.append(f"JavaScript assets → {len(passive['asset_links'])}")
+        if passive["json_links"]:
+            intel_notes.append(f"Inline endpoints → {len(passive['json_links'])}")
+        if passive["robots_paths"]:
+            intel_notes.append(f"Robots intel → {len(passive['robots_paths'])}")
+        if passive["sitemap_urls"]:
+            intel_notes.append(f"Sitemap intel → {len(passive['sitemap_urls'])}")
+        if passive["host_hints"]:
+            intel_notes.append(f"Alt hosts hinted → {len(passive['host_hints'])}")
+        if passive["websocket_links"]:
+            intel_notes.append(f"WebSockets → {len(passive['websocket_links'])}")
+        if passive["config_endpoints"]:
+            intel_notes.append(f"Config endpoints → {len(passive['config_endpoints'])}")
+        if passive["well_known_links"]:
+            intel_notes.append(f".well-known intel → {len(passive['well_known_links'])}")
+        if passive["link_relations"]:
+            intel_notes.append(f"Header links → {len(passive['link_relations'])}")
+        if passive["csp_reports"]:
+            intel_notes.append(f"CSP reporting → {len(passive['csp_reports'])}")
+        forensics_snapshot = self.forensics.ingest(
+            aggregator_url,
+            method,
+            response,
+            body_text,
+            list(intel_notes),
+            list(secret_hits),
+            passive["paths"],
+            asset_links=passive["asset_links"],
+            form_targets=passive["form_targets"],
+            json_links=passive["json_links"],
+            host_hints=passive["host_hints"],
+            robots_paths=passive["robots_paths"],
+            sitemap_urls=passive["sitemap_urls"],
+            websocket_links=passive["websocket_links"],
+            link_relations=passive["link_relations"],
+            csp_reports=passive["csp_reports"],
+            well_known_links=passive["well_known_links"],
+            config_endpoints=passive["config_endpoints"],
+            json_payload=json_payload,
+        )
         info = {
             "url": target,
             "method": method,
@@ -725,26 +1558,43 @@ class DirBruteForcer:
             "secrets": len(secret_hits),
             "delta": delta,
             "previous_status": previous_status,
+            "forensics": forensics_snapshot,
         }
         self.on_found(info)
 
         self.current_snapshot[signature] = code
+        queue_candidates: set[str] = set()
         if "text/html" in content_type:
+            queue_candidates.add(normalized_target)
+        for bucket in [
+            "paths",
+            "form_targets",
+            "json_links",
+            "robots_paths",
+            "sitemap_urls",
+            "config_endpoints",
+            "well_known_links",
+            "link_relations",
+        ]:
+            queue_candidates.update(passive[bucket])
+        for script in passive["asset_links"]:
+            queue_candidates.add(script)
+        for item in queue_candidates:
+            if item == normalized_target:
+                absolute = normalized_target
+            elif item.startswith("http://") or item.startswith("https://"):
+                absolute = item
+            else:
+                absolute = urllib.parse.urljoin(f"{self.base_url}/", item.lstrip("/"))
+            parsed_candidate = urllib.parse.urlsplit(absolute)
+            if parsed_candidate.netloc and self.base_host and parsed_candidate.netloc != self.base_host:
+                continue
+            normalized = self._normalize(absolute)
             with self.lock:
-                if normalized_target not in self.path_seen:
-                    self.path_seen.add(normalized_target)
+                if normalized not in self.path_seen:
+                    self.path_seen.add(normalized)
                     self.total += len(self.word_variants) * self.method_count
-                    self.to_scan.put((normalized_target, depth + 1))
-
-        if "application/json" in content_type or "text" in content_type:
-            for path in self._discover_paths(response):
-                absolute = urllib.parse.urljoin(f"{self.base_url}/", path.lstrip("/"))
-                normalized = self._normalize(absolute)
-                with self.lock:
-                    if normalized not in self.path_seen:
-                        self.path_seen.add(normalized)
-                        self.total += len(self.word_variants) * self.method_count
-                        self.to_scan.put((normalized, depth + 1))
+                    self.to_scan.put((normalized, depth + 1))
 
     def _update_progress(self):
         with self.lock:
@@ -788,7 +1638,7 @@ class App(tk.Tk):
         super().__init__()
         self.title("HackXpert API Surface Explorer")
         self.geometry("960x720")
-        self.configure(bg="#0f172a")
+        self.configure(bg="#020617")
         self.settings = Settings()
         self.forcers = {}
         self.scan_count = 0
@@ -796,6 +1646,10 @@ class App(tk.Tk):
         self.wordlist_store.mkdir(parents=True, exist_ok=True)
         self._wordlist_helpers = []
         self.api_tree_results = {}
+        self.console: Optional[ScrolledText] = None
+        self.certificate_vars: dict[str, tk.StringVar] = {}
+        self.latest_certificate: Optional[dict[str, Any]] = None
+        self.proxy_status_var = tk.StringVar(value="Proxy: direct")
 
         self._init_style()
         self._build_header()
@@ -807,27 +1661,40 @@ class App(tk.Tk):
             style.theme_use("clam")
         except tk.TclError:
             pass
-        primary = "#0f172a"
-        accent = "#22d3ee"
+        primary = "#020617"
+        panel = "#050b18"
+        accent = "#3bff95"
+        highlight = "#5eead4"
         style.configure("TFrame", background=primary)
         style.configure("Header.TFrame", background=primary)
-        style.configure("Card.TFrame", background="#111827", relief="ridge", borderwidth=1)
+        style.configure("Card.TFrame", background=panel, relief="ridge", borderwidth=1)
+        style.configure("ConsoleFrame.TFrame", background=panel, relief="ridge", borderwidth=1)
         style.configure("TNotebook", background=primary, borderwidth=0)
-        style.configure("TNotebook.Tab", padding=(12, 6), background="#1f2937", foreground="#e2e8f0")
-        style.map("TNotebook.Tab", background=[("selected", "#22d3ee")], foreground=[("selected", "#0f172a")])
+        style.configure("TNotebook.Tab", padding=(14, 6), background="#0b162d", foreground="#9ca3af")
+        style.map("TNotebook.Tab", background=[("selected", accent)], foreground=[("selected", "#02111b")])
         style.configure("TLabel", background=primary, foreground="#e2e8f0")
-        style.configure("Accent.TLabel", background=primary, foreground=accent, font=("Helvetica", 16, "bold"))
-        style.configure("TButton", background="#1f2937", foreground="#e2e8f0", padding=(10, 5))
-        style.map("TButton", background=[("active", accent)], foreground=[("active", "#0f172a")])
-        style.configure("Treeview", background="#0f172a", fieldbackground="#0f172a", foreground="#e2e8f0", bordercolor="#22d3ee", rowheight=26)
-        style.configure("Treeview.Heading", background="#1e293b", foreground="#38bdf8", font=("Helvetica", 11, "bold"))
-        style.configure("HUDCard.TFrame", background="#1e293b", relief="ridge", borderwidth=1)
-        style.configure("StatLabel.TLabel", background="#1e293b", foreground="#38bdf8", font=("Helvetica", 10, "bold"))
-        style.configure("StatValuePrimary.TLabel", background="#1e293b", foreground="#22d3ee", font=("Helvetica", 20, "bold"))
-        style.configure("StatValueAlert.TLabel", background="#1e293b", foreground="#f87171", font=("Helvetica", 20, "bold"))
-        style.configure("StatValueSuccess.TLabel", background="#1e293b", foreground="#4ade80", font=("Helvetica", 20, "bold"))
-        style.configure("StatValueFocus.TLabel", background="#1e293b", foreground="#f472b6", font=("Helvetica", 20, "bold"))
-        style.configure("StatusBadge.TLabel", background="#111827", foreground="#fbbf24", font=("Helvetica", 12, "bold"))
+        style.configure("Accent.TLabel", background=primary, foreground=accent, font=("Share Tech Mono", 18, "bold"))
+        style.configure("Glitch.TLabel", background=primary, foreground=highlight, font=("Share Tech Mono", 14, "bold"))
+        style.configure("TButton", background="#0b162d", foreground="#e2e8f0", padding=(12, 6))
+        style.map("TButton", background=[("active", accent)], foreground=[("active", "#02111b")])
+        style.configure(
+            "Treeview",
+            background="#030b16",
+            fieldbackground="#030b16",
+            foreground="#9ca3af",
+            bordercolor=accent,
+            rowheight=26,
+        )
+        style.configure("Treeview.Heading", background="#041024", foreground=accent, font=("Share Tech Mono", 11, "bold"))
+        style.configure("HUDCard.TFrame", background="#071127", relief="ridge", borderwidth=1)
+        style.configure("StatLabel.TLabel", background="#071127", foreground=highlight, font=("Share Tech Mono", 10, "bold"))
+        style.configure("StatValuePrimary.TLabel", background="#071127", foreground=accent, font=("Share Tech Mono", 20, "bold"))
+        style.configure("StatValueAlert.TLabel", background="#071127", foreground="#f97316", font=("Share Tech Mono", 20, "bold"))
+        style.configure("StatValueSuccess.TLabel", background="#071127", foreground="#4ade80", font=("Share Tech Mono", 20, "bold"))
+        style.configure("StatValueFocus.TLabel", background="#071127", foreground="#f472b6", font=("Share Tech Mono", 20, "bold"))
+        style.configure("StatusBadge.TLabel", background=panel, foreground="#fbbf24", font=("Share Tech Mono", 12, "bold"))
+        style.configure("TLSValue.TLabel", background=panel, foreground=accent, font=("Share Tech Mono", 11, "bold"))
+        style.configure("ConsoleTitle.TLabel", background=panel, foreground=accent, font=("Share Tech Mono", 12, "bold"))
 
     def _sanitize_wordlist_name(self, name: str) -> str:
         cleaned = re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
@@ -863,7 +1730,7 @@ class App(tk.Tk):
     def _download_wordlist(self, name: str, url: str, path: Optional[Path] = None) -> Optional[Path]:
         destination = path or self.wordlist_store / f"{self._sanitize_wordlist_name(name)}.txt"
         try:
-            response = requests.get(url, timeout=30)
+            response = requests.get(url, timeout=30, proxies=self._current_proxies())
             response.raise_for_status()
         except Exception as exc:
             messagebox.showerror("Wordlist Download Failed", f"Could not fetch {name}: {exc}")
@@ -1040,20 +1907,30 @@ class App(tk.Tk):
         except Exception:
             pass
 
-        tagline = ttk.Label(header, text="Discover hidden API endpoints with style ✨", style="Accent.TLabel")
-        tagline.pack(side="left", padx=10)
+        text_frame = ttk.Frame(header, style="Header.TFrame")
+        text_frame.pack(side="left", padx=10)
+        ttk.Label(text_frame, text="HACKXPERT // API RECON LAB", style="Accent.TLabel").pack(anchor="w")
+        ttk.Label(text_frame, text="Neon forensics, passive intel, Burp chaining", style="Glitch.TLabel").pack(anchor="w")
 
-        self.progress = ttk.Progressbar(header, mode="determinate", length=240)
-        self.progress.pack(side="right", padx=10)
-
+        links_frame = ttk.Frame(header, style="Header.TFrame")
+        links_frame.pack(side="right", padx=10)
         for text, url in [
+            ("Docs", "https://github.com/thexssrat/hackxpert"),
             ("Hackxpert Labs", "https://labs.hackxpert.com/"),
-            ("X", "https://x.com/theXSSrat"),
-            ("Courses", "https://thexssrat.com/"),
+            ("@theXSSrat", "https://x.com/theXSSrat"),
         ]:
-            link = ttk.Label(header, text=text, foreground="#38bdf8", cursor="hand2")
-            link.pack(side="right", padx=5)
+            link = ttk.Label(links_frame, text=text, style="Glitch.TLabel", cursor="hand2")
+            link.pack(side="right", padx=6)
             link.bind("<Button-1>", lambda _e, target=url: webbrowser.open(target))
+
+        ttk.Label(header, textvariable=self.proxy_status_var, style="Glitch.TLabel").pack(side="right", padx=10)
+
+        progress_frame = ttk.Frame(header, style="Header.TFrame")
+        progress_frame.pack(side="right", padx=10)
+        ttk.Label(progress_frame, text="Recon Progress", style="Glitch.TLabel").pack(anchor="e")
+        self.progress = ttk.Progressbar(progress_frame, mode="determinate", length=260)
+        self.progress.pack(anchor="e", pady=2)
+        self._update_proxy_status()
 
     def _build_notebook(self):
         self.nb = ttk.Notebook(self)
@@ -1103,7 +1980,8 @@ class App(tk.Tk):
 
         ttk.Label(
             frame,
-            text="HackXpert merges its custom essentials with open-source wordlists when you opt in.",
+            text="Stack HackXpert's bespoke API lists with OSINT mega packs for full-spectrum recon.",
+            style="Glitch.TLabel",
         ).grid(row=0, column=0, columnspan=3, padx=5, pady=(8, 2), sticky="w")
 
         ttk.Label(frame, text="API Base URL:").grid(row=1, column=0, padx=5, pady=5, sticky="e")
@@ -1171,12 +2049,43 @@ class App(tk.Tk):
             ttk.Label(card, text=label, style="StatLabel.TLabel").pack(anchor="w")
             ttk.Label(card, textvariable=self.hud_metrics[key], style=style_name).pack(anchor="w")
 
+        tls_frame = ttk.Frame(frame, style="Card.TFrame")
+        tls_frame.grid(row=7, column=0, columnspan=3, sticky="ew", padx=5, pady=(0, 10))
+        ttk.Label(tls_frame, text="TLS Reconnaissance", style="Glitch.TLabel").grid(row=0, column=0, padx=12, pady=(8, 2), sticky="w")
+        labels = [
+            ("Subject", "subject"),
+            ("Issuer", "issuer"),
+            ("Expires", "expires"),
+            ("Alt Names", "alt"),
+        ]
+        self.certificate_vars = {key: tk.StringVar(value="-") for _, key in labels}
+        for idx, (label, key) in enumerate(labels, start=1):
+            ttk.Label(tls_frame, text=f"{label}:", style="StatLabel.TLabel").grid(row=idx, column=0, padx=16, pady=2, sticky="w")
+            ttk.Label(tls_frame, textvariable=self.certificate_vars[key], style="TLSValue.TLabel").grid(
+                row=idx, column=1, padx=6, pady=2, sticky="w"
+            )
+
         status_frame = ttk.Frame(frame, style="Card.TFrame")
-        status_frame.grid(row=7, column=0, columnspan=3, sticky="ew", padx=5, pady=(0, 15))
+        status_frame.grid(row=8, column=0, columnspan=3, sticky="ew", padx=5, pady=(0, 10))
         self.status_var = tk.StringVar(value="Awaiting mission launch…")
         ttk.Label(status_frame, textvariable=self.status_var, style="StatusBadge.TLabel").pack(
             anchor="w", padx=12, pady=8
         )
+
+        console_frame = ttk.Frame(frame, style="ConsoleFrame.TFrame")
+        console_frame.grid(row=9, column=0, columnspan=3, sticky="nsew", padx=5, pady=(0, 12))
+        ttk.Label(console_frame, text="Recon Console", style="ConsoleTitle.TLabel").pack(anchor="w", padx=12, pady=(8, 0))
+        self.console = ScrolledText(
+            console_frame,
+            height=8,
+            bg="#010409",
+            fg="#3bff95",
+            insertbackground="#3bff95",
+            font=("Share Tech Mono", 10),
+        )
+        self.console.pack(fill="both", expand=True, padx=10, pady=(4, 10))
+        self.console.configure(state="disabled")
+        frame.grid_rowconfigure(9, weight=1)
 
     def _build_endpoint_explorer(self):
         frame = ttk.Frame(self.nb, style="Card.TFrame")
@@ -1257,6 +2166,60 @@ class App(tk.Tk):
         status_frame.grid(row=7, column=0, columnspan=3, sticky="ew", padx=10, pady=(0, 10))
         self.api_status_var = tk.StringVar(value="Idle — feed the explorer a target and wordlist.")
         ttk.Label(status_frame, textvariable=self.api_status_var, style="StatusBadge.TLabel").pack(anchor="w", padx=4, pady=4)
+
+    def _log_console(self, message: str) -> None:
+        if not self.console:
+            return
+        timestamp = time.strftime("%H:%M:%S")
+        self.console.configure(state="normal")
+        self.console.insert("end", f"[{timestamp}] {message}\n")
+        self.console.see("end")
+        self.console.configure(state="disabled")
+
+    def _current_proxies(self) -> Optional[dict[str, str]]:
+        enabled = self.settings.data.get("burp_proxy_enabled")
+        if isinstance(enabled, str):
+            enabled = enabled.lower() in {"1", "true", "yes", "on"}
+        if not enabled:
+            return None
+        host = str(self.settings.data.get("burp_proxy_host", "")).strip()
+        port_value = self.settings.data.get("burp_proxy_port", 0)
+        try:
+            port = int(port_value)
+        except (TypeError, ValueError):
+            return None
+        if not host or port <= 0:
+            return None
+        address = f"http://{host}:{port}"
+        return {"http": address, "https": address}
+
+    def _update_proxy_status(self) -> None:
+        proxies = self._current_proxies()
+        if proxies:
+            host = str(self.settings.data.get("burp_proxy_host", "127.0.0.1")).strip() or "127.0.0.1"
+            port = self.settings.data.get("burp_proxy_port", 8080)
+            self.proxy_status_var.set(f"Proxy: Burp {host}:{port}")
+        else:
+            self.proxy_status_var.set("Proxy: direct")
+
+    def _on_certificate_ready(self, info: dict[str, Any]) -> None:
+        self.latest_certificate = info
+        subject = info.get("subject") or "-"
+        issuer = info.get("issuer") or "-"
+        expires = info.get("expires") or "-"
+        alt_names = info.get("alt_names") or []
+        alt_display = ", ".join(str(name) for name in alt_names[:4])
+        if len(alt_names) > 4:
+            alt_display += ", …"
+        if "subject" in self.certificate_vars:
+            self.certificate_vars["subject"].set(subject)
+        if "issuer" in self.certificate_vars:
+            self.certificate_vars["issuer"].set(issuer)
+        if "expires" in self.certificate_vars:
+            self.certificate_vars["expires"].set(expires)
+        if "alt" in self.certificate_vars:
+            self.certificate_vars["alt"].set(alt_display or "-")
+        self._log_console(f"[TLS] {subject} issued by {issuer}, expires {expires}")
 
     def _build_parameter_explorer(self):
         frame = ttk.Frame(self.nb, style="Card.TFrame")
@@ -1391,6 +2354,7 @@ class App(tk.Tk):
         if not parsed.scheme:
             base_url = f"http://{base_url}"
         headers = self._compose_headers_from_settings()
+        self._log_console(f"[*] API explorer scanning {base_url}")
         specs = [
             "/openapi.json",
             "/swagger.json",
@@ -1405,7 +2369,13 @@ class App(tk.Tk):
         for path in specs:
             target = urllib.parse.urljoin(f"{base_url.rstrip('/')}/", path.lstrip("/"))
             try:
-                response = requests.get(target, headers=headers, timeout=timeout, allow_redirects=True)
+                response = requests.get(
+                    target,
+                    headers=headers,
+                    timeout=timeout,
+                    allow_redirects=True,
+                    proxies=self._current_proxies(),
+                )
                 length = len(response.content)
                 info = {
                     "url": target,
@@ -1418,6 +2388,7 @@ class App(tk.Tk):
                 }
                 if response.status_code < 400:
                     spec_hits += 1
+                    self._log_console(f"[+] Spec hit {path} -> {response.status_code}")
                 self.after(0, lambda data=info: self._insert_api_result(self.api_specs_node, data))
             except Exception as exc:
                 note = {
@@ -1536,6 +2507,7 @@ class App(tk.Tk):
                     headers=merged_headers,
                     timeout=timeout,
                     allow_redirects=self.settings.data.get("follow_redirects", True),
+                    proxies=self._current_proxies(),
                 )
             except Exception as exc:
                 messagebox.showerror("Request", f"Request failed: {exc}")
@@ -1607,6 +2579,7 @@ class App(tk.Tk):
             )
         else:
             self.param_status_var.set(f"Fuzzing {len(payloads)} parameters against {target}…")
+        self._log_console(f"[*] Parameter fuzzing {len(payloads)} payloads against {target}")
         thread = threading.Thread(
             target=self._run_parameter_fuzzer,
             args=(target, method, payloads, headers, body),
@@ -1635,6 +2608,7 @@ class App(tk.Tk):
                 headers=headers,
                 timeout=timeout,
                 allow_redirects=redirect_flag,
+                proxies=self._current_proxies(),
             )
             baseline_status = baseline_resp.status_code
             baseline_length = len(baseline_resp.content)
@@ -1653,6 +2627,7 @@ class App(tk.Tk):
                     headers=headers,
                     timeout=timeout,
                     allow_redirects=redirect_flag,
+                    proxies=self._current_proxies(),
                 )
                 status = response.status_code
                 length = len(response.content)
@@ -1766,22 +2741,36 @@ class App(tk.Tk):
             row=row_offset + 2, column=1, sticky="w", padx=5, pady=5
         )
 
+        self.burp_enabled = tk.BooleanVar(value=bool(self.settings.data.get("burp_proxy_enabled", False)))
+        ttk.Checkbutton(
+            frame,
+            text="Route traffic through Burp Suite",
+            variable=self.burp_enabled,
+        ).grid(row=row_offset + 3, column=1, sticky="w", padx=5, pady=5)
+
+        ttk.Label(frame, text="Burp host:").grid(row=row_offset + 4, column=0, sticky="w", padx=5, pady=2)
+        self.burp_host_var = tk.StringVar(value=str(self.settings.data.get("burp_proxy_host", "127.0.0.1")))
+        ttk.Entry(frame, textvariable=self.burp_host_var, width=24).grid(row=row_offset + 4, column=1, sticky="w", padx=5, pady=2)
+        ttk.Label(frame, text="Burp port:").grid(row=row_offset + 5, column=0, sticky="w", padx=5, pady=2)
+        self.burp_port_var = tk.StringVar(value=str(self.settings.data.get("burp_proxy_port", 8080)))
+        ttk.Entry(frame, textvariable=self.burp_port_var, width=12).grid(row=row_offset + 5, column=1, sticky="w", padx=5, pady=2)
+
         ttk.Label(frame, text="Custom Headers (Header: value)").grid(
-            row=row_offset + 3, column=0, columnspan=2, sticky="w", padx=5
+            row=row_offset + 6, column=0, columnspan=2, sticky="w", padx=5
         )
         self._headers_text = ScrolledText(frame, height=4, width=40)
-        self._headers_text.grid(row=row_offset + 4, column=0, columnspan=2, padx=5, pady=5, sticky="we")
+        self._headers_text.grid(row=row_offset + 7, column=0, columnspan=2, padx=5, pady=5, sticky="we")
         self._headers_text.insert("1.0", str(self.settings.data.get("extra_headers", "")))
 
         ttk.Label(frame, text="Intel Paths (comma or newline separated)").grid(
-            row=row_offset + 5, column=0, columnspan=2, sticky="w", padx=5
+            row=row_offset + 8, column=0, columnspan=2, sticky="w", padx=5
         )
         self._intel_text = ScrolledText(frame, height=3, width=40)
-        self._intel_text.grid(row=row_offset + 6, column=0, columnspan=2, padx=5, pady=5, sticky="we")
+        self._intel_text.grid(row=row_offset + 9, column=0, columnspan=2, padx=5, pady=5, sticky="we")
         self._intel_text.insert("1.0", str(self.settings.data.get("intel_paths", "")))
 
         ttk.Button(frame, text="Save", command=self._save_settings).grid(
-            row=row_offset + 7, column=1, pady=10, sticky="e"
+            row=row_offset + 10, column=1, pady=10, sticky="e"
         )
 
     def _browse_wordlist(self):
@@ -1820,6 +2809,11 @@ class App(tk.Tk):
             url = f"http://{url}"
 
         self._apply_setting_values()
+        self.latest_certificate = None
+        for var in self.certificate_vars.values():
+            var.set("-")
+        wordlist_name = os.path.basename(wordlist)
+        self._log_console(f"[*] Launching recon on {url} using {wordlist_name}")
 
         if self.scan_use_custom_wordlist.get():
             self.status_var.set(f"Deploying recon on {url} with HackXpert custom blend…")
@@ -1890,6 +2884,11 @@ class App(tk.Tk):
             btn_frame,
             text="Copy URL",
             command=lambda t=tree: self._copy_selected(t),
+        ).pack(side="left", padx=5)
+        ttk.Button(
+            btn_frame,
+            text="Export Forensics Map",
+            command=lambda sid=scan_id: self._export_forensics_map_for_scan(sid),
         ).pack(side="left", padx=5)
 
         results = {}
@@ -1975,6 +2974,13 @@ class App(tk.Tk):
             if status_message is None:
                 status_message = f"Latest hit: {info['url']} ({info['status']})"
             self.status_var.set(status_message)
+            if (
+                info.get("secrets")
+                or delta_label == "NEW"
+                or (isinstance(delta_label, str) and delta_label.startswith("CHANGED"))
+                or info.get("signals")
+            ):
+                self._log_console(status_message)
             refresh_hud()
             if len(results) == 1:
                 tree.selection_set(item_id)
@@ -2004,6 +3010,73 @@ class App(tk.Tk):
                 for note in info["signals"]:
                     detail.insert("end", f"  • {note}\n")
                 detail.insert("end", "\n")
+            forensic = info.get("forensics") or {}
+            if forensic:
+                detail.insert("end", "Forensics Summary:\n")
+
+                def write_section(title: str, values: list[str], limit: int = 8):
+                    items = [str(v) for v in (values or []) if v]
+                    if not items:
+                        return
+                    display = items[:limit]
+                    if len(items) > limit:
+                        display.append("…")
+                    detail.insert("end", f"  {title}: {', '.join(display)}\n")
+
+                write_section("Parameters", forensic.get("parameters", []))
+                write_section("JSON Fields", forensic.get("json_fields", []))
+                write_section("Linked Paths", forensic.get("linked_paths", []))
+                write_section("Form Targets", forensic.get("form_targets", []))
+                write_section("JS Assets", forensic.get("asset_links", []))
+                write_section("Inline URLs", forensic.get("json_links", []))
+                write_section("WebSocket Links", forensic.get("websocket_links", []))
+                write_section("Header Link Targets", forensic.get("link_relations", []))
+                write_section("Robots Hints", forensic.get("robots_paths", []))
+                write_section("Sitemap URLs", forensic.get("sitemap_urls", []))
+                write_section("Well-known Paths", forensic.get("well_known_links", []))
+                write_section("Config Endpoints", forensic.get("config_endpoints", []))
+                write_section("CSP Reports", forensic.get("csp_reports", []))
+                write_section("Host Hints", forensic.get("host_hints", []))
+                write_section("Tech Hints", forensic.get("technologies", []))
+                write_section("Intel Notes", forensic.get("intel", []))
+                write_section("Secrets", forensic.get("secrets", []))
+                write_section("Rate Limits", forensic.get("rate_limits", []))
+                write_section("Auth Schemes", forensic.get("auth_schemes", []))
+                if forensic.get("graphql"):
+                    ops = forensic.get("graphql_operations", [])
+                    if ops:
+                        write_section("GraphQL Operations", ops, limit=10)
+                    else:
+                        detail.insert("end", "  GraphQL endpoint detected\n")
+                write_section("Global Stack", forensic.get("global_technologies", []))
+                write_section("Global Auth", forensic.get("global_auth_schemes", []))
+                write_section("Spec Clues", forensic.get("global_spec_documents", []))
+                write_section("Global JS Assets", forensic.get("global_asset_links", []))
+                write_section("Global Form Targets", forensic.get("global_form_targets", []))
+                write_section("Global Inline URLs", forensic.get("global_json_links", []))
+                write_section("Global WebSockets", forensic.get("global_websocket_links", []))
+                write_section("Global Link Targets", forensic.get("global_link_relations", []))
+                write_section("Global Host Hints", forensic.get("global_host_hints", []))
+                write_section("Global Robots Hints", forensic.get("global_robots_paths", []))
+                write_section("Global Sitemap URLs", forensic.get("global_sitemap_urls", []))
+                write_section("Global Well-known", forensic.get("global_well_known_links", []))
+                write_section("Global Config Endpoints", forensic.get("global_config_endpoints", []))
+                write_section("Global CSP Reports", forensic.get("global_csp_reports", []))
+                cert = forensic.get("certificate")
+                if isinstance(cert, dict) and cert:
+                    subject = cert.get("subject") or "-"
+                    issuer = cert.get("issuer") or "-"
+                    expires = cert.get("expires") or "-"
+                    alt_names = cert.get("alt_names") or []
+                    display_alt = ", ".join(alt_names[:4])
+                    if len(alt_names) > 4:
+                        display_alt += ", …"
+                    detail.insert("end", f"  TLS Subject: {subject}\n")
+                    detail.insert("end", f"  TLS Issuer: {issuer}\n")
+                    detail.insert("end", f"  TLS Expires: {expires}\n")
+                    if display_alt:
+                        detail.insert("end", f"  TLS Alt Names: {display_alt}\n")
+                detail.insert("end", "\n")
             detail.insert("end", info["preview"])
             detail.configure(state="disabled")
 
@@ -2025,6 +3098,7 @@ class App(tk.Tk):
                 f"({drift_new} new / {drift_changed} changed, {retired} retired)"
             )
             self.status_var.set(summary)
+            self._log_console(summary)
             retired_items = forcer.baseline_highlights.get("retired_items") or []
             if retired_items:
                 retired_block = "\n\nRetired endpoints since last baseline:\n" + "\n".join(retired_items[:10])
@@ -2032,7 +3106,16 @@ class App(tk.Tk):
                     retired_block += "\n…"
             else:
                 retired_block = ""
-            messagebox.showinfo("Scan Complete", summary + retired_block)
+            forensic_highlights = forcer.forensics.render_highlights()
+            message = summary + retired_block
+            if forensic_highlights:
+                message += "\n\n" + forensic_highlights
+                for line in forensic_highlights.splitlines():
+                    self._log_console(line)
+            messagebox.showinfo("Scan Complete", message)
+
+        def handle_certificate(data):
+            self.after(0, lambda payload=data: self._on_certificate_ready(payload))
 
         forcer = DirBruteForcer(
             url,
@@ -2041,6 +3124,7 @@ class App(tk.Tk):
             on_found=lambda info: self.after(0, lambda: render_info(info)),
             on_finish=lambda: self.after(0, finish_message),
             on_progress=lambda pct: self.after(0, lambda: self.progress.configure(value=pct)),
+            on_certificate=handle_certificate,
         )
         self.forcers[scan_id] = forcer
         self.progress.configure(value=0)
@@ -2069,8 +3153,15 @@ class App(tk.Tk):
         self.settings.data["follow_redirects"] = self.follow_redirects.get()
         self.settings.data["enable_preflight"] = self.enable_preflight.get()
         self.settings.data["probe_cors"] = self.probe_cors.get()
+        self.settings.data["burp_proxy_enabled"] = self.burp_enabled.get()
+        self.settings.data["burp_proxy_host"] = self.burp_host_var.get().strip()
+        try:
+            self.settings.data["burp_proxy_port"] = int(self.burp_port_var.get())
+        except ValueError:
+            self.settings.data["burp_proxy_port"] = Settings.DEFAULTS.get("burp_proxy_port", 8080)
         self.settings.data["extra_headers"] = self._headers_text.get("1.0", "end").strip()
         self.settings.data["intel_paths"] = self._intel_text.get("1.0", "end").strip()
+        self._update_proxy_status()
         self.settings.save()
 
     def _save_settings(self):
@@ -2122,6 +3213,7 @@ class App(tk.Tk):
                     "signals": info.get("signals", []),
                     "baseline_delta": info.get("delta"),
                     "previous_status": info.get("previous_status"),
+                    "forensics": info.get("forensics"),
                 }
             )
         with open(path, "w", encoding="utf-8") as fh:
@@ -2136,6 +3228,29 @@ class App(tk.Tk):
         self.clipboard_clear()
         self.clipboard_append(url)
         messagebox.showinfo("Copied", f"URL copied to clipboard:\n{url}")
+
+    def _export_forensics_map_for_scan(self, scan_id: int) -> None:
+        forcer = self.forcers.get(scan_id)
+        if not forcer:
+            messagebox.showerror("Export", "Scan not found or still running.")
+            return
+        self._export_forensics_map(forcer.forensics)
+
+    def _export_forensics_map(self, report: APISurfaceReport) -> None:
+        if not report:
+            messagebox.showerror("Export", "No forensics data available yet.")
+            return
+        path = filedialog.asksaveasfilename(defaultextension=".json")
+        if not path:
+            return
+        try:
+            payload = report.to_dict()
+            with open(path, "w", encoding="utf-8") as fh:
+                json.dump(payload, fh, indent=2)
+        except Exception as exc:
+            messagebox.showerror("Export", f"Failed to export forensics map: {exc}")
+            return
+        messagebox.showinfo("Export", f"Forensics map saved to:\n{path}")
 
     def _rename_tab(self, event):
         if self.nb.identify(event.x, event.y) != "label":
@@ -2170,6 +3285,7 @@ def cli_mode():
     parser.add_argument("--no-cors-probe", action="store_true")
     parser.add_argument("--output", required=True)
     parser.add_argument("--format", choices=["csv", "json"], default="json")
+    parser.add_argument("--forensics-map", type=str)
     args = parser.parse_args()
 
     settings = Settings()
@@ -2228,6 +3344,13 @@ def cli_mode():
                     f'"{url}",{item["method"]},{item["status"]},"{delta}",{previous},{latency_val},'
                     f'"{ctype}",{item["length"]},"{notes}","{signals}"\n'
                 )
+    if args.forensics_map:
+        try:
+            with open(args.forensics_map, "w", encoding="utf-8") as fh:
+                json.dump(forcer.forensics.to_dict(), fh, indent=2)
+            print(f"Forensics map saved to {args.forensics_map}")
+        except Exception as exc:
+            print(f"Failed to write forensics map: {exc}")
     drift_new = sum(1 for entry in results if entry.get("delta") == "NEW")
     drift_changed = sum(
         1 for entry in results if isinstance(entry.get("delta"), str) and entry["delta"].startswith("CHANGED")
@@ -2236,6 +3359,9 @@ def cli_mode():
     print(
         f"Saved {len(results)} entries to {args.output} (drift: {drift_new} new / {drift_changed} changed / {retired} retired)"
     )
+    highlights = forcer.forensics.render_highlights()
+    if highlights:
+        print(highlights)
 
 
 if __name__ == "__main__":
