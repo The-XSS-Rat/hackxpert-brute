@@ -18,15 +18,135 @@ from tkinter import ttk
 from tkinter.scrolledtext import ScrolledText
 from PIL import Image, ImageTk
 
-SEC_WORDLISTS = {
-    "API Recon - Mega": "https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/Web-Content/api/api-endpoints.txt",
-    "API Recon - Minimal": "https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/Web-Content/api/objects.txt",
-    "Web Content - Common": "https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/Web-Content/common.txt",
-    "Fuzz - Directory quickhit": "https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/Web-Content/quickhits.txt",
-    "WordPress API": "https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/Web-Content/CMS/wp-plugins.fuzz.txt",
+REPO_ROOT = Path(__file__).resolve().parent
+
+
+def _read_wordlist_lines(path: Path) -> list[str]:
+    try:
+        with open(path, "r", encoding="utf-8", errors="ignore") as fh:
+            return [line.strip() for line in fh if line.strip() and not line.strip().startswith("#")]
+    except FileNotFoundError:
+        return []
+    except Exception:
+        return []
+
+
+DEFAULT_CUSTOM_ENDPOINT_WORDS = [
+    "admin",
+    "admin/dashboard",
+    "admin/login",
+    "api",
+    "api/internal",
+    "api/v1",
+    "api/v2",
+    "auth",
+    "config",
+    "config/feature-flags",
+    "debug",
+    "_docs",
+    "docs",
+    "feature-flags",
+    "health",
+    "internal",
+    "internal/tools",
+    "login",
+    "logout",
+    "manage",
+    "metrics",
+    "monitoring",
+    "openapi",
+    "reports",
+    "reports/export",
+    "reports/import",
+    "reset-password",
+    "services",
+    "status",
+    "status/health",
+    "tasks",
+    "users",
+    "users/export",
+    "users/import",
+]
+
+DEFAULT_CUSTOM_PARAMETER_WORDS = [
+    "access_token",
+    "admin",
+    "apikey",
+    "as",
+    "beta",
+    "callback",
+    "config",
+    "debug",
+    "detail",
+    "disabled",
+    "email",
+    "env",
+    "feature",
+    "filter",
+    "flag",
+    "id",
+    "impersonate",
+    "include",
+    "lang",
+    "limit",
+    "locale",
+    "mode",
+    "offset",
+    "order",
+    "page",
+    "preview",
+    "redirect",
+    "reset",
+    "role",
+    "search",
+    "secret",
+    "session",
+    "signature",
+    "sort",
+    "source",
+    "stage",
+    "state",
+    "token",
+    "toggle",
+    "user",
+]
+
+CUSTOM_ENDPOINT_WORDLIST = REPO_ROOT / "wordlists" / "hackxpert_endpoints.txt"
+CUSTOM_PARAMETER_WORDLIST = REPO_ROOT / "wordlists" / "hackxpert_parameters.txt"
+
+CUSTOM_ENDPOINT_WORDS = _read_wordlist_lines(CUSTOM_ENDPOINT_WORDLIST) or DEFAULT_CUSTOM_ENDPOINT_WORDS
+CUSTOM_PARAMETER_WORDS = _read_wordlist_lines(CUSTOM_PARAMETER_WORDLIST) or DEFAULT_CUSTOM_PARAMETER_WORDS
+
+WORDLIST_CATALOG = {
+    "HackXpert Essentials (custom)": {
+        "kind": "builtin",
+        "path": CUSTOM_ENDPOINT_WORDLIST,
+        "words": CUSTOM_ENDPOINT_WORDS,
+    },
+    "API Recon - Mega": {
+        "kind": "remote",
+        "url": "https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/Web-Content/api/api-endpoints.txt",
+    },
+    "API Recon - Minimal": {
+        "kind": "remote",
+        "url": "https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/Web-Content/api/objects.txt",
+    },
+    "Web Content - Common": {
+        "kind": "remote",
+        "url": "https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/Web-Content/common.txt",
+    },
+    "Fuzz - Directory quickhit": {
+        "kind": "remote",
+        "url": "https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/Web-Content/quickhits.txt",
+    },
+    "WordPress API": {
+        "kind": "remote",
+        "url": "https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/Web-Content/CMS/wp-plugins.fuzz.txt",
+    },
 }
 
 PARAMETER_WORDLISTS = {
+    "HackXpert Essentials (custom)": CUSTOM_PARAMETER_WORDS,
     "Authentication": [
         "access_token",
         "auth",
@@ -714,7 +834,25 @@ class App(tk.Tk):
         return cleaned or "wordlist"
 
     def _ensure_wordlist(self, name: str) -> Optional[Path]:
-        url = SEC_WORDLISTS.get(name)
+        entry = WORDLIST_CATALOG.get(name)
+        if not entry:
+            return None
+        if entry.get("kind") == "builtin":
+            path = Path(entry.get("path", ""))
+            if path.exists():
+                return path
+            fallback_words = entry.get("words") or []
+            if fallback_words:
+                destination = self.wordlist_store / f"{self._sanitize_wordlist_name(name)}.txt"
+                try:
+                    destination.write_text("\n".join(fallback_words) + "\n", encoding="utf-8")
+                    return destination
+                except Exception as exc:
+                    messagebox.showerror("Wordlist Save Failed", f"Could not materialise {name}: {exc}")
+                    return None
+            messagebox.showerror("Wordlist Missing", f"Custom wordlist for {name} is unavailable.")
+            return None
+        url = entry.get("url")
         if not url:
             return None
         path = self.wordlist_store / f"{self._sanitize_wordlist_name(name)}.txt"
@@ -775,7 +913,7 @@ class App(tk.Tk):
 
         def update_suggestions(_event=None):
             text = variable.get()
-            matches = [name for name in SEC_WORDLISTS if text.lower() in name.lower()] if text else []
+            matches = [name for name in WORDLIST_CATALOG if text.lower() in name.lower()] if text else []
             listbox.delete(0, "end")
             if not matches:
                 hide_popup()
@@ -801,6 +939,49 @@ class App(tk.Tk):
         listbox.bind("<ButtonRelease-1>", select_current)
         listbox.bind("<Return>", select_current)
         listbox.bind("<Escape>", lambda _e: hide_popup())
+
+    def _apply_wordlist_selection(self, target_var: tk.StringVar, selection_var: tk.StringVar) -> None:
+        name = selection_var.get()
+        if not name:
+            return
+        path = self._ensure_wordlist(name)
+        if path:
+            target_var.set(str(path))
+
+    def _materialise_wordlist(self, selected_path: str, include_custom: bool, flavour: str) -> Optional[str]:
+        path = Path(selected_path)
+        if not path.is_file():
+            return None
+        if not include_custom or not CUSTOM_ENDPOINT_WORDS:
+            return str(path)
+        base_entries = _read_wordlist_lines(path)
+        combined: list[str] = []
+        seen = set()
+        for word in CUSTOM_ENDPOINT_WORDS + base_entries:
+            if not word or word in seen:
+                continue
+            combined.append(word)
+            seen.add(word)
+        destination = self.wordlist_store / f"{self._sanitize_wordlist_name(path.stem or 'wordlist')}-{flavour}.txt"
+        try:
+            destination.write_text("\n".join(combined) + "\n", encoding="utf-8")
+        except Exception as exc:
+            messagebox.showerror("Wordlist Save Failed", f"Could not compose merged wordlist: {exc}")
+            return None
+        return str(destination)
+
+    def _resolve_parameter_payloads(self, selected_name: str, include_custom: bool) -> list[str]:
+        payloads = list(PARAMETER_WORDLISTS.get(selected_name, []))
+        if not include_custom or not CUSTOM_PARAMETER_WORDS:
+            return payloads
+        combined: list[str] = []
+        seen = set()
+        for word in CUSTOM_PARAMETER_WORDS + payloads:
+            if not word or word in seen:
+                continue
+            combined.append(word)
+            seen.add(word)
+        return combined
 
     def _attach_tree_context_menu(self, tree: ttk.Treeview, lookup: Callable[[str], Optional[dict]]):
         menu = tk.Menu(tree, tearoff=0, bg="#0b1120", fg="#38bdf8", activebackground="#22d3ee", activeforeground="#0f172a")
@@ -920,24 +1101,51 @@ class App(tk.Tk):
         frame = ttk.Frame(self.nb, style="Card.TFrame")
         self.nb.add(frame, text="Recon Lab")
 
-        ttk.Label(frame, text="API Base URL:").grid(row=0, column=0, padx=5, pady=5, sticky="e")
-        self.url = tk.StringVar()
-        ttk.Entry(frame, textvariable=self.url, width=60).grid(row=0, column=1, padx=5, pady=5, sticky="w")
+        ttk.Label(
+            frame,
+            text="HackXpert merges its custom essentials with open-source wordlists when you opt in.",
+        ).grid(row=0, column=0, columnspan=3, padx=5, pady=(8, 2), sticky="w")
 
-        ttk.Label(frame, text="Wordlist:").grid(row=1, column=0, padx=5, pady=5, sticky="e")
+        ttk.Label(frame, text="API Base URL:").grid(row=1, column=0, padx=5, pady=5, sticky="e")
+        self.url = tk.StringVar()
+        ttk.Entry(frame, textvariable=self.url, width=60).grid(row=1, column=1, padx=5, pady=5, sticky="w")
+
+        ttk.Label(frame, text="Wordlist:").grid(row=2, column=0, padx=5, pady=5, sticky="e")
         self.wordlist_path = tk.StringVar()
         wordlist_entry = ttk.Entry(frame, textvariable=self.wordlist_path, width=50)
-        wordlist_entry.grid(row=1, column=1, padx=5, pady=5, sticky="w")
+        wordlist_entry.grid(row=2, column=1, padx=5, pady=5, sticky="w")
         self._attach_wordlist_autocomplete(wordlist_entry, self.wordlist_path)
-        default_list = self._ensure_wordlist("API Recon - Mega")
+        default_list = self._ensure_wordlist("HackXpert Essentials (custom)")
         if default_list:
             self.wordlist_path.set(str(default_list))
-        ttk.Button(frame, text="Browse", command=self._browse_wordlist).grid(row=1, column=2, padx=5, pady=5)
+        ttk.Button(frame, text="Browse", command=self._browse_wordlist).grid(row=2, column=2, padx=5, pady=5)
 
-        ttk.Button(frame, text="Launch Scan", command=self._new_scan).grid(row=2, column=1, pady=15)
+        ttk.Label(frame, text="Load from catalog:").grid(row=3, column=0, padx=5, pady=5, sticky="e")
+        self.scan_wordlist_choice = tk.StringVar(value="HackXpert Essentials (custom)")
+        catalog_combo = ttk.Combobox(
+            frame,
+            textvariable=self.scan_wordlist_choice,
+            values=list(WORDLIST_CATALOG.keys()),
+            width=40,
+            state="readonly",
+        )
+        catalog_combo.grid(row=3, column=1, padx=5, pady=5, sticky="w")
+        catalog_combo.bind(
+            "<<ComboboxSelected>>",
+            lambda _e: self._apply_wordlist_selection(self.wordlist_path, self.scan_wordlist_choice),
+        )
+
+        self.scan_use_custom_wordlist = tk.BooleanVar(value=True)
+        ttk.Checkbutton(
+            frame,
+            text="Use custom wordlist",
+            variable=self.scan_use_custom_wordlist,
+        ).grid(row=4, column=1, padx=5, pady=(0, 10), sticky="w")
+
+        ttk.Button(frame, text="Launch Scan", command=self._new_scan).grid(row=5, column=1, pady=10)
 
         hud = ttk.Frame(frame, style="Card.TFrame")
-        hud.grid(row=3, column=0, columnspan=3, sticky="ew", padx=5, pady=(0, 10))
+        hud.grid(row=6, column=0, columnspan=3, sticky="ew", padx=5, pady=(0, 10))
         for idx in range(6):
             hud.grid_columnconfigure(idx, weight=1)
 
@@ -964,7 +1172,7 @@ class App(tk.Tk):
             ttk.Label(card, textvariable=self.hud_metrics[key], style=style_name).pack(anchor="w")
 
         status_frame = ttk.Frame(frame, style="Card.TFrame")
-        status_frame.grid(row=4, column=0, columnspan=3, sticky="ew", padx=5, pady=(0, 15))
+        status_frame.grid(row=7, column=0, columnspan=3, sticky="ew", padx=5, pady=(0, 15))
         self.status_var = tk.StringVar(value="Awaiting mission launch…")
         ttk.Label(status_frame, textvariable=self.status_var, style="StatusBadge.TLabel").pack(
             anchor="w", padx=12, pady=8
@@ -975,24 +1183,51 @@ class App(tk.Tk):
         self.endpoint_frame = frame
         self.nb.add(frame, text="API Endpoint Explorer")
 
-        ttk.Label(frame, text="Target Base URL:").grid(row=0, column=0, padx=6, pady=6, sticky="e")
-        self.endpoint_url = tk.StringVar()
-        ttk.Entry(frame, textvariable=self.endpoint_url, width=60).grid(row=0, column=1, padx=6, pady=6, sticky="w")
+        ttk.Label(
+            frame,
+            text="Endpoint sweeps can stack the HackXpert custom list with familiar open-source collections.",
+        ).grid(row=0, column=0, columnspan=3, padx=6, pady=(8, 2), sticky="w")
 
-        ttk.Label(frame, text="Wordlist:").grid(row=1, column=0, padx=6, pady=6, sticky="e")
+        ttk.Label(frame, text="Target Base URL:").grid(row=1, column=0, padx=6, pady=6, sticky="e")
+        self.endpoint_url = tk.StringVar()
+        ttk.Entry(frame, textvariable=self.endpoint_url, width=60).grid(row=1, column=1, padx=6, pady=6, sticky="w")
+
+        ttk.Label(frame, text="Wordlist:").grid(row=2, column=0, padx=6, pady=6, sticky="e")
         self.endpoint_wordlist = tk.StringVar()
         endpoint_entry = ttk.Entry(frame, textvariable=self.endpoint_wordlist, width=50)
-        endpoint_entry.grid(row=1, column=1, padx=6, pady=6, sticky="w")
+        endpoint_entry.grid(row=2, column=1, padx=6, pady=6, sticky="w")
         self._attach_wordlist_autocomplete(endpoint_entry, self.endpoint_wordlist)
-        endpoint_default = self._ensure_wordlist("API Recon - Minimal")
+        endpoint_default = self._ensure_wordlist("HackXpert Essentials (custom)")
         if endpoint_default:
             self.endpoint_wordlist.set(str(endpoint_default))
         ttk.Button(frame, text="Browse", command=lambda: self._browse_generic_wordlist(self.endpoint_wordlist)).grid(
-            row=1, column=2, padx=6, pady=6
+            row=2, column=2, padx=6, pady=6
         )
 
+        ttk.Label(frame, text="Load from catalog:").grid(row=3, column=0, padx=6, pady=6, sticky="e")
+        self.endpoint_wordlist_choice = tk.StringVar(value="HackXpert Essentials (custom)")
+        endpoint_combo = ttk.Combobox(
+            frame,
+            textvariable=self.endpoint_wordlist_choice,
+            values=list(WORDLIST_CATALOG.keys()),
+            width=40,
+            state="readonly",
+        )
+        endpoint_combo.grid(row=3, column=1, padx=6, pady=6, sticky="w")
+        endpoint_combo.bind(
+            "<<ComboboxSelected>>",
+            lambda _e: self._apply_wordlist_selection(self.endpoint_wordlist, self.endpoint_wordlist_choice),
+        )
+
+        self.endpoint_use_custom = tk.BooleanVar(value=True)
+        ttk.Checkbutton(
+            frame,
+            text="Use custom wordlist",
+            variable=self.endpoint_use_custom,
+        ).grid(row=4, column=1, padx=6, pady=(0, 10), sticky="w")
+
         ttk.Button(frame, text="Run Discovery", command=self._start_api_endpoint_explorer).grid(
-            row=2, column=1, pady=10
+            row=5, column=1, pady=8
         )
 
         columns = ("status", "detail")
@@ -1007,8 +1242,8 @@ class App(tk.Tk):
         tree.column("#0", width=320, stretch=True)
         tree.column("status", width=100, anchor="center")
         tree.column("detail", width=360, anchor="w")
-        tree.grid(row=3, column=0, columnspan=3, sticky="nsew", padx=10, pady=10)
-        frame.grid_rowconfigure(3, weight=1)
+        tree.grid(row=6, column=0, columnspan=3, sticky="nsew", padx=10, pady=10)
+        frame.grid_rowconfigure(6, weight=1)
         frame.grid_columnconfigure(1, weight=1)
 
         self.api_tree = tree
@@ -1019,7 +1254,7 @@ class App(tk.Tk):
         self._attach_tree_context_menu(tree, lambda iid: self.api_tree_results.get(iid))
 
         status_frame = ttk.Frame(frame, style="Card.TFrame")
-        status_frame.grid(row=4, column=0, columnspan=3, sticky="ew", padx=10, pady=(0, 10))
+        status_frame.grid(row=7, column=0, columnspan=3, sticky="ew", padx=10, pady=(0, 10))
         self.api_status_var = tk.StringVar(value="Idle — feed the explorer a target and wordlist.")
         ttk.Label(status_frame, textvariable=self.api_status_var, style="StatusBadge.TLabel").pack(anchor="w", padx=4, pady=4)
 
@@ -1028,11 +1263,16 @@ class App(tk.Tk):
         self.parameter_frame = frame
         self.nb.add(frame, text="API Parameter Explorer")
 
-        ttk.Label(frame, text="Request URL:").grid(row=0, column=0, padx=6, pady=6, sticky="e")
-        self.param_url = tk.StringVar()
-        ttk.Entry(frame, textvariable=self.param_url, width=70).grid(row=0, column=1, columnspan=2, padx=6, pady=6, sticky="we")
+        ttk.Label(
+            frame,
+            text="Parameter fuzzing can stack HackXpert's custom list with themed payload packs.",
+        ).grid(row=0, column=0, columnspan=4, padx=6, pady=(8, 2), sticky="w")
 
-        ttk.Label(frame, text="Method:").grid(row=1, column=0, padx=6, pady=6, sticky="e")
+        ttk.Label(frame, text="Request URL:").grid(row=1, column=0, padx=6, pady=6, sticky="e")
+        self.param_url = tk.StringVar()
+        ttk.Entry(frame, textvariable=self.param_url, width=70).grid(row=1, column=1, columnspan=2, padx=6, pady=6, sticky="we")
+
+        ttk.Label(frame, text="Method:").grid(row=2, column=0, padx=6, pady=6, sticky="e")
         self.param_method = tk.StringVar(value="GET")
         self.param_method_combo = ttk.Combobox(
             frame,
@@ -1041,28 +1281,35 @@ class App(tk.Tk):
             width=8,
             state="readonly",
         )
-        self.param_method_combo.grid(row=1, column=1, padx=6, pady=6, sticky="w")
+        self.param_method_combo.grid(row=2, column=1, padx=6, pady=6, sticky="w")
 
-        ttk.Label(frame, text="Parameter Wordlist:").grid(row=1, column=2, padx=6, pady=6, sticky="e")
-        self.param_wordlist = tk.StringVar(value=list(PARAMETER_WORDLISTS.keys())[0])
+        ttk.Label(frame, text="Parameter Wordlist:").grid(row=2, column=2, padx=6, pady=6, sticky="e")
+        self.param_wordlist = tk.StringVar(value="HackXpert Essentials (custom)")
         ttk.Combobox(
             frame,
             textvariable=self.param_wordlist,
             values=list(PARAMETER_WORDLISTS.keys()),
             state="readonly",
             width=24,
-        ).grid(row=1, column=3, padx=6, pady=6, sticky="w")
+        ).grid(row=2, column=3, padx=6, pady=6, sticky="w")
 
-        ttk.Label(frame, text="Headers (Key: Value per line):").grid(row=2, column=0, padx=6, pady=6, sticky="ne")
+        self.param_use_custom = tk.BooleanVar(value=True)
+        ttk.Checkbutton(
+            frame,
+            text="Use custom wordlist",
+            variable=self.param_use_custom,
+        ).grid(row=3, column=3, padx=6, pady=(0, 10), sticky="w")
+
+        ttk.Label(frame, text="Headers (Key: Value per line):").grid(row=4, column=0, padx=6, pady=6, sticky="ne")
         self.param_headers = ScrolledText(frame, height=6, width=40, bg="#0b1120", fg="#e2e8f0", insertbackground="#22d3ee")
-        self.param_headers.grid(row=2, column=1, padx=6, pady=6, sticky="we")
+        self.param_headers.grid(row=4, column=1, padx=6, pady=6, sticky="we")
 
-        ttk.Label(frame, text="Body (optional):").grid(row=2, column=2, padx=6, pady=6, sticky="ne")
+        ttk.Label(frame, text="Body (optional):").grid(row=4, column=2, padx=6, pady=6, sticky="ne")
         self.param_body = ScrolledText(frame, height=6, width=40, bg="#0b1120", fg="#e2e8f0", insertbackground="#22d3ee")
-        self.param_body.grid(row=2, column=3, padx=6, pady=6, sticky="we")
+        self.param_body.grid(row=4, column=3, padx=6, pady=6, sticky="we")
 
         ttk.Button(frame, text="Launch Parameter Fuzz", command=self._start_parameter_explorer).grid(
-            row=3, column=0, columnspan=4, pady=10
+            row=5, column=0, columnspan=4, pady=10
         )
 
         columns = ("parameter", "status", "delta", "length")
@@ -1075,8 +1322,8 @@ class App(tk.Tk):
         tree.column("status", width=90, anchor="center")
         tree.column("delta", width=240, anchor="w")
         tree.column("length", width=120, anchor="center")
-        tree.grid(row=4, column=0, columnspan=4, sticky="nsew", padx=10, pady=10)
-        frame.grid_rowconfigure(4, weight=1)
+        tree.grid(row=6, column=0, columnspan=4, sticky="nsew", padx=10, pady=10)
+        frame.grid_rowconfigure(6, weight=1)
         for idx in range(4):
             frame.grid_columnconfigure(idx, weight=1)
 
@@ -1085,7 +1332,7 @@ class App(tk.Tk):
         tree.bind("<Double-1>", self._on_parameter_double)
 
         status_frame = ttk.Frame(frame, style="Card.TFrame")
-        status_frame.grid(row=5, column=0, columnspan=4, sticky="ew", padx=10, pady=(0, 10))
+        status_frame.grid(row=7, column=0, columnspan=4, sticky="ew", padx=10, pady=(0, 10))
         self.param_status_var = tk.StringVar(value="Awaiting a request to probe.")
         ttk.Label(status_frame, textvariable=self.param_status_var, style="StatusBadge.TLabel").pack(anchor="w", padx=4, pady=4)
 
@@ -1104,14 +1351,30 @@ class App(tk.Tk):
             return
         wordlist_path = self.endpoint_wordlist.get().strip()
         if not wordlist_path or not os.path.isfile(wordlist_path):
-            fallback = self._ensure_wordlist("API Recon - Mega")
+            fallback = self._ensure_wordlist("HackXpert Essentials (custom)")
             if fallback:
                 wordlist_path = str(fallback)
                 self.endpoint_wordlist.set(wordlist_path)
+                if hasattr(self, "endpoint_wordlist_choice"):
+                    self.endpoint_wordlist_choice.set("HackXpert Essentials (custom)")
             else:
                 messagebox.showerror("API Explorer", "Select or download a valid wordlist first.")
                 return
-        self.api_status_var.set(f"Reconning {base} — hunting specifications and endpoints…")
+        prepared = self._materialise_wordlist(
+            wordlist_path,
+            include_custom=self.endpoint_use_custom.get(),
+            flavour="api-explorer",
+        )
+        if not prepared or not os.path.isfile(prepared):
+            messagebox.showerror("API Explorer", "Unable to prepare the endpoint wordlist.")
+            return
+        wordlist_path = prepared
+        if self.endpoint_use_custom.get():
+            self.api_status_var.set(
+                f"Reconning {base} — stacking HackXpert essentials with the selected catalog…"
+            )
+        else:
+            self.api_status_var.set(f"Reconning {base} — hunting specifications and endpoints…")
         for node in (self.api_specs_node, self.api_endpoints_node):
             for child in self.api_tree.get_children(node):
                 self.api_tree.delete(child)
@@ -1328,7 +1591,7 @@ class App(tk.Tk):
             return
         method = self.param_method.get().strip().upper() or "GET"
         wordlist_name = self.param_wordlist.get()
-        payloads = PARAMETER_WORDLISTS.get(wordlist_name)
+        payloads = self._resolve_parameter_payloads(wordlist_name, self.param_use_custom.get())
         if not payloads:
             messagebox.showerror("Parameter Explorer", "Select a valid parameter wordlist.")
             return
@@ -1338,7 +1601,12 @@ class App(tk.Tk):
         for child in self.param_tree.get_children():
             self.param_tree.delete(child)
         self.parameter_results.clear()
-        self.param_status_var.set(f"Fuzzing {len(payloads)} parameters against {target}…")
+        if self.param_use_custom.get():
+            self.param_status_var.set(
+                f"Fuzzing {len(payloads)} parameters against {target} — HackXpert custom list stacked with {wordlist_name}."
+            )
+        else:
+            self.param_status_var.set(f"Fuzzing {len(payloads)} parameters against {target}…")
         thread = threading.Thread(
             target=self._run_parameter_fuzzer,
             args=(target, method, payloads, headers, body),
@@ -1523,10 +1791,29 @@ class App(tk.Tk):
 
     def _new_scan(self):
         url = self.url.get().strip()
-        wordlist = self.wordlist_path.get().strip()
-        if not url or not wordlist or not os.path.isfile(wordlist):
-            messagebox.showerror("Scan Error", "Provide a valid API base URL and wordlist file.")
+        if not url:
+            messagebox.showerror("Scan Error", "Provide a valid API base URL.")
             return
+        wordlist = self.wordlist_path.get().strip()
+        if not wordlist or not os.path.isfile(wordlist):
+            fallback = self._ensure_wordlist("HackXpert Essentials (custom)")
+            if fallback:
+                wordlist = str(fallback)
+                self.wordlist_path.set(wordlist)
+                if hasattr(self, "scan_wordlist_choice"):
+                    self.scan_wordlist_choice.set("HackXpert Essentials (custom)")
+            else:
+                messagebox.showerror("Scan Error", "Provide a valid wordlist file.")
+                return
+        prepared_wordlist = self._materialise_wordlist(
+            wordlist,
+            include_custom=self.scan_use_custom_wordlist.get(),
+            flavour="recon",
+        )
+        if not prepared_wordlist or not os.path.isfile(prepared_wordlist):
+            messagebox.showerror("Scan Error", "Unable to prepare the selected wordlist.")
+            return
+        wordlist = prepared_wordlist
 
         parsed = urllib.parse.urlparse(url)
         if not parsed.scheme:
@@ -1534,7 +1821,10 @@ class App(tk.Tk):
 
         self._apply_setting_values()
 
-        self.status_var.set(f"Deploying recon on {url}…")
+        if self.scan_use_custom_wordlist.get():
+            self.status_var.set(f"Deploying recon on {url} with HackXpert custom blend…")
+        else:
+            self.status_var.set(f"Deploying recon on {url}…")
         for key in self.hud_metrics:
             self.hud_metrics[key].set("0")
 
