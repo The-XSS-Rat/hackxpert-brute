@@ -44,6 +44,7 @@ pip install -r requirements.txt  # or pip install requests pillow
 HackXpert now ships with hand-tuned discovery wordlists for both endpoints and parameters:
 
 * `wordlists/hackxpert_endpoints.txt`
+* `wordlists/hackxpert_endpoints_25000.txt` – Extended 25k-entry API endpoint list for exhaustive sweeps.
 * `wordlists/hackxpert_parameters.txt`
 
 Each scan surface (Recon Lab, API Endpoint Explorer, and API Parameter Explorer) exposes a **Use custom wordlist** checkbox and a catalog dropdown. When enabled, the custom HackXpert essentials are merged with any open-source list you select (SecLists entries download automatically when first used). Leave the box unchecked to run with the open-source list alone.
