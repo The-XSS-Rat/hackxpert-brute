@@ -1,0 +1,84 @@
+[
+  {
+    "id": "git-config-exposure",
+    "name": "Git Config Exposure",
+    "description": "Checks if the /.git/config file is publicly accessible.",
+    "severity": "high",
+    "method": "GET",
+    "path": "/.git/config",
+    "matchers": {
+      "status": [200],
+      "contains": ["[core]"]
+    },
+    "tags": ["git", "source"]
+  },
+  {
+    "id": "dotenv-exposure",
+    "name": "Environment File Exposure",
+    "description": "Detects leaked Laravel/Node style .env configuration files.",
+    "severity": "high",
+    "method": "GET",
+    "path": "/.env",
+    "matchers": {
+      "status": [200],
+      "regex": ["(?i)(APP_KEY|DB_PASSWORD|MAIL_HOST)="]
+    },
+    "tags": ["config", "secrets"]
+  },
+  {
+    "id": "swagger-ui",
+    "name": "Swagger UI Exposure",
+    "description": "Finds public Swagger UI consoles that may reveal API schemas.",
+    "severity": "medium",
+    "method": "GET",
+    "path": "/swagger-ui.html",
+    "matchers": {
+      "status": [200, 401],
+      "contains": ["Swagger UI"]
+    },
+    "tags": ["documentation", "intel"]
+  },
+  {
+    "id": "graphql-introspection",
+    "name": "GraphQL Introspection Enabled",
+    "description": "Uses an introspection query to detect unrestricted GraphQL schemas.",
+    "severity": "medium",
+    "method": "POST",
+    "path": "/graphql",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": "{\n  \"query\": \"query IntrospectionQuery { __schema { queryType { name } mutationType { name } types { name kind } } }\"\n}",
+    "matchers": {
+      "status": [200],
+      "regex": ["__schema"]
+    },
+    "tags": ["graphql", "intel"]
+  },
+  {
+    "id": "spring-actuator-env",
+    "name": "Spring Boot Actuator Env Exposure",
+    "description": "Detects open Spring Boot actuator /env endpoints leaking sensitive data.",
+    "severity": "high",
+    "method": "GET",
+    "path": "/actuator/env",
+    "matchers": {
+      "status": [200],
+      "contains": ["propertySources"]
+    },
+    "tags": ["spring", "config"]
+  },
+  {
+    "id": "config-json",
+    "name": "Config JSON Exposure",
+    "description": "Looks for config.json files leaking API keys or secrets.",
+    "severity": "medium",
+    "method": "GET",
+    "path": "/config.json",
+    "matchers": {
+      "status": [200],
+      "regex": ["(?i)(api_key|authToken|clientSecret)"]
+    },
+    "tags": ["config", "secrets"]
+  }
+]

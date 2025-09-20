@@ -190,6 +190,115 @@ PARAMETER_WORDLISTS = {
     ],
 }
 
+AUTOMATIONS_DIR = REPO_ROOT / "automations"
+AUTOMATION_TEMPLATE_FILE = AUTOMATIONS_DIR / "templates.json"
+AUTOMATION_LIBRARY_STORE = Path.home() / ".hackxpert_automations.json"
+
+DEFAULT_AUTOMATION_TEMPLATES = [
+    {
+        "id": "git-config-exposure",
+        "name": "Git Config Exposure",
+        "description": "Checks if the /.git/config file is publicly accessible.",
+        "severity": "high",
+        "method": "GET",
+        "path": "/.git/config",
+        "matchers": {"status": [200], "contains": ["[core]"]},
+        "tags": ["git", "source"],
+    },
+    {
+        "id": "dotenv-exposure",
+        "name": "Environment File Exposure",
+        "description": "Detects leaked Laravel/Node style .env configuration files.",
+        "severity": "high",
+        "method": "GET",
+        "path": "/.env",
+        "matchers": {"status": [200], "regex": ["(?i)(APP_KEY|DB_PASSWORD|MAIL_HOST)="]},
+        "tags": ["config", "secrets"],
+    },
+    {
+        "id": "swagger-ui",
+        "name": "Swagger UI Exposure",
+        "description": "Finds public Swagger UI consoles that may reveal API schemas.",
+        "severity": "medium",
+        "method": "GET",
+        "path": "/swagger-ui.html",
+        "matchers": {"status": [200, 401], "contains": ["Swagger UI"]},
+        "tags": ["documentation", "intel"],
+    },
+    {
+        "id": "graphql-introspection",
+        "name": "GraphQL Introspection Enabled",
+        "description": "Uses an introspection query to detect unrestricted GraphQL schemas.",
+        "severity": "medium",
+        "method": "POST",
+        "path": "/graphql",
+        "headers": {"Content-Type": "application/json"},
+        "body": (
+            "{\n"
+            "  \"query\": \"query IntrospectionQuery { __schema { queryType { name } mutationType { name } types { name kind } } }\"\n"
+            "}"
+        ),
+        "matchers": {"status": [200], "regex": ["__schema"]},
+        "tags": ["graphql", "intel"],
+    },
+    {
+        "id": "spring-actuator-env",
+        "name": "Spring Boot Actuator Env Exposure",
+        "description": "Detects open Spring Boot actuator /env endpoints leaking sensitive data.",
+        "severity": "high",
+        "method": "GET",
+        "path": "/actuator/env",
+        "matchers": {"status": [200], "contains": ["propertySources"]},
+        "tags": ["spring", "config"],
+    },
+    {
+        "id": "config-json",
+        "name": "Config JSON Exposure",
+        "description": "Looks for config.json files leaking API keys or secrets.",
+        "severity": "medium",
+        "method": "GET",
+        "path": "/config.json",
+        "matchers": {"status": [200], "regex": ["(?i)(api_key|authToken|clientSecret)"]},
+        "tags": ["config", "secrets"],
+    },
+]
+
+
+def _load_automation_templates_from_disk(path: Path) -> list[dict[str, Any]]:
+    if not path.exists():
+        return []
+    try:
+        with open(path, "r", encoding="utf-8") as fh:
+            data = json.load(fh)
+        if isinstance(data, list):
+            return [item for item in data if isinstance(item, dict)]
+    except Exception:
+        return []
+    return []
+
+
+def _load_automation_library() -> dict[str, Any]:
+    if not AUTOMATION_LIBRARY_STORE.exists():
+        return {"custom_templates": [], "rulesets": {}}
+    try:
+        with open(AUTOMATION_LIBRARY_STORE, "r", encoding="utf-8") as fh:
+            data = json.load(fh)
+        if isinstance(data, dict):
+            data.setdefault("custom_templates", [])
+            data.setdefault("rulesets", {})
+            return data
+    except Exception:
+        pass
+    return {"custom_templates": [], "rulesets": {}}
+
+
+def _save_automation_library(payload: dict[str, Any]) -> None:
+    try:
+        with open(AUTOMATION_LIBRARY_STORE, "w", encoding="utf-8") as fh:
+            json.dump(payload, fh, indent=2)
+    except Exception:
+        pass
+
 CONFIG_PATH = Path.home() / ".dir_bruteforce_config.json"
 BASELINE_PATH = Path.home() / ".hackxpert_surface_baselines.json"
 
@@ -1633,6 +1742,208 @@ class DirBruteForcer:
         self.on_finish()
 
 
+class AutomationEngine:
+    def __init__(
+        self,
+        base_url: str,
+        templates: list[dict[str, Any]],
+        timeout: float,
+        follow_redirects: bool,
+        base_headers: Optional[dict[str, str]] = None,
+        proxies: Optional[dict[str, str]] = None,
+        on_result: Optional[Callable[[dict[str, Any]], None]] = None,
+        on_finish: Optional[Callable[[], None]] = None,
+        on_status: Optional[Callable[[str], None]] = None,
+        on_progress: Optional[Callable[[float], None]] = None,
+    ):
+        self.base_url = base_url.rstrip("/") or base_url
+        self.templates = [template for template in templates if isinstance(template, dict)]
+        self.timeout = max(0.5, float(timeout)) if timeout else 5.0
+        self.follow_redirects = bool(follow_redirects)
+        self.base_headers = dict(base_headers or {})
+        self.proxies = proxies
+        self.on_result = on_result or (lambda info: None)
+        self.on_finish = on_finish or (lambda: None)
+        self.on_status = on_status or (lambda status: None)
+        self.on_progress = on_progress or (lambda pct: None)
+        self._thread: Optional[threading.Thread] = None
+
+    def start(self) -> None:
+        if self._thread and self._thread.is_alive():
+            return
+        self._thread = threading.Thread(target=self._run, daemon=True)
+        self._thread.start()
+
+    def _run(self) -> None:
+        total = max(1, len(self.templates))
+        for idx, template in enumerate(self.templates, start=1):
+            name = template.get("name") or template.get("id") or f"Template {idx}"
+            path = template.get("path") or "/"
+            url = template.get("url")
+            if not url:
+                url = urllib.parse.urljoin(f"{self.base_url}/", path.lstrip("/"))
+            method = str(template.get("method", "GET")).upper() or "GET"
+            headers = dict(self.base_headers)
+            for key, value in (template.get("headers") or {}).items():
+                if isinstance(key, str):
+                    headers[key] = str(value)
+            body = template.get("body")
+            status_message = f"{name}: firing {method} {url}"
+            self.on_status(status_message)
+            start = time.time()
+            response = None
+            error = None
+            try:
+                response = requests.request(
+                    method,
+                    url,
+                    headers=headers if headers else None,
+                    data=body,
+                    timeout=self.timeout,
+                    allow_redirects=self.follow_redirects,
+                    proxies=self.proxies,
+                )
+            except requests.RequestException as exc:
+                error = str(exc)
+
+            elapsed_ms = (time.time() - start) * 1000.0
+            result = self._build_result(template, url, response, error, elapsed_ms)
+            try:
+                self.on_result(result)
+            except Exception:
+                pass
+            self.on_progress(min(100.0, (idx / total) * 100.0))
+        try:
+            self.on_finish()
+        finally:
+            self.on_status("Automations idle.")
+            self.on_progress(0.0)
+
+    def _build_result(self, template, url, response, error, elapsed_ms) -> dict[str, Any]:
+        matchers = template.get("matchers") or {}
+        severity = template.get("severity", "info")
+        body_text = ""
+        status_code = None
+        headers = {}
+        matched = False
+        evidence: list[str] = []
+        preview = ""
+        if response is not None:
+            status_code = response.status_code
+            headers = dict(response.headers)
+            try:
+                body_text = response.text
+            except Exception:
+                try:
+                    body_text = response.content.decode("utf-8", "ignore")
+                except Exception:
+                    body_text = ""
+            preview = body_text[:800] if body_text else ""
+            matched, evidence = self._evaluate_matchers(matchers, response, body_text)
+        else:
+            evidence = [error or "Request failed"]
+
+        return {
+            "template_id": template.get("id"),
+            "template_name": template.get("name"),
+            "description": template.get("description", ""),
+            "severity": severity,
+            "url": url,
+            "status": status_code if status_code is not None else "ERR",
+            "matched": matched,
+            "evidence": evidence,
+            "response_preview": preview,
+            "headers": headers,
+            "error": error,
+            "elapsed_ms": elapsed_ms,
+            "tags": template.get("tags", []),
+        }
+
+    def _evaluate_matchers(self, matchers: dict[str, Any], response, body_text: str) -> tuple[bool, list[str]]:
+        if not matchers:
+            return True, ["No matchers defined — recorded response for manual review."]
+        evidence: list[str] = []
+        status_rules = matchers.get("status")
+        status_ok = True
+        if status_rules and isinstance(status_rules, list):
+            try:
+                allowed = {int(code) for code in status_rules}
+            except Exception:
+                allowed = set()
+                for code in status_rules:
+                    try:
+                        allowed.add(int(code))
+                    except Exception:
+                        continue
+            status_ok = response.status_code in allowed if allowed else True
+            if status_ok:
+                evidence.append(f"Status {response.status_code} matched rule")
+        contains_rules = matchers.get("contains")
+        contains_ok = True
+        lowered_body = body_text.lower() if body_text else ""
+        if contains_rules:
+            for needle in contains_rules:
+                if not isinstance(needle, str):
+                    continue
+                if needle.lower() in lowered_body:
+                    evidence.append(f"Contains '{needle}'")
+                else:
+                    contains_ok = False
+                    break
+        regex_rules = matchers.get("regex")
+        regex_ok = True
+        if regex_rules:
+            for pattern in regex_rules:
+                try:
+                    if re.search(pattern, body_text or ""):
+                        evidence.append(f"Regex {pattern} matched")
+                    else:
+                        regex_ok = False
+                        break
+                except re.error:
+                    regex_ok = False
+                    break
+        negative_contains = matchers.get("negative_contains")
+        negative_ok = True
+        if negative_contains:
+            for needle in negative_contains:
+                if not isinstance(needle, str):
+                    continue
+                if needle.lower() in lowered_body:
+                    negative_ok = False
+                    evidence.append(f"Unexpected token '{needle}' present")
+                    break
+        header_rules = matchers.get("headers")
+        headers_ok = True
+        if header_rules and isinstance(header_rules, dict):
+            for key, expected in header_rules.items():
+                if not isinstance(key, str):
+                    continue
+                actual = response.headers.get(key)
+                if actual is None:
+                    headers_ok = False
+                    break
+                if isinstance(expected, str):
+                    if expected.lower() not in actual.lower():
+                        headers_ok = False
+                        break
+                    evidence.append(f"Header {key} contains '{expected}'")
+                elif isinstance(expected, list):
+                    match_any = False
+                    for candidate in expected:
+                        if isinstance(candidate, str) and candidate.lower() in actual.lower():
+                            match_any = True
+                            evidence.append(f"Header {key} contains '{candidate}'")
+                            break
+                    if not match_any:
+                        headers_ok = False
+                        break
+        outcome = status_ok and contains_ok and regex_ok and negative_ok and headers_ok
+        if outcome and not evidence:
+            evidence.append("Matchers satisfied")
+        return outcome, evidence
+
+
 class App(tk.Tk):
     def __init__(self):
         super().__init__()
@@ -1650,8 +1961,15 @@ class App(tk.Tk):
         self.certificate_vars: dict[str, tk.StringVar] = {}
         self.latest_certificate: Optional[dict[str, Any]] = None
         self.proxy_status_var = tk.StringVar(value="Proxy: direct")
+        self.automation_templates: dict[str, dict[str, Any]] = {}
+        self.automation_custom_templates: list[dict[str, Any]] = []
+        self.automation_rulesets: dict[str, list[str]] = {}
+        self._automation_library_payload: dict[str, Any] = {}
+        self.automation_engine: Optional[AutomationEngine] = None
+        self.automation_results_lookup: dict[str, dict[str, Any]] = {}
 
         self._init_style()
+        self._load_automation_assets()
         self._build_header()
         self._build_notebook()
 
@@ -1695,6 +2013,51 @@ class App(tk.Tk):
         style.configure("StatusBadge.TLabel", background=panel, foreground="#fbbf24", font=("Share Tech Mono", 12, "bold"))
         style.configure("TLSValue.TLabel", background=panel, foreground=accent, font=("Share Tech Mono", 11, "bold"))
         style.configure("ConsoleTitle.TLabel", background=panel, foreground=accent, font=("Share Tech Mono", 12, "bold"))
+        style.configure("AutomationHit.TLabel", background=panel, foreground="#facc15", font=("Share Tech Mono", 12, "bold"))
+        style.configure("AutomationMiss.TLabel", background=panel, foreground="#94a3b8", font=("Share Tech Mono", 12, "bold"))
+
+    def _load_automation_assets(self) -> None:
+        builtin = _load_automation_templates_from_disk(AUTOMATION_TEMPLATE_FILE)
+        if not builtin:
+            builtin = list(DEFAULT_AUTOMATION_TEMPLATES)
+        normalized_builtin: dict[str, dict[str, Any]] = {}
+        for entry in builtin:
+            if not isinstance(entry, dict):
+                continue
+            identifier = str(entry.get("id") or self._sanitize_wordlist_name(entry.get("name", "template")))
+            entry = dict(entry)
+            entry["id"] = identifier
+            normalized_builtin[identifier] = entry
+        payload = _load_automation_library()
+        custom: list[dict[str, Any]] = []
+        combined = dict(normalized_builtin)
+        for entry in payload.get("custom_templates", []):
+            if not isinstance(entry, dict):
+                continue
+            identifier = str(entry.get("id") or self._sanitize_wordlist_name(entry.get("name", "template")))
+            clone = dict(entry)
+            clone["id"] = identifier
+            combined[identifier] = clone
+            custom.append(clone)
+        rulesets: dict[str, list[str]] = {}
+        for name, template_ids in payload.get("rulesets", {}).items():
+            if not isinstance(template_ids, list):
+                continue
+            filtered = [tid for tid in template_ids if tid in combined]
+            if filtered:
+                rulesets[str(name)] = filtered
+        self.automation_templates = combined
+        self.automation_custom_templates = custom
+        self.automation_rulesets = rulesets
+        self._automation_library_payload = {"custom_templates": custom, "rulesets": rulesets}
+
+    def _persist_automation_library(self) -> None:
+        payload = {
+            "custom_templates": self.automation_custom_templates,
+            "rulesets": self.automation_rulesets,
+        }
+        self._automation_library_payload = payload
+        _save_automation_library(payload)
 
     def _sanitize_wordlist_name(self, name: str) -> str:
         cleaned = re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
@@ -1940,6 +2303,7 @@ class App(tk.Tk):
         self._build_scan_tab()
         self._build_endpoint_explorer()
         self._build_parameter_explorer()
+        self._build_automations_tab()
         self._build_settings_tab()
 
     def _build_instructions_tab(self):
@@ -1969,6 +2333,9 @@ class App(tk.Tk):
             "Step 4 — Export proof:\n"
             "  • Save hits as JSON or CSV, or copy URLs directly for follow-up exploitation.\n"
             "  • Baseline drift detection highlights new, changed and retired surfaces automatically.\n\n"
+            "Step 5 — Automate exploitation:\n"
+            "  • Load curated rulesets or select templates in the Automations tab to mimic nuclei-style probes.\n"
+            "  • Import JSON templates, craft your own exploits, then review evidence, previews and response headers.\n\n"
             "Need help? Hover labels for hints, and watch the status HUD for live telemetry while you hack stylishly."
         )
         text.insert("1.0", briefing)
@@ -2298,6 +2665,587 @@ class App(tk.Tk):
         status_frame.grid(row=7, column=0, columnspan=4, sticky="ew", padx=10, pady=(0, 10))
         self.param_status_var = tk.StringVar(value="Awaiting a request to probe.")
         ttk.Label(status_frame, textvariable=self.param_status_var, style="StatusBadge.TLabel").pack(anchor="w", padx=4, pady=4)
+
+    def _build_automations_tab(self) -> None:
+        frame = ttk.Frame(self.nb, style="Card.TFrame")
+        self.nb.add(frame, text="Automations")
+        frame.grid_columnconfigure(0, weight=1)
+        frame.grid_columnconfigure(1, weight=1)
+        frame.grid_rowconfigure(3, weight=3)
+        frame.grid_rowconfigure(4, weight=2)
+
+        ttk.Label(
+            frame,
+            text="Automations // Launch nuclei-style exploit templates with curated rulesets.",
+            style="Glitch.TLabel",
+        ).grid(row=0, column=0, columnspan=2, sticky="w", padx=8, pady=(8, 2))
+
+        ttk.Label(frame, text="Base URL:").grid(row=1, column=0, sticky="e", padx=8, pady=4)
+        self.automation_base_url = tk.StringVar()
+        self.automation_base_entry = ttk.Entry(frame, textvariable=self.automation_base_url, width=60)
+        self.automation_base_entry.grid(row=1, column=1, sticky="we", padx=8, pady=4)
+
+        controls = ttk.Frame(frame, style="Card.TFrame")
+        controls.grid(row=2, column=0, columnspan=2, sticky="ew", padx=8, pady=(4, 6))
+        controls.columnconfigure(6, weight=1)
+
+        self.automation_run_button = ttk.Button(
+            controls,
+            text="Run Selected Templates",
+            command=self._run_selected_automations,
+        )
+        self.automation_run_button.grid(row=0, column=0, padx=4, pady=4)
+
+        self.automation_ruleset_var = tk.StringVar()
+        self.automation_ruleset_combo = ttk.Combobox(
+            controls,
+            textvariable=self.automation_ruleset_var,
+            state="readonly",
+            width=26,
+            values=sorted(self.automation_rulesets.keys()),
+        )
+        self.automation_ruleset_combo.grid(row=0, column=1, padx=4, pady=4)
+
+        self.automation_ruleset_button = ttk.Button(
+            controls,
+            text="Run Ruleset",
+            command=self._run_automation_ruleset,
+        )
+        self.automation_ruleset_button.grid(row=0, column=2, padx=4, pady=4)
+
+        self.automation_save_ruleset_button = ttk.Button(
+            controls,
+            text="Save Selection as Ruleset",
+            command=self._save_automation_ruleset,
+        )
+        self.automation_save_ruleset_button.grid(row=0, column=3, padx=4, pady=4)
+
+        self.automation_load_button = ttk.Button(
+            controls,
+            text="Import Template File",
+            command=self._import_automation_templates,
+        )
+        self.automation_load_button.grid(row=0, column=4, padx=4, pady=4)
+
+        self.automation_new_button = ttk.Button(
+            controls,
+            text="Build New Template",
+            command=self._open_template_builder,
+        )
+        self.automation_new_button.grid(row=0, column=5, padx=4, pady=4)
+
+        template_container = ttk.Frame(frame, style="Card.TFrame")
+        template_container.grid(row=3, column=0, sticky="nsew", padx=(8, 4), pady=6)
+        template_container.grid_columnconfigure(0, weight=1)
+        template_container.grid_rowconfigure(1, weight=1)
+        ttk.Label(template_container, text="Template Catalog", style="Glitch.TLabel").grid(
+            row=0, column=0, sticky="w", padx=6, pady=(6, 0)
+        )
+        template_columns = ("name", "severity", "target", "tags")
+        self.automation_template_tree = ttk.Treeview(
+            template_container,
+            columns=template_columns,
+            show="headings",
+            selectmode="extended",
+            height=14,
+        )
+        self.automation_template_tree.heading("name", text="TEMPLATE")
+        self.automation_template_tree.heading("severity", text="SEVERITY")
+        self.automation_template_tree.heading("target", text="TARGET")
+        self.automation_template_tree.heading("tags", text="TAGS")
+        self.automation_template_tree.column("name", width=200, anchor="w")
+        self.automation_template_tree.column("severity", width=90, anchor="center")
+        self.automation_template_tree.column("target", width=200, anchor="w")
+        self.automation_template_tree.column("tags", width=140, anchor="w")
+        self.automation_template_tree.grid(row=1, column=0, sticky="nsew", padx=6, pady=6)
+        template_scroll = ttk.Scrollbar(template_container, orient="vertical", command=self.automation_template_tree.yview)
+        template_scroll.grid(row=1, column=1, sticky="ns", pady=6)
+        self.automation_template_tree.configure(yscrollcommand=template_scroll.set)
+
+        results_container = ttk.Frame(frame, style="Card.TFrame")
+        results_container.grid(row=3, column=1, sticky="nsew", padx=(4, 8), pady=6)
+        results_container.grid_columnconfigure(0, weight=1)
+        results_container.grid_rowconfigure(1, weight=1)
+        ttk.Label(results_container, text="Automation Findings", style="Glitch.TLabel").grid(
+            row=0, column=0, sticky="w", padx=6, pady=(6, 0)
+        )
+        results_columns = ("template", "severity", "status", "match", "evidence", "ms")
+        self.automation_results_tree = ttk.Treeview(
+            results_container,
+            columns=results_columns,
+            show="headings",
+            height=14,
+        )
+        self.automation_results_tree.heading("template", text="TEMPLATE")
+        self.automation_results_tree.heading("severity", text="SEVERITY")
+        self.automation_results_tree.heading("status", text="STATUS")
+        self.automation_results_tree.heading("match", text="MATCH")
+        self.automation_results_tree.heading("evidence", text="EVIDENCE")
+        self.automation_results_tree.heading("ms", text="TIME (MS)")
+        self.automation_results_tree.column("template", width=200, anchor="w")
+        self.automation_results_tree.column("severity", width=90, anchor="center")
+        self.automation_results_tree.column("status", width=80, anchor="center")
+        self.automation_results_tree.column("match", width=80, anchor="center")
+        self.automation_results_tree.column("evidence", width=220, anchor="w")
+        self.automation_results_tree.column("ms", width=90, anchor="center")
+        self.automation_results_tree.grid(row=1, column=0, sticky="nsew", padx=6, pady=6)
+        results_scroll = ttk.Scrollbar(results_container, orient="vertical", command=self.automation_results_tree.yview)
+        results_scroll.grid(row=1, column=1, sticky="ns", pady=6)
+        self.automation_results_tree.configure(yscrollcommand=results_scroll.set)
+        self.automation_results_tree.tag_configure("hit", background="#0f172a", foreground="#facc15")
+        self.automation_results_tree.tag_configure("miss", background="#111827", foreground="#94a3b8")
+        self.automation_results_tree.tag_configure("error", background="#450a0a", foreground="#fca5a5")
+        self.automation_results_tree.bind("<<TreeviewSelect>>", self._on_automation_result_select)
+
+        self.automation_results_lookup: dict[str, dict[str, Any]] = {}
+
+        self.automation_detail = ScrolledText(
+            frame,
+            height=8,
+            bg="#0b1120",
+            fg="#e2e8f0",
+            insertbackground="#22d3ee",
+            font=("Consolas", 10),
+        )
+        self.automation_detail.grid(row=4, column=0, columnspan=2, sticky="nsew", padx=8, pady=(0, 6))
+        self.automation_detail.configure(state="disabled")
+
+        status_frame = ttk.Frame(frame, style="Card.TFrame")
+        status_frame.grid(row=5, column=0, columnspan=2, sticky="ew", padx=8, pady=(0, 8))
+        self.automation_status_var = tk.StringVar(value="Automations idle.")
+        ttk.Label(status_frame, textvariable=self.automation_status_var, style="StatusBadge.TLabel").pack(
+            side="left", padx=6, pady=6
+        )
+        self.automation_progress = ttk.Progressbar(status_frame, mode="determinate", length=260)
+        self.automation_progress.pack(side="right", padx=6, pady=6)
+
+        self._update_automation_ruleset_combo()
+        self._refresh_automation_template_tree()
+
+    def _update_automation_ruleset_combo(self) -> None:
+        if not hasattr(self, "automation_ruleset_combo"):
+            return
+        names = sorted(self.automation_rulesets.keys())
+        self.automation_ruleset_combo.configure(values=names)
+        if names:
+            if self.automation_ruleset_var.get() not in names:
+                self.automation_ruleset_var.set(names[0])
+        else:
+            self.automation_ruleset_var.set("")
+
+    def _refresh_automation_template_tree(self) -> None:
+        tree = getattr(self, "automation_template_tree", None)
+        if not tree:
+            return
+        for child in tree.get_children():
+            tree.delete(child)
+        entries = sorted(
+            self.automation_templates.values(),
+            key=lambda item: (str(item.get("severity", "info")), item.get("name", "")),
+        )
+        for template in entries:
+            identifier = template.get("id")
+            target = template.get("url") or template.get("path") or "/"
+            tags = ", ".join(template.get("tags", []))
+            tree.insert(
+                "",
+                "end",
+                iid=identifier,
+                values=(
+                    template.get("name", identifier),
+                    str(template.get("severity", "info")).upper(),
+                    target,
+                    tags,
+                ),
+            )
+
+    def _set_automation_controls_enabled(self, enabled: bool) -> None:
+        state = "normal" if enabled else "disabled"
+        combo_state = "readonly" if enabled else "disabled"
+        for widget in [
+            self.automation_run_button,
+            self.automation_ruleset_button,
+            self.automation_save_ruleset_button,
+            self.automation_load_button,
+            self.automation_new_button,
+        ]:
+            try:
+                widget.configure(state=state)
+            except tk.TclError:
+                continue
+        try:
+            self.automation_ruleset_combo.configure(state=combo_state)
+        except tk.TclError:
+            pass
+        try:
+            self.automation_base_entry.configure(state="normal" if enabled else "disabled")
+        except tk.TclError:
+            pass
+        self.automation_template_tree.configure(selectmode="extended" if enabled else "none")
+
+    def _reset_automation_results(self) -> None:
+        for child in self.automation_results_tree.get_children():
+            self.automation_results_tree.delete(child)
+        self.automation_results_lookup.clear()
+        self.automation_detail.configure(state="normal")
+        self.automation_detail.delete("1.0", "end")
+        self.automation_detail.configure(state="disabled")
+        self.automation_progress.configure(value=0)
+
+    def _selected_automation_templates(self) -> list[str]:
+        selection = list(self.automation_template_tree.selection())
+        return selection
+
+    def _run_selected_automations(self) -> None:
+        template_ids = self._selected_automation_templates()
+        if not template_ids:
+            messagebox.showinfo("Automations", "Select one or more templates to run.")
+            return
+        self._launch_automation_run(template_ids)
+
+    def _run_automation_ruleset(self) -> None:
+        name = self.automation_ruleset_var.get().strip()
+        if not name:
+            messagebox.showinfo("Automations", "Choose a ruleset to run.")
+            return
+        template_ids = self.automation_rulesets.get(name)
+        if not template_ids:
+            messagebox.showerror("Automations", f"Ruleset '{name}' has no templates.")
+            return
+        self._launch_automation_run(template_ids)
+
+    def _launch_automation_run(self, template_ids: list[str]) -> None:
+        base = self.automation_base_url.get().strip()
+        if not base:
+            messagebox.showerror("Automations", "Set a base URL for the automation run.")
+            return
+        templates = [self.automation_templates.get(tid) for tid in template_ids if tid in self.automation_templates]
+        templates = [tpl for tpl in templates if tpl]
+        if not templates:
+            messagebox.showerror("Automations", "Selected templates could not be resolved.")
+            return
+        base_url = base if "://" in base else f"http://{base}"
+        self._reset_automation_results()
+        self._set_automation_controls_enabled(False)
+        self.automation_status_var.set(f"Running {len(templates)} templates against {base_url}…")
+        headers = self._compose_headers_from_settings()
+        timeout = self.settings.data.get("timeout", 5)
+        follow = self.settings.data.get("follow_redirects", True)
+        engine = AutomationEngine(
+            base_url,
+            templates,
+            timeout=timeout,
+            follow_redirects=follow,
+            base_headers=headers,
+            proxies=self._current_proxies(),
+            on_result=lambda info: self.after(0, lambda data=info: self._add_automation_result(data)),
+            on_finish=lambda: self.after(0, self._automation_run_finished),
+            on_status=lambda status: self.after(0, lambda text=status: self.automation_status_var.set(text)),
+            on_progress=lambda pct: self.after(0, lambda value=pct: self.automation_progress.configure(value=value)),
+        )
+        self.automation_engine = engine
+        engine.start()
+
+    def _automation_run_finished(self) -> None:
+        hits = sum(1 for info in self.automation_results_lookup.values() if info.get("matched"))
+        total = len(self.automation_results_lookup)
+        summary = f"Automations finished — {hits} hit(s) across {total} templates."
+        if total == 0:
+            summary = "Automations finished — no responses logged."
+        self.automation_status_var.set(summary)
+        self._set_automation_controls_enabled(True)
+        self.automation_engine = None
+
+    def _add_automation_result(self, info: dict[str, Any]) -> None:
+        template_name = info.get("template_name") or info.get("template_id") or "Template"
+        severity = str(info.get("severity", "info")).upper()
+        status = info.get("status")
+        matched = bool(info.get("matched"))
+        error = info.get("error")
+        evidence = ", ".join(info.get("evidence", [])) if info.get("evidence") else (error or "")
+        elapsed = info.get("elapsed_ms")
+        elapsed_display = f"{elapsed:.0f}" if isinstance(elapsed, (int, float)) else "-"
+        match_label = "HIT" if matched else ("ERROR" if error else "MISS")
+        tag = "hit" if matched else ("error" if error else "miss")
+        item_id = self.automation_results_tree.insert(
+            "",
+            "end",
+            values=(template_name, severity, status, match_label, evidence[:120], elapsed_display),
+            tags=(tag,),
+        )
+        self.automation_results_lookup[item_id] = info
+        if matched:
+            self._log_console(f"[AUTO] {template_name} matched {info.get('url')}")
+        elif error:
+            self._log_console(f"[AUTO] {template_name} error: {error}")
+
+    def _on_automation_result_select(self, _event=None) -> None:
+        selection = self.automation_results_tree.selection()
+        if not selection:
+            return
+        info = self.automation_results_lookup.get(selection[0])
+        if not info:
+            return
+        lines = [
+            f"Template: {info.get('template_name') or info.get('template_id')}",
+            f"Severity: {info.get('severity', 'info')}",
+            f"URL: {info.get('url')}",
+            f"Status: {info.get('status')}",
+            f"Match: {'yes' if info.get('matched') else 'no'}",
+        ]
+        tags = info.get("tags")
+        if tags:
+            lines.append("Tags: " + ", ".join(map(str, tags)))
+        description = info.get("description")
+        if description:
+            lines.append("")
+            lines.append(description)
+        evidence = info.get("evidence") or []
+        if evidence:
+            lines.append("")
+            lines.append("Evidence:")
+            for item in evidence[:10]:
+                lines.append(f"  • {item}")
+        headers = info.get("headers") or {}
+        if headers:
+            lines.append("")
+            lines.append("Response headers:")
+            for key, value in list(headers.items())[:12]:
+                lines.append(f"  {key}: {value}")
+        preview = info.get("response_preview")
+        if preview:
+            lines.append("")
+            lines.append("Preview:")
+            lines.append(preview)
+        self.automation_detail.configure(state="normal")
+        self.automation_detail.delete("1.0", "end")
+        self.automation_detail.insert("1.0", "\n".join(lines))
+        self.automation_detail.configure(state="disabled")
+
+    def _save_automation_ruleset(self) -> None:
+        template_ids = self._selected_automation_templates()
+        if not template_ids:
+            messagebox.showinfo("Automations", "Select at least one template before saving a ruleset.")
+            return
+        name = simpledialog.askstring("Ruleset Name", "Name your ruleset")
+        if not name:
+            return
+        sanitized = name.strip()
+        if not sanitized:
+            messagebox.showerror("Automations", "Ruleset name cannot be blank.")
+            return
+        self.automation_rulesets[sanitized] = template_ids
+        self._persist_automation_library()
+        self._update_automation_ruleset_combo()
+        self.automation_status_var.set(f"Ruleset '{sanitized}' saved.")
+
+    def _import_automation_templates(self) -> None:
+        path = filedialog.askopenfilename(
+            title="Import automation templates",
+            filetypes=[("JSON", "*.json"), ("All", "*.*")],
+        )
+        if not path:
+            return
+        templates = _load_automation_templates_from_disk(Path(path))
+        if not templates:
+            messagebox.showerror("Automations", "No templates found in the selected file.")
+            return
+        added = 0
+        for entry in templates:
+            if not isinstance(entry, dict):
+                continue
+            identifier = str(entry.get("id") or self._sanitize_wordlist_name(entry.get("name", "template")))
+            entry = dict(entry)
+            entry["id"] = identifier
+            existing = next(
+                (idx for idx, item in enumerate(self.automation_custom_templates) if item.get("id") == identifier),
+                None,
+            )
+            if existing is not None:
+                self.automation_custom_templates[existing] = entry
+            else:
+                self.automation_custom_templates.append(entry)
+            self.automation_templates[identifier] = entry
+            added += 1
+        if added:
+            self._persist_automation_library()
+            self._refresh_automation_template_tree()
+            messagebox.showinfo("Automations", f"Imported {added} template(s).")
+        else:
+            messagebox.showinfo("Automations", "Templates already existed — nothing new imported.")
+
+    def _open_template_builder(self) -> None:
+        builder = tk.Toplevel(self)
+        builder.title("Automation Template Builder")
+        builder.configure(bg="#020617")
+        builder.transient(self)
+        builder.grab_set()
+
+        container = ttk.Frame(builder, padding=10)
+        container.pack(fill="both", expand=True)
+        for idx in range(2):
+            container.grid_columnconfigure(idx, weight=1 if idx == 1 else 0)
+
+        ttk.Label(container, text="Template Name:").grid(row=0, column=0, sticky="e", padx=4, pady=4)
+        name_var = tk.StringVar()
+        ttk.Entry(container, textvariable=name_var, width=40).grid(row=0, column=1, sticky="we", padx=4, pady=4)
+
+        ttk.Label(container, text="Relative Path:").grid(row=1, column=0, sticky="e", padx=4, pady=4)
+        path_var = tk.StringVar()
+        ttk.Entry(container, textvariable=path_var, width=40).grid(row=1, column=1, sticky="we", padx=4, pady=4)
+
+        ttk.Label(container, text="Full URL (optional):").grid(row=2, column=0, sticky="e", padx=4, pady=4)
+        url_var = tk.StringVar()
+        ttk.Entry(container, textvariable=url_var, width=40).grid(row=2, column=1, sticky="we", padx=4, pady=4)
+
+        ttk.Label(container, text="HTTP Method:").grid(row=3, column=0, sticky="e", padx=4, pady=4)
+        method_var = tk.StringVar(value="GET")
+        ttk.Combobox(container, textvariable=method_var, values=["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"], state="readonly").grid(
+            row=3, column=1, sticky="w", padx=4, pady=4
+        )
+
+        ttk.Label(container, text="Severity:").grid(row=4, column=0, sticky="e", padx=4, pady=4)
+        severity_var = tk.StringVar(value="medium")
+        ttk.Combobox(container, textvariable=severity_var, values=["info", "low", "medium", "high", "critical"], state="readonly").grid(
+            row=4, column=1, sticky="w", padx=4, pady=4
+        )
+
+        ttk.Label(container, text="Status codes (comma separated):").grid(row=5, column=0, sticky="e", padx=4, pady=4)
+        status_var = tk.StringVar(value="200")
+        ttk.Entry(container, textvariable=status_var, width=40).grid(row=5, column=1, sticky="we", padx=4, pady=4)
+
+        ttk.Label(container, text="Body contains (comma/newline separated):").grid(row=6, column=0, sticky="e", padx=4, pady=4)
+        contains_text = ScrolledText(container, height=3, width=40)
+        contains_text.grid(row=6, column=1, sticky="we", padx=4, pady=4)
+
+        ttk.Label(container, text="Body regex (comma/newline separated):").grid(row=7, column=0, sticky="e", padx=4, pady=4)
+        regex_text = ScrolledText(container, height=3, width=40)
+        regex_text.grid(row=7, column=1, sticky="we", padx=4, pady=4)
+
+        ttk.Label(container, text="Negative contains (optional):").grid(row=8, column=0, sticky="e", padx=4, pady=4)
+        negative_text = ScrolledText(container, height=2, width=40)
+        negative_text.grid(row=8, column=1, sticky="we", padx=4, pady=4)
+
+        ttk.Label(container, text="Header matchers (Header: value substring)").grid(row=9, column=0, sticky="e", padx=4, pady=4)
+        header_match_text = ScrolledText(container, height=3, width=40)
+        header_match_text.grid(row=9, column=1, sticky="we", padx=4, pady=4)
+
+        ttk.Label(container, text="Request headers (Header: value)").grid(row=10, column=0, sticky="e", padx=4, pady=4)
+        headers_text = ScrolledText(container, height=3, width=40)
+        headers_text.grid(row=10, column=1, sticky="we", padx=4, pady=4)
+
+        ttk.Label(container, text="Request body (optional)").grid(row=11, column=0, sticky="e", padx=4, pady=4)
+        body_text = ScrolledText(container, height=4, width=40)
+        body_text.grid(row=11, column=1, sticky="we", padx=4, pady=4)
+
+        ttk.Label(container, text="Tags (comma separated)").grid(row=12, column=0, sticky="e", padx=4, pady=4)
+        tags_var = tk.StringVar()
+        ttk.Entry(container, textvariable=tags_var, width=40).grid(row=12, column=1, sticky="we", padx=4, pady=4)
+
+        ttk.Label(container, text="Description").grid(row=13, column=0, sticky="ne", padx=4, pady=4)
+        description_text = ScrolledText(container, height=4, width=40)
+        description_text.grid(row=13, column=1, sticky="we", padx=4, pady=4)
+
+        def parse_list(text_value: str) -> list[str]:
+            items = []
+            for token in re.split(r"[,\n]", text_value or ""):
+                token = token.strip()
+                if token:
+                    items.append(token)
+            return items
+
+        def parse_status_list(value: str) -> list[int]:
+            codes: list[int] = []
+            for token in re.split(r"[,\s]", value or ""):
+                token = token.strip()
+                if not token:
+                    continue
+                try:
+                    codes.append(int(token))
+                except ValueError:
+                    continue
+            return codes
+
+        def parse_header_expectations(raw: str) -> dict[str, Any]:
+            expectations: dict[str, Any] = {}
+            for line in raw.splitlines():
+                if ":" not in line:
+                    continue
+                key, value = line.split(":", 1)
+                key = key.strip()
+                value = value.strip()
+                if key:
+                    expectations[key] = value
+            return expectations
+
+        def save_template():
+            name = name_var.get().strip()
+            if not name:
+                messagebox.showerror("Automations", "Template name is required.")
+                return
+            path_value = path_var.get().strip()
+            url_value = url_var.get().strip()
+            if not path_value and not url_value:
+                messagebox.showerror("Automations", "Provide a relative path or full URL.")
+                return
+            template_id = self._sanitize_wordlist_name(name)
+            if not template_id:
+                template_id = f"template-{int(time.time())}"
+            matchers: dict[str, Any] = {}
+            statuses = parse_status_list(status_var.get())
+            if statuses:
+                matchers["status"] = statuses
+            contains = parse_list(contains_text.get("1.0", "end"))
+            if contains:
+                matchers["contains"] = contains
+            regex_rules = parse_list(regex_text.get("1.0", "end"))
+            if regex_rules:
+                matchers["regex"] = regex_rules
+            negative_rules = parse_list(negative_text.get("1.0", "end"))
+            if negative_rules:
+                matchers["negative_contains"] = negative_rules
+            header_expect = parse_header_expectations(header_match_text.get("1.0", "end"))
+            if header_expect:
+                matchers["headers"] = header_expect
+            headers = self._parse_headers_text(headers_text.get("1.0", "end"))
+            body_value = body_text.get("1.0", "end").strip()
+            tags_value = [tag.strip() for tag in tags_var.get().split(",") if tag.strip()]
+            template = {
+                "id": template_id,
+                "name": name,
+                "description": description_text.get("1.0", "end").strip(),
+                "severity": severity_var.get().strip() or "info",
+                "method": method_var.get().strip().upper() or "GET",
+                "matchers": matchers,
+            }
+            if path_value:
+                template["path"] = path_value
+            if url_value:
+                template["url"] = url_value
+            if headers:
+                template["headers"] = headers
+            if body_value:
+                template["body"] = body_value
+            if tags_value:
+                template["tags"] = tags_value
+            existing = next(
+                (idx for idx, item in enumerate(self.automation_custom_templates) if item.get("id") == template_id),
+                None,
+            )
+            if existing is not None:
+                self.automation_custom_templates[existing] = template
+            else:
+                self.automation_custom_templates.append(template)
+            self.automation_templates[template_id] = template
+            self._persist_automation_library()
+            self._refresh_automation_template_tree()
+            self.automation_status_var.set(f"Template '{name}' saved.")
+            builder.destroy()
+
+        button_row = ttk.Frame(container)
+        button_row.grid(row=14, column=0, columnspan=2, sticky="e", padx=4, pady=10)
+        ttk.Button(button_row, text="Cancel", command=builder.destroy).pack(side="right", padx=4)
+        ttk.Button(button_row, text="Save Template", command=save_template).pack(side="right", padx=4)
 
     def _browse_generic_wordlist(self, variable: tk.StringVar) -> None:
         path = filedialog.askopenfilename(
