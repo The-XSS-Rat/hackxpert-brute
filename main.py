@@ -10,6 +10,7 @@ import threading
 import time
 import urllib.parse
 import webbrowser
+from copy import deepcopy
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Callable, Optional
@@ -202,7 +203,7 @@ DEFAULT_AUTOMATION_TEMPLATES = [
         "severity": "high",
         "method": "GET",
         "path": "/.git/config",
-        "matchers": {"status": [200], "contains": ["[core]"]},
+        "matchers": {"status": [200], "regex": ["(?im)^\\[core\\]"]},
         "tags": ["git", "source"],
     },
     {
@@ -222,7 +223,7 @@ DEFAULT_AUTOMATION_TEMPLATES = [
         "severity": "medium",
         "method": "GET",
         "path": "/swagger-ui.html",
-        "matchers": {"status": [200, 401], "contains": ["Swagger UI"]},
+        "matchers": {"status": [200, 401], "regex": ["(?i)swagger\\s*ui"]},
         "tags": ["documentation", "intel"],
     },
     {
@@ -248,7 +249,7 @@ DEFAULT_AUTOMATION_TEMPLATES = [
         "severity": "high",
         "method": "GET",
         "path": "/actuator/env",
-        "matchers": {"status": [200], "contains": ["propertySources"]},
+        "matchers": {"status": [200], "regex": ["(?i)propertysources"]},
         "tags": ["spring", "config"],
     },
     {
@@ -262,6 +263,332 @@ DEFAULT_AUTOMATION_TEMPLATES = [
         "tags": ["config", "secrets"],
     },
 ]
+
+
+BULK_TEMPLATE_BLUEPRINTS = [
+    {
+        "id_prefix": "framework-config-leak",
+        "name_template": "{variant_title} Framework Config Exposure #{index}",
+        "description_template": "Detects leaked {variant_title} framework configuration files that may expose secrets.",
+        "severity_cycle": ["high", "medium"],
+        "method": "GET",
+        "path_template": "/{variant_slug}/config/app-settings-{index_padded}.yaml",
+        "matchers": {"status": [200], "regex": ["(?i)(password|secret|token)"]},
+        "tags": ["config", "intel", "{variant_slug}"],
+        "variants": [
+            "laravel",
+            "django",
+            "rails",
+            "express",
+            "symfony",
+            "spring",
+            "angular",
+            "react",
+            "nextjs",
+            "nuxt",
+            "fastapi",
+            "flask",
+        ],
+        "count": 8,
+    },
+    {
+        "id_prefix": "environment-snapshot-leak",
+        "name_template": "{variant_title} Environment Snapshot #{index}",
+        "description_template": "Detects leaked {variant} environment snapshot exports that may reveal credentials and secrets.",
+        "severity_cycle": ["high", "medium", "medium", "low"],
+        "method": "GET",
+        "path_template": "/snapshots/{variant_slug}-env-{index_padded}.json",
+        "matchers": {"status": [200], "regex": ["(?i)(environment|secret|key|database)"]},
+        "tags": ["environment", "intel", "{variant_slug}"],
+        "variants": [
+            "production",
+            "staging",
+            "qa",
+            "dev",
+            "sandbox",
+            "training",
+            "demo",
+            "integration",
+        ],
+        "count": 12,
+    },
+    {
+        "id_prefix": "pipeline-log-exposure",
+        "name_template": "{variant_title} Pipeline Log Archive #{index}",
+        "description_template": "Scans for {variant} pipeline logs that often contain leaked tokens and build metadata.",
+        "severity_cycle": ["medium", "high"],
+        "method": "GET",
+        "path_template": "/.ci/{variant_slug}/logs-{index_padded}.txt",
+        "matchers": {"status": [200], "regex": ["(?i)(pipeline|job|token|secret)"]},
+        "tags": ["ci", "logs", "{variant_slug}"],
+        "variants": [
+            "github-actions",
+            "gitlab-ci",
+            "bitbucket-pipelines",
+            "azure-devops",
+            "circleci",
+            "jenkins",
+            "travis-ci",
+            "teamcity",
+            "bamboo",
+            "buddy",
+        ],
+        "count": 10,
+    },
+    {
+        "id_prefix": "backup-archive-exposure",
+        "name_template": "{variant_title} Backup Archive Exposure #{index}",
+        "description_template": "Locates exposed {variant} backup archives that commonly contain raw database dumps.",
+        "severity_cycle": ["high"],
+        "method": "GET",
+        "path_template": "/backups/{variant_slug}-backup-{index_padded}.zip",
+        "matchers": {"status": [200], "regex": ["(?i)pk"]},
+        "tags": ["backup", "database", "{variant_slug}"],
+        "variants": [
+            "mysql",
+            "postgresql",
+            "mongodb",
+            "redis",
+            "elasticsearch",
+        ],
+        "count": 20,
+    },
+    {
+        "id_prefix": "credential-export-leak",
+        "name_template": "{variant_title} Credential Export Exposure #{index}",
+        "description_template": "Checks for exposed {variant} credential export files that may leak API keys or tokens.",
+        "severity_cycle": ["high", "medium"],
+        "method": "GET",
+        "path_template": "/exports/{variant_slug}/credentials-{index_padded}.csv",
+        "matchers": {"status": [200], "regex": ["(?i)(api_key|client_secret|token)"]},
+        "tags": ["credentials", "intel", "{variant_slug}"],
+        "variants": [
+            "salesforce",
+            "workday",
+            "sap",
+            "zendesk",
+            "okta",
+            "pagerduty",
+            "slack",
+            "atlassian",
+            "servicenow",
+            "office365",
+        ],
+        "count": 10,
+    },
+    {
+        "id_prefix": "debug-portal-dump",
+        "name_template": "{variant_title} Debug Portal Dump #{index}",
+        "description_template": "Detects exposed debug dumps for the {variant} deployment branch that may leak stack traces.",
+        "severity_cycle": ["medium", "low"],
+        "method": "GET",
+        "path_template": "/debug/{variant_slug}/dump-{index_padded}.log",
+        "matchers": {"status": [200], "regex": ["(?i)(stacktrace|debug|exception)"]},
+        "tags": ["debug", "logs", "{variant_slug}"],
+        "variants": [
+            "beta",
+            "gamma",
+            "delta",
+            "epsilon",
+            "theta",
+            "lambda",
+            "omega",
+            "sigma",
+        ],
+        "count": 12,
+    },
+    {
+        "id_prefix": "feature-flag-export",
+        "name_template": "{variant_title} Feature Flag Export #{index}",
+        "description_template": "Looks for exposed {variant} feature flag exports disclosing rollout status and kill-switches.",
+        "severity_cycle": ["medium", "low"],
+        "method": "GET",
+        "path_template": "/feature-flags/{variant_slug}/flags-{index_padded}.json",
+        "matchers": {"status": [200], "regex": ["(?i)(flag|enabled|toggle)"]},
+        "tags": ["feature-flags", "intel", "{variant_slug}"],
+        "variants": [
+            "mobile-app",
+            "web-app",
+            "admin-portal",
+            "internal-tools",
+            "edge-services",
+            "platform",
+        ],
+        "count": 15,
+    },
+    {
+        "id_prefix": "dataset-export-leak",
+        "name_template": "{variant_title} Dataset Export Exposure #{index}",
+        "description_template": "Detects world-readable {variant} dataset exports that may disclose sensitive records.",
+        "severity_cycle": ["medium", "high", "medium"],
+        "method": "GET",
+        "path_template": "/datasets/{variant_slug}/export-{index_padded}.csv",
+        "matchers": {"status": [200], "regex": ["(?i)(id,|email|user|amount)"]},
+        "tags": ["datasets", "intel", "{variant_slug}"],
+        "variants": [
+            "customers",
+            "transactions",
+            "analytics",
+            "telemetry",
+            "inventory",
+            "audit",
+            "compliance",
+            "operations",
+            "marketing",
+            "support",
+        ],
+        "count": 12,
+    },
+    {
+        "id_prefix": "admin-report-exposure",
+        "name_template": "{variant_title} Admin Report Exposure #{index}",
+        "description_template": "Checks for exposed administrative {variant} reports that may leak strategic insights.",
+        "severity_cycle": ["medium"],
+        "method": "GET",
+        "path_template": "/admin/reports/{variant_slug}-{index_padded}.pdf",
+        "matchers": {"status": [200], "regex": ["%PDF"]},
+        "tags": ["reports", "intel", "{variant_slug}"],
+        "variants": [
+            "usage",
+            "security",
+            "billing",
+            "onboarding",
+            "growth",
+            "accounts",
+            "quality",
+            "risk",
+            "latency",
+            "availability",
+            "product",
+            "feedback",
+        ],
+        "count": 8,
+    },
+    {
+        "id_prefix": "integration-token-leak",
+        "name_template": "{variant_title} Integration Token Cache #{index}",
+        "description_template": "Detects exposed {variant} integration token caches leaking credentials.",
+        "severity_cycle": ["high", "medium"],
+        "method": "GET",
+        "path_template": "/integrations/{variant_slug}/tokens-{index_padded}.json",
+        "matchers": {"status": [200], "regex": ["(?i)(token|secret|client_id)"]},
+        "tags": ["integrations", "credentials", "{variant_slug}"],
+        "variants": [
+            "github",
+            "gitlab",
+            "bitbucket",
+            "slack",
+            "teams",
+            "zoom",
+            "zendesk",
+            "pagerduty",
+            "jira",
+        ],
+        "count": 12,
+    },
+    {
+        "id_prefix": "diagnostic-dump-leak",
+        "name_template": "{variant_title} Diagnostic Dump Exposure #{index}",
+        "description_template": "Detects exposed {variant} diagnostic dumps that may leak infrastructure details.",
+        "severity_cycle": ["medium", "high", "medium", "low"],
+        "method": "GET",
+        "path_template": "/diagnostics/{variant_slug}/diag-{index_padded}.log",
+        "matchers": {"status": [200], "regex": ["(?i)(error|warning|stack|trace)"]},
+        "tags": ["diagnostics", "logs", "{variant_slug}"],
+        "variants": [
+            "kernel",
+            "database",
+            "cache",
+            "queue",
+            "search",
+            "proxy",
+            "api",
+        ],
+        "count": 14,
+    },
+    {
+        "id_prefix": "compliance-report-leak",
+        "name_template": "{variant_upper} Compliance Report Exposure #{index}",
+        "description_template": "Looks for exposed {variant_upper} compliance audit reports that may disclose regulatory findings.",
+        "severity_cycle": ["medium", "high"],
+        "method": "GET",
+        "path_template": "/compliance/{variant_slug}/report-{index_padded}.xlsx",
+        "matchers": {"status": [200], "regex": ["(?i)pk"]},
+        "tags": ["compliance", "reports", "{variant_slug}"],
+        "variants": ["gdpr", "hipaa", "pci", "sox", "iso27001"],
+        "count": 14,
+    },
+]
+
+
+def _normalize_matchers(matchers: dict[str, Any] | None) -> dict[str, Any]:
+    if not isinstance(matchers, dict):
+        return {}
+    normalized = deepcopy(matchers)
+    contains_rules = normalized.pop("contains", None)
+    regex_rules = [pattern for pattern in normalized.get("regex", []) if isinstance(pattern, str)]
+    if contains_rules:
+        for needle in contains_rules:
+            if not isinstance(needle, str):
+                continue
+            regex_rules.append(f"(?i){re.escape(needle)}")
+    if regex_rules:
+        normalized["regex"] = regex_rules
+    else:
+        normalized.pop("regex", None)
+    return normalized
+
+
+def _slugify(value: str) -> str:
+    slug = re.sub(r"[^a-z0-9]+", "-", value.lower()).strip("-")
+    return slug or "variant"
+
+
+def _generate_bulk_automation_templates(target: int = 1000) -> list[dict[str, Any]]:
+    templates: list[dict[str, Any]] = []
+    for blueprint in BULK_TEMPLATE_BLUEPRINTS:
+        severity_cycle = blueprint.get("severity_cycle") or [blueprint.get("severity", "medium")]
+        for variant_index, variant in enumerate(blueprint["variants"]):
+            variant_slug = _slugify(variant)
+            format_base = {
+                "variant": variant,
+                "variant_lower": variant.lower(),
+                "variant_slug": variant_slug,
+                "variant_title": variant.replace("-", " ").title(),
+                "variant_upper": variant.upper(),
+            }
+            for index in range(1, blueprint["count"] + 1):
+                if len(templates) >= target:
+                    return templates
+                cycle_index = (variant_index * blueprint["count"] + (index - 1)) % len(severity_cycle)
+                severity = severity_cycle[cycle_index]
+                format_values = {
+                    **format_base,
+                    "index": index,
+                    "index_padded": f"{index:02d}",
+                }
+                template: dict[str, Any] = {
+                    "id": f"{blueprint['id_prefix']}-{variant_slug}-{index:02d}",
+                    "name": blueprint["name_template"].format(**format_values),
+                    "description": blueprint["description_template"].format(**format_values),
+                    "severity": severity,
+                    "method": blueprint["method"],
+                    "path": blueprint["path_template"].format(**format_values),
+                    "matchers": _normalize_matchers(blueprint.get("matchers")),
+                    "tags": [tag.format(**format_values) for tag in blueprint["tags"]],
+                }
+                if "headers" in blueprint:
+                    template["headers"] = {
+                        key: value.format(**format_values)
+                        for key, value in blueprint["headers"].items()
+                    }
+                if "body_template" in blueprint:
+                    template["body"] = blueprint["body_template"].format(**format_values)
+                templates.append(template)
+    return templates
+
+
+DEFAULT_AUTOMATION_TEMPLATES.extend(_generate_bulk_automation_templates(1000))
 
 
 def _load_automation_templates_from_disk(path: Path) -> list[dict[str, Any]]:
