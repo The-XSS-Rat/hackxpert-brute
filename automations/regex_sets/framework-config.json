@@ -1,0 +1,583 @@
+{
+  "category": "framework-config",
+  "title": "Framework Config",
+  "description": "Regex collection for Framework Config automation templates.",
+  "templates": [
+    {
+      "template_id": "framework-config-leak-angular-01",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-angular-02",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-angular-03",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-angular-04",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-angular-05",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-angular-06",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-angular-07",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-angular-08",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-django-01",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-django-02",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-django-03",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-django-04",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-django-05",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-django-06",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-django-07",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-django-08",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-express-01",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-express-02",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-express-03",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-express-04",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-express-05",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-express-06",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-express-07",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-express-08",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-fastapi-01",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-fastapi-02",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-fastapi-03",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-fastapi-04",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-fastapi-05",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-fastapi-06",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-fastapi-07",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-fastapi-08",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-flask-01",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-flask-02",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-flask-03",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-flask-04",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-flask-05",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-flask-06",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-flask-07",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-flask-08",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-laravel-01",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-laravel-02",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-laravel-03",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-laravel-04",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-laravel-05",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-laravel-06",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-laravel-07",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-laravel-08",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-nextjs-01",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-nextjs-02",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-nextjs-03",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-nextjs-04",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-nextjs-05",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-nextjs-06",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-nextjs-07",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-nextjs-08",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-nuxt-01",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-nuxt-02",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-nuxt-03",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-nuxt-04",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-nuxt-05",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-nuxt-06",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-nuxt-07",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-nuxt-08",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-rails-01",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-rails-02",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-rails-03",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-rails-04",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-rails-05",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-rails-06",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-rails-07",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-rails-08",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-react-01",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-react-02",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-react-03",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-react-04",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-react-05",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-react-06",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-react-07",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-react-08",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-spring-01",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-spring-02",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-spring-03",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-spring-04",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-spring-05",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-spring-06",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-spring-07",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-spring-08",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-symfony-01",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-symfony-02",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-symfony-03",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-symfony-04",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-symfony-05",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-symfony-06",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-symfony-07",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    },
+    {
+      "template_id": "framework-config-leak-symfony-08",
+      "regex": [
+        "(?i)(password|secret|token)"
+      ]
+    }
+  ]
+}

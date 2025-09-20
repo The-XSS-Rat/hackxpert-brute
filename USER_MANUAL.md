@@ -25,6 +25,7 @@ The interface is organised into modular tabs inside a neon-styled notebook:
 - **API Endpoint Explorer** – Lightweight spec and endpoint enumerator built for API-first targets.
 - **API Parameter Explorer** – Focused parameter fuzzing with baseline diffing.
 - **Automations** – Nuclei-style exploit templates and rulesets to rapidly validate exposures.
+- **Regex Library** – Curate and edit matcher regex collections grouped by objective.
 - **Settings** – Threading, recursion, proxy, header, and intel path controls.
 
 ## 3. Recon Lab Workflow
@@ -93,18 +94,27 @@ The Automations tab delivers a nuclei-inspired engine for executing exploit temp
 - Hits and errors are logged to the console for timeline context.
 - Automations respect global headers, proxies, and timeout settings from the Settings tab.
 
-## 7. Settings & Integrations
+## 7. Regex Library
+
+The Regex Library tab provides a treeview interface for auditing and editing matcher regex patterns used by the automation templates.
+
+1. **Categories** – Regex collections are grouped by common goals (e.g. `debug-trace`, `token-vault`). Use *Add Category* to define new groupings or edit/delete existing ones from the toolbar.
+2. **Template Links** – Highlight a category and click *Link Template* to associate an automation template ID. Existing matchers are imported automatically.
+3. **Pattern CRUD** – Select a template to add fresh regex entries, double-click leaf nodes to edit patterns, or remove outdated signatures. All changes persist to `automations/regex_sets/` and sync instantly with the automation engine.
+4. **Bulk Edit** – Selecting a template enables inline editing of newline-separated patterns to quickly replace an entire matcher list.
+
+## 8. Settings & Integrations
 
 - **Threading & Recursion** – Control concurrency, recursion depth, HTTP methods, and response filters.
 - **Timeout & Jitter** – Tune for stealth or speed.
 - **Headers & Intel Paths** – Persist custom headers and preflight intel endpoints.
 - **CORS Probing & Burp Proxy** – Toggle passive checks and chain requests through Burp for interception.
 
-## 8. Console & Telemetry
+## 9. Console & Telemetry
 
 The lower console logs major events: recon discoveries, TLS certificate insights, automation hits, and drift summaries. Use it as a quick audit trail during engagements.
 
-## 9. Command-line Mode
+## 10. Command-line Mode
 
 Run HackXpert without the GUI:
 
@@ -123,7 +133,7 @@ python main.py --cli \
 
 All GUI settings have CLI equivalents (`--no-redirect`, `--jitter`, `--intel-paths`, etc.). Results mirror the GUI exports.
 
-## 10. Tips & Best Practices
+## 11. Tips & Best Practices
 
 - **Baseline Storage** – Drift detection persists per base URL in `~/.hackxpert_surface_baselines.json`. Keep it for change tracking between assessments.
 - **Template Hygiene** – Store shared automation templates in version control. The import/export flow keeps teams in sync.

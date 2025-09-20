@@ -1,0 +1,13 @@
+{
+  "category": "git-config",
+  "title": "Git Config",
+  "description": "Regex collection for Git Config automation templates.",
+  "templates": [
+    {
+      "template_id": "git-config-exposure",
+      "regex": [
+        "(?im)^\\[core\\]"
+      ]
+    }
+  ]
+}

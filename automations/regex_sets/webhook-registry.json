@@ -1,0 +1,807 @@
+{
+  "category": "webhook-registry",
+  "title": "Webhook Registry",
+  "description": "Regex collection for Webhook Registry automation templates.",
+  "templates": [
+    {
+      "template_id": "api-regex-webhook-registry-access-management-01",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-access-management-02",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-access-management-03",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-access-management-04",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-access-management-05",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-accounting-01",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-accounting-02",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-accounting-03",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-accounting-04",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-accounting-05",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-analytics-01",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-analytics-02",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-analytics-03",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-analytics-04",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-analytics-05",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-audit-01",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-audit-02",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-audit-03",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-audit-04",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-audit-05",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-billing-01",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-billing-02",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-billing-03",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-billing-04",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-billing-05",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-business-intelligence-01",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-business-intelligence-02",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-business-intelligence-03",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-business-intelligence-04",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-business-intelligence-05",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-cloud-ops-01",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-cloud-ops-02",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-cloud-ops-03",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-cloud-ops-04",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-cloud-ops-05",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-collaboration-01",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-collaboration-02",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-collaboration-03",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-collaboration-04",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-collaboration-05",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-commerce-01",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-commerce-02",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-commerce-03",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-commerce-04",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-commerce-05",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-compliance-01",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-compliance-02",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-compliance-03",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-compliance-04",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-compliance-05",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-customer-success-01",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-customer-success-02",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-customer-success-03",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-customer-success-04",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-customer-success-05",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-devops-01",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-devops-02",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-devops-03",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-devops-04",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-devops-05",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-finance-01",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-finance-02",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-finance-03",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-finance-04",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-finance-05",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-governance-01",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-governance-02",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-governance-03",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-governance-04",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-governance-05",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-identity-01",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-identity-02",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-identity-03",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-identity-04",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-identity-05",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-infrastructure-01",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-infrastructure-02",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-infrastructure-03",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-infrastructure-04",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-infrastructure-05",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-logistics-01",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-logistics-02",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-logistics-03",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-logistics-04",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-logistics-05",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-marketing-01",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-marketing-02",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-marketing-03",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-marketing-04",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-marketing-05",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-operations-01",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-operations-02",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-operations-03",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-operations-04",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-operations-05",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-product-01",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-product-02",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-product-03",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-product-04",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-product-05",
+      "regex": [
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)webhook"
+      ]
+    }
+  ]
+}

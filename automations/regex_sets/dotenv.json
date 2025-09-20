@@ -1,0 +1,13 @@
+{
+  "category": "dotenv",
+  "title": "Dotenv",
+  "description": "Regex collection for Dotenv automation templates.",
+  "templates": [
+    {
+      "template_id": "dotenv-exposure",
+      "regex": [
+        "(?i)(APP_KEY|DB_PASSWORD|MAIL_HOST)="
+      ]
+    }
+  ]
+}

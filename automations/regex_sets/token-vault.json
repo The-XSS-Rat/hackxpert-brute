@@ -1,0 +1,607 @@
+{
+  "category": "token-vault",
+  "title": "Token Vault Disclosures",
+  "description": "Access token vault exports and service account caches inadvertently exposed.",
+  "templates": [
+    {
+      "template_id": "api-regex-token-vault-edge-01",
+      "regex": [
+        "(?i)edge[-_]?token[-_]?vault[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-edge-02",
+      "regex": [
+        "(?i)edge[-_]?token[-_]?vault[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-edge-03",
+      "regex": [
+        "(?i)edge[-_]?token[-_]?vault[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-edge-04",
+      "regex": [
+        "(?i)edge[-_]?token[-_]?vault[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-edge-05",
+      "regex": [
+        "(?i)edge[-_]?token[-_]?vault[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-edge-06",
+      "regex": [
+        "(?i)edge[-_]?token[-_]?vault[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-edge-07",
+      "regex": [
+        "(?i)edge[-_]?token[-_]?vault[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-edge-08",
+      "regex": [
+        "(?i)edge[-_]?token[-_]?vault[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-edge-09",
+      "regex": [
+        "(?i)edge[-_]?token[-_]?vault[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-edge-10",
+      "regex": [
+        "(?i)edge[-_]?token[-_]?vault[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-federated-01",
+      "regex": [
+        "(?i)federated[-_]?token[-_]?vault[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-federated-02",
+      "regex": [
+        "(?i)federated[-_]?token[-_]?vault[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-federated-03",
+      "regex": [
+        "(?i)federated[-_]?token[-_]?vault[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-federated-04",
+      "regex": [
+        "(?i)federated[-_]?token[-_]?vault[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-federated-05",
+      "regex": [
+        "(?i)federated[-_]?token[-_]?vault[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-federated-06",
+      "regex": [
+        "(?i)federated[-_]?token[-_]?vault[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-federated-07",
+      "regex": [
+        "(?i)federated[-_]?token[-_]?vault[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-federated-08",
+      "regex": [
+        "(?i)federated[-_]?token[-_]?vault[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-federated-09",
+      "regex": [
+        "(?i)federated[-_]?token[-_]?vault[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-federated-10",
+      "regex": [
+        "(?i)federated[-_]?token[-_]?vault[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-global-01",
+      "regex": [
+        "(?i)global[-_]?token[-_]?vault[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-global-02",
+      "regex": [
+        "(?i)global[-_]?token[-_]?vault[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-global-03",
+      "regex": [
+        "(?i)global[-_]?token[-_]?vault[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-global-04",
+      "regex": [
+        "(?i)global[-_]?token[-_]?vault[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-global-05",
+      "regex": [
+        "(?i)global[-_]?token[-_]?vault[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-global-06",
+      "regex": [
+        "(?i)global[-_]?token[-_]?vault[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-global-07",
+      "regex": [
+        "(?i)global[-_]?token[-_]?vault[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-global-08",
+      "regex": [
+        "(?i)global[-_]?token[-_]?vault[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-global-09",
+      "regex": [
+        "(?i)global[-_]?token[-_]?vault[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-global-10",
+      "regex": [
+        "(?i)global[-_]?token[-_]?vault[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-legacy-01",
+      "regex": [
+        "(?i)legacy[-_]?token[-_]?vault[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-legacy-02",
+      "regex": [
+        "(?i)legacy[-_]?token[-_]?vault[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-legacy-03",
+      "regex": [
+        "(?i)legacy[-_]?token[-_]?vault[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-legacy-04",
+      "regex": [
+        "(?i)legacy[-_]?token[-_]?vault[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-legacy-05",
+      "regex": [
+        "(?i)legacy[-_]?token[-_]?vault[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-legacy-06",
+      "regex": [
+        "(?i)legacy[-_]?token[-_]?vault[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-legacy-07",
+      "regex": [
+        "(?i)legacy[-_]?token[-_]?vault[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-legacy-08",
+      "regex": [
+        "(?i)legacy[-_]?token[-_]?vault[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-legacy-09",
+      "regex": [
+        "(?i)legacy[-_]?token[-_]?vault[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-legacy-10",
+      "regex": [
+        "(?i)legacy[-_]?token[-_]?vault[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-mobile-01",
+      "regex": [
+        "(?i)mobile[-_]?token[-_]?vault[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-mobile-02",
+      "regex": [
+        "(?i)mobile[-_]?token[-_]?vault[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-mobile-03",
+      "regex": [
+        "(?i)mobile[-_]?token[-_]?vault[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-mobile-04",
+      "regex": [
+        "(?i)mobile[-_]?token[-_]?vault[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-mobile-05",
+      "regex": [
+        "(?i)mobile[-_]?token[-_]?vault[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-mobile-06",
+      "regex": [
+        "(?i)mobile[-_]?token[-_]?vault[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-mobile-07",
+      "regex": [
+        "(?i)mobile[-_]?token[-_]?vault[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-mobile-08",
+      "regex": [
+        "(?i)mobile[-_]?token[-_]?vault[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-mobile-09",
+      "regex": [
+        "(?i)mobile[-_]?token[-_]?vault[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-mobile-10",
+      "regex": [
+        "(?i)mobile[-_]?token[-_]?vault[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-partner-01",
+      "regex": [
+        "(?i)partner[-_]?token[-_]?vault[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-partner-02",
+      "regex": [
+        "(?i)partner[-_]?token[-_]?vault[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-partner-03",
+      "regex": [
+        "(?i)partner[-_]?token[-_]?vault[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-partner-04",
+      "regex": [
+        "(?i)partner[-_]?token[-_]?vault[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-partner-05",
+      "regex": [
+        "(?i)partner[-_]?token[-_]?vault[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-partner-06",
+      "regex": [
+        "(?i)partner[-_]?token[-_]?vault[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-partner-07",
+      "regex": [
+        "(?i)partner[-_]?token[-_]?vault[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-partner-08",
+      "regex": [
+        "(?i)partner[-_]?token[-_]?vault[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-partner-09",
+      "regex": [
+        "(?i)partner[-_]?token[-_]?vault[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-partner-10",
+      "regex": [
+        "(?i)partner[-_]?token[-_]?vault[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-platform-01",
+      "regex": [
+        "(?i)platform[-_]?token[-_]?vault[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-platform-02",
+      "regex": [
+        "(?i)platform[-_]?token[-_]?vault[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-platform-03",
+      "regex": [
+        "(?i)platform[-_]?token[-_]?vault[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-platform-04",
+      "regex": [
+        "(?i)platform[-_]?token[-_]?vault[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-platform-05",
+      "regex": [
+        "(?i)platform[-_]?token[-_]?vault[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-platform-06",
+      "regex": [
+        "(?i)platform[-_]?token[-_]?vault[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-platform-07",
+      "regex": [
+        "(?i)platform[-_]?token[-_]?vault[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-platform-08",
+      "regex": [
+        "(?i)platform[-_]?token[-_]?vault[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-platform-09",
+      "regex": [
+        "(?i)platform[-_]?token[-_]?vault[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-platform-10",
+      "regex": [
+        "(?i)platform[-_]?token[-_]?vault[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-research-01",
+      "regex": [
+        "(?i)research[-_]?token[-_]?vault[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-research-02",
+      "regex": [
+        "(?i)research[-_]?token[-_]?vault[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-research-03",
+      "regex": [
+        "(?i)research[-_]?token[-_]?vault[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-research-04",
+      "regex": [
+        "(?i)research[-_]?token[-_]?vault[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-research-05",
+      "regex": [
+        "(?i)research[-_]?token[-_]?vault[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-research-06",
+      "regex": [
+        "(?i)research[-_]?token[-_]?vault[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-research-07",
+      "regex": [
+        "(?i)research[-_]?token[-_]?vault[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-research-08",
+      "regex": [
+        "(?i)research[-_]?token[-_]?vault[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-research-09",
+      "regex": [
+        "(?i)research[-_]?token[-_]?vault[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-research-10",
+      "regex": [
+        "(?i)research[-_]?token[-_]?vault[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-sandbox-01",
+      "regex": [
+        "(?i)sandbox[-_]?token[-_]?vault[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-sandbox-02",
+      "regex": [
+        "(?i)sandbox[-_]?token[-_]?vault[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-sandbox-03",
+      "regex": [
+        "(?i)sandbox[-_]?token[-_]?vault[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-sandbox-04",
+      "regex": [
+        "(?i)sandbox[-_]?token[-_]?vault[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-sandbox-05",
+      "regex": [
+        "(?i)sandbox[-_]?token[-_]?vault[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-sandbox-06",
+      "regex": [
+        "(?i)sandbox[-_]?token[-_]?vault[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-sandbox-07",
+      "regex": [
+        "(?i)sandbox[-_]?token[-_]?vault[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-sandbox-08",
+      "regex": [
+        "(?i)sandbox[-_]?token[-_]?vault[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-sandbox-09",
+      "regex": [
+        "(?i)sandbox[-_]?token[-_]?vault[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-sandbox-10",
+      "regex": [
+        "(?i)sandbox[-_]?token[-_]?vault[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-shared-01",
+      "regex": [
+        "(?i)shared[-_]?token[-_]?vault[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-shared-02",
+      "regex": [
+        "(?i)shared[-_]?token[-_]?vault[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-shared-03",
+      "regex": [
+        "(?i)shared[-_]?token[-_]?vault[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-shared-04",
+      "regex": [
+        "(?i)shared[-_]?token[-_]?vault[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-shared-05",
+      "regex": [
+        "(?i)shared[-_]?token[-_]?vault[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-shared-06",
+      "regex": [
+        "(?i)shared[-_]?token[-_]?vault[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-shared-07",
+      "regex": [
+        "(?i)shared[-_]?token[-_]?vault[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-shared-08",
+      "regex": [
+        "(?i)shared[-_]?token[-_]?vault[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-shared-09",
+      "regex": [
+        "(?i)shared[-_]?token[-_]?vault[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-vault-shared-10",
+      "regex": [
+        "(?i)shared[-_]?token[-_]?vault[-_]?10"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,607 @@
+{
+  "category": "compliance-audit",
+  "title": "Compliance Audit Troves",
+  "description": "Audit troves containing certifications, regulator notes and sensitive context.",
+  "templates": [
+    {
+      "template_id": "api-regex-compliance-audit-audit-01",
+      "regex": [
+        "(?i)audit[-_]?compliance[-_]?audit[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-audit-02",
+      "regex": [
+        "(?i)audit[-_]?compliance[-_]?audit[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-audit-03",
+      "regex": [
+        "(?i)audit[-_]?compliance[-_]?audit[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-audit-04",
+      "regex": [
+        "(?i)audit[-_]?compliance[-_]?audit[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-audit-05",
+      "regex": [
+        "(?i)audit[-_]?compliance[-_]?audit[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-audit-06",
+      "regex": [
+        "(?i)audit[-_]?compliance[-_]?audit[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-audit-07",
+      "regex": [
+        "(?i)audit[-_]?compliance[-_]?audit[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-audit-08",
+      "regex": [
+        "(?i)audit[-_]?compliance[-_]?audit[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-audit-09",
+      "regex": [
+        "(?i)audit[-_]?compliance[-_]?audit[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-audit-10",
+      "regex": [
+        "(?i)audit[-_]?compliance[-_]?audit[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-authority-01",
+      "regex": [
+        "(?i)authority[-_]?compliance[-_]?audit[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-authority-02",
+      "regex": [
+        "(?i)authority[-_]?compliance[-_]?audit[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-authority-03",
+      "regex": [
+        "(?i)authority[-_]?compliance[-_]?audit[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-authority-04",
+      "regex": [
+        "(?i)authority[-_]?compliance[-_]?audit[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-authority-05",
+      "regex": [
+        "(?i)authority[-_]?compliance[-_]?audit[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-authority-06",
+      "regex": [
+        "(?i)authority[-_]?compliance[-_]?audit[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-authority-07",
+      "regex": [
+        "(?i)authority[-_]?compliance[-_]?audit[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-authority-08",
+      "regex": [
+        "(?i)authority[-_]?compliance[-_]?audit[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-authority-09",
+      "regex": [
+        "(?i)authority[-_]?compliance[-_]?audit[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-authority-10",
+      "regex": [
+        "(?i)authority[-_]?compliance[-_]?audit[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-control-01",
+      "regex": [
+        "(?i)control[-_]?compliance[-_]?audit[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-control-02",
+      "regex": [
+        "(?i)control[-_]?compliance[-_]?audit[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-control-03",
+      "regex": [
+        "(?i)control[-_]?compliance[-_]?audit[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-control-04",
+      "regex": [
+        "(?i)control[-_]?compliance[-_]?audit[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-control-05",
+      "regex": [
+        "(?i)control[-_]?compliance[-_]?audit[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-control-06",
+      "regex": [
+        "(?i)control[-_]?compliance[-_]?audit[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-control-07",
+      "regex": [
+        "(?i)control[-_]?compliance[-_]?audit[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-control-08",
+      "regex": [
+        "(?i)control[-_]?compliance[-_]?audit[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-control-09",
+      "regex": [
+        "(?i)control[-_]?compliance[-_]?audit[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-control-10",
+      "regex": [
+        "(?i)control[-_]?compliance[-_]?audit[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-governance-01",
+      "regex": [
+        "(?i)governance[-_]?compliance[-_]?audit[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-governance-02",
+      "regex": [
+        "(?i)governance[-_]?compliance[-_]?audit[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-governance-03",
+      "regex": [
+        "(?i)governance[-_]?compliance[-_]?audit[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-governance-04",
+      "regex": [
+        "(?i)governance[-_]?compliance[-_]?audit[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-governance-05",
+      "regex": [
+        "(?i)governance[-_]?compliance[-_]?audit[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-governance-06",
+      "regex": [
+        "(?i)governance[-_]?compliance[-_]?audit[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-governance-07",
+      "regex": [
+        "(?i)governance[-_]?compliance[-_]?audit[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-governance-08",
+      "regex": [
+        "(?i)governance[-_]?compliance[-_]?audit[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-governance-09",
+      "regex": [
+        "(?i)governance[-_]?compliance[-_]?audit[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-governance-10",
+      "regex": [
+        "(?i)governance[-_]?compliance[-_]?audit[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-policy-01",
+      "regex": [
+        "(?i)policy[-_]?compliance[-_]?audit[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-policy-02",
+      "regex": [
+        "(?i)policy[-_]?compliance[-_]?audit[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-policy-03",
+      "regex": [
+        "(?i)policy[-_]?compliance[-_]?audit[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-policy-04",
+      "regex": [
+        "(?i)policy[-_]?compliance[-_]?audit[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-policy-05",
+      "regex": [
+        "(?i)policy[-_]?compliance[-_]?audit[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-policy-06",
+      "regex": [
+        "(?i)policy[-_]?compliance[-_]?audit[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-policy-07",
+      "regex": [
+        "(?i)policy[-_]?compliance[-_]?audit[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-policy-08",
+      "regex": [
+        "(?i)policy[-_]?compliance[-_]?audit[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-policy-09",
+      "regex": [
+        "(?i)policy[-_]?compliance[-_]?audit[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-policy-10",
+      "regex": [
+        "(?i)policy[-_]?compliance[-_]?audit[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-privacy-01",
+      "regex": [
+        "(?i)privacy[-_]?compliance[-_]?audit[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-privacy-02",
+      "regex": [
+        "(?i)privacy[-_]?compliance[-_]?audit[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-privacy-03",
+      "regex": [
+        "(?i)privacy[-_]?compliance[-_]?audit[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-privacy-04",
+      "regex": [
+        "(?i)privacy[-_]?compliance[-_]?audit[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-privacy-05",
+      "regex": [
+        "(?i)privacy[-_]?compliance[-_]?audit[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-privacy-06",
+      "regex": [
+        "(?i)privacy[-_]?compliance[-_]?audit[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-privacy-07",
+      "regex": [
+        "(?i)privacy[-_]?compliance[-_]?audit[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-privacy-08",
+      "regex": [
+        "(?i)privacy[-_]?compliance[-_]?audit[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-privacy-09",
+      "regex": [
+        "(?i)privacy[-_]?compliance[-_]?audit[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-privacy-10",
+      "regex": [
+        "(?i)privacy[-_]?compliance[-_]?audit[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-risk-01",
+      "regex": [
+        "(?i)risk[-_]?compliance[-_]?audit[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-risk-02",
+      "regex": [
+        "(?i)risk[-_]?compliance[-_]?audit[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-risk-03",
+      "regex": [
+        "(?i)risk[-_]?compliance[-_]?audit[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-risk-04",
+      "regex": [
+        "(?i)risk[-_]?compliance[-_]?audit[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-risk-05",
+      "regex": [
+        "(?i)risk[-_]?compliance[-_]?audit[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-risk-06",
+      "regex": [
+        "(?i)risk[-_]?compliance[-_]?audit[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-risk-07",
+      "regex": [
+        "(?i)risk[-_]?compliance[-_]?audit[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-risk-08",
+      "regex": [
+        "(?i)risk[-_]?compliance[-_]?audit[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-risk-09",
+      "regex": [
+        "(?i)risk[-_]?compliance[-_]?audit[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-risk-10",
+      "regex": [
+        "(?i)risk[-_]?compliance[-_]?audit[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-standard-01",
+      "regex": [
+        "(?i)standard[-_]?compliance[-_]?audit[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-standard-02",
+      "regex": [
+        "(?i)standard[-_]?compliance[-_]?audit[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-standard-03",
+      "regex": [
+        "(?i)standard[-_]?compliance[-_]?audit[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-standard-04",
+      "regex": [
+        "(?i)standard[-_]?compliance[-_]?audit[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-standard-05",
+      "regex": [
+        "(?i)standard[-_]?compliance[-_]?audit[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-standard-06",
+      "regex": [
+        "(?i)standard[-_]?compliance[-_]?audit[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-standard-07",
+      "regex": [
+        "(?i)standard[-_]?compliance[-_]?audit[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-standard-08",
+      "regex": [
+        "(?i)standard[-_]?compliance[-_]?audit[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-standard-09",
+      "regex": [
+        "(?i)standard[-_]?compliance[-_]?audit[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-standard-10",
+      "regex": [
+        "(?i)standard[-_]?compliance[-_]?audit[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-trust-01",
+      "regex": [
+        "(?i)trust[-_]?compliance[-_]?audit[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-trust-02",
+      "regex": [
+        "(?i)trust[-_]?compliance[-_]?audit[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-trust-03",
+      "regex": [
+        "(?i)trust[-_]?compliance[-_]?audit[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-trust-04",
+      "regex": [
+        "(?i)trust[-_]?compliance[-_]?audit[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-trust-05",
+      "regex": [
+        "(?i)trust[-_]?compliance[-_]?audit[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-trust-06",
+      "regex": [
+        "(?i)trust[-_]?compliance[-_]?audit[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-trust-07",
+      "regex": [
+        "(?i)trust[-_]?compliance[-_]?audit[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-trust-08",
+      "regex": [
+        "(?i)trust[-_]?compliance[-_]?audit[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-trust-09",
+      "regex": [
+        "(?i)trust[-_]?compliance[-_]?audit[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-trust-10",
+      "regex": [
+        "(?i)trust[-_]?compliance[-_]?audit[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-verdict-01",
+      "regex": [
+        "(?i)verdict[-_]?compliance[-_]?audit[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-verdict-02",
+      "regex": [
+        "(?i)verdict[-_]?compliance[-_]?audit[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-verdict-03",
+      "regex": [
+        "(?i)verdict[-_]?compliance[-_]?audit[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-verdict-04",
+      "regex": [
+        "(?i)verdict[-_]?compliance[-_]?audit[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-verdict-05",
+      "regex": [
+        "(?i)verdict[-_]?compliance[-_]?audit[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-verdict-06",
+      "regex": [
+        "(?i)verdict[-_]?compliance[-_]?audit[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-verdict-07",
+      "regex": [
+        "(?i)verdict[-_]?compliance[-_]?audit[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-verdict-08",
+      "regex": [
+        "(?i)verdict[-_]?compliance[-_]?audit[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-verdict-09",
+      "regex": [
+        "(?i)verdict[-_]?compliance[-_]?audit[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-audit-verdict-10",
+      "regex": [
+        "(?i)verdict[-_]?compliance[-_]?audit[-_]?10"
+      ]
+    }
+  ]
+}

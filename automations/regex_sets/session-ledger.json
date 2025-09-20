@@ -1,0 +1,807 @@
+{
+  "category": "session-ledger",
+  "title": "Session Ledger",
+  "description": "Regex collection for Session Ledger automation templates.",
+  "templates": [
+    {
+      "template_id": "api-regex-session-ledger-access-management-01",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-access-management-02",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-access-management-03",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-access-management-04",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-access-management-05",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-accounting-01",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-accounting-02",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-accounting-03",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-accounting-04",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-accounting-05",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-analytics-01",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-analytics-02",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-analytics-03",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-analytics-04",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-analytics-05",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-audit-01",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-audit-02",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-audit-03",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-audit-04",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-audit-05",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-billing-01",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-billing-02",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-billing-03",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-billing-04",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-billing-05",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-business-intelligence-01",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-business-intelligence-02",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-business-intelligence-03",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-business-intelligence-04",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-business-intelligence-05",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-cloud-ops-01",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-cloud-ops-02",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-cloud-ops-03",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-cloud-ops-04",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-cloud-ops-05",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-collaboration-01",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-collaboration-02",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-collaboration-03",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-collaboration-04",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-collaboration-05",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-commerce-01",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-commerce-02",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-commerce-03",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-commerce-04",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-commerce-05",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-compliance-01",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-compliance-02",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-compliance-03",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-compliance-04",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-compliance-05",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-customer-success-01",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-customer-success-02",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-customer-success-03",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-customer-success-04",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-customer-success-05",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-devops-01",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-devops-02",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-devops-03",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-devops-04",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-devops-05",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-finance-01",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-finance-02",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-finance-03",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-finance-04",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-finance-05",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-governance-01",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-governance-02",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-governance-03",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-governance-04",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-governance-05",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-identity-01",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-identity-02",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-identity-03",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-identity-04",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-identity-05",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-infrastructure-01",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-infrastructure-02",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-infrastructure-03",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-infrastructure-04",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-infrastructure-05",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-logistics-01",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-logistics-02",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-logistics-03",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-logistics-04",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-logistics-05",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-marketing-01",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-marketing-02",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-marketing-03",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-marketing-04",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-marketing-05",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-operations-01",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-operations-02",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-operations-03",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-operations-04",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-operations-05",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-product-01",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-product-02",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-product-03",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-product-04",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-product-05",
+      "regex": [
+        "(?i)exp",
+        "(?i)jwt",
+        "(?i)session"
+      ]
+    }
+  ]
+}

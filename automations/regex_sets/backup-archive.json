@@ -1,0 +1,607 @@
+{
+  "category": "backup-archive",
+  "title": "Backup Archive",
+  "description": "Regex collection for Backup Archive automation templates.",
+  "templates": [
+    {
+      "template_id": "backup-archive-exposure-elasticsearch-01",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-elasticsearch-02",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-elasticsearch-03",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-elasticsearch-04",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-elasticsearch-05",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-elasticsearch-06",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-elasticsearch-07",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-elasticsearch-08",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-elasticsearch-09",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-elasticsearch-10",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-elasticsearch-11",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-elasticsearch-12",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-elasticsearch-13",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-elasticsearch-14",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-elasticsearch-15",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-elasticsearch-16",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-elasticsearch-17",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-elasticsearch-18",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-elasticsearch-19",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-elasticsearch-20",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-mongodb-01",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-mongodb-02",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-mongodb-03",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-mongodb-04",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-mongodb-05",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-mongodb-06",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-mongodb-07",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-mongodb-08",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-mongodb-09",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-mongodb-10",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-mongodb-11",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-mongodb-12",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-mongodb-13",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-mongodb-14",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-mongodb-15",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-mongodb-16",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-mongodb-17",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-mongodb-18",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-mongodb-19",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-mongodb-20",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-mysql-01",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-mysql-02",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-mysql-03",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-mysql-04",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-mysql-05",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-mysql-06",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-mysql-07",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-mysql-08",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-mysql-09",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-mysql-10",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-mysql-11",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-mysql-12",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-mysql-13",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-mysql-14",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-mysql-15",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-mysql-16",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-mysql-17",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-mysql-18",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-mysql-19",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-mysql-20",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-postgresql-01",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-postgresql-02",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-postgresql-03",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-postgresql-04",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-postgresql-05",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-postgresql-06",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-postgresql-07",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-postgresql-08",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-postgresql-09",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-postgresql-10",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-postgresql-11",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-postgresql-12",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-postgresql-13",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-postgresql-14",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-postgresql-15",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-postgresql-16",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-postgresql-17",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-postgresql-18",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-postgresql-19",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-postgresql-20",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-redis-01",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-redis-02",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-redis-03",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-redis-04",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-redis-05",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-redis-06",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-redis-07",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-redis-08",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-redis-09",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-redis-10",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-redis-11",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-redis-12",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-redis-13",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-redis-14",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-redis-15",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-redis-16",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-redis-17",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-redis-18",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-redis-19",
+      "regex": [
+        "(?i)pk"
+      ]
+    },
+    {
+      "template_id": "backup-archive-exposure-redis-20",
+      "regex": [
+        "(?i)pk"
+      ]
+    }
+  ]
+}

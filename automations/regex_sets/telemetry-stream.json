@@ -1,0 +1,607 @@
+{
+  "category": "telemetry-stream",
+  "title": "Telemetry Stream Snapshots",
+  "description": "Telemetry stream snapshots capturing verbose event payloads and tokens.",
+  "templates": [
+    {
+      "template_id": "api-regex-telemetry-stream-beacon-01",
+      "regex": [
+        "(?i)beacon[-_]?telemetry[-_]?stream[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-beacon-02",
+      "regex": [
+        "(?i)beacon[-_]?telemetry[-_]?stream[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-beacon-03",
+      "regex": [
+        "(?i)beacon[-_]?telemetry[-_]?stream[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-beacon-04",
+      "regex": [
+        "(?i)beacon[-_]?telemetry[-_]?stream[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-beacon-05",
+      "regex": [
+        "(?i)beacon[-_]?telemetry[-_]?stream[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-beacon-06",
+      "regex": [
+        "(?i)beacon[-_]?telemetry[-_]?stream[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-beacon-07",
+      "regex": [
+        "(?i)beacon[-_]?telemetry[-_]?stream[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-beacon-08",
+      "regex": [
+        "(?i)beacon[-_]?telemetry[-_]?stream[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-beacon-09",
+      "regex": [
+        "(?i)beacon[-_]?telemetry[-_]?stream[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-beacon-10",
+      "regex": [
+        "(?i)beacon[-_]?telemetry[-_]?stream[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-capture-01",
+      "regex": [
+        "(?i)capture[-_]?telemetry[-_]?stream[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-capture-02",
+      "regex": [
+        "(?i)capture[-_]?telemetry[-_]?stream[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-capture-03",
+      "regex": [
+        "(?i)capture[-_]?telemetry[-_]?stream[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-capture-04",
+      "regex": [
+        "(?i)capture[-_]?telemetry[-_]?stream[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-capture-05",
+      "regex": [
+        "(?i)capture[-_]?telemetry[-_]?stream[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-capture-06",
+      "regex": [
+        "(?i)capture[-_]?telemetry[-_]?stream[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-capture-07",
+      "regex": [
+        "(?i)capture[-_]?telemetry[-_]?stream[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-capture-08",
+      "regex": [
+        "(?i)capture[-_]?telemetry[-_]?stream[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-capture-09",
+      "regex": [
+        "(?i)capture[-_]?telemetry[-_]?stream[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-capture-10",
+      "regex": [
+        "(?i)capture[-_]?telemetry[-_]?stream[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-datastream-01",
+      "regex": [
+        "(?i)datastream[-_]?telemetry[-_]?stream[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-datastream-02",
+      "regex": [
+        "(?i)datastream[-_]?telemetry[-_]?stream[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-datastream-03",
+      "regex": [
+        "(?i)datastream[-_]?telemetry[-_]?stream[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-datastream-04",
+      "regex": [
+        "(?i)datastream[-_]?telemetry[-_]?stream[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-datastream-05",
+      "regex": [
+        "(?i)datastream[-_]?telemetry[-_]?stream[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-datastream-06",
+      "regex": [
+        "(?i)datastream[-_]?telemetry[-_]?stream[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-datastream-07",
+      "regex": [
+        "(?i)datastream[-_]?telemetry[-_]?stream[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-datastream-08",
+      "regex": [
+        "(?i)datastream[-_]?telemetry[-_]?stream[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-datastream-09",
+      "regex": [
+        "(?i)datastream[-_]?telemetry[-_]?stream[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-datastream-10",
+      "regex": [
+        "(?i)datastream[-_]?telemetry[-_]?stream[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-edge-01",
+      "regex": [
+        "(?i)edge[-_]?telemetry[-_]?stream[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-edge-02",
+      "regex": [
+        "(?i)edge[-_]?telemetry[-_]?stream[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-edge-03",
+      "regex": [
+        "(?i)edge[-_]?telemetry[-_]?stream[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-edge-04",
+      "regex": [
+        "(?i)edge[-_]?telemetry[-_]?stream[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-edge-05",
+      "regex": [
+        "(?i)edge[-_]?telemetry[-_]?stream[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-edge-06",
+      "regex": [
+        "(?i)edge[-_]?telemetry[-_]?stream[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-edge-07",
+      "regex": [
+        "(?i)edge[-_]?telemetry[-_]?stream[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-edge-08",
+      "regex": [
+        "(?i)edge[-_]?telemetry[-_]?stream[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-edge-09",
+      "regex": [
+        "(?i)edge[-_]?telemetry[-_]?stream[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-edge-10",
+      "regex": [
+        "(?i)edge[-_]?telemetry[-_]?stream[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-inspector-01",
+      "regex": [
+        "(?i)inspector[-_]?telemetry[-_]?stream[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-inspector-02",
+      "regex": [
+        "(?i)inspector[-_]?telemetry[-_]?stream[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-inspector-03",
+      "regex": [
+        "(?i)inspector[-_]?telemetry[-_]?stream[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-inspector-04",
+      "regex": [
+        "(?i)inspector[-_]?telemetry[-_]?stream[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-inspector-05",
+      "regex": [
+        "(?i)inspector[-_]?telemetry[-_]?stream[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-inspector-06",
+      "regex": [
+        "(?i)inspector[-_]?telemetry[-_]?stream[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-inspector-07",
+      "regex": [
+        "(?i)inspector[-_]?telemetry[-_]?stream[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-inspector-08",
+      "regex": [
+        "(?i)inspector[-_]?telemetry[-_]?stream[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-inspector-09",
+      "regex": [
+        "(?i)inspector[-_]?telemetry[-_]?stream[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-inspector-10",
+      "regex": [
+        "(?i)inspector[-_]?telemetry[-_]?stream[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-monitor-01",
+      "regex": [
+        "(?i)monitor[-_]?telemetry[-_]?stream[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-monitor-02",
+      "regex": [
+        "(?i)monitor[-_]?telemetry[-_]?stream[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-monitor-03",
+      "regex": [
+        "(?i)monitor[-_]?telemetry[-_]?stream[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-monitor-04",
+      "regex": [
+        "(?i)monitor[-_]?telemetry[-_]?stream[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-monitor-05",
+      "regex": [
+        "(?i)monitor[-_]?telemetry[-_]?stream[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-monitor-06",
+      "regex": [
+        "(?i)monitor[-_]?telemetry[-_]?stream[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-monitor-07",
+      "regex": [
+        "(?i)monitor[-_]?telemetry[-_]?stream[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-monitor-08",
+      "regex": [
+        "(?i)monitor[-_]?telemetry[-_]?stream[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-monitor-09",
+      "regex": [
+        "(?i)monitor[-_]?telemetry[-_]?stream[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-monitor-10",
+      "regex": [
+        "(?i)monitor[-_]?telemetry[-_]?stream[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-observer-01",
+      "regex": [
+        "(?i)observer[-_]?telemetry[-_]?stream[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-observer-02",
+      "regex": [
+        "(?i)observer[-_]?telemetry[-_]?stream[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-observer-03",
+      "regex": [
+        "(?i)observer[-_]?telemetry[-_]?stream[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-observer-04",
+      "regex": [
+        "(?i)observer[-_]?telemetry[-_]?stream[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-observer-05",
+      "regex": [
+        "(?i)observer[-_]?telemetry[-_]?stream[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-observer-06",
+      "regex": [
+        "(?i)observer[-_]?telemetry[-_]?stream[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-observer-07",
+      "regex": [
+        "(?i)observer[-_]?telemetry[-_]?stream[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-observer-08",
+      "regex": [
+        "(?i)observer[-_]?telemetry[-_]?stream[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-observer-09",
+      "regex": [
+        "(?i)observer[-_]?telemetry[-_]?stream[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-observer-10",
+      "regex": [
+        "(?i)observer[-_]?telemetry[-_]?stream[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-probe-01",
+      "regex": [
+        "(?i)probe[-_]?telemetry[-_]?stream[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-probe-02",
+      "regex": [
+        "(?i)probe[-_]?telemetry[-_]?stream[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-probe-03",
+      "regex": [
+        "(?i)probe[-_]?telemetry[-_]?stream[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-probe-04",
+      "regex": [
+        "(?i)probe[-_]?telemetry[-_]?stream[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-probe-05",
+      "regex": [
+        "(?i)probe[-_]?telemetry[-_]?stream[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-probe-06",
+      "regex": [
+        "(?i)probe[-_]?telemetry[-_]?stream[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-probe-07",
+      "regex": [
+        "(?i)probe[-_]?telemetry[-_]?stream[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-probe-08",
+      "regex": [
+        "(?i)probe[-_]?telemetry[-_]?stream[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-probe-09",
+      "regex": [
+        "(?i)probe[-_]?telemetry[-_]?stream[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-probe-10",
+      "regex": [
+        "(?i)probe[-_]?telemetry[-_]?stream[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-sensor-01",
+      "regex": [
+        "(?i)sensor[-_]?telemetry[-_]?stream[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-sensor-02",
+      "regex": [
+        "(?i)sensor[-_]?telemetry[-_]?stream[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-sensor-03",
+      "regex": [
+        "(?i)sensor[-_]?telemetry[-_]?stream[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-sensor-04",
+      "regex": [
+        "(?i)sensor[-_]?telemetry[-_]?stream[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-sensor-05",
+      "regex": [
+        "(?i)sensor[-_]?telemetry[-_]?stream[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-sensor-06",
+      "regex": [
+        "(?i)sensor[-_]?telemetry[-_]?stream[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-sensor-07",
+      "regex": [
+        "(?i)sensor[-_]?telemetry[-_]?stream[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-sensor-08",
+      "regex": [
+        "(?i)sensor[-_]?telemetry[-_]?stream[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-sensor-09",
+      "regex": [
+        "(?i)sensor[-_]?telemetry[-_]?stream[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-sensor-10",
+      "regex": [
+        "(?i)sensor[-_]?telemetry[-_]?stream[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-watch-01",
+      "regex": [
+        "(?i)watch[-_]?telemetry[-_]?stream[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-watch-02",
+      "regex": [
+        "(?i)watch[-_]?telemetry[-_]?stream[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-watch-03",
+      "regex": [
+        "(?i)watch[-_]?telemetry[-_]?stream[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-watch-04",
+      "regex": [
+        "(?i)watch[-_]?telemetry[-_]?stream[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-watch-05",
+      "regex": [
+        "(?i)watch[-_]?telemetry[-_]?stream[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-watch-06",
+      "regex": [
+        "(?i)watch[-_]?telemetry[-_]?stream[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-watch-07",
+      "regex": [
+        "(?i)watch[-_]?telemetry[-_]?stream[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-watch-08",
+      "regex": [
+        "(?i)watch[-_]?telemetry[-_]?stream[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-watch-09",
+      "regex": [
+        "(?i)watch[-_]?telemetry[-_]?stream[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-stream-watch-10",
+      "regex": [
+        "(?i)watch[-_]?telemetry[-_]?stream[-_]?10"
+      ]
+    }
+  ]
+}

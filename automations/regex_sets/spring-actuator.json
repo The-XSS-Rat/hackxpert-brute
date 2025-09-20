@@ -1,0 +1,13 @@
+{
+  "category": "spring-actuator",
+  "title": "Spring Actuator",
+  "description": "Regex collection for Spring Actuator automation templates.",
+  "templates": [
+    {
+      "template_id": "spring-actuator-env",
+      "regex": [
+        "(?i)propertysources"
+      ]
+    }
+  ]
+}

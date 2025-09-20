@@ -1,0 +1,13 @@
+{
+  "category": "graphql",
+  "title": "Graphql",
+  "description": "Regex collection for Graphql automation templates.",
+  "templates": [
+    {
+      "template_id": "graphql-introspection",
+      "regex": [
+        "__schema"
+      ]
+    }
+  ]
+}

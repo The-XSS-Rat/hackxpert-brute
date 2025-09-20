@@ -193,6 +193,8 @@ PARAMETER_WORDLISTS = {
 
 AUTOMATIONS_DIR = REPO_ROOT / "automations"
 AUTOMATION_TEMPLATE_FILE = AUTOMATIONS_DIR / "templates.json"
+AUTOMATION_TEMPLATE_EXTENDED = AUTOMATIONS_DIR / "templates_extended.json"
+AUTOMATION_REGEX_DIR = AUTOMATIONS_DIR / "regex_sets"
 AUTOMATION_LIBRARY_STORE = Path.home() / ".hackxpert_automations.json"
 
 DEFAULT_AUTOMATION_TEMPLATES = [
@@ -602,6 +604,93 @@ def _load_automation_templates_from_disk(path: Path) -> list[dict[str, Any]]:
     except Exception:
         return []
     return []
+
+
+def _load_all_builtin_templates() -> list[dict[str, Any]]:
+    seen: set[str] = set()
+    bundled: list[dict[str, Any]] = []
+    for path in (AUTOMATION_TEMPLATE_FILE, AUTOMATION_TEMPLATE_EXTENDED):
+        for entry in _load_automation_templates_from_disk(path):
+            identifier = str(entry.get("id") or "")
+            if not identifier or identifier in seen:
+                continue
+            seen.add(identifier)
+            bundled.append(entry)
+    for entry in DEFAULT_AUTOMATION_TEMPLATES:
+        identifier = str(entry.get("id") or "")
+        if not identifier or identifier in seen:
+            continue
+        seen.add(identifier)
+        bundled.append(entry)
+    return bundled
+
+
+def _load_regex_collections_from_disk() -> dict[str, dict[str, Any]]:
+    collections: dict[str, dict[str, Any]] = {}
+    if not AUTOMATION_REGEX_DIR.exists():
+        return collections
+    for path in sorted(AUTOMATION_REGEX_DIR.glob("*.json")):
+        try:
+            with open(path, "r", encoding="utf-8") as fh:
+                data = json.load(fh)
+        except Exception:
+            continue
+        if not isinstance(data, dict):
+            continue
+        category = str(data.get("category") or path.stem)
+        title = str(data.get("title") or category.replace("-", " ").title())
+        description = str(data.get("description") or "")
+        templates: dict[str, dict[str, Any]] = {}
+        for entry in data.get("templates", []):
+            if not isinstance(entry, dict):
+                continue
+            template_id = str(entry.get("template_id") or "")
+            if not template_id:
+                continue
+            regex_rules = [
+                pattern
+                for pattern in entry.get("regex", [])
+                if isinstance(pattern, str) and pattern
+            ]
+            templates[template_id] = {"regex": regex_rules}
+        collections[category] = {
+            "id": category,
+            "title": title,
+            "description": description,
+            "templates": templates,
+            "path": path,
+        }
+    return collections
+
+
+def _persist_regex_collection(collection: dict[str, Any]) -> None:
+    path = collection.get("path")
+    if not isinstance(path, Path):
+        path = AUTOMATION_REGEX_DIR / f"{collection['id']}.json"
+        collection["path"] = path
+    payload = {
+        "category": collection.get("id"),
+        "title": collection.get("title"),
+        "description": collection.get("description", ""),
+        "templates": [
+            {
+                "template_id": template_id,
+                "regex": list(info.get("regex", [])),
+            }
+            for template_id, info in sorted(collection.get("templates", {}).items())
+        ],
+    }
+    try:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        with open(path, "w", encoding="utf-8") as fh:
+            json.dump(payload, fh, indent=2)
+    except Exception:
+        pass
+
+
+def _persist_regex_collections(collections: dict[str, dict[str, Any]]) -> None:
+    for collection in collections.values():
+        _persist_regex_collection(collection)
 
 
 def _load_automation_library() -> dict[str, Any]:
@@ -2292,6 +2381,14 @@ class App(tk.Tk):
         self.automation_custom_templates: list[dict[str, Any]] = []
         self.automation_rulesets: dict[str, list[str]] = {}
         self._automation_library_payload: dict[str, Any] = {}
+        self.regex_collections: dict[str, dict[str, Any]] = {}
+        self.regex_selection: tuple[str, Optional[str], Optional[str], Optional[int]] = ("", None, None, None)
+        self.regex_tree: Optional[ttk.Treeview] = None
+        self.regex_add_category_button: Optional[ttk.Button] = None
+        self.regex_add_template_button: Optional[ttk.Button] = None
+        self.regex_add_pattern_button: Optional[ttk.Button] = None
+        self.regex_edit_button: Optional[ttk.Button] = None
+        self.regex_delete_button: Optional[ttk.Button] = None
         self.automation_engine: Optional[AutomationEngine] = None
         self.automation_results_lookup: dict[str, dict[str, Any]] = {}
 
@@ -2344,9 +2441,7 @@ class App(tk.Tk):
         style.configure("AutomationMiss.TLabel", background=panel, foreground="#94a3b8", font=("Share Tech Mono", 12, "bold"))
 
     def _load_automation_assets(self) -> None:
-        builtin = _load_automation_templates_from_disk(AUTOMATION_TEMPLATE_FILE)
-        if not builtin:
-            builtin = list(DEFAULT_AUTOMATION_TEMPLATES)
+        builtin = _load_all_builtin_templates()
         normalized_builtin: dict[str, dict[str, Any]] = {}
         for entry in builtin:
             if not isinstance(entry, dict):
@@ -2377,6 +2472,45 @@ class App(tk.Tk):
         self.automation_custom_templates = custom
         self.automation_rulesets = rulesets
         self._automation_library_payload = {"custom_templates": custom, "rulesets": rulesets}
+        self.regex_collections = _load_regex_collections_from_disk()
+        self._apply_regex_collections_to_templates()
+
+    def _apply_regex_collections_to_templates(self) -> None:
+        if not self.regex_collections:
+            return
+        for collection in self.regex_collections.values():
+            templates = collection.get("templates", {})
+            for template_id, info in templates.items():
+                patterns = [
+                    pattern for pattern in info.get("regex", []) if isinstance(pattern, str) and pattern
+                ]
+                if not patterns:
+                    continue
+                template = self.automation_templates.get(template_id)
+                if not template:
+                    continue
+                matchers = template.setdefault("matchers", {})
+                matchers["regex"] = patterns
+
+    def _sync_template_regex_from_library(self, template_id: str) -> None:
+        patterns: list[str] = []
+        for collection in self.regex_collections.values():
+            info = collection.get("templates", {}).get(template_id)
+            if not info:
+                continue
+            patterns = [
+                pattern for pattern in info.get("regex", []) if isinstance(pattern, str) and pattern
+            ]
+            if patterns:
+                break
+        template = self.automation_templates.get(template_id)
+        if not template:
+            return
+        matchers = template.setdefault("matchers", {})
+        if patterns:
+            matchers["regex"] = patterns
+        else:
+            matchers.pop("regex", None)
 
     def _persist_automation_library(self) -> None:
         payload = {
@@ -2631,6 +2765,7 @@ class App(tk.Tk):
         self._build_endpoint_explorer()
         self._build_parameter_explorer()
         self._build_automations_tab()
+        self._build_regex_library_tab()
         self._build_settings_tab()
 
     def _build_instructions_tab(self):
@@ -3813,6 +3948,379 @@ class App(tk.Tk):
             "body": body_box.get("1.0", "end").strip(),
         })).pack(side="left", padx=4, pady=4)
 
+    def _build_regex_library_tab(self) -> None:
+        frame = ttk.Frame(self.nb, style="Card.TFrame")
+        self.regex_frame = frame
+        self.nb.add(frame, text="Regex Library")
+        frame.grid_columnconfigure(0, weight=1)
+        frame.grid_rowconfigure(1, weight=1)
+
+        ttk.Label(
+            frame,
+            text="Regex Library // Curate and refine automation matcher patterns by category.",
+            style="Glitch.TLabel",
+        ).grid(row=0, column=0, columnspan=2, sticky="w", padx=8, pady=(8, 2))
+
+        columns = ("details",)
+        tree = ttk.Treeview(
+            frame,
+            columns=columns,
+            show="tree headings",
+            height=18,
+            selectmode="browse",
+        )
+        tree.heading("details", text="DETAILS")
+        tree.column("#0", width=320, stretch=True)
+        tree.column("details", width=420, anchor="w")
+        tree.grid(row=1, column=0, columnspan=2, sticky="nsew", padx=10, pady=10)
+        scroll = ttk.Scrollbar(frame, orient="vertical", command=tree.yview)
+        scroll.grid(row=1, column=2, sticky="ns", pady=10)
+        tree.configure(yscrollcommand=scroll.set)
+        tree.bind("<<TreeviewSelect>>", self._on_regex_select)
+        self.regex_tree = tree
+
+        buttons = ttk.Frame(frame, style="Card.TFrame")
+        buttons.grid(row=2, column=0, columnspan=2, sticky="ew", padx=10, pady=(0, 10))
+        buttons.columnconfigure(6, weight=1)
+
+        self.regex_add_category_button = ttk.Button(buttons, text="Add Category", command=self._add_regex_category)
+        self.regex_add_category_button.grid(row=0, column=0, padx=4, pady=4)
+
+        self.regex_add_template_button = ttk.Button(buttons, text="Link Template", command=self._add_regex_template)
+        self.regex_add_template_button.grid(row=0, column=1, padx=4, pady=4)
+
+        self.regex_add_pattern_button = ttk.Button(buttons, text="Add Regex", command=self._add_regex_pattern)
+        self.regex_add_pattern_button.grid(row=0, column=2, padx=4, pady=4)
+
+        self.regex_edit_button = ttk.Button(buttons, text="Edit Selected", command=self._edit_regex_node)
+        self.regex_edit_button.grid(row=0, column=3, padx=4, pady=4)
+
+        self.regex_delete_button = ttk.Button(buttons, text="Delete Selected", command=self._delete_regex_node)
+        self.regex_delete_button.grid(row=0, column=4, padx=4, pady=4)
+
+        ttk.Button(buttons, text="Refresh", command=self._refresh_regex_tree).grid(row=0, column=5, padx=4, pady=4)
+
+        self._refresh_regex_tree()
+        self._set_regex_actions_state()
+
+    def _refresh_regex_tree(self) -> None:
+        if not self.regex_tree:
+            return
+        tree = self.regex_tree
+        tree.delete(*tree.get_children())
+        if not self.regex_collections:
+            tree.insert("", "end", text="No regex collections defined yet.", values=("Create a category to begin.",))
+            return
+        for category_id in sorted(self.regex_collections):
+            collection = self.regex_collections[category_id]
+            title = collection.get("title") or category_id.replace("-", " ").title()
+            templates = collection.get("templates", {})
+            cat_iid = f"cat::{category_id}"
+            tree.insert(
+                "",
+                "end",
+                iid=cat_iid,
+                text=title,
+                values=(f"{len(templates)} template(s)",),
+                open=False,
+            )
+            for template_id in sorted(templates):
+                info = templates[template_id]
+                patterns = [pattern for pattern in info.get("regex", []) if isinstance(pattern, str)]
+                template = self.automation_templates.get(template_id, {})
+                template_name = template.get("name") or template_id
+                tpl_iid = f"tpl::{category_id}::{template_id}"
+                tree.insert(
+                    cat_iid,
+                    "end",
+                    iid=tpl_iid,
+                    text=template_name,
+                    values=(f"{len(patterns)} pattern(s)",),
+                    open=False,
+                )
+                for index, pattern in enumerate(patterns):
+                    tree.insert(
+                        tpl_iid,
+                        "end",
+                        iid=f"rx::{category_id}::{template_id}::{index}",
+                        text=f"Pattern {index + 1}",
+                        values=(pattern,),
+                    )
+        self._set_regex_actions_state()
+
+    def _parse_regex_tree_iid(self, iid: str) -> tuple[str, Optional[str], Optional[str], Optional[int]]:
+        if iid.startswith("cat::"):
+            return "category", iid.split("::", 1)[1], None, None
+        if iid.startswith("tpl::"):
+            parts = iid.split("::", 2)
+            if len(parts) == 3:
+                return "template", parts[1], parts[2], None
+        if iid.startswith("rx::"):
+            parts = iid.split("::", 3)
+            if len(parts) == 4:
+                try:
+                    index = int(parts[3])
+                except ValueError:
+                    index = None
+                return "regex", parts[1], parts[2], index
+        return "", None, None, None
+
+    def _current_regex_selection(self) -> tuple[str, Optional[str], Optional[str], Optional[int]]:
+        return getattr(self, "regex_selection", ("", None, None, None))
+
+    def _focus_regex_node(self, iid: str) -> None:
+        if not self.regex_tree:
+            return
+        try:
+            self.regex_tree.see(iid)
+            self.regex_tree.selection_set(iid)
+            self.regex_tree.focus(iid)
+        except Exception:
+            pass
+
+    def _set_regex_actions_state(self) -> None:
+        kind, _, template_id, _ = self._current_regex_selection()
+        if self.regex_add_category_button:
+            self.regex_add_category_button.state(["!disabled"])
+        if self.regex_add_template_button:
+            if kind in {"category", "template", "regex"}:
+                self.regex_add_template_button.state(["!disabled"])
+            else:
+                self.regex_add_template_button.state(["disabled"])
+        if self.regex_add_pattern_button:
+            if kind in {"template", "regex"} and template_id:
+                self.regex_add_pattern_button.state(["!disabled"])
+            else:
+                self.regex_add_pattern_button.state(["disabled"])
+        if self.regex_edit_button:
+            if kind in {"category", "template", "regex"}:
+                self.regex_edit_button.state(["!disabled"])
+            else:
+                self.regex_edit_button.state(["disabled"])
+        if self.regex_delete_button:
+            if kind:
+                self.regex_delete_button.state(["!disabled"])
+            else:
+                self.regex_delete_button.state(["disabled"])
+
+    def _on_regex_select(self, _event=None) -> None:
+        if not self.regex_tree:
+            return
+        selection = self.regex_tree.selection()
+        if not selection:
+            self.regex_selection = ("", None, None, None)
+        else:
+            self.regex_selection = self._parse_regex_tree_iid(selection[0])
+        self._set_regex_actions_state()
+
+    def _add_regex_category(self) -> None:
+        name = simpledialog.askstring("Regex Library", "Category display name:")
+        if not name:
+            return
+        slug = self._sanitize_wordlist_name(name)
+        if not slug:
+            messagebox.showerror("Regex Library", "Provide a valid category name.")
+            return
+        if slug in self.regex_collections:
+            messagebox.showerror("Regex Library", "That category already exists.")
+            return
+        description = simpledialog.askstring("Regex Library", "Optional description:") or ""
+        collection = {
+            "id": slug,
+            "title": name.strip() or slug.replace("-", " ").title(),
+            "description": description.strip(),
+            "templates": {},
+            "path": AUTOMATION_REGEX_DIR / f"{slug}.json",
+        }
+        self.regex_collections[slug] = collection
+        _persist_regex_collection(collection)
+        self._refresh_regex_tree()
+        self._focus_regex_node(f"cat::{slug}")
+
+    def _add_regex_template(self) -> None:
+        kind, category_id, template_id, _ = self._current_regex_selection()
+        target_category = None
+        if kind == "category":
+            target_category = category_id
+        elif kind in {"template", "regex"}:
+            target_category = category_id
+        if not target_category:
+            messagebox.showerror("Regex Library", "Select a category or template first.")
+            return
+        collection = self.regex_collections.get(target_category)
+        if not collection:
+            messagebox.showerror("Regex Library", "Category could not be resolved.")
+            return
+        prompt = simpledialog.askstring(
+            "Regex Library",
+            "Template ID to link:",
+            initialvalue=template_id or "",
+        )
+        if not prompt:
+            return
+        template_identifier = prompt.strip()
+        if template_identifier not in self.automation_templates:
+            messagebox.showerror("Regex Library", f"Template '{template_identifier}' is unknown.")
+            return
+        if template_identifier in collection["templates"]:
+            messagebox.showerror("Regex Library", "Template already linked to this category.")
+            return
+        matchers = self.automation_templates[template_identifier].get("matchers", {}) or {}
+        regex_rules = [
+            pattern
+            for pattern in matchers.get("regex", [])
+            if isinstance(pattern, str) and pattern
+        ]
+        collection["templates"][template_identifier] = {"regex": list(regex_rules)}
+        _persist_regex_collection(collection)
+        self._sync_template_regex_from_library(template_identifier)
+        self._refresh_regex_tree()
+        self._focus_regex_node(f"tpl::{target_category}::{template_identifier}")
+
+    def _add_regex_pattern(self) -> None:
+        kind, category_id, template_id, _ = self._current_regex_selection()
+        if kind not in {"template", "regex"} or not category_id or not template_id:
+            messagebox.showerror("Regex Library", "Select a template to add regex patterns.")
+            return
+        collection = self.regex_collections.get(category_id)
+        if not collection:
+            messagebox.showerror("Regex Library", "Category could not be resolved.")
+            return
+        template_entry = collection.setdefault("templates", {}).setdefault(template_id, {"regex": []})
+        pattern = simpledialog.askstring("Regex Library", "New regex pattern:")
+        if not pattern:
+            return
+        template_entry.setdefault("regex", []).append(pattern)
+        _persist_regex_collection(collection)
+        self._sync_template_regex_from_library(template_id)
+        self._refresh_regex_tree()
+        new_index = len(template_entry.get("regex", [])) - 1
+        self._focus_regex_node(f"rx::{category_id}::{template_id}::{new_index}")
+
+    def _edit_regex_node(self) -> None:
+        kind, category_id, template_id, index = self._current_regex_selection()
+        if kind == "category" and category_id:
+            collection = self.regex_collections.get(category_id)
+            if not collection:
+                return
+            title = simpledialog.askstring(
+                "Regex Library",
+                "Category display name:",
+                initialvalue=collection.get("title", ""),
+            )
+            if title is None:
+                return
+            description = simpledialog.askstring(
+                "Regex Library",
+                "Category description:",
+                initialvalue=collection.get("description", ""),
+            )
+            if description is None:
+                description = collection.get("description", "")
+            collection["title"] = title.strip() or collection.get("title", title)
+            collection["description"] = description.strip()
+            _persist_regex_collection(collection)
+            self._refresh_regex_tree()
+            self._focus_regex_node(f"cat::{category_id}")
+            return
+        if kind == "template" and category_id and template_id:
+            collection = self.regex_collections.get(category_id)
+            if not collection:
+                return
+            template_entry = collection.setdefault("templates", {}).setdefault(template_id, {"regex": []})
+            existing = template_entry.get("regex", [])
+            joined = "\n".join(existing)
+            response = simpledialog.askstring(
+                "Regex Library",
+                "Update newline-separated regex patterns:",
+                initialvalue=joined,
+            )
+            if response is None:
+                return
+            patterns = [line for line in response.splitlines() if line.strip()]
+            template_entry["regex"] = patterns
+            _persist_regex_collection(collection)
+            self._sync_template_regex_from_library(template_id)
+            self._refresh_regex_tree()
+            self._focus_regex_node(f"tpl::{category_id}::{template_id}")
+            return
+        if kind == "regex" and category_id and template_id and index is not None:
+            collection = self.regex_collections.get(category_id)
+            if not collection:
+                return
+            template_entry = collection.setdefault("templates", {}).setdefault(template_id, {"regex": []})
+            regex_list = template_entry.setdefault("regex", [])
+            if index >= len(regex_list):
+                return
+            updated = simpledialog.askstring(
+                "Regex Library",
+                "Edit regex pattern:",
+                initialvalue=regex_list[index],
+            )
+            if updated is None:
+                return
+            if not updated:
+                messagebox.showerror("Regex Library", "Regex pattern cannot be empty.")
+                return
+            regex_list[index] = updated
+            _persist_regex_collection(collection)
+            self._sync_template_regex_from_library(template_id)
+            self._refresh_regex_tree()
+            self._focus_regex_node(f"rx::{category_id}::{template_id}::{index}")
+
+    def _delete_regex_node(self) -> None:
+        kind, category_id, template_id, index = self._current_regex_selection()
+        if kind == "regex" and category_id and template_id and index is not None:
+            collection = self.regex_collections.get(category_id)
+            if not collection:
+                return
+            template_entry = collection.setdefault("templates", {}).setdefault(template_id, {"regex": []})
+            regex_list = template_entry.setdefault("regex", [])
+            if index >= len(regex_list):
+                return
+            if not messagebox.askyesno("Regex Library", "Delete this regex pattern?"):
+                return
+            regex_list.pop(index)
+            if not regex_list:
+                collection["templates"].pop(template_id, None)
+            _persist_regex_collection(collection)
+            self._sync_template_regex_from_library(template_id)
+            self._refresh_regex_tree()
+            self.regex_selection = ("", None, None, None)
+            self._set_regex_actions_state()
+            return
+        if kind == "template" and category_id and template_id:
+            collection = self.regex_collections.get(category_id)
+            if not collection:
+                return
+            if not messagebox.askyesno("Regex Library", f"Unlink template '{template_id}' from this category?"):
+                return
+            collection.get("templates", {}).pop(template_id, None)
+            _persist_regex_collection(collection)
+            self._sync_template_regex_from_library(template_id)
+            self._refresh_regex_tree()
+            self.regex_selection = ("", None, None, None)
+            self._set_regex_actions_state()
+            return
+        if kind == "category" and category_id:
+            collection = self.regex_collections.get(category_id)
+            if not collection:
+                return
+            if not messagebox.askyesno("Regex Library", f"Delete category '{collection.get('title', category_id)}'?\nLinked files will be removed."):
+                return
+            for template_key in list(collection.get("templates", {}).keys()):
+                collection["templates"].pop(template_key, None)
+                self._sync_template_regex_from_library(template_key)
+            path = collection.get("path")
+            if isinstance(path, Path) and path.exists():
+                try:
+                    path.unlink()
+                except Exception:
+                    pass
+            self.regex_collections.pop(category_id, None)
+            self._refresh_regex_tree()
+            self.regex_selection = ("", None, None, None)
+            self._set_regex_actions_state()
     def _parse_headers_text(self, text: str) -> dict[str, str]:
         headers = {}
         for line in text.splitlines():

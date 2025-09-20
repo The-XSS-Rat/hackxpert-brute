@@ -1,0 +1,607 @@
+{
+  "category": "config-shadow",
+  "title": "Configuration Shadow Dumps",
+  "description": "Shadow configuration bundles and feature toggles bleeding to the open.",
+  "templates": [
+    {
+      "template_id": "api-regex-config-shadow-alpha-01",
+      "regex": [
+        "(?i)alpha[-_]?shadow[-_]?config[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-alpha-02",
+      "regex": [
+        "(?i)alpha[-_]?shadow[-_]?config[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-alpha-03",
+      "regex": [
+        "(?i)alpha[-_]?shadow[-_]?config[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-alpha-04",
+      "regex": [
+        "(?i)alpha[-_]?shadow[-_]?config[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-alpha-05",
+      "regex": [
+        "(?i)alpha[-_]?shadow[-_]?config[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-alpha-06",
+      "regex": [
+        "(?i)alpha[-_]?shadow[-_]?config[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-alpha-07",
+      "regex": [
+        "(?i)alpha[-_]?shadow[-_]?config[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-alpha-08",
+      "regex": [
+        "(?i)alpha[-_]?shadow[-_]?config[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-alpha-09",
+      "regex": [
+        "(?i)alpha[-_]?shadow[-_]?config[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-alpha-10",
+      "regex": [
+        "(?i)alpha[-_]?shadow[-_]?config[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-beta-01",
+      "regex": [
+        "(?i)beta[-_]?shadow[-_]?config[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-beta-02",
+      "regex": [
+        "(?i)beta[-_]?shadow[-_]?config[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-beta-03",
+      "regex": [
+        "(?i)beta[-_]?shadow[-_]?config[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-beta-04",
+      "regex": [
+        "(?i)beta[-_]?shadow[-_]?config[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-beta-05",
+      "regex": [
+        "(?i)beta[-_]?shadow[-_]?config[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-beta-06",
+      "regex": [
+        "(?i)beta[-_]?shadow[-_]?config[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-beta-07",
+      "regex": [
+        "(?i)beta[-_]?shadow[-_]?config[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-beta-08",
+      "regex": [
+        "(?i)beta[-_]?shadow[-_]?config[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-beta-09",
+      "regex": [
+        "(?i)beta[-_]?shadow[-_]?config[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-beta-10",
+      "regex": [
+        "(?i)beta[-_]?shadow[-_]?config[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-delta-01",
+      "regex": [
+        "(?i)delta[-_]?shadow[-_]?config[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-delta-02",
+      "regex": [
+        "(?i)delta[-_]?shadow[-_]?config[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-delta-03",
+      "regex": [
+        "(?i)delta[-_]?shadow[-_]?config[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-delta-04",
+      "regex": [
+        "(?i)delta[-_]?shadow[-_]?config[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-delta-05",
+      "regex": [
+        "(?i)delta[-_]?shadow[-_]?config[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-delta-06",
+      "regex": [
+        "(?i)delta[-_]?shadow[-_]?config[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-delta-07",
+      "regex": [
+        "(?i)delta[-_]?shadow[-_]?config[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-delta-08",
+      "regex": [
+        "(?i)delta[-_]?shadow[-_]?config[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-delta-09",
+      "regex": [
+        "(?i)delta[-_]?shadow[-_]?config[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-delta-10",
+      "regex": [
+        "(?i)delta[-_]?shadow[-_]?config[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-epsilon-01",
+      "regex": [
+        "(?i)epsilon[-_]?shadow[-_]?config[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-epsilon-02",
+      "regex": [
+        "(?i)epsilon[-_]?shadow[-_]?config[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-epsilon-03",
+      "regex": [
+        "(?i)epsilon[-_]?shadow[-_]?config[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-epsilon-04",
+      "regex": [
+        "(?i)epsilon[-_]?shadow[-_]?config[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-epsilon-05",
+      "regex": [
+        "(?i)epsilon[-_]?shadow[-_]?config[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-epsilon-06",
+      "regex": [
+        "(?i)epsilon[-_]?shadow[-_]?config[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-epsilon-07",
+      "regex": [
+        "(?i)epsilon[-_]?shadow[-_]?config[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-epsilon-08",
+      "regex": [
+        "(?i)epsilon[-_]?shadow[-_]?config[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-epsilon-09",
+      "regex": [
+        "(?i)epsilon[-_]?shadow[-_]?config[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-epsilon-10",
+      "regex": [
+        "(?i)epsilon[-_]?shadow[-_]?config[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-gamma-01",
+      "regex": [
+        "(?i)gamma[-_]?shadow[-_]?config[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-gamma-02",
+      "regex": [
+        "(?i)gamma[-_]?shadow[-_]?config[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-gamma-03",
+      "regex": [
+        "(?i)gamma[-_]?shadow[-_]?config[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-gamma-04",
+      "regex": [
+        "(?i)gamma[-_]?shadow[-_]?config[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-gamma-05",
+      "regex": [
+        "(?i)gamma[-_]?shadow[-_]?config[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-gamma-06",
+      "regex": [
+        "(?i)gamma[-_]?shadow[-_]?config[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-gamma-07",
+      "regex": [
+        "(?i)gamma[-_]?shadow[-_]?config[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-gamma-08",
+      "regex": [
+        "(?i)gamma[-_]?shadow[-_]?config[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-gamma-09",
+      "regex": [
+        "(?i)gamma[-_]?shadow[-_]?config[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-gamma-10",
+      "regex": [
+        "(?i)gamma[-_]?shadow[-_]?config[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-lambda-01",
+      "regex": [
+        "(?i)lambda[-_]?shadow[-_]?config[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-lambda-02",
+      "regex": [
+        "(?i)lambda[-_]?shadow[-_]?config[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-lambda-03",
+      "regex": [
+        "(?i)lambda[-_]?shadow[-_]?config[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-lambda-04",
+      "regex": [
+        "(?i)lambda[-_]?shadow[-_]?config[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-lambda-05",
+      "regex": [
+        "(?i)lambda[-_]?shadow[-_]?config[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-lambda-06",
+      "regex": [
+        "(?i)lambda[-_]?shadow[-_]?config[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-lambda-07",
+      "regex": [
+        "(?i)lambda[-_]?shadow[-_]?config[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-lambda-08",
+      "regex": [
+        "(?i)lambda[-_]?shadow[-_]?config[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-lambda-09",
+      "regex": [
+        "(?i)lambda[-_]?shadow[-_]?config[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-lambda-10",
+      "regex": [
+        "(?i)lambda[-_]?shadow[-_]?config[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-omega-01",
+      "regex": [
+        "(?i)omega[-_]?shadow[-_]?config[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-omega-02",
+      "regex": [
+        "(?i)omega[-_]?shadow[-_]?config[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-omega-03",
+      "regex": [
+        "(?i)omega[-_]?shadow[-_]?config[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-omega-04",
+      "regex": [
+        "(?i)omega[-_]?shadow[-_]?config[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-omega-05",
+      "regex": [
+        "(?i)omega[-_]?shadow[-_]?config[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-omega-06",
+      "regex": [
+        "(?i)omega[-_]?shadow[-_]?config[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-omega-07",
+      "regex": [
+        "(?i)omega[-_]?shadow[-_]?config[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-omega-08",
+      "regex": [
+        "(?i)omega[-_]?shadow[-_]?config[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-omega-09",
+      "regex": [
+        "(?i)omega[-_]?shadow[-_]?config[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-omega-10",
+      "regex": [
+        "(?i)omega[-_]?shadow[-_]?config[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-sigma-01",
+      "regex": [
+        "(?i)sigma[-_]?shadow[-_]?config[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-sigma-02",
+      "regex": [
+        "(?i)sigma[-_]?shadow[-_]?config[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-sigma-03",
+      "regex": [
+        "(?i)sigma[-_]?shadow[-_]?config[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-sigma-04",
+      "regex": [
+        "(?i)sigma[-_]?shadow[-_]?config[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-sigma-05",
+      "regex": [
+        "(?i)sigma[-_]?shadow[-_]?config[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-sigma-06",
+      "regex": [
+        "(?i)sigma[-_]?shadow[-_]?config[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-sigma-07",
+      "regex": [
+        "(?i)sigma[-_]?shadow[-_]?config[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-sigma-08",
+      "regex": [
+        "(?i)sigma[-_]?shadow[-_]?config[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-sigma-09",
+      "regex": [
+        "(?i)sigma[-_]?shadow[-_]?config[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-sigma-10",
+      "regex": [
+        "(?i)sigma[-_]?shadow[-_]?config[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-theta-01",
+      "regex": [
+        "(?i)theta[-_]?shadow[-_]?config[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-theta-02",
+      "regex": [
+        "(?i)theta[-_]?shadow[-_]?config[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-theta-03",
+      "regex": [
+        "(?i)theta[-_]?shadow[-_]?config[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-theta-04",
+      "regex": [
+        "(?i)theta[-_]?shadow[-_]?config[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-theta-05",
+      "regex": [
+        "(?i)theta[-_]?shadow[-_]?config[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-theta-06",
+      "regex": [
+        "(?i)theta[-_]?shadow[-_]?config[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-theta-07",
+      "regex": [
+        "(?i)theta[-_]?shadow[-_]?config[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-theta-08",
+      "regex": [
+        "(?i)theta[-_]?shadow[-_]?config[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-theta-09",
+      "regex": [
+        "(?i)theta[-_]?shadow[-_]?config[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-theta-10",
+      "regex": [
+        "(?i)theta[-_]?shadow[-_]?config[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-zeta-01",
+      "regex": [
+        "(?i)zeta[-_]?shadow[-_]?config[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-zeta-02",
+      "regex": [
+        "(?i)zeta[-_]?shadow[-_]?config[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-zeta-03",
+      "regex": [
+        "(?i)zeta[-_]?shadow[-_]?config[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-zeta-04",
+      "regex": [
+        "(?i)zeta[-_]?shadow[-_]?config[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-zeta-05",
+      "regex": [
+        "(?i)zeta[-_]?shadow[-_]?config[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-zeta-06",
+      "regex": [
+        "(?i)zeta[-_]?shadow[-_]?config[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-zeta-07",
+      "regex": [
+        "(?i)zeta[-_]?shadow[-_]?config[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-zeta-08",
+      "regex": [
+        "(?i)zeta[-_]?shadow[-_]?config[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-zeta-09",
+      "regex": [
+        "(?i)zeta[-_]?shadow[-_]?config[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-shadow-zeta-10",
+      "regex": [
+        "(?i)zeta[-_]?shadow[-_]?config[-_]?10"
+      ]
+    }
+  ]
+}

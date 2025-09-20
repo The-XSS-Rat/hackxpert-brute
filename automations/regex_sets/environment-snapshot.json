@@ -1,0 +1,583 @@
+{
+  "category": "environment-snapshot",
+  "title": "Environment Snapshot",
+  "description": "Regex collection for Environment Snapshot automation templates.",
+  "templates": [
+    {
+      "template_id": "environment-snapshot-leak-demo-01",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-demo-02",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-demo-03",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-demo-04",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-demo-05",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-demo-06",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-demo-07",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-demo-08",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-demo-09",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-demo-10",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-demo-11",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-demo-12",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-dev-01",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-dev-02",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-dev-03",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-dev-04",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-dev-05",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-dev-06",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-dev-07",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-dev-08",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-dev-09",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-dev-10",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-dev-11",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-dev-12",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-integration-01",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-integration-02",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-integration-03",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-integration-04",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-integration-05",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-integration-06",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-integration-07",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-integration-08",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-integration-09",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-integration-10",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-integration-11",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-integration-12",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-production-01",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-production-02",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-production-03",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-production-04",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-production-05",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-production-06",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-production-07",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-production-08",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-production-09",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-production-10",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-production-11",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-production-12",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-qa-01",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-qa-02",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-qa-03",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-qa-04",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-qa-05",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-qa-06",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-qa-07",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-qa-08",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-qa-09",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-qa-10",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-qa-11",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-qa-12",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-sandbox-01",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-sandbox-02",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-sandbox-03",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-sandbox-04",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-sandbox-05",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-sandbox-06",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-sandbox-07",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-sandbox-08",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-sandbox-09",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-sandbox-10",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-sandbox-11",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-sandbox-12",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-staging-01",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-staging-02",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-staging-03",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-staging-04",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-staging-05",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-staging-06",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-staging-07",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-staging-08",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-staging-09",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-staging-10",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-staging-11",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-staging-12",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-training-01",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-training-02",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-training-03",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-training-04",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-training-05",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-training-06",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-training-07",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-training-08",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-training-09",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-training-10",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-training-11",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    },
+    {
+      "template_id": "environment-snapshot-leak-training-12",
+      "regex": [
+        "(?i)(environment|secret|key|database)"
+      ]
+    }
+  ]
+}

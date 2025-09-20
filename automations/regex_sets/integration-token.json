@@ -1,0 +1,643 @@
+{
+  "category": "integration-token",
+  "title": "Integration Token",
+  "description": "Regex collection for Integration Token automation templates.",
+  "templates": [
+    {
+      "template_id": "integration-token-leak-bitbucket-01",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-bitbucket-02",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-bitbucket-03",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-bitbucket-04",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-bitbucket-05",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-bitbucket-06",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-bitbucket-07",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-bitbucket-08",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-bitbucket-09",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-bitbucket-10",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-bitbucket-11",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-bitbucket-12",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-github-01",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-github-02",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-github-03",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-github-04",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-github-05",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-github-06",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-github-07",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-github-08",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-github-09",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-github-10",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-github-11",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-github-12",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-gitlab-01",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-gitlab-02",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-gitlab-03",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-gitlab-04",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-gitlab-05",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-gitlab-06",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-gitlab-07",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-gitlab-08",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-gitlab-09",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-gitlab-10",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-gitlab-11",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-gitlab-12",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-jira-01",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-jira-02",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-jira-03",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-jira-04",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-jira-05",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-jira-06",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-jira-07",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-jira-08",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-jira-09",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-jira-10",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-pagerduty-01",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-pagerduty-02",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-pagerduty-03",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-pagerduty-04",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-pagerduty-05",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-pagerduty-06",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-pagerduty-07",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-pagerduty-08",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-pagerduty-09",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-pagerduty-10",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-pagerduty-11",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-pagerduty-12",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-slack-01",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-slack-02",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-slack-03",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-slack-04",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-slack-05",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-slack-06",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-slack-07",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-slack-08",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-slack-09",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-slack-10",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-slack-11",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-slack-12",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-teams-01",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-teams-02",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-teams-03",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-teams-04",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-teams-05",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-teams-06",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-teams-07",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-teams-08",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-teams-09",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-teams-10",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-teams-11",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-teams-12",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-zendesk-01",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-zendesk-02",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-zendesk-03",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-zendesk-04",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-zendesk-05",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-zendesk-06",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-zendesk-07",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-zendesk-08",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-zendesk-09",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-zendesk-10",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-zendesk-11",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-zendesk-12",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-zoom-01",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-zoom-02",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-zoom-03",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-zoom-04",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-zoom-05",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-zoom-06",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-zoom-07",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-zoom-08",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-zoom-09",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-zoom-10",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-zoom-11",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    },
+    {
+      "template_id": "integration-token-leak-zoom-12",
+      "regex": [
+        "(?i)(token|secret|client_id)"
+      ]
+    }
+  ]
+}

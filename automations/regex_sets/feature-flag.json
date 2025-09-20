@@ -1,0 +1,547 @@
+{
+  "category": "feature-flag",
+  "title": "Feature Flag",
+  "description": "Regex collection for Feature Flag automation templates.",
+  "templates": [
+    {
+      "template_id": "feature-flag-export-admin-portal-01",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-admin-portal-02",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-admin-portal-03",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-admin-portal-04",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-admin-portal-05",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-admin-portal-06",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-admin-portal-07",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-admin-portal-08",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-admin-portal-09",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-admin-portal-10",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-admin-portal-11",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-admin-portal-12",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-admin-portal-13",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-admin-portal-14",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-admin-portal-15",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-edge-services-01",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-edge-services-02",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-edge-services-03",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-edge-services-04",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-edge-services-05",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-edge-services-06",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-edge-services-07",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-edge-services-08",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-edge-services-09",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-edge-services-10",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-edge-services-11",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-edge-services-12",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-edge-services-13",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-edge-services-14",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-edge-services-15",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-internal-tools-01",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-internal-tools-02",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-internal-tools-03",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-internal-tools-04",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-internal-tools-05",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-internal-tools-06",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-internal-tools-07",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-internal-tools-08",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-internal-tools-09",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-internal-tools-10",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-internal-tools-11",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-internal-tools-12",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-internal-tools-13",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-internal-tools-14",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-internal-tools-15",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-mobile-app-01",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-mobile-app-02",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-mobile-app-03",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-mobile-app-04",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-mobile-app-05",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-mobile-app-06",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-mobile-app-07",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-mobile-app-08",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-mobile-app-09",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-mobile-app-10",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-mobile-app-11",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-mobile-app-12",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-mobile-app-13",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-mobile-app-14",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-mobile-app-15",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-platform-01",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-platform-02",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-platform-03",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-platform-04",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-platform-05",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-platform-06",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-platform-07",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-platform-08",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-platform-09",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-platform-10",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-platform-11",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-platform-12",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-platform-13",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-platform-14",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-platform-15",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-web-app-01",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-web-app-02",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-web-app-03",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-web-app-04",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-web-app-05",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-web-app-06",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-web-app-07",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-web-app-08",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-web-app-09",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-web-app-10",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-web-app-11",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-web-app-12",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-web-app-13",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-web-app-14",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    },
+    {
+      "template_id": "feature-flag-export-web-app-15",
+      "regex": [
+        "(?i)(flag|enabled|toggle)"
+      ]
+    }
+  ]
+}

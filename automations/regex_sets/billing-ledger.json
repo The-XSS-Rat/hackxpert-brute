@@ -1,0 +1,607 @@
+{
+  "category": "billing-ledger",
+  "title": "Billing Ledger Exposures",
+  "description": "Billing ledger exports and invoice archives dripping with PII and secrets.",
+  "templates": [
+    {
+      "template_id": "api-regex-billing-ledger-accounts-01",
+      "regex": [
+        "(?i)accounts[-_]?billing[-_]?ledger[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-accounts-02",
+      "regex": [
+        "(?i)accounts[-_]?billing[-_]?ledger[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-accounts-03",
+      "regex": [
+        "(?i)accounts[-_]?billing[-_]?ledger[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-accounts-04",
+      "regex": [
+        "(?i)accounts[-_]?billing[-_]?ledger[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-accounts-05",
+      "regex": [
+        "(?i)accounts[-_]?billing[-_]?ledger[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-accounts-06",
+      "regex": [
+        "(?i)accounts[-_]?billing[-_]?ledger[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-accounts-07",
+      "regex": [
+        "(?i)accounts[-_]?billing[-_]?ledger[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-accounts-08",
+      "regex": [
+        "(?i)accounts[-_]?billing[-_]?ledger[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-accounts-09",
+      "regex": [
+        "(?i)accounts[-_]?billing[-_]?ledger[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-accounts-10",
+      "regex": [
+        "(?i)accounts[-_]?billing[-_]?ledger[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-annual-01",
+      "regex": [
+        "(?i)annual[-_]?billing[-_]?ledger[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-annual-02",
+      "regex": [
+        "(?i)annual[-_]?billing[-_]?ledger[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-annual-03",
+      "regex": [
+        "(?i)annual[-_]?billing[-_]?ledger[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-annual-04",
+      "regex": [
+        "(?i)annual[-_]?billing[-_]?ledger[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-annual-05",
+      "regex": [
+        "(?i)annual[-_]?billing[-_]?ledger[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-annual-06",
+      "regex": [
+        "(?i)annual[-_]?billing[-_]?ledger[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-annual-07",
+      "regex": [
+        "(?i)annual[-_]?billing[-_]?ledger[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-annual-08",
+      "regex": [
+        "(?i)annual[-_]?billing[-_]?ledger[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-annual-09",
+      "regex": [
+        "(?i)annual[-_]?billing[-_]?ledger[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-annual-10",
+      "regex": [
+        "(?i)annual[-_]?billing[-_]?ledger[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-billing-01",
+      "regex": [
+        "(?i)billing[-_]?billing[-_]?ledger[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-billing-02",
+      "regex": [
+        "(?i)billing[-_]?billing[-_]?ledger[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-billing-03",
+      "regex": [
+        "(?i)billing[-_]?billing[-_]?ledger[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-billing-04",
+      "regex": [
+        "(?i)billing[-_]?billing[-_]?ledger[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-billing-05",
+      "regex": [
+        "(?i)billing[-_]?billing[-_]?ledger[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-billing-06",
+      "regex": [
+        "(?i)billing[-_]?billing[-_]?ledger[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-billing-07",
+      "regex": [
+        "(?i)billing[-_]?billing[-_]?ledger[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-billing-08",
+      "regex": [
+        "(?i)billing[-_]?billing[-_]?ledger[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-billing-09",
+      "regex": [
+        "(?i)billing[-_]?billing[-_]?ledger[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-billing-10",
+      "regex": [
+        "(?i)billing[-_]?billing[-_]?ledger[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-closing-01",
+      "regex": [
+        "(?i)closing[-_]?billing[-_]?ledger[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-closing-02",
+      "regex": [
+        "(?i)closing[-_]?billing[-_]?ledger[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-closing-03",
+      "regex": [
+        "(?i)closing[-_]?billing[-_]?ledger[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-closing-04",
+      "regex": [
+        "(?i)closing[-_]?billing[-_]?ledger[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-closing-05",
+      "regex": [
+        "(?i)closing[-_]?billing[-_]?ledger[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-closing-06",
+      "regex": [
+        "(?i)closing[-_]?billing[-_]?ledger[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-closing-07",
+      "regex": [
+        "(?i)closing[-_]?billing[-_]?ledger[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-closing-08",
+      "regex": [
+        "(?i)closing[-_]?billing[-_]?ledger[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-closing-09",
+      "regex": [
+        "(?i)closing[-_]?billing[-_]?ledger[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-closing-10",
+      "regex": [
+        "(?i)closing[-_]?billing[-_]?ledger[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-finance-01",
+      "regex": [
+        "(?i)finance[-_]?billing[-_]?ledger[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-finance-02",
+      "regex": [
+        "(?i)finance[-_]?billing[-_]?ledger[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-finance-03",
+      "regex": [
+        "(?i)finance[-_]?billing[-_]?ledger[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-finance-04",
+      "regex": [
+        "(?i)finance[-_]?billing[-_]?ledger[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-finance-05",
+      "regex": [
+        "(?i)finance[-_]?billing[-_]?ledger[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-finance-06",
+      "regex": [
+        "(?i)finance[-_]?billing[-_]?ledger[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-finance-07",
+      "regex": [
+        "(?i)finance[-_]?billing[-_]?ledger[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-finance-08",
+      "regex": [
+        "(?i)finance[-_]?billing[-_]?ledger[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-finance-09",
+      "regex": [
+        "(?i)finance[-_]?billing[-_]?ledger[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-finance-10",
+      "regex": [
+        "(?i)finance[-_]?billing[-_]?ledger[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-invoice-01",
+      "regex": [
+        "(?i)invoice[-_]?billing[-_]?ledger[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-invoice-02",
+      "regex": [
+        "(?i)invoice[-_]?billing[-_]?ledger[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-invoice-03",
+      "regex": [
+        "(?i)invoice[-_]?billing[-_]?ledger[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-invoice-04",
+      "regex": [
+        "(?i)invoice[-_]?billing[-_]?ledger[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-invoice-05",
+      "regex": [
+        "(?i)invoice[-_]?billing[-_]?ledger[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-invoice-06",
+      "regex": [
+        "(?i)invoice[-_]?billing[-_]?ledger[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-invoice-07",
+      "regex": [
+        "(?i)invoice[-_]?billing[-_]?ledger[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-invoice-08",
+      "regex": [
+        "(?i)invoice[-_]?billing[-_]?ledger[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-invoice-09",
+      "regex": [
+        "(?i)invoice[-_]?billing[-_]?ledger[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-invoice-10",
+      "regex": [
+        "(?i)invoice[-_]?billing[-_]?ledger[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-ledger-01",
+      "regex": [
+        "(?i)ledger[-_]?billing[-_]?ledger[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-ledger-02",
+      "regex": [
+        "(?i)ledger[-_]?billing[-_]?ledger[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-ledger-03",
+      "regex": [
+        "(?i)ledger[-_]?billing[-_]?ledger[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-ledger-04",
+      "regex": [
+        "(?i)ledger[-_]?billing[-_]?ledger[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-ledger-05",
+      "regex": [
+        "(?i)ledger[-_]?billing[-_]?ledger[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-ledger-06",
+      "regex": [
+        "(?i)ledger[-_]?billing[-_]?ledger[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-ledger-07",
+      "regex": [
+        "(?i)ledger[-_]?billing[-_]?ledger[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-ledger-08",
+      "regex": [
+        "(?i)ledger[-_]?billing[-_]?ledger[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-ledger-09",
+      "regex": [
+        "(?i)ledger[-_]?billing[-_]?ledger[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-ledger-10",
+      "regex": [
+        "(?i)ledger[-_]?billing[-_]?ledger[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-quarterly-01",
+      "regex": [
+        "(?i)quarterly[-_]?billing[-_]?ledger[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-quarterly-02",
+      "regex": [
+        "(?i)quarterly[-_]?billing[-_]?ledger[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-quarterly-03",
+      "regex": [
+        "(?i)quarterly[-_]?billing[-_]?ledger[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-quarterly-04",
+      "regex": [
+        "(?i)quarterly[-_]?billing[-_]?ledger[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-quarterly-05",
+      "regex": [
+        "(?i)quarterly[-_]?billing[-_]?ledger[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-quarterly-06",
+      "regex": [
+        "(?i)quarterly[-_]?billing[-_]?ledger[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-quarterly-07",
+      "regex": [
+        "(?i)quarterly[-_]?billing[-_]?ledger[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-quarterly-08",
+      "regex": [
+        "(?i)quarterly[-_]?billing[-_]?ledger[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-quarterly-09",
+      "regex": [
+        "(?i)quarterly[-_]?billing[-_]?ledger[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-quarterly-10",
+      "regex": [
+        "(?i)quarterly[-_]?billing[-_]?ledger[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-receivable-01",
+      "regex": [
+        "(?i)receivable[-_]?billing[-_]?ledger[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-receivable-02",
+      "regex": [
+        "(?i)receivable[-_]?billing[-_]?ledger[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-receivable-03",
+      "regex": [
+        "(?i)receivable[-_]?billing[-_]?ledger[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-receivable-04",
+      "regex": [
+        "(?i)receivable[-_]?billing[-_]?ledger[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-receivable-05",
+      "regex": [
+        "(?i)receivable[-_]?billing[-_]?ledger[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-receivable-06",
+      "regex": [
+        "(?i)receivable[-_]?billing[-_]?ledger[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-receivable-07",
+      "regex": [
+        "(?i)receivable[-_]?billing[-_]?ledger[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-receivable-08",
+      "regex": [
+        "(?i)receivable[-_]?billing[-_]?ledger[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-receivable-09",
+      "regex": [
+        "(?i)receivable[-_]?billing[-_]?ledger[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-receivable-10",
+      "regex": [
+        "(?i)receivable[-_]?billing[-_]?ledger[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-statement-01",
+      "regex": [
+        "(?i)statement[-_]?billing[-_]?ledger[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-statement-02",
+      "regex": [
+        "(?i)statement[-_]?billing[-_]?ledger[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-statement-03",
+      "regex": [
+        "(?i)statement[-_]?billing[-_]?ledger[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-statement-04",
+      "regex": [
+        "(?i)statement[-_]?billing[-_]?ledger[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-statement-05",
+      "regex": [
+        "(?i)statement[-_]?billing[-_]?ledger[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-statement-06",
+      "regex": [
+        "(?i)statement[-_]?billing[-_]?ledger[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-statement-07",
+      "regex": [
+        "(?i)statement[-_]?billing[-_]?ledger[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-statement-08",
+      "regex": [
+        "(?i)statement[-_]?billing[-_]?ledger[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-statement-09",
+      "regex": [
+        "(?i)statement[-_]?billing[-_]?ledger[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-ledger-statement-10",
+      "regex": [
+        "(?i)statement[-_]?billing[-_]?ledger[-_]?10"
+      ]
+    }
+  ]
+}

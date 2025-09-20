@@ -1,0 +1,807 @@
+{
+  "category": "config-export",
+  "title": "Config Export",
+  "description": "Regex collection for Config Export automation templates.",
+  "templates": [
+    {
+      "template_id": "api-regex-config-export-access-management-01",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-access-management-02",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-access-management-03",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-access-management-04",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-access-management-05",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-accounting-01",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-accounting-02",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-accounting-03",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-accounting-04",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-accounting-05",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-analytics-01",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-analytics-02",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-analytics-03",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-analytics-04",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-analytics-05",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-audit-01",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-audit-02",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-audit-03",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-audit-04",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-audit-05",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-billing-01",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-billing-02",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-billing-03",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-billing-04",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-billing-05",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-business-intelligence-01",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-business-intelligence-02",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-business-intelligence-03",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-business-intelligence-04",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-business-intelligence-05",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-cloud-ops-01",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-cloud-ops-02",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-cloud-ops-03",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-cloud-ops-04",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-cloud-ops-05",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-collaboration-01",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-collaboration-02",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-collaboration-03",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-collaboration-04",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-collaboration-05",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-commerce-01",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-commerce-02",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-commerce-03",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-commerce-04",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-commerce-05",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-compliance-01",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-compliance-02",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-compliance-03",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-compliance-04",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-compliance-05",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-customer-success-01",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-customer-success-02",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-customer-success-03",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-customer-success-04",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-customer-success-05",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-devops-01",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-devops-02",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-devops-03",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-devops-04",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-devops-05",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-finance-01",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-finance-02",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-finance-03",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-finance-04",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-finance-05",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-governance-01",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-governance-02",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-governance-03",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-governance-04",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-governance-05",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-identity-01",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-identity-02",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-identity-03",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-identity-04",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-identity-05",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-infrastructure-01",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-infrastructure-02",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-infrastructure-03",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-infrastructure-04",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-infrastructure-05",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-logistics-01",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-logistics-02",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-logistics-03",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-logistics-04",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-logistics-05",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-marketing-01",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-marketing-02",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-marketing-03",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-marketing-04",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-marketing-05",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-operations-01",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-operations-02",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-operations-03",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-operations-04",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-operations-05",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-product-01",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-product-02",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-product-03",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-product-04",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-product-05",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret"
+      ]
+    }
+  ]
+}

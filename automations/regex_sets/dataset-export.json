@@ -1,0 +1,727 @@
+{
+  "category": "dataset-export",
+  "title": "Dataset Export",
+  "description": "Regex collection for Dataset Export automation templates.",
+  "templates": [
+    {
+      "template_id": "dataset-export-leak-analytics-01",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-analytics-02",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-analytics-03",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-analytics-04",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-analytics-05",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-analytics-06",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-analytics-07",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-analytics-08",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-analytics-09",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-analytics-10",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-analytics-11",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-analytics-12",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-audit-01",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-audit-02",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-audit-03",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-audit-04",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-audit-05",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-audit-06",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-audit-07",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-audit-08",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-audit-09",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-audit-10",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-audit-11",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-audit-12",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-compliance-01",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-compliance-02",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-compliance-03",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-compliance-04",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-compliance-05",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-compliance-06",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-compliance-07",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-compliance-08",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-compliance-09",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-compliance-10",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-compliance-11",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-compliance-12",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-customers-01",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-customers-02",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-customers-03",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-customers-04",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-customers-05",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-customers-06",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-customers-07",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-customers-08",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-customers-09",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-customers-10",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-customers-11",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-customers-12",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-inventory-01",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-inventory-02",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-inventory-03",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-inventory-04",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-inventory-05",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-inventory-06",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-inventory-07",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-inventory-08",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-inventory-09",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-inventory-10",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-inventory-11",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-inventory-12",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-marketing-01",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-marketing-02",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-marketing-03",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-marketing-04",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-marketing-05",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-marketing-06",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-marketing-07",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-marketing-08",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-marketing-09",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-marketing-10",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-marketing-11",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-marketing-12",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-operations-01",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-operations-02",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-operations-03",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-operations-04",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-operations-05",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-operations-06",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-operations-07",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-operations-08",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-operations-09",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-operations-10",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-operations-11",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-operations-12",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-support-01",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-support-02",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-support-03",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-support-04",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-support-05",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-support-06",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-support-07",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-support-08",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-support-09",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-support-10",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-support-11",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-support-12",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-telemetry-01",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-telemetry-02",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-telemetry-03",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-telemetry-04",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-telemetry-05",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-telemetry-06",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-telemetry-07",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-telemetry-08",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-telemetry-09",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-telemetry-10",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-telemetry-11",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-telemetry-12",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-transactions-01",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-transactions-02",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-transactions-03",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-transactions-04",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-transactions-05",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-transactions-06",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-transactions-07",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-transactions-08",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-transactions-09",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-transactions-10",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-transactions-11",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    },
+    {
+      "template_id": "dataset-export-leak-transactions-12",
+      "regex": [
+        "(?i)(id,|email|user|amount)"
+      ]
+    }
+  ]
+}

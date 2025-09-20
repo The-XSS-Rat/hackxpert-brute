@@ -1,0 +1,607 @@
+{
+  "category": "pipeline-log",
+  "title": "Pipeline Log",
+  "description": "Regex collection for Pipeline Log automation templates.",
+  "templates": [
+    {
+      "template_id": "pipeline-log-exposure-azure-devops-01",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-azure-devops-02",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-azure-devops-03",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-azure-devops-04",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-azure-devops-05",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-azure-devops-06",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-azure-devops-07",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-azure-devops-08",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-azure-devops-09",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-azure-devops-10",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-bamboo-01",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-bamboo-02",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-bamboo-03",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-bamboo-04",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-bamboo-05",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-bamboo-06",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-bamboo-07",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-bamboo-08",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-bamboo-09",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-bamboo-10",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-bitbucket-pipelines-01",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-bitbucket-pipelines-02",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-bitbucket-pipelines-03",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-bitbucket-pipelines-04",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-bitbucket-pipelines-05",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-bitbucket-pipelines-06",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-bitbucket-pipelines-07",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-bitbucket-pipelines-08",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-bitbucket-pipelines-09",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-bitbucket-pipelines-10",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-buddy-01",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-buddy-02",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-buddy-03",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-buddy-04",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-buddy-05",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-buddy-06",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-buddy-07",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-buddy-08",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-buddy-09",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-buddy-10",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-circleci-01",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-circleci-02",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-circleci-03",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-circleci-04",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-circleci-05",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-circleci-06",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-circleci-07",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-circleci-08",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-circleci-09",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-circleci-10",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-github-actions-01",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-github-actions-02",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-github-actions-03",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-github-actions-04",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-github-actions-05",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-github-actions-06",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-github-actions-07",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-github-actions-08",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-github-actions-09",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-github-actions-10",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-gitlab-ci-01",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-gitlab-ci-02",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-gitlab-ci-03",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-gitlab-ci-04",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-gitlab-ci-05",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-gitlab-ci-06",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-gitlab-ci-07",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-gitlab-ci-08",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-gitlab-ci-09",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-gitlab-ci-10",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-jenkins-01",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-jenkins-02",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-jenkins-03",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-jenkins-04",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-jenkins-05",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-jenkins-06",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-jenkins-07",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-jenkins-08",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-jenkins-09",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-jenkins-10",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-teamcity-01",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-teamcity-02",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-teamcity-03",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-teamcity-04",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-teamcity-05",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-teamcity-06",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-teamcity-07",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-teamcity-08",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-teamcity-09",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-teamcity-10",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-travis-ci-01",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-travis-ci-02",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-travis-ci-03",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-travis-ci-04",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-travis-ci-05",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-travis-ci-06",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-travis-ci-07",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-travis-ci-08",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-travis-ci-09",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    },
+    {
+      "template_id": "pipeline-log-exposure-travis-ci-10",
+      "regex": [
+        "(?i)(pipeline|job|token|secret)"
+      ]
+    }
+  ]
+}

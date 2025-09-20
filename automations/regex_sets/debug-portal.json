@@ -1,0 +1,583 @@
+{
+  "category": "debug-portal",
+  "title": "Debug Portal",
+  "description": "Regex collection for Debug Portal automation templates.",
+  "templates": [
+    {
+      "template_id": "debug-portal-dump-beta-01",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-beta-02",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-beta-03",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-beta-04",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-beta-05",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-beta-06",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-beta-07",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-beta-08",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-beta-09",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-beta-10",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-beta-11",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-beta-12",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-delta-01",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-delta-02",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-delta-03",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-delta-04",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-delta-05",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-delta-06",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-delta-07",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-delta-08",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-delta-09",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-delta-10",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-delta-11",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-delta-12",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-epsilon-01",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-epsilon-02",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-epsilon-03",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-epsilon-04",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-epsilon-05",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-epsilon-06",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-epsilon-07",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-epsilon-08",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-epsilon-09",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-epsilon-10",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-epsilon-11",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-epsilon-12",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-gamma-01",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-gamma-02",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-gamma-03",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-gamma-04",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-gamma-05",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-gamma-06",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-gamma-07",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-gamma-08",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-gamma-09",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-gamma-10",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-gamma-11",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-gamma-12",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-lambda-01",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-lambda-02",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-lambda-03",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-lambda-04",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-lambda-05",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-lambda-06",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-lambda-07",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-lambda-08",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-lambda-09",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-lambda-10",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-lambda-11",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-lambda-12",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-omega-01",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-omega-02",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-omega-03",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-omega-04",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-omega-05",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-omega-06",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-omega-07",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-omega-08",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-omega-09",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-omega-10",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-omega-11",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-omega-12",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-sigma-01",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-sigma-02",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-sigma-03",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-sigma-04",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-sigma-05",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-sigma-06",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-sigma-07",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-sigma-08",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-sigma-09",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-sigma-10",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-sigma-11",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-sigma-12",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-theta-01",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-theta-02",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-theta-03",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-theta-04",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-theta-05",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-theta-06",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-theta-07",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-theta-08",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-theta-09",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-theta-10",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-theta-11",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    },
+    {
+      "template_id": "debug-portal-dump-theta-12",
+      "regex": [
+        "(?i)(stacktrace|debug|exception)"
+      ]
+    }
+  ]
+}
