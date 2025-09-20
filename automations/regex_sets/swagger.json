@@ -1,0 +1,13 @@
+{
+  "category": "swagger",
+  "title": "Swagger",
+  "description": "Regex collection for Swagger automation templates.",
+  "templates": [
+    {
+      "template_id": "swagger-ui",
+      "regex": [
+        "(?i)swagger\\s*ui"
+      ]
+    }
+  ]
+}

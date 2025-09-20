@@ -1,0 +1,607 @@
+{
+  "category": "pipeline-chatter",
+  "title": "Pipeline Chatter Archives",
+  "description": "CI/CD chatter logs rich in secrets, tokens and environment metadata.",
+  "templates": [
+    {
+      "template_id": "api-regex-pipeline-chatter-atlas-01",
+      "regex": [
+        "(?i)atlas[-_]?pipeline[-_]?chatter[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-atlas-02",
+      "regex": [
+        "(?i)atlas[-_]?pipeline[-_]?chatter[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-atlas-03",
+      "regex": [
+        "(?i)atlas[-_]?pipeline[-_]?chatter[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-atlas-04",
+      "regex": [
+        "(?i)atlas[-_]?pipeline[-_]?chatter[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-atlas-05",
+      "regex": [
+        "(?i)atlas[-_]?pipeline[-_]?chatter[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-atlas-06",
+      "regex": [
+        "(?i)atlas[-_]?pipeline[-_]?chatter[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-atlas-07",
+      "regex": [
+        "(?i)atlas[-_]?pipeline[-_]?chatter[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-atlas-08",
+      "regex": [
+        "(?i)atlas[-_]?pipeline[-_]?chatter[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-atlas-09",
+      "regex": [
+        "(?i)atlas[-_]?pipeline[-_]?chatter[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-atlas-10",
+      "regex": [
+        "(?i)atlas[-_]?pipeline[-_]?chatter[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-bolide-01",
+      "regex": [
+        "(?i)bolide[-_]?pipeline[-_]?chatter[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-bolide-02",
+      "regex": [
+        "(?i)bolide[-_]?pipeline[-_]?chatter[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-bolide-03",
+      "regex": [
+        "(?i)bolide[-_]?pipeline[-_]?chatter[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-bolide-04",
+      "regex": [
+        "(?i)bolide[-_]?pipeline[-_]?chatter[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-bolide-05",
+      "regex": [
+        "(?i)bolide[-_]?pipeline[-_]?chatter[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-bolide-06",
+      "regex": [
+        "(?i)bolide[-_]?pipeline[-_]?chatter[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-bolide-07",
+      "regex": [
+        "(?i)bolide[-_]?pipeline[-_]?chatter[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-bolide-08",
+      "regex": [
+        "(?i)bolide[-_]?pipeline[-_]?chatter[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-bolide-09",
+      "regex": [
+        "(?i)bolide[-_]?pipeline[-_]?chatter[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-bolide-10",
+      "regex": [
+        "(?i)bolide[-_]?pipeline[-_]?chatter[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-comet-01",
+      "regex": [
+        "(?i)comet[-_]?pipeline[-_]?chatter[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-comet-02",
+      "regex": [
+        "(?i)comet[-_]?pipeline[-_]?chatter[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-comet-03",
+      "regex": [
+        "(?i)comet[-_]?pipeline[-_]?chatter[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-comet-04",
+      "regex": [
+        "(?i)comet[-_]?pipeline[-_]?chatter[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-comet-05",
+      "regex": [
+        "(?i)comet[-_]?pipeline[-_]?chatter[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-comet-06",
+      "regex": [
+        "(?i)comet[-_]?pipeline[-_]?chatter[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-comet-07",
+      "regex": [
+        "(?i)comet[-_]?pipeline[-_]?chatter[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-comet-08",
+      "regex": [
+        "(?i)comet[-_]?pipeline[-_]?chatter[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-comet-09",
+      "regex": [
+        "(?i)comet[-_]?pipeline[-_]?chatter[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-comet-10",
+      "regex": [
+        "(?i)comet[-_]?pipeline[-_]?chatter[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-delta-01",
+      "regex": [
+        "(?i)delta[-_]?pipeline[-_]?chatter[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-delta-02",
+      "regex": [
+        "(?i)delta[-_]?pipeline[-_]?chatter[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-delta-03",
+      "regex": [
+        "(?i)delta[-_]?pipeline[-_]?chatter[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-delta-04",
+      "regex": [
+        "(?i)delta[-_]?pipeline[-_]?chatter[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-delta-05",
+      "regex": [
+        "(?i)delta[-_]?pipeline[-_]?chatter[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-delta-06",
+      "regex": [
+        "(?i)delta[-_]?pipeline[-_]?chatter[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-delta-07",
+      "regex": [
+        "(?i)delta[-_]?pipeline[-_]?chatter[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-delta-08",
+      "regex": [
+        "(?i)delta[-_]?pipeline[-_]?chatter[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-delta-09",
+      "regex": [
+        "(?i)delta[-_]?pipeline[-_]?chatter[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-delta-10",
+      "regex": [
+        "(?i)delta[-_]?pipeline[-_]?chatter[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-ember-01",
+      "regex": [
+        "(?i)ember[-_]?pipeline[-_]?chatter[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-ember-02",
+      "regex": [
+        "(?i)ember[-_]?pipeline[-_]?chatter[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-ember-03",
+      "regex": [
+        "(?i)ember[-_]?pipeline[-_]?chatter[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-ember-04",
+      "regex": [
+        "(?i)ember[-_]?pipeline[-_]?chatter[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-ember-05",
+      "regex": [
+        "(?i)ember[-_]?pipeline[-_]?chatter[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-ember-06",
+      "regex": [
+        "(?i)ember[-_]?pipeline[-_]?chatter[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-ember-07",
+      "regex": [
+        "(?i)ember[-_]?pipeline[-_]?chatter[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-ember-08",
+      "regex": [
+        "(?i)ember[-_]?pipeline[-_]?chatter[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-ember-09",
+      "regex": [
+        "(?i)ember[-_]?pipeline[-_]?chatter[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-ember-10",
+      "regex": [
+        "(?i)ember[-_]?pipeline[-_]?chatter[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-flux-01",
+      "regex": [
+        "(?i)flux[-_]?pipeline[-_]?chatter[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-flux-02",
+      "regex": [
+        "(?i)flux[-_]?pipeline[-_]?chatter[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-flux-03",
+      "regex": [
+        "(?i)flux[-_]?pipeline[-_]?chatter[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-flux-04",
+      "regex": [
+        "(?i)flux[-_]?pipeline[-_]?chatter[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-flux-05",
+      "regex": [
+        "(?i)flux[-_]?pipeline[-_]?chatter[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-flux-06",
+      "regex": [
+        "(?i)flux[-_]?pipeline[-_]?chatter[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-flux-07",
+      "regex": [
+        "(?i)flux[-_]?pipeline[-_]?chatter[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-flux-08",
+      "regex": [
+        "(?i)flux[-_]?pipeline[-_]?chatter[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-flux-09",
+      "regex": [
+        "(?i)flux[-_]?pipeline[-_]?chatter[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-flux-10",
+      "regex": [
+        "(?i)flux[-_]?pipeline[-_]?chatter[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-glacier-01",
+      "regex": [
+        "(?i)glacier[-_]?pipeline[-_]?chatter[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-glacier-02",
+      "regex": [
+        "(?i)glacier[-_]?pipeline[-_]?chatter[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-glacier-03",
+      "regex": [
+        "(?i)glacier[-_]?pipeline[-_]?chatter[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-glacier-04",
+      "regex": [
+        "(?i)glacier[-_]?pipeline[-_]?chatter[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-glacier-05",
+      "regex": [
+        "(?i)glacier[-_]?pipeline[-_]?chatter[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-glacier-06",
+      "regex": [
+        "(?i)glacier[-_]?pipeline[-_]?chatter[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-glacier-07",
+      "regex": [
+        "(?i)glacier[-_]?pipeline[-_]?chatter[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-glacier-08",
+      "regex": [
+        "(?i)glacier[-_]?pipeline[-_]?chatter[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-glacier-09",
+      "regex": [
+        "(?i)glacier[-_]?pipeline[-_]?chatter[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-glacier-10",
+      "regex": [
+        "(?i)glacier[-_]?pipeline[-_]?chatter[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-helix-01",
+      "regex": [
+        "(?i)helix[-_]?pipeline[-_]?chatter[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-helix-02",
+      "regex": [
+        "(?i)helix[-_]?pipeline[-_]?chatter[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-helix-03",
+      "regex": [
+        "(?i)helix[-_]?pipeline[-_]?chatter[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-helix-04",
+      "regex": [
+        "(?i)helix[-_]?pipeline[-_]?chatter[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-helix-05",
+      "regex": [
+        "(?i)helix[-_]?pipeline[-_]?chatter[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-helix-06",
+      "regex": [
+        "(?i)helix[-_]?pipeline[-_]?chatter[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-helix-07",
+      "regex": [
+        "(?i)helix[-_]?pipeline[-_]?chatter[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-helix-08",
+      "regex": [
+        "(?i)helix[-_]?pipeline[-_]?chatter[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-helix-09",
+      "regex": [
+        "(?i)helix[-_]?pipeline[-_]?chatter[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-helix-10",
+      "regex": [
+        "(?i)helix[-_]?pipeline[-_]?chatter[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-ion-01",
+      "regex": [
+        "(?i)ion[-_]?pipeline[-_]?chatter[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-ion-02",
+      "regex": [
+        "(?i)ion[-_]?pipeline[-_]?chatter[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-ion-03",
+      "regex": [
+        "(?i)ion[-_]?pipeline[-_]?chatter[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-ion-04",
+      "regex": [
+        "(?i)ion[-_]?pipeline[-_]?chatter[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-ion-05",
+      "regex": [
+        "(?i)ion[-_]?pipeline[-_]?chatter[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-ion-06",
+      "regex": [
+        "(?i)ion[-_]?pipeline[-_]?chatter[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-ion-07",
+      "regex": [
+        "(?i)ion[-_]?pipeline[-_]?chatter[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-ion-08",
+      "regex": [
+        "(?i)ion[-_]?pipeline[-_]?chatter[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-ion-09",
+      "regex": [
+        "(?i)ion[-_]?pipeline[-_]?chatter[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-ion-10",
+      "regex": [
+        "(?i)ion[-_]?pipeline[-_]?chatter[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-jade-01",
+      "regex": [
+        "(?i)jade[-_]?pipeline[-_]?chatter[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-jade-02",
+      "regex": [
+        "(?i)jade[-_]?pipeline[-_]?chatter[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-jade-03",
+      "regex": [
+        "(?i)jade[-_]?pipeline[-_]?chatter[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-jade-04",
+      "regex": [
+        "(?i)jade[-_]?pipeline[-_]?chatter[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-jade-05",
+      "regex": [
+        "(?i)jade[-_]?pipeline[-_]?chatter[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-jade-06",
+      "regex": [
+        "(?i)jade[-_]?pipeline[-_]?chatter[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-jade-07",
+      "regex": [
+        "(?i)jade[-_]?pipeline[-_]?chatter[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-jade-08",
+      "regex": [
+        "(?i)jade[-_]?pipeline[-_]?chatter[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-jade-09",
+      "regex": [
+        "(?i)jade[-_]?pipeline[-_]?chatter[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-pipeline-chatter-jade-10",
+      "regex": [
+        "(?i)jade[-_]?pipeline[-_]?chatter[-_]?10"
+      ]
+    }
+  ]
+}

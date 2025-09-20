@@ -1,0 +1,807 @@
+{
+  "category": "token-cache",
+  "title": "Token Cache",
+  "description": "Regex collection for Token Cache automation templates.",
+  "templates": [
+    {
+      "template_id": "api-regex-token-cache-access-management-01",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-access-management-02",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-access-management-03",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-access-management-04",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-access-management-05",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-accounting-01",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-accounting-02",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-accounting-03",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-accounting-04",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-accounting-05",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-analytics-01",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-analytics-02",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-analytics-03",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-analytics-04",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-analytics-05",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-audit-01",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-audit-02",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-audit-03",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-audit-04",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-audit-05",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-billing-01",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-billing-02",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-billing-03",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-billing-04",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-billing-05",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-business-intelligence-01",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-business-intelligence-02",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-business-intelligence-03",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-business-intelligence-04",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-business-intelligence-05",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-cloud-ops-01",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-cloud-ops-02",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-cloud-ops-03",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-cloud-ops-04",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-cloud-ops-05",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-collaboration-01",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-collaboration-02",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-collaboration-03",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-collaboration-04",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-collaboration-05",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-commerce-01",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-commerce-02",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-commerce-03",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-commerce-04",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-commerce-05",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-compliance-01",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-compliance-02",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-compliance-03",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-compliance-04",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-compliance-05",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-customer-success-01",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-customer-success-02",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-customer-success-03",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-customer-success-04",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-customer-success-05",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-devops-01",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-devops-02",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-devops-03",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-devops-04",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-devops-05",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-finance-01",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-finance-02",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-finance-03",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-finance-04",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-finance-05",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-governance-01",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-governance-02",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-governance-03",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-governance-04",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-governance-05",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-identity-01",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-identity-02",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-identity-03",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-identity-04",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-identity-05",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-infrastructure-01",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-infrastructure-02",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-infrastructure-03",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-infrastructure-04",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-infrastructure-05",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-logistics-01",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-logistics-02",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-logistics-03",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-logistics-04",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-logistics-05",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-marketing-01",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-marketing-02",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-marketing-03",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-marketing-04",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-marketing-05",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-operations-01",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-operations-02",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-operations-03",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-operations-04",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-operations-05",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-product-01",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-product-02",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-product-03",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-product-04",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-product-05",
+      "regex": [
+        "(?i)bearer",
+        "(?i)secret",
+        "(?i)token"
+      ]
+    }
+  ]
+}

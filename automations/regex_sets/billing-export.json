@@ -1,0 +1,807 @@
+{
+  "category": "billing-export",
+  "title": "Billing Export",
+  "description": "Regex collection for Billing Export automation templates.",
+  "templates": [
+    {
+      "template_id": "api-regex-billing-export-access-management-01",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-access-management-02",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-access-management-03",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-access-management-04",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-access-management-05",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-accounting-01",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-accounting-02",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-accounting-03",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-accounting-04",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-accounting-05",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-analytics-01",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-analytics-02",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-analytics-03",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-analytics-04",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-analytics-05",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-audit-01",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-audit-02",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-audit-03",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-audit-04",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-audit-05",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-billing-01",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-billing-02",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-billing-03",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-billing-04",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-billing-05",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-business-intelligence-01",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-business-intelligence-02",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-business-intelligence-03",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-business-intelligence-04",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-business-intelligence-05",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-cloud-ops-01",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-cloud-ops-02",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-cloud-ops-03",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-cloud-ops-04",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-cloud-ops-05",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-collaboration-01",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-collaboration-02",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-collaboration-03",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-collaboration-04",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-collaboration-05",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-commerce-01",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-commerce-02",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-commerce-03",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-commerce-04",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-commerce-05",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-compliance-01",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-compliance-02",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-compliance-03",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-compliance-04",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-compliance-05",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-customer-success-01",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-customer-success-02",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-customer-success-03",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-customer-success-04",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-customer-success-05",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-devops-01",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-devops-02",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-devops-03",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-devops-04",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-devops-05",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-finance-01",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-finance-02",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-finance-03",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-finance-04",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-finance-05",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-governance-01",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-governance-02",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-governance-03",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-governance-04",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-governance-05",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-identity-01",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-identity-02",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-identity-03",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-identity-04",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-identity-05",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-infrastructure-01",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-infrastructure-02",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-infrastructure-03",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-infrastructure-04",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-infrastructure-05",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-logistics-01",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-logistics-02",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-logistics-03",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-logistics-04",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-logistics-05",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-marketing-01",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-marketing-02",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-marketing-03",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-marketing-04",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-marketing-05",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-operations-01",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-operations-02",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-operations-03",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-operations-04",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-operations-05",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-product-01",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-product-02",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-product-03",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-product-04",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    },
+    {
+      "template_id": "api-regex-billing-export-product-05",
+      "regex": [
+        "(?i)amount",
+        "(?i)currency",
+        "(?i)invoice"
+      ]
+    }
+  ]
+}

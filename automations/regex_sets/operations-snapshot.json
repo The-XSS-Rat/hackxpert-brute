@@ -1,0 +1,607 @@
+{
+  "category": "operations-snapshot",
+  "title": "Operations Snapshot Dumps",
+  "description": "Ops telemetry dumps exposing orchestration blueprints and secrets.",
+  "templates": [
+    {
+      "template_id": "api-regex-operations-snapshot-command-01",
+      "regex": [
+        "(?i)command[-_]?ops[-_]?snapshot[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-command-02",
+      "regex": [
+        "(?i)command[-_]?ops[-_]?snapshot[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-command-03",
+      "regex": [
+        "(?i)command[-_]?ops[-_]?snapshot[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-command-04",
+      "regex": [
+        "(?i)command[-_]?ops[-_]?snapshot[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-command-05",
+      "regex": [
+        "(?i)command[-_]?ops[-_]?snapshot[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-command-06",
+      "regex": [
+        "(?i)command[-_]?ops[-_]?snapshot[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-command-07",
+      "regex": [
+        "(?i)command[-_]?ops[-_]?snapshot[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-command-08",
+      "regex": [
+        "(?i)command[-_]?ops[-_]?snapshot[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-command-09",
+      "regex": [
+        "(?i)command[-_]?ops[-_]?snapshot[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-command-10",
+      "regex": [
+        "(?i)command[-_]?ops[-_]?snapshot[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-dispatch-01",
+      "regex": [
+        "(?i)dispatch[-_]?ops[-_]?snapshot[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-dispatch-02",
+      "regex": [
+        "(?i)dispatch[-_]?ops[-_]?snapshot[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-dispatch-03",
+      "regex": [
+        "(?i)dispatch[-_]?ops[-_]?snapshot[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-dispatch-04",
+      "regex": [
+        "(?i)dispatch[-_]?ops[-_]?snapshot[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-dispatch-05",
+      "regex": [
+        "(?i)dispatch[-_]?ops[-_]?snapshot[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-dispatch-06",
+      "regex": [
+        "(?i)dispatch[-_]?ops[-_]?snapshot[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-dispatch-07",
+      "regex": [
+        "(?i)dispatch[-_]?ops[-_]?snapshot[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-dispatch-08",
+      "regex": [
+        "(?i)dispatch[-_]?ops[-_]?snapshot[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-dispatch-09",
+      "regex": [
+        "(?i)dispatch[-_]?ops[-_]?snapshot[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-dispatch-10",
+      "regex": [
+        "(?i)dispatch[-_]?ops[-_]?snapshot[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-engine-01",
+      "regex": [
+        "(?i)engine[-_]?ops[-_]?snapshot[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-engine-02",
+      "regex": [
+        "(?i)engine[-_]?ops[-_]?snapshot[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-engine-03",
+      "regex": [
+        "(?i)engine[-_]?ops[-_]?snapshot[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-engine-04",
+      "regex": [
+        "(?i)engine[-_]?ops[-_]?snapshot[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-engine-05",
+      "regex": [
+        "(?i)engine[-_]?ops[-_]?snapshot[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-engine-06",
+      "regex": [
+        "(?i)engine[-_]?ops[-_]?snapshot[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-engine-07",
+      "regex": [
+        "(?i)engine[-_]?ops[-_]?snapshot[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-engine-08",
+      "regex": [
+        "(?i)engine[-_]?ops[-_]?snapshot[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-engine-09",
+      "regex": [
+        "(?i)engine[-_]?ops[-_]?snapshot[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-engine-10",
+      "regex": [
+        "(?i)engine[-_]?ops[-_]?snapshot[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-flight-01",
+      "regex": [
+        "(?i)flight[-_]?ops[-_]?snapshot[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-flight-02",
+      "regex": [
+        "(?i)flight[-_]?ops[-_]?snapshot[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-flight-03",
+      "regex": [
+        "(?i)flight[-_]?ops[-_]?snapshot[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-flight-04",
+      "regex": [
+        "(?i)flight[-_]?ops[-_]?snapshot[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-flight-05",
+      "regex": [
+        "(?i)flight[-_]?ops[-_]?snapshot[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-flight-06",
+      "regex": [
+        "(?i)flight[-_]?ops[-_]?snapshot[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-flight-07",
+      "regex": [
+        "(?i)flight[-_]?ops[-_]?snapshot[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-flight-08",
+      "regex": [
+        "(?i)flight[-_]?ops[-_]?snapshot[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-flight-09",
+      "regex": [
+        "(?i)flight[-_]?ops[-_]?snapshot[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-flight-10",
+      "regex": [
+        "(?i)flight[-_]?ops[-_]?snapshot[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-grid-01",
+      "regex": [
+        "(?i)grid[-_]?ops[-_]?snapshot[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-grid-02",
+      "regex": [
+        "(?i)grid[-_]?ops[-_]?snapshot[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-grid-03",
+      "regex": [
+        "(?i)grid[-_]?ops[-_]?snapshot[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-grid-04",
+      "regex": [
+        "(?i)grid[-_]?ops[-_]?snapshot[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-grid-05",
+      "regex": [
+        "(?i)grid[-_]?ops[-_]?snapshot[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-grid-06",
+      "regex": [
+        "(?i)grid[-_]?ops[-_]?snapshot[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-grid-07",
+      "regex": [
+        "(?i)grid[-_]?ops[-_]?snapshot[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-grid-08",
+      "regex": [
+        "(?i)grid[-_]?ops[-_]?snapshot[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-grid-09",
+      "regex": [
+        "(?i)grid[-_]?ops[-_]?snapshot[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-grid-10",
+      "regex": [
+        "(?i)grid[-_]?ops[-_]?snapshot[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-hub-01",
+      "regex": [
+        "(?i)hub[-_]?ops[-_]?snapshot[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-hub-02",
+      "regex": [
+        "(?i)hub[-_]?ops[-_]?snapshot[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-hub-03",
+      "regex": [
+        "(?i)hub[-_]?ops[-_]?snapshot[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-hub-04",
+      "regex": [
+        "(?i)hub[-_]?ops[-_]?snapshot[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-hub-05",
+      "regex": [
+        "(?i)hub[-_]?ops[-_]?snapshot[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-hub-06",
+      "regex": [
+        "(?i)hub[-_]?ops[-_]?snapshot[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-hub-07",
+      "regex": [
+        "(?i)hub[-_]?ops[-_]?snapshot[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-hub-08",
+      "regex": [
+        "(?i)hub[-_]?ops[-_]?snapshot[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-hub-09",
+      "regex": [
+        "(?i)hub[-_]?ops[-_]?snapshot[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-hub-10",
+      "regex": [
+        "(?i)hub[-_]?ops[-_]?snapshot[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-matrix-01",
+      "regex": [
+        "(?i)matrix[-_]?ops[-_]?snapshot[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-matrix-02",
+      "regex": [
+        "(?i)matrix[-_]?ops[-_]?snapshot[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-matrix-03",
+      "regex": [
+        "(?i)matrix[-_]?ops[-_]?snapshot[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-matrix-04",
+      "regex": [
+        "(?i)matrix[-_]?ops[-_]?snapshot[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-matrix-05",
+      "regex": [
+        "(?i)matrix[-_]?ops[-_]?snapshot[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-matrix-06",
+      "regex": [
+        "(?i)matrix[-_]?ops[-_]?snapshot[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-matrix-07",
+      "regex": [
+        "(?i)matrix[-_]?ops[-_]?snapshot[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-matrix-08",
+      "regex": [
+        "(?i)matrix[-_]?ops[-_]?snapshot[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-matrix-09",
+      "regex": [
+        "(?i)matrix[-_]?ops[-_]?snapshot[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-matrix-10",
+      "regex": [
+        "(?i)matrix[-_]?ops[-_]?snapshot[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-network-01",
+      "regex": [
+        "(?i)network[-_]?ops[-_]?snapshot[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-network-02",
+      "regex": [
+        "(?i)network[-_]?ops[-_]?snapshot[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-network-03",
+      "regex": [
+        "(?i)network[-_]?ops[-_]?snapshot[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-network-04",
+      "regex": [
+        "(?i)network[-_]?ops[-_]?snapshot[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-network-05",
+      "regex": [
+        "(?i)network[-_]?ops[-_]?snapshot[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-network-06",
+      "regex": [
+        "(?i)network[-_]?ops[-_]?snapshot[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-network-07",
+      "regex": [
+        "(?i)network[-_]?ops[-_]?snapshot[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-network-08",
+      "regex": [
+        "(?i)network[-_]?ops[-_]?snapshot[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-network-09",
+      "regex": [
+        "(?i)network[-_]?ops[-_]?snapshot[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-network-10",
+      "regex": [
+        "(?i)network[-_]?ops[-_]?snapshot[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-ops-01",
+      "regex": [
+        "(?i)ops[-_]?ops[-_]?snapshot[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-ops-02",
+      "regex": [
+        "(?i)ops[-_]?ops[-_]?snapshot[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-ops-03",
+      "regex": [
+        "(?i)ops[-_]?ops[-_]?snapshot[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-ops-04",
+      "regex": [
+        "(?i)ops[-_]?ops[-_]?snapshot[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-ops-05",
+      "regex": [
+        "(?i)ops[-_]?ops[-_]?snapshot[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-ops-06",
+      "regex": [
+        "(?i)ops[-_]?ops[-_]?snapshot[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-ops-07",
+      "regex": [
+        "(?i)ops[-_]?ops[-_]?snapshot[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-ops-08",
+      "regex": [
+        "(?i)ops[-_]?ops[-_]?snapshot[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-ops-09",
+      "regex": [
+        "(?i)ops[-_]?ops[-_]?snapshot[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-ops-10",
+      "regex": [
+        "(?i)ops[-_]?ops[-_]?snapshot[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-tower-01",
+      "regex": [
+        "(?i)tower[-_]?ops[-_]?snapshot[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-tower-02",
+      "regex": [
+        "(?i)tower[-_]?ops[-_]?snapshot[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-tower-03",
+      "regex": [
+        "(?i)tower[-_]?ops[-_]?snapshot[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-tower-04",
+      "regex": [
+        "(?i)tower[-_]?ops[-_]?snapshot[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-tower-05",
+      "regex": [
+        "(?i)tower[-_]?ops[-_]?snapshot[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-tower-06",
+      "regex": [
+        "(?i)tower[-_]?ops[-_]?snapshot[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-tower-07",
+      "regex": [
+        "(?i)tower[-_]?ops[-_]?snapshot[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-tower-08",
+      "regex": [
+        "(?i)tower[-_]?ops[-_]?snapshot[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-tower-09",
+      "regex": [
+        "(?i)tower[-_]?ops[-_]?snapshot[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-operations-snapshot-tower-10",
+      "regex": [
+        "(?i)tower[-_]?ops[-_]?snapshot[-_]?10"
+      ]
+    }
+  ]
+}

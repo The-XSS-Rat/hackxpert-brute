@@ -1,0 +1,583 @@
+{
+  "category": "admin-report",
+  "title": "Admin Report",
+  "description": "Regex collection for Admin Report automation templates.",
+  "templates": [
+    {
+      "template_id": "admin-report-exposure-accounts-01",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-accounts-02",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-accounts-03",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-accounts-04",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-accounts-05",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-accounts-06",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-accounts-07",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-accounts-08",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-availability-01",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-availability-02",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-availability-03",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-availability-04",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-availability-05",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-availability-06",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-availability-07",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-availability-08",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-billing-01",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-billing-02",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-billing-03",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-billing-04",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-billing-05",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-billing-06",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-billing-07",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-billing-08",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-feedback-01",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-feedback-02",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-feedback-03",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-feedback-04",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-feedback-05",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-feedback-06",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-feedback-07",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-feedback-08",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-growth-01",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-growth-02",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-growth-03",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-growth-04",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-growth-05",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-growth-06",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-growth-07",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-growth-08",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-latency-01",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-latency-02",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-latency-03",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-latency-04",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-latency-05",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-latency-06",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-latency-07",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-latency-08",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-onboarding-01",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-onboarding-02",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-onboarding-03",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-onboarding-04",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-onboarding-05",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-onboarding-06",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-onboarding-07",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-onboarding-08",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-product-01",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-product-02",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-product-03",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-product-04",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-product-05",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-product-06",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-product-07",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-product-08",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-quality-01",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-quality-02",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-quality-03",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-quality-04",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-quality-05",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-quality-06",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-quality-07",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-quality-08",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-risk-01",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-risk-02",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-risk-03",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-risk-04",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-risk-05",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-risk-06",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-risk-07",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-risk-08",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-security-01",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-security-02",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-security-03",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-security-04",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-security-05",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-security-06",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-security-07",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-security-08",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-usage-01",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-usage-02",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-usage-03",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-usage-04",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-usage-05",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-usage-06",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-usage-07",
+      "regex": [
+        "%PDF"
+      ]
+    },
+    {
+      "template_id": "admin-report-exposure-usage-08",
+      "regex": [
+        "%PDF"
+      ]
+    }
+  ]
+}

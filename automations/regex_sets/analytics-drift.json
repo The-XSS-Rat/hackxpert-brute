@@ -1,0 +1,607 @@
+{
+  "category": "analytics-drift",
+  "title": "Analytics Drift Exports",
+  "description": "Leaked analytics drift exports revealing usage cohorts and secrets.",
+  "templates": [
+    {
+      "template_id": "api-regex-analytics-drift-campaign-01",
+      "regex": [
+        "(?i)campaign[-_]?analytics[-_]?drift[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-campaign-02",
+      "regex": [
+        "(?i)campaign[-_]?analytics[-_]?drift[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-campaign-03",
+      "regex": [
+        "(?i)campaign[-_]?analytics[-_]?drift[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-campaign-04",
+      "regex": [
+        "(?i)campaign[-_]?analytics[-_]?drift[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-campaign-05",
+      "regex": [
+        "(?i)campaign[-_]?analytics[-_]?drift[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-campaign-06",
+      "regex": [
+        "(?i)campaign[-_]?analytics[-_]?drift[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-campaign-07",
+      "regex": [
+        "(?i)campaign[-_]?analytics[-_]?drift[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-campaign-08",
+      "regex": [
+        "(?i)campaign[-_]?analytics[-_]?drift[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-campaign-09",
+      "regex": [
+        "(?i)campaign[-_]?analytics[-_]?drift[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-campaign-10",
+      "regex": [
+        "(?i)campaign[-_]?analytics[-_]?drift[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-cohort-01",
+      "regex": [
+        "(?i)cohort[-_]?analytics[-_]?drift[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-cohort-02",
+      "regex": [
+        "(?i)cohort[-_]?analytics[-_]?drift[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-cohort-03",
+      "regex": [
+        "(?i)cohort[-_]?analytics[-_]?drift[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-cohort-04",
+      "regex": [
+        "(?i)cohort[-_]?analytics[-_]?drift[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-cohort-05",
+      "regex": [
+        "(?i)cohort[-_]?analytics[-_]?drift[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-cohort-06",
+      "regex": [
+        "(?i)cohort[-_]?analytics[-_]?drift[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-cohort-07",
+      "regex": [
+        "(?i)cohort[-_]?analytics[-_]?drift[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-cohort-08",
+      "regex": [
+        "(?i)cohort[-_]?analytics[-_]?drift[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-cohort-09",
+      "regex": [
+        "(?i)cohort[-_]?analytics[-_]?drift[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-cohort-10",
+      "regex": [
+        "(?i)cohort[-_]?analytics[-_]?drift[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-event-01",
+      "regex": [
+        "(?i)event[-_]?analytics[-_]?drift[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-event-02",
+      "regex": [
+        "(?i)event[-_]?analytics[-_]?drift[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-event-03",
+      "regex": [
+        "(?i)event[-_]?analytics[-_]?drift[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-event-04",
+      "regex": [
+        "(?i)event[-_]?analytics[-_]?drift[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-event-05",
+      "regex": [
+        "(?i)event[-_]?analytics[-_]?drift[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-event-06",
+      "regex": [
+        "(?i)event[-_]?analytics[-_]?drift[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-event-07",
+      "regex": [
+        "(?i)event[-_]?analytics[-_]?drift[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-event-08",
+      "regex": [
+        "(?i)event[-_]?analytics[-_]?drift[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-event-09",
+      "regex": [
+        "(?i)event[-_]?analytics[-_]?drift[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-event-10",
+      "regex": [
+        "(?i)event[-_]?analytics[-_]?drift[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-funnel-01",
+      "regex": [
+        "(?i)funnel[-_]?analytics[-_]?drift[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-funnel-02",
+      "regex": [
+        "(?i)funnel[-_]?analytics[-_]?drift[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-funnel-03",
+      "regex": [
+        "(?i)funnel[-_]?analytics[-_]?drift[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-funnel-04",
+      "regex": [
+        "(?i)funnel[-_]?analytics[-_]?drift[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-funnel-05",
+      "regex": [
+        "(?i)funnel[-_]?analytics[-_]?drift[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-funnel-06",
+      "regex": [
+        "(?i)funnel[-_]?analytics[-_]?drift[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-funnel-07",
+      "regex": [
+        "(?i)funnel[-_]?analytics[-_]?drift[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-funnel-08",
+      "regex": [
+        "(?i)funnel[-_]?analytics[-_]?drift[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-funnel-09",
+      "regex": [
+        "(?i)funnel[-_]?analytics[-_]?drift[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-funnel-10",
+      "regex": [
+        "(?i)funnel[-_]?analytics[-_]?drift[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-growth-01",
+      "regex": [
+        "(?i)growth[-_]?analytics[-_]?drift[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-growth-02",
+      "regex": [
+        "(?i)growth[-_]?analytics[-_]?drift[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-growth-03",
+      "regex": [
+        "(?i)growth[-_]?analytics[-_]?drift[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-growth-04",
+      "regex": [
+        "(?i)growth[-_]?analytics[-_]?drift[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-growth-05",
+      "regex": [
+        "(?i)growth[-_]?analytics[-_]?drift[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-growth-06",
+      "regex": [
+        "(?i)growth[-_]?analytics[-_]?drift[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-growth-07",
+      "regex": [
+        "(?i)growth[-_]?analytics[-_]?drift[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-growth-08",
+      "regex": [
+        "(?i)growth[-_]?analytics[-_]?drift[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-growth-09",
+      "regex": [
+        "(?i)growth[-_]?analytics[-_]?drift[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-growth-10",
+      "regex": [
+        "(?i)growth[-_]?analytics[-_]?drift[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-insight-01",
+      "regex": [
+        "(?i)insight[-_]?analytics[-_]?drift[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-insight-02",
+      "regex": [
+        "(?i)insight[-_]?analytics[-_]?drift[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-insight-03",
+      "regex": [
+        "(?i)insight[-_]?analytics[-_]?drift[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-insight-04",
+      "regex": [
+        "(?i)insight[-_]?analytics[-_]?drift[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-insight-05",
+      "regex": [
+        "(?i)insight[-_]?analytics[-_]?drift[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-insight-06",
+      "regex": [
+        "(?i)insight[-_]?analytics[-_]?drift[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-insight-07",
+      "regex": [
+        "(?i)insight[-_]?analytics[-_]?drift[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-insight-08",
+      "regex": [
+        "(?i)insight[-_]?analytics[-_]?drift[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-insight-09",
+      "regex": [
+        "(?i)insight[-_]?analytics[-_]?drift[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-insight-10",
+      "regex": [
+        "(?i)insight[-_]?analytics[-_]?drift[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-metric-01",
+      "regex": [
+        "(?i)metric[-_]?analytics[-_]?drift[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-metric-02",
+      "regex": [
+        "(?i)metric[-_]?analytics[-_]?drift[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-metric-03",
+      "regex": [
+        "(?i)metric[-_]?analytics[-_]?drift[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-metric-04",
+      "regex": [
+        "(?i)metric[-_]?analytics[-_]?drift[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-metric-05",
+      "regex": [
+        "(?i)metric[-_]?analytics[-_]?drift[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-metric-06",
+      "regex": [
+        "(?i)metric[-_]?analytics[-_]?drift[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-metric-07",
+      "regex": [
+        "(?i)metric[-_]?analytics[-_]?drift[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-metric-08",
+      "regex": [
+        "(?i)metric[-_]?analytics[-_]?drift[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-metric-09",
+      "regex": [
+        "(?i)metric[-_]?analytics[-_]?drift[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-metric-10",
+      "regex": [
+        "(?i)metric[-_]?analytics[-_]?drift[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-retention-01",
+      "regex": [
+        "(?i)retention[-_]?analytics[-_]?drift[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-retention-02",
+      "regex": [
+        "(?i)retention[-_]?analytics[-_]?drift[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-retention-03",
+      "regex": [
+        "(?i)retention[-_]?analytics[-_]?drift[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-retention-04",
+      "regex": [
+        "(?i)retention[-_]?analytics[-_]?drift[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-retention-05",
+      "regex": [
+        "(?i)retention[-_]?analytics[-_]?drift[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-retention-06",
+      "regex": [
+        "(?i)retention[-_]?analytics[-_]?drift[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-retention-07",
+      "regex": [
+        "(?i)retention[-_]?analytics[-_]?drift[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-retention-08",
+      "regex": [
+        "(?i)retention[-_]?analytics[-_]?drift[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-retention-09",
+      "regex": [
+        "(?i)retention[-_]?analytics[-_]?drift[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-retention-10",
+      "regex": [
+        "(?i)retention[-_]?analytics[-_]?drift[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-signal-01",
+      "regex": [
+        "(?i)signal[-_]?analytics[-_]?drift[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-signal-02",
+      "regex": [
+        "(?i)signal[-_]?analytics[-_]?drift[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-signal-03",
+      "regex": [
+        "(?i)signal[-_]?analytics[-_]?drift[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-signal-04",
+      "regex": [
+        "(?i)signal[-_]?analytics[-_]?drift[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-signal-05",
+      "regex": [
+        "(?i)signal[-_]?analytics[-_]?drift[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-signal-06",
+      "regex": [
+        "(?i)signal[-_]?analytics[-_]?drift[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-signal-07",
+      "regex": [
+        "(?i)signal[-_]?analytics[-_]?drift[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-signal-08",
+      "regex": [
+        "(?i)signal[-_]?analytics[-_]?drift[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-signal-09",
+      "regex": [
+        "(?i)signal[-_]?analytics[-_]?drift[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-signal-10",
+      "regex": [
+        "(?i)signal[-_]?analytics[-_]?drift[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-trend-01",
+      "regex": [
+        "(?i)trend[-_]?analytics[-_]?drift[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-trend-02",
+      "regex": [
+        "(?i)trend[-_]?analytics[-_]?drift[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-trend-03",
+      "regex": [
+        "(?i)trend[-_]?analytics[-_]?drift[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-trend-04",
+      "regex": [
+        "(?i)trend[-_]?analytics[-_]?drift[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-trend-05",
+      "regex": [
+        "(?i)trend[-_]?analytics[-_]?drift[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-trend-06",
+      "regex": [
+        "(?i)trend[-_]?analytics[-_]?drift[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-trend-07",
+      "regex": [
+        "(?i)trend[-_]?analytics[-_]?drift[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-trend-08",
+      "regex": [
+        "(?i)trend[-_]?analytics[-_]?drift[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-trend-09",
+      "regex": [
+        "(?i)trend[-_]?analytics[-_]?drift[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-analytics-drift-trend-10",
+      "regex": [
+        "(?i)trend[-_]?analytics[-_]?drift[-_]?10"
+      ]
+    }
+  ]
+}

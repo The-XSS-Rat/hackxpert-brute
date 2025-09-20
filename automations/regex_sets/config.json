@@ -1,0 +1,13 @@
+{
+  "category": "config",
+  "title": "Config",
+  "description": "Regex collection for Config automation templates.",
+  "templates": [
+    {
+      "template_id": "config-json",
+      "regex": [
+        "(?i)(api_key|authToken|clientSecret)"
+      ]
+    }
+  ]
+}

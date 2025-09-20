@@ -1,0 +1,607 @@
+{
+  "category": "insider-trace",
+  "title": "Insider Trace Collections",
+  "description": "Insider trace bundles capturing keystrokes, transcripts and sensitive trails.",
+  "templates": [
+    {
+      "template_id": "api-regex-insider-trace-alpha-01",
+      "regex": [
+        "(?i)alpha[-_]?insider[-_]?trace[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-alpha-02",
+      "regex": [
+        "(?i)alpha[-_]?insider[-_]?trace[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-alpha-03",
+      "regex": [
+        "(?i)alpha[-_]?insider[-_]?trace[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-alpha-04",
+      "regex": [
+        "(?i)alpha[-_]?insider[-_]?trace[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-alpha-05",
+      "regex": [
+        "(?i)alpha[-_]?insider[-_]?trace[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-alpha-06",
+      "regex": [
+        "(?i)alpha[-_]?insider[-_]?trace[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-alpha-07",
+      "regex": [
+        "(?i)alpha[-_]?insider[-_]?trace[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-alpha-08",
+      "regex": [
+        "(?i)alpha[-_]?insider[-_]?trace[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-alpha-09",
+      "regex": [
+        "(?i)alpha[-_]?insider[-_]?trace[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-alpha-10",
+      "regex": [
+        "(?i)alpha[-_]?insider[-_]?trace[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-bravo-01",
+      "regex": [
+        "(?i)bravo[-_]?insider[-_]?trace[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-bravo-02",
+      "regex": [
+        "(?i)bravo[-_]?insider[-_]?trace[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-bravo-03",
+      "regex": [
+        "(?i)bravo[-_]?insider[-_]?trace[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-bravo-04",
+      "regex": [
+        "(?i)bravo[-_]?insider[-_]?trace[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-bravo-05",
+      "regex": [
+        "(?i)bravo[-_]?insider[-_]?trace[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-bravo-06",
+      "regex": [
+        "(?i)bravo[-_]?insider[-_]?trace[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-bravo-07",
+      "regex": [
+        "(?i)bravo[-_]?insider[-_]?trace[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-bravo-08",
+      "regex": [
+        "(?i)bravo[-_]?insider[-_]?trace[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-bravo-09",
+      "regex": [
+        "(?i)bravo[-_]?insider[-_]?trace[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-bravo-10",
+      "regex": [
+        "(?i)bravo[-_]?insider[-_]?trace[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-charlie-01",
+      "regex": [
+        "(?i)charlie[-_]?insider[-_]?trace[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-charlie-02",
+      "regex": [
+        "(?i)charlie[-_]?insider[-_]?trace[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-charlie-03",
+      "regex": [
+        "(?i)charlie[-_]?insider[-_]?trace[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-charlie-04",
+      "regex": [
+        "(?i)charlie[-_]?insider[-_]?trace[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-charlie-05",
+      "regex": [
+        "(?i)charlie[-_]?insider[-_]?trace[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-charlie-06",
+      "regex": [
+        "(?i)charlie[-_]?insider[-_]?trace[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-charlie-07",
+      "regex": [
+        "(?i)charlie[-_]?insider[-_]?trace[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-charlie-08",
+      "regex": [
+        "(?i)charlie[-_]?insider[-_]?trace[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-charlie-09",
+      "regex": [
+        "(?i)charlie[-_]?insider[-_]?trace[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-charlie-10",
+      "regex": [
+        "(?i)charlie[-_]?insider[-_]?trace[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-delta-01",
+      "regex": [
+        "(?i)delta[-_]?insider[-_]?trace[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-delta-02",
+      "regex": [
+        "(?i)delta[-_]?insider[-_]?trace[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-delta-03",
+      "regex": [
+        "(?i)delta[-_]?insider[-_]?trace[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-delta-04",
+      "regex": [
+        "(?i)delta[-_]?insider[-_]?trace[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-delta-05",
+      "regex": [
+        "(?i)delta[-_]?insider[-_]?trace[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-delta-06",
+      "regex": [
+        "(?i)delta[-_]?insider[-_]?trace[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-delta-07",
+      "regex": [
+        "(?i)delta[-_]?insider[-_]?trace[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-delta-08",
+      "regex": [
+        "(?i)delta[-_]?insider[-_]?trace[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-delta-09",
+      "regex": [
+        "(?i)delta[-_]?insider[-_]?trace[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-delta-10",
+      "regex": [
+        "(?i)delta[-_]?insider[-_]?trace[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-echo-01",
+      "regex": [
+        "(?i)echo[-_]?insider[-_]?trace[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-echo-02",
+      "regex": [
+        "(?i)echo[-_]?insider[-_]?trace[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-echo-03",
+      "regex": [
+        "(?i)echo[-_]?insider[-_]?trace[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-echo-04",
+      "regex": [
+        "(?i)echo[-_]?insider[-_]?trace[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-echo-05",
+      "regex": [
+        "(?i)echo[-_]?insider[-_]?trace[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-echo-06",
+      "regex": [
+        "(?i)echo[-_]?insider[-_]?trace[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-echo-07",
+      "regex": [
+        "(?i)echo[-_]?insider[-_]?trace[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-echo-08",
+      "regex": [
+        "(?i)echo[-_]?insider[-_]?trace[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-echo-09",
+      "regex": [
+        "(?i)echo[-_]?insider[-_]?trace[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-echo-10",
+      "regex": [
+        "(?i)echo[-_]?insider[-_]?trace[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-foxtrot-01",
+      "regex": [
+        "(?i)foxtrot[-_]?insider[-_]?trace[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-foxtrot-02",
+      "regex": [
+        "(?i)foxtrot[-_]?insider[-_]?trace[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-foxtrot-03",
+      "regex": [
+        "(?i)foxtrot[-_]?insider[-_]?trace[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-foxtrot-04",
+      "regex": [
+        "(?i)foxtrot[-_]?insider[-_]?trace[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-foxtrot-05",
+      "regex": [
+        "(?i)foxtrot[-_]?insider[-_]?trace[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-foxtrot-06",
+      "regex": [
+        "(?i)foxtrot[-_]?insider[-_]?trace[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-foxtrot-07",
+      "regex": [
+        "(?i)foxtrot[-_]?insider[-_]?trace[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-foxtrot-08",
+      "regex": [
+        "(?i)foxtrot[-_]?insider[-_]?trace[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-foxtrot-09",
+      "regex": [
+        "(?i)foxtrot[-_]?insider[-_]?trace[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-foxtrot-10",
+      "regex": [
+        "(?i)foxtrot[-_]?insider[-_]?trace[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-golf-01",
+      "regex": [
+        "(?i)golf[-_]?insider[-_]?trace[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-golf-02",
+      "regex": [
+        "(?i)golf[-_]?insider[-_]?trace[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-golf-03",
+      "regex": [
+        "(?i)golf[-_]?insider[-_]?trace[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-golf-04",
+      "regex": [
+        "(?i)golf[-_]?insider[-_]?trace[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-golf-05",
+      "regex": [
+        "(?i)golf[-_]?insider[-_]?trace[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-golf-06",
+      "regex": [
+        "(?i)golf[-_]?insider[-_]?trace[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-golf-07",
+      "regex": [
+        "(?i)golf[-_]?insider[-_]?trace[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-golf-08",
+      "regex": [
+        "(?i)golf[-_]?insider[-_]?trace[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-golf-09",
+      "regex": [
+        "(?i)golf[-_]?insider[-_]?trace[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-golf-10",
+      "regex": [
+        "(?i)golf[-_]?insider[-_]?trace[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-hotel-01",
+      "regex": [
+        "(?i)hotel[-_]?insider[-_]?trace[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-hotel-02",
+      "regex": [
+        "(?i)hotel[-_]?insider[-_]?trace[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-hotel-03",
+      "regex": [
+        "(?i)hotel[-_]?insider[-_]?trace[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-hotel-04",
+      "regex": [
+        "(?i)hotel[-_]?insider[-_]?trace[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-hotel-05",
+      "regex": [
+        "(?i)hotel[-_]?insider[-_]?trace[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-hotel-06",
+      "regex": [
+        "(?i)hotel[-_]?insider[-_]?trace[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-hotel-07",
+      "regex": [
+        "(?i)hotel[-_]?insider[-_]?trace[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-hotel-08",
+      "regex": [
+        "(?i)hotel[-_]?insider[-_]?trace[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-hotel-09",
+      "regex": [
+        "(?i)hotel[-_]?insider[-_]?trace[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-hotel-10",
+      "regex": [
+        "(?i)hotel[-_]?insider[-_]?trace[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-india-01",
+      "regex": [
+        "(?i)india[-_]?insider[-_]?trace[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-india-02",
+      "regex": [
+        "(?i)india[-_]?insider[-_]?trace[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-india-03",
+      "regex": [
+        "(?i)india[-_]?insider[-_]?trace[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-india-04",
+      "regex": [
+        "(?i)india[-_]?insider[-_]?trace[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-india-05",
+      "regex": [
+        "(?i)india[-_]?insider[-_]?trace[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-india-06",
+      "regex": [
+        "(?i)india[-_]?insider[-_]?trace[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-india-07",
+      "regex": [
+        "(?i)india[-_]?insider[-_]?trace[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-india-08",
+      "regex": [
+        "(?i)india[-_]?insider[-_]?trace[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-india-09",
+      "regex": [
+        "(?i)india[-_]?insider[-_]?trace[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-india-10",
+      "regex": [
+        "(?i)india[-_]?insider[-_]?trace[-_]?10"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-juliet-01",
+      "regex": [
+        "(?i)juliet[-_]?insider[-_]?trace[-_]?01"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-juliet-02",
+      "regex": [
+        "(?i)juliet[-_]?insider[-_]?trace[-_]?02"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-juliet-03",
+      "regex": [
+        "(?i)juliet[-_]?insider[-_]?trace[-_]?03"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-juliet-04",
+      "regex": [
+        "(?i)juliet[-_]?insider[-_]?trace[-_]?04"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-juliet-05",
+      "regex": [
+        "(?i)juliet[-_]?insider[-_]?trace[-_]?05"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-juliet-06",
+      "regex": [
+        "(?i)juliet[-_]?insider[-_]?trace[-_]?06"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-juliet-07",
+      "regex": [
+        "(?i)juliet[-_]?insider[-_]?trace[-_]?07"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-juliet-08",
+      "regex": [
+        "(?i)juliet[-_]?insider[-_]?trace[-_]?08"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-juliet-09",
+      "regex": [
+        "(?i)juliet[-_]?insider[-_]?trace[-_]?09"
+      ]
+    },
+    {
+      "template_id": "api-regex-insider-trace-juliet-10",
+      "regex": [
+        "(?i)juliet[-_]?insider[-_]?trace[-_]?10"
+      ]
+    }
+  ]
+}
