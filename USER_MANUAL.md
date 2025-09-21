@@ -70,6 +70,8 @@ The Automations tab delivers a nuclei-inspired engine for executing exploit temp
 
 - Use **Save Selection as Ruleset** to capture your current template selection under a friendly name (e.g. “Common Exposures”).
 - Choose a ruleset from the dropdown and hit **Run Ruleset** for repeatable assessments. Rulesets are persisted in `~/.hackxpert_automations.json`.
+- HackXpert now ships with ten curated presets spanning secrets sweeps, environment snapshots, pipelines, backups, credentials, admin intel, debug portals, product intelligence, and integration token audits.
+- The **Filter** box searches across ruleset names, template titles, tags, targets, methods, and severities so you can instantly narrow the dropdown to what you need.
 
 ### 6.3 Importing Templates
 
