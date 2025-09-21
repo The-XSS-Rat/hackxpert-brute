@@ -8,6 +8,10 @@ from typing import Iterable
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 TEMPLATE_PATH = REPO_ROOT / "automations" / "templates.json"
+REGEX_SET_DIR = REPO_ROOT / "automations" / "regex_sets"
+
+
+INDEX_COUNT = 10
 
 
 BASE_SEVERITY = {
@@ -140,25 +144,26 @@ def slugify(value: str) -> str:
     return cleaned or "category"
 
 
-def build_templates(existing_ids: Iterable[str]) -> list[dict[str, object]]:
-    templates: list[dict[str, object]] = []
+def iter_template_definitions() -> Iterable[tuple[str, dict[str, object], str, list[str]]]:
     for category in CATEGORIES:
         category_slug = slugify(category)
         category_title = category.replace("-", " ").title()
+        base_context = {
+            "category": category,
+            "category_slug": category_slug,
+            "category_title": category_title,
+        }
         for exposure in EXPOSURES:
             severity_cycle = BASE_SEVERITY[exposure["severity"]]
-            for index in range(1, 6):
-                severity = severity_cycle[(index - 1) % len(severity_cycle)]
+            for index in range(1, INDEX_COUNT + 1):
                 context = {
-                    "category": category,
-                    "category_slug": category_slug,
-                    "category_title": category_title,
+                    **base_context,
                     "index": index,
                     "index_padded": f"{index:02d}",
                 }
+                severity = severity_cycle[(index - 1) % len(severity_cycle)]
                 template_id = f"api-regex-{exposure['slug']}-{category_slug}-{index:02d}"
-                if template_id in existing_ids:
-                    continue
+                regex_terms = [f"(?i){term}" for term in exposure["regex_terms"]]
                 template = {
                     "id": template_id,
                     "name": f"{category_title} {exposure['title']} #{index}",
@@ -166,14 +171,27 @@ def build_templates(existing_ids: Iterable[str]) -> list[dict[str, object]]:
                     "severity": severity,
                     "method": "GET",
                     "path": exposure["path_template"].format(**context),
-                    "matchers": {
-                        "status": [200],
-                        "regex": [f"(?i){term}" for term in exposure["regex_terms"]],
-                    },
+                    "matchers": {"status": [200], "regex": regex_terms},
                     "tags": [tag.format(**context) for tag in exposure["tags"]],
                 }
-                templates.append(template)
+                yield template_id, template, exposure["slug"], regex_terms
+
+
+def build_templates(existing_ids: Iterable[str]) -> list[dict[str, object]]:
+    templates: list[dict[str, object]] = []
+    for template_id, template, _, _ in iter_template_definitions():
+        if template_id in existing_ids:
+            continue
+        templates.append(template)
     return templates
+
+
+def build_regex_sets() -> dict[str, list[dict[str, object]]]:
+    regex_sets: dict[str, list[dict[str, object]]] = {}
+    for template_id, _, slug, regex_terms in iter_template_definitions():
+        entries = regex_sets.setdefault(slug, [])
+        entries.append({"template_id": template_id, "regex": regex_terms})
+    return regex_sets
 
 
 def main() -> None:
@@ -181,8 +199,31 @@ def main() -> None:
     existing_ids = {entry.get("id") for entry in payload if isinstance(entry, dict)}
     additions = build_templates(existing_ids)
     payload.extend(additions)
-    TEMPLATE_PATH.write_text(json.dumps(payload, indent=2))
+    TEMPLATE_PATH.write_text(json.dumps(payload, indent=2) + "\n")
+
+    regex_sets = build_regex_sets()
+    updated_sets = 0
+    for exposure in EXPOSURES:
+        slug = exposure["slug"]
+        regex_path = REGEX_SET_DIR / f"{slug}.json"
+        if slug not in regex_sets:
+            continue
+        templates = regex_sets[slug]
+        if regex_path.exists():
+            payload_set = json.loads(regex_path.read_text())
+            payload_set["templates"] = templates
+        else:
+            payload_set = {
+                "category": slug,
+                "title": exposure["title"],
+                "description": f"Regex collection for {exposure['title']} automation templates.",
+                "templates": templates,
+            }
+        regex_path.write_text(json.dumps(payload_set, indent=2) + "\n")
+        updated_sets += 1
+
     print(f"Added {len(additions)} templates. Total now {len(payload)}")
+    print(f"Updated {updated_sets} regex set definitions with {INDEX_COUNT} variants each.")
 
 
 if __name__ == "__main__":
