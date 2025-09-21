@@ -6,801 +6,1601 @@
     {
       "template_id": "api-regex-debug-trace-access-management-01",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-access-management-02",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-access-management-03",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-access-management-04",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-access-management-05",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-access-management-06",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-access-management-07",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-access-management-08",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-access-management-09",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-access-management-10",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-accounting-01",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-accounting-02",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-accounting-03",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-accounting-04",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-accounting-05",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-accounting-06",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-accounting-07",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-accounting-08",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-accounting-09",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-accounting-10",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-analytics-01",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-analytics-02",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-analytics-03",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-analytics-04",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-analytics-05",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-analytics-06",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-analytics-07",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-analytics-08",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-analytics-09",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-analytics-10",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-audit-01",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-audit-02",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-audit-03",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-audit-04",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-audit-05",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-audit-06",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-audit-07",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-audit-08",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-audit-09",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-audit-10",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-billing-01",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-billing-02",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-billing-03",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-billing-04",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-billing-05",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-billing-06",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-billing-07",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-billing-08",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-billing-09",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-billing-10",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-business-intelligence-01",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-business-intelligence-02",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-business-intelligence-03",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-business-intelligence-04",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-business-intelligence-05",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-business-intelligence-06",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-business-intelligence-07",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-business-intelligence-08",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-business-intelligence-09",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-business-intelligence-10",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-cloud-ops-01",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-cloud-ops-02",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-cloud-ops-03",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-cloud-ops-04",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-cloud-ops-05",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-cloud-ops-06",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-cloud-ops-07",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-cloud-ops-08",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-cloud-ops-09",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-cloud-ops-10",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-collaboration-01",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-collaboration-02",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-collaboration-03",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-collaboration-04",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-collaboration-05",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-collaboration-06",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-collaboration-07",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-collaboration-08",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-collaboration-09",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-collaboration-10",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-commerce-01",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-commerce-02",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-commerce-03",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-commerce-04",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-commerce-05",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-commerce-06",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-commerce-07",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-commerce-08",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-commerce-09",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-commerce-10",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-compliance-01",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-compliance-02",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-compliance-03",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-compliance-04",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-compliance-05",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-compliance-06",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-compliance-07",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-compliance-08",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-compliance-09",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-compliance-10",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-customer-success-01",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-customer-success-02",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-customer-success-03",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-customer-success-04",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-customer-success-05",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-customer-success-06",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-customer-success-07",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-customer-success-08",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-customer-success-09",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-customer-success-10",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-devops-01",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-devops-02",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-devops-03",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-devops-04",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-devops-05",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-devops-06",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-devops-07",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-devops-08",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-devops-09",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-devops-10",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-finance-01",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-finance-02",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-finance-03",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-finance-04",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-finance-05",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-finance-06",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-finance-07",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-finance-08",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-finance-09",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-finance-10",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-governance-01",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-governance-02",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-governance-03",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-governance-04",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-governance-05",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-governance-06",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-governance-07",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-governance-08",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-governance-09",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-governance-10",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-identity-01",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-identity-02",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-identity-03",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-identity-04",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-identity-05",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-identity-06",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-identity-07",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-identity-08",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-identity-09",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-identity-10",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-infrastructure-01",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-infrastructure-02",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-infrastructure-03",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-infrastructure-04",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-infrastructure-05",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-infrastructure-06",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-infrastructure-07",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-infrastructure-08",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-infrastructure-09",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-infrastructure-10",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-logistics-01",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-logistics-02",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-logistics-03",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-logistics-04",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-logistics-05",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-logistics-06",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-logistics-07",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-logistics-08",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-logistics-09",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-logistics-10",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-marketing-01",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-marketing-02",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-marketing-03",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-marketing-04",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-marketing-05",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-marketing-06",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-marketing-07",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-marketing-08",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-marketing-09",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-marketing-10",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-operations-01",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-operations-02",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-operations-03",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-operations-04",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-operations-05",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-operations-06",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-operations-07",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-operations-08",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-operations-09",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-operations-10",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-product-01",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-product-02",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-product-03",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-product-04",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
       ]
     },
     {
       "template_id": "api-regex-debug-trace-product-05",
       "regex": [
+        "(?i)trace",
         "(?i)exception",
-        "(?i)stack",
-        "(?i)trace"
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-product-06",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-product-07",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-product-08",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-product-09",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
+      ]
+    },
+    {
+      "template_id": "api-regex-debug-trace-product-10",
+      "regex": [
+        "(?i)trace",
+        "(?i)exception",
+        "(?i)stack"
       ]
     }
   ]

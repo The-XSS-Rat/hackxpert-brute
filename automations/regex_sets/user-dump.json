@@ -7,800 +7,1600 @@
       "template_id": "api-regex-user-dump-access-management-01",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-access-management-02",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-access-management-03",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-access-management-04",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-access-management-05",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-access-management-06",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-access-management-07",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-access-management-08",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-access-management-09",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-access-management-10",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-accounting-01",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-accounting-02",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-accounting-03",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-accounting-04",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-accounting-05",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-accounting-06",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-accounting-07",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-accounting-08",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-accounting-09",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-accounting-10",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-analytics-01",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-analytics-02",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-analytics-03",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-analytics-04",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-analytics-05",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-analytics-06",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-analytics-07",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-analytics-08",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-analytics-09",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-analytics-10",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-audit-01",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-audit-02",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-audit-03",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-audit-04",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-audit-05",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-audit-06",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-audit-07",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-audit-08",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-audit-09",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-audit-10",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-billing-01",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-billing-02",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-billing-03",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-billing-04",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-billing-05",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-billing-06",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-billing-07",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-billing-08",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-billing-09",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-billing-10",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-business-intelligence-01",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-business-intelligence-02",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-business-intelligence-03",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-business-intelligence-04",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-business-intelligence-05",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-business-intelligence-06",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-business-intelligence-07",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-business-intelligence-08",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-business-intelligence-09",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-business-intelligence-10",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-cloud-ops-01",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-cloud-ops-02",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-cloud-ops-03",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-cloud-ops-04",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-cloud-ops-05",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-cloud-ops-06",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-cloud-ops-07",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-cloud-ops-08",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-cloud-ops-09",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-cloud-ops-10",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-collaboration-01",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-collaboration-02",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-collaboration-03",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-collaboration-04",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-collaboration-05",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-collaboration-06",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-collaboration-07",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-collaboration-08",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-collaboration-09",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-collaboration-10",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-commerce-01",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-commerce-02",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-commerce-03",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-commerce-04",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-commerce-05",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-commerce-06",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-commerce-07",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-commerce-08",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-commerce-09",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-commerce-10",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-compliance-01",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-compliance-02",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-compliance-03",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-compliance-04",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-compliance-05",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-compliance-06",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-compliance-07",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-compliance-08",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-compliance-09",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-compliance-10",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-customer-success-01",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-customer-success-02",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-customer-success-03",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-customer-success-04",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-customer-success-05",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-customer-success-06",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-customer-success-07",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-customer-success-08",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-customer-success-09",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-customer-success-10",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-devops-01",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-devops-02",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-devops-03",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-devops-04",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-devops-05",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-devops-06",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-devops-07",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-devops-08",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-devops-09",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-devops-10",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-finance-01",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-finance-02",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-finance-03",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-finance-04",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-finance-05",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-finance-06",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-finance-07",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-finance-08",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-finance-09",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-finance-10",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-governance-01",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-governance-02",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-governance-03",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-governance-04",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-governance-05",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-governance-06",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-governance-07",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-governance-08",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-governance-09",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-governance-10",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-identity-01",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-identity-02",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-identity-03",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-identity-04",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-identity-05",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-identity-06",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-identity-07",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-identity-08",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-identity-09",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-identity-10",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-infrastructure-01",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-infrastructure-02",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-infrastructure-03",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-infrastructure-04",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-infrastructure-05",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-infrastructure-06",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-infrastructure-07",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-infrastructure-08",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-infrastructure-09",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-infrastructure-10",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-logistics-01",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-logistics-02",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-logistics-03",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-logistics-04",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-logistics-05",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-logistics-06",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-logistics-07",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-logistics-08",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-logistics-09",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-logistics-10",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-marketing-01",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-marketing-02",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-marketing-03",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-marketing-04",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-marketing-05",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-marketing-06",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-marketing-07",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-marketing-08",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-marketing-09",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-marketing-10",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-operations-01",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-operations-02",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-operations-03",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-operations-04",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-operations-05",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-operations-06",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-operations-07",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-operations-08",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-operations-09",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-operations-10",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-product-01",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-product-02",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-product-03",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-product-04",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
       ]
     },
     {
       "template_id": "api-regex-user-dump-product-05",
       "regex": [
         "(?i)email",
-        "(?i)id",
-        "(?i)user"
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-product-06",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-product-07",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-product-08",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-product-09",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-product-10",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id"
       ]
     }
   ]
