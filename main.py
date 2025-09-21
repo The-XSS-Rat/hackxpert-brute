@@ -24,6 +24,10 @@ from PIL import Image, ImageTk
 
 REPO_ROOT = Path(__file__).resolve().parent
 
+SESSION_STORE = Path.home() / ".hackxpert_sessions"
+SESSION_STORE.mkdir(parents=True, exist_ok=True)
+SESSION_FILE_VERSION = 1
+
 
 def _read_wordlist_lines(path: Path) -> list[str]:
     try:
@@ -148,6 +152,228 @@ WORDLIST_CATALOG = {
         "url": "https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/Web-Content/CMS/wp-plugins.fuzz.txt",
     },
 }
+
+THEME_PRESETS: dict[str, dict[str, str]] = {
+    "Midnight Neon": {
+        "primary": "#050b18",
+        "surface": "#0a162b",
+        "surface_alt": "#101f38",
+        "card": "#0f1d33",
+        "accent": "#38bdf8",
+        "accent_text": "#011627",
+        "highlight": "#f472b6",
+        "text": "#e2e8f0",
+        "muted": "#94a3b8",
+        "badge": "#facc15",
+        "console_bg": "#020617",
+        "console_fg": "#38bdf8",
+        "detail_bg": "#030712",
+        "detail_fg": "#f8fafc",
+        "tree_bg": "#091426",
+        "tree_field": "#0d1b30",
+        "tree_fg": "#e0f2fe",
+        "tree_head_bg": "#13253f",
+        "tree_head_fg": "#38bdf8",
+        "result_hit_bg": "#14532d",
+        "result_hit_fg": "#facc15",
+        "result_miss_bg": "#111827",
+        "result_miss_fg": "#94a3b8",
+        "result_error_bg": "#4c0519",
+        "result_error_fg": "#fecdd3",
+        "menu_bg": "#0a162b",
+        "menu_fg": "#38bdf8",
+        "menu_active_bg": "#38bdf8",
+        "menu_active_fg": "#011627",
+        "success": "#4ade80",
+        "alert": "#f97316",
+        "focus": "#f472b6",
+    },
+    "Aurora Mist": {
+        "primary": "#f8fafc",
+        "surface": "#e2e8f0",
+        "surface_alt": "#cbd5f5",
+        "card": "#dbeafe",
+        "accent": "#2563eb",
+        "accent_text": "#f8fafc",
+        "highlight": "#0ea5e9",
+        "text": "#0f172a",
+        "muted": "#334155",
+        "badge": "#f97316",
+        "console_bg": "#e0f2fe",
+        "console_fg": "#1e3a8a",
+        "detail_bg": "#eff6ff",
+        "detail_fg": "#0f172a",
+        "tree_bg": "#e2e8f0",
+        "tree_field": "#edf2ff",
+        "tree_fg": "#0f172a",
+        "tree_head_bg": "#c4d3ff",
+        "tree_head_fg": "#1e3a8a",
+        "result_hit_bg": "#bbf7d0",
+        "result_hit_fg": "#166534",
+        "result_miss_bg": "#e2e8f0",
+        "result_miss_fg": "#1f2937",
+        "result_error_bg": "#fee2e2",
+        "result_error_fg": "#7f1d1d",
+        "menu_bg": "#dbeafe",
+        "menu_fg": "#1e3a8a",
+        "menu_active_bg": "#2563eb",
+        "menu_active_fg": "#f8fafc",
+        "success": "#166534",
+        "alert": "#b91c1c",
+        "focus": "#1d4ed8",
+    },
+    "Solar Flare": {
+        "primary": "#1c1917",
+        "surface": "#2a2119",
+        "surface_alt": "#3a2c1f",
+        "card": "#332416",
+        "accent": "#f59e0b",
+        "accent_text": "#1c1917",
+        "highlight": "#fb7185",
+        "text": "#f5f5f4",
+        "muted": "#d6d3d1",
+        "badge": "#facc15",
+        "console_bg": "#21160f",
+        "console_fg": "#fbbf24",
+        "detail_bg": "#1f2933",
+        "detail_fg": "#f5f5f4",
+        "tree_bg": "#261c12",
+        "tree_field": "#312110",
+        "tree_fg": "#fef3c7",
+        "tree_head_bg": "#3b2410",
+        "tree_head_fg": "#f59e0b",
+        "result_hit_bg": "#365314",
+        "result_hit_fg": "#fef3c7",
+        "result_miss_bg": "#2f1f13",
+        "result_miss_fg": "#f8fafc",
+        "result_error_bg": "#7f1d1d",
+        "result_error_fg": "#fee2e2",
+        "menu_bg": "#2a2119",
+        "menu_fg": "#fbbf24",
+        "menu_active_bg": "#f59e0b",
+        "menu_active_fg": "#1c1917",
+        "success": "#d9f99d",
+        "alert": "#fb923c",
+        "focus": "#fb7185",
+    },
+}
+
+DEFAULT_THEME = "Midnight Neon"
+
+BASE_SECRET_PATTERNS: list[tuple[str, re.Pattern[str]]] = [
+    ("AWS Access Key", re.compile(r"AKIA[0-9A-Z]{16}")),
+    ("Google API Key", re.compile(r"AIza[0-9A-Za-z\-_]{35}")),
+    ("Slack Token", re.compile(r"xox[baprs]-[0-9A-Za-z\-]{10,48}")),
+    (
+        "JWT",
+        re.compile(r"eyJ[a-zA-Z0-9_\-]{10,}\.[a-zA-Z0-9_\-]{10,}\.[a-zA-Z0-9_\-]{10,}"),
+    ),
+]
+
+SECRET_KEYWORD_BANK: list[str] = [
+    "access_token",
+    "account_key",
+    "admin_token",
+    "api_key",
+    "api_secret",
+    "app_secret",
+    "application_key",
+    "auth_key",
+    "auth_secret",
+    "auth_token",
+    "bearer_token",
+    "bot_token",
+    "build_secret",
+    "client_id",
+    "client_secret",
+    "cloud_token",
+    "config_key",
+    "config_secret",
+    "connection_string",
+    "credential",
+    "db_password",
+    "db_secret",
+    "deploy_key",
+    "encryption_key",
+    "env_secret",
+    "firebase_key",
+    "graphql_secret",
+    "integration_key",
+    "internal_token",
+    "jwt_secret",
+    "license_key",
+    "mailgun_key",
+    "master_key",
+    "oauth_token",
+    "partner_key",
+    "private_key",
+    "refresh_token",
+    "registry_token",
+    "root_token",
+    "s3_secret",
+    "salesforce_secret",
+    "service_account",
+    "service_secret",
+    "session_token",
+    "signing_key",
+    "smtp_password",
+    "ssh_key",
+    "stripe_key",
+    "stripe_secret",
+    "support_token",
+    "team_token",
+    "tenant_secret",
+    "twilio_token",
+    "vault_token",
+    "webhook_secret",
+    "workspace_secret",
+    "x_api_key",
+    "zoom_secret",
+]
+
+SECRET_PATTERN_BLUEPRINTS: list[tuple[str, str]] = [
+    ("Assignment Signature", r"(?i){keyword}\s*[:=]\s*['\"]?[A-Za-z0-9\-_/]{{16,}}"),
+    ("JSON Token", r"(?i)\"{keyword}\"\s*:\s*\"[A-Za-z0-9\-_/+]{{20,}}=?\""),
+    ("Query Parameter", r"(?i){keyword}=[A-Za-z0-9\-_/+]{{16,}}"),
+    ("YAML Document", r"(?i){keyword}\s*:\s*['\"]?[A-Za-z0-9\-_/]{{16,}}"),
+    ("Header Bearer", r"(?i){keyword}\s+Bearer\s+[A-Za-z0-9\-._~+/]+=*"),
+    ("JWT Blob", r"(?i){keyword}\s*[:=]\s*['\"]?ey[A-Za-z0-9_-]{{10,}}\.[A-Za-z0-9_-]{{10,}}\.[A-Za-z0-9_-]{{10,}}"),
+    ("UUID Token", r"(?i){keyword}\s*[:=]\s*['\"]?[0-9a-f]{{8}}-[0-9a-f]{{4}}-[0-9a-f]{{4}}-[0-9a-f]{{4}}-[0-9a-f]{{12}}"),
+    ("Base64 Secret", r"(?i){keyword}\s*[:=]\s*['\"]?[A-Za-z0-9/+]{32,}={0,2}"),
+    ("Comment Hint", r"(?i)//\s*{keyword}\s*[:=]\s*[A-Za-z0-9\-_/]{{12,}}"),
+    ("HTML Data Attribute", r"(?i)data-{keyword}=['\"]?[A-Za-z0-9\-_/]{{16,}}"),
+    ("Env Export", r"(?i)export\s+{keyword}\s*=\s*['\"]?[A-Za-z0-9\-_/]{{16,}}"),
+    ("INI Entry", r"(?i){keyword}\s*=\s*[A-Za-z0-9\-_/]{{16,}}"),
+    ("XML Node", r"(?i)<{keyword}>[A-Za-z0-9\-_/]{{16,}}</{keyword}>"),
+    ("Shell Assignment", r"(?i){keyword}=['\"]?[A-Za-z0-9\-_/]{{16,}}"),
+    ("Config Array", r"(?i){keyword}\s*=>\s*['\"]?[A-Za-z0-9\-_/]{{16,}}"),
+    ("Credential JSON", r"(?i)\"{keyword}\"\s*:\s*\"[A-Za-z0-9\-_/]{{24,}}\""),
+    ("Secret Hint", r"(?i)#\s*{keyword}\s*[:=]\s*[A-Za-z0-9\-_/]{{12,}}"),
+    ("GraphQL Variable", r"(?i){keyword}\s*:\s*\{[^}]*value\s*:\s*['\"]?[A-Za-z0-9\-_/]{{12,}}[^}]*\}"),
+    ("URL Fragment", r"(?i){keyword}=[A-Za-z0-9%\-_/]{{12,}}"),
+    ("Data URI", r"(?i){keyword}\s*[:=]\s*['\"]?data:[^;]+;base64,[A-Za-z0-9+/=]{{20,}}"),
+]
+
+
+def _generate_secret_pattern_catalog(additional_count: int = 1000) -> list[tuple[str, re.Pattern[str]]]:
+    patterns = list(BASE_SECRET_PATTERNS)
+    extras: list[tuple[str, re.Pattern[str]]] = []
+    for keyword in SECRET_KEYWORD_BANK:
+        keyword_regex = re.escape(keyword)
+        keyword_title = keyword.replace("_", " ").replace("-", " ").title()
+        for suffix, template in SECRET_PATTERN_BLUEPRINTS:
+            if len(extras) >= additional_count:
+                break
+            compiled = re.compile(template.format(keyword=keyword_regex))
+            extras.append((f"{keyword_title} {suffix}", compiled))
+        if len(extras) >= additional_count:
+            break
+    patterns.extend(extras)
+    return patterns
+
+
+SECRET_PATTERNS = _generate_secret_pattern_catalog(1000)
+SECRET_PATTERN_TOTAL = len(SECRET_PATTERNS)
 
 PARAMETER_WORDLISTS = {
     "HackXpert Essentials (custom)": CUSTOM_PARAMETER_WORDS,
@@ -594,6 +820,43 @@ DEFAULT_AUTOMATION_TEMPLATES.extend(_generate_bulk_automation_templates(1000))
 
 
 PRESET_AUTOMATION_RULESETS: dict[str, list[str]] = {
+    "Light scan": [
+        "git-config-exposure",
+        "dotenv-exposure",
+        "config-json",
+        "swagger-ui",
+        "spring-actuator-env",
+    ],
+    "Medium scan": [
+        "git-config-exposure",
+        "dotenv-exposure",
+        "config-json",
+        "swagger-ui",
+        "spring-actuator-env",
+        "graphql-introspection",
+        "credential-export-leak-okta-01",
+        "integration-token-leak-github-01",
+        "dataset-export-leak-customers-01",
+        "admin-report-exposure-usage-01",
+    ],
+    "Deep scan": [
+        "git-config-exposure",
+        "dotenv-exposure",
+        "config-json",
+        "swagger-ui",
+        "spring-actuator-env",
+        "graphql-introspection",
+        "credential-export-leak-okta-01",
+        "credential-export-leak-salesforce-01",
+        "integration-token-leak-github-01",
+        "integration-token-leak-gitlab-01",
+        "dataset-export-leak-customers-01",
+        "dataset-export-leak-analytics-01",
+        "admin-report-exposure-usage-01",
+        "admin-report-exposure-security-01",
+        "debug-portal-dump-beta-01",
+        "environment-snapshot-leak-production-01",
+    ],
     "Rapid Secrets Sweep": [
         "dotenv-exposure",
         "git-config-exposure",
@@ -1358,15 +1621,7 @@ class DirBruteForcer:
         self.cors_origin = "https://offsec.hackxpert"
         self.preflight_targets = []
         self.intel_paths = []
-        self.secret_patterns = [
-            ("AWS Access Key", re.compile(r"AKIA[0-9A-Z]{16}")),
-            ("Google API Key", re.compile(r"AIza[0-9A-Za-z\-_]{35}")),
-            ("Slack Token", re.compile(r"xox[baprs]-[0-9A-Za-z\-]{10,48}")),
-            (
-                "JWT",
-                re.compile(r"eyJ[a-zA-Z0-9_\-]{10,}\.[a-zA-Z0-9_\-]{10,}\.[a-zA-Z0-9_\-]{10,}"),
-            ),
-        ]
+        self.secret_patterns = list(SECRET_PATTERNS)
         self.base_key = self._normalize(self.base_url)
         self.baseline_snapshot: dict[str, int] = {}
         self.current_snapshot: dict[str, int] = {}
@@ -2451,9 +2706,28 @@ class App(tk.Tk):
         super().__init__()
         self.title("HackXpert API Surface Explorer")
         self.geometry("960x720")
-        self.configure(bg="#020617")
+        self.theme_var = tk.StringVar(
+            value=DEFAULT_THEME if DEFAULT_THEME in THEME_PRESETS else next(iter(THEME_PRESETS))
+        )
+        self.theme_palette: dict[str, str] = THEME_PRESETS.get(
+            self.theme_var.get(), next(iter(THEME_PRESETS.values()))
+        )
+        self.style = ttk.Style(self)
+        self.themable_text_widgets: list[tuple[str, ScrolledText]] = []
+        self.regex_total_var = tk.StringVar(value=f"Secret regex rules: {SECRET_PATTERN_TOTAL}")
+        self.secret_pattern_total = SECRET_PATTERN_TOTAL
+        self.configure(bg=self.theme_palette.get("primary", "#020617"))
         self.settings = Settings()
         self.forcers = {}
+        self.scan_views: dict[int, dict[str, Any]] = {}
+        self.request_views: dict[str, dict[str, Any]] = {}
+        self.base_tab_ids: set[str] = set()
+        self.session_name = "Temp Session"
+        self.session_path: Optional[Path] = None
+        self.session_metadata: dict[str, Any] = {}
+        self.session_label_var = tk.StringVar(value="Session: Temp Session")
+        self._pending_session_state: Optional[dict[str, Any]] = None
+        self._restoring_state = False
         self.scan_count = 0
         self.wordlist_store = Path.home() / ".hackxpert_wordlists"
         self.wordlist_store.mkdir(parents=True, exist_ok=True)
@@ -2478,54 +2752,1220 @@ class App(tk.Tk):
         self.regex_delete_button: Optional[ttk.Button] = None
         self.automation_engine: Optional[AutomationEngine] = None
         self.automation_results_lookup: dict[str, dict[str, Any]] = {}
+        self.automation_type_selection: str = ""
+        self.automation_type_categories: list[dict[str, Any]] = []
+        self.automation_type_tree: Optional[ttk.Treeview] = None
+        self.automation_type_lookup: dict[str, dict[str, Any]] = {}
+        self.theme_var.trace_add("write", self._on_theme_change)
+
+        self.withdraw()
+        self.update_idletasks()
+        self._prompt_session_choice(initial=True)
+        self.deiconify()
 
         self._init_style()
         self._load_automation_assets()
         self._build_header()
         self._build_notebook()
+        self.base_tab_ids = set(self.nb.tabs())
+        self.after(0, self._finalize_session_start)
 
     def _init_style(self):
-        style = ttk.Style(self)
         try:
-            style.theme_use("clam")
+            self.style.theme_use("clam")
         except tk.TclError:
             pass
-        primary = "#020617"
-        panel = "#050b18"
-        accent = "#3bff95"
-        highlight = "#5eead4"
-        style.configure("TFrame", background=primary)
-        style.configure("Header.TFrame", background=primary)
-        style.configure("Card.TFrame", background=panel, relief="ridge", borderwidth=1)
-        style.configure("ConsoleFrame.TFrame", background=panel, relief="ridge", borderwidth=1)
-        style.configure("TNotebook", background=primary, borderwidth=0)
-        style.configure("TNotebook.Tab", padding=(14, 6), background="#0b162d", foreground="#9ca3af")
-        style.map("TNotebook.Tab", background=[("selected", accent)], foreground=[("selected", "#02111b")])
-        style.configure("TLabel", background=primary, foreground="#e2e8f0")
-        style.configure("Accent.TLabel", background=primary, foreground=accent, font=("Share Tech Mono", 18, "bold"))
-        style.configure("Glitch.TLabel", background=primary, foreground=highlight, font=("Share Tech Mono", 14, "bold"))
-        style.configure("TButton", background="#0b162d", foreground="#e2e8f0", padding=(12, 6))
-        style.map("TButton", background=[("active", accent)], foreground=[("active", "#02111b")])
-        style.configure(
+        self._apply_theme_palette()
+
+    def _prompt_session_choice(self, initial: bool = False) -> None:
+        sessions = self._list_saved_sessions()
+        dialog = tk.Toplevel(self)
+        dialog.title("HackXpert Sessions")
+        dialog.transient(self)
+        dialog.resizable(False, False)
+        dialog.grab_set()
+        dialog.configure(padx=12, pady=12)
+
+        mode_var = tk.StringVar(value="temp")
+        default_name = datetime.now().strftime("%Y-%m-%d_%H%M") + " session"
+        name_var = tk.StringVar(value=default_name)
+
+        ttk.Label(dialog, text="Choose how to start this session:").grid(row=0, column=0, columnspan=2, sticky="w", pady=(0, 8))
+
+        ttk.Radiobutton(dialog, text="Temporary session (no save)", variable=mode_var, value="temp").grid(
+            row=1, column=0, columnspan=2, sticky="w"
+        )
+        ttk.Radiobutton(dialog, text="Start new saved session", variable=mode_var, value="new").grid(
+            row=2, column=0, columnspan=2, sticky="w", pady=(4, 0)
+        )
+        ttk.Label(dialog, text="Session name:").grid(row=3, column=0, sticky="w", padx=(24, 6))
+        name_entry = ttk.Entry(dialog, textvariable=name_var, width=36)
+        name_entry.grid(row=3, column=1, sticky="we", pady=2)
+
+        ttk.Radiobutton(dialog, text="Load existing session", variable=mode_var, value="load").grid(
+            row=4, column=0, columnspan=2, sticky="w", pady=(8, 0)
+        )
+        list_frame = ttk.Frame(dialog)
+        list_frame.grid(row=5, column=0, columnspan=2, sticky="nsew", pady=(4, 0))
+        dialog.grid_rowconfigure(5, weight=1)
+        dialog.grid_columnconfigure(1, weight=1)
+
+        saves_list = tk.Listbox(list_frame, height=6, width=42)
+        saves_scroll = ttk.Scrollbar(list_frame, orient="vertical", command=saves_list.yview)
+        saves_list.configure(yscrollcommand=saves_scroll.set)
+        saves_list.pack(side="left", fill="both", expand=True)
+        saves_scroll.pack(side="right", fill="y")
+
+        for idx, meta in enumerate(sessions):
+            updated = meta.get("updated_display") or meta.get("updated") or ""
+            label = f"{meta.get('name', meta['path'].stem)}"
+            if updated:
+                label += f"  ({updated})"
+            saves_list.insert("end", label)
+        if sessions:
+            saves_list.selection_set(0)
+
+        def on_listbox_select(_event=None):
+            if mode_var.get() != "load":
+                mode_var.set("load")
+
+        saves_list.bind("<<ListboxSelect>>", on_listbox_select)
+
+        choice = {"done": False}
+
+        def confirm():
+            mode = mode_var.get()
+            if mode == "new":
+                display_name = name_var.get().strip()
+                if not display_name:
+                    messagebox.showerror("Session", "Provide a session name or choose another option.", parent=dialog)
+                    return
+                sanitized = self._sanitize_session_slug(display_name)
+                timestamp = datetime.utcnow().strftime("%Y%m%d-%H%M%S")
+                filename = f"{timestamp}-{sanitized}.json"
+                path = SESSION_STORE / filename
+                counter = 1
+                while path.exists():
+                    path = SESSION_STORE / f"{timestamp}-{sanitized}-{counter}.json"
+                    counter += 1
+                now = datetime.utcnow().isoformat()
+                payload = {
+                    "name": display_name,
+                    "created": now,
+                    "updated": now,
+                    "version": SESSION_FILE_VERSION,
+                    "state": {},
+                }
+                try:
+                    with open(path, "w", encoding="utf-8") as fh:
+                        json.dump(payload, fh, indent=2)
+                except Exception as exc:
+                    messagebox.showerror("Session", f"Failed to create session file: {exc}", parent=dialog)
+                    return
+                self.session_name = display_name
+                self.session_path = path
+                self.session_metadata = {"created": now, "updated": now}
+                self._pending_session_state = None
+            elif mode == "load":
+                selection = saves_list.curselection()
+                if not selection:
+                    messagebox.showerror("Session", "Select a saved session to load.", parent=dialog)
+                    return
+                meta = sessions[selection[0]]
+                data = self._load_session_payload(meta["path"])
+                if not data:
+                    return
+                self.session_name = data.get("name") or meta["path"].stem
+                self.session_path = meta["path"]
+                self.session_metadata = {
+                    "created": data.get("created"),
+                    "updated": data.get("updated"),
+                }
+                self._pending_session_state = data.get("state") or {}
+            else:
+                self.session_name = "Temp Session"
+                self.session_path = None
+                self.session_metadata = {}
+                self._pending_session_state = None
+            choice["done"] = True
+            dialog.destroy()
+
+        def cancel():
+            if initial:
+                self.session_name = "Temp Session"
+                self.session_path = None
+                self.session_metadata = {}
+                self._pending_session_state = None
+            dialog.destroy()
+
+        button_row = ttk.Frame(dialog)
+        button_row.grid(row=6, column=0, columnspan=2, sticky="e", pady=(10, 0))
+        ttk.Button(button_row, text="Cancel", command=cancel).pack(side="right", padx=4)
+        ttk.Button(button_row, text="Continue", command=confirm).pack(side="right")
+
+        dialog.protocol("WM_DELETE_WINDOW", cancel)
+        name_entry.configure(state="normal")
+        if sessions:
+            saves_list.focus_set()
+        else:
+            name_entry.focus_set()
+        self.wait_window(dialog)
+        if initial and not choice.get("done"):
+            self.session_name = "Temp Session"
+            self.session_path = None
+            self.session_metadata = {}
+            self._pending_session_state = None
+
+    def _list_saved_sessions(self) -> list[dict[str, Any]]:
+        sessions: list[dict[str, Any]] = []
+        for path in sorted(SESSION_STORE.glob("*.json"), reverse=True):
+            meta = self._load_session_metadata(path)
+            if meta:
+                sessions.append(meta)
+        sessions.sort(key=lambda item: item.get("updated", ""), reverse=True)
+        return sessions
+
+    def _load_session_metadata(self, path: Path) -> Optional[dict[str, Any]]:
+        try:
+            with open(path, "r", encoding="utf-8") as fh:
+                data = json.load(fh)
+        except Exception:
+            return None
+        name = data.get("name") or path.stem
+        updated = data.get("updated") or data.get("created")
+        updated_display = None
+        if updated:
+            try:
+                dt = datetime.fromisoformat(updated)
+                updated_display = dt.strftime("%Y-%m-%d %H:%M")
+            except Exception:
+                updated_display = updated
+        return {
+            "path": path,
+            "name": name,
+            "updated": updated or "",
+            "updated_display": updated_display,
+        }
+
+    def _load_session_payload(self, path: Path) -> Optional[dict[str, Any]]:
+        try:
+            with open(path, "r", encoding="utf-8") as fh:
+                return json.load(fh)
+        except Exception as exc:
+            messagebox.showerror("Session", f"Failed to load session: {exc}")
+            return None
+
+    def _sanitize_session_slug(self, name: str) -> str:
+        slug = re.sub(r"[^A-Za-z0-9._-]+", "-", name.strip().lower())
+        slug = slug.strip("-_") or "session"
+        return slug
+
+    def _finalize_session_start(self) -> None:
+        self._update_session_banner()
+        if self._pending_session_state:
+            self.after(50, self._apply_pending_session_state)
+        elif self.session_path:
+            # ensure the new session file reflects default state
+            self.after(100, self._save_session_state)
+
+    def _update_session_banner(self) -> None:
+        label = self.session_name or "Temp Session"
+        if not self.session_path:
+            label += " (temp)"
+        self.session_label_var.set(f"Session: {label}")
+
+    def _serialize_app_state(self) -> dict[str, Any]:
+        state: dict[str, Any] = {
+            "version": SESSION_FILE_VERSION,
+            "geometry": self.geometry(),
+            "theme": self.theme_var.get(),
+            "regex_total": self.regex_total_var.get(),
+            "notebook": {
+                "selected": self.nb.index(self.nb.select()) if self.nb.tabs() else 0,
+            },
+            "settings": deepcopy(self.settings.data),
+        }
+
+        recon_state = {
+            "url": self.url.get() if hasattr(self, "url") else "",
+            "wordlist_path": self.wordlist_path.get() if hasattr(self, "wordlist_path") else "",
+            "wordlist_choice": self.scan_wordlist_choice.get()
+            if hasattr(self, "scan_wordlist_choice")
+            else "",
+            "use_custom": bool(self.scan_use_custom_wordlist.get())
+            if hasattr(self, "scan_use_custom_wordlist")
+            else True,
+            "status": self.status_var.get() if hasattr(self, "status_var") else "",
+            "proxy": self.proxy_status_var.get() if hasattr(self, "proxy_status_var") else "",
+            "hud": {key: var.get() for key, var in getattr(self, "hud_metrics", {}).items()},
+            "certificate": {key: var.get() for key, var in getattr(self, "certificate_vars", {}).items()},
+            "progress": float(self.progress["value"]) if hasattr(self, "progress") else 0.0,
+            "console": self.console.get("1.0", "end-1c") if self.console else "",
+            "latest_certificate": self.latest_certificate or {},
+        }
+        state["recon"] = recon_state
+
+        endpoint_state: dict[str, Any] = {
+            "url": self.endpoint_url.get() if hasattr(self, "endpoint_url") else "",
+            "wordlist": self.endpoint_wordlist.get() if hasattr(self, "endpoint_wordlist") else "",
+            "wordlist_choice": self.endpoint_wordlist_choice.get()
+            if hasattr(self, "endpoint_wordlist_choice")
+            else "",
+            "use_custom": bool(self.endpoint_use_custom.get()) if hasattr(self, "endpoint_use_custom") else True,
+            "status": self.api_status_var.get() if hasattr(self, "api_status_var") else "",
+            "results": [],
+            "selection": None,
+        }
+        if getattr(self, "api_tree", None) and hasattr(self, "api_specs_node"):
+            self.api_tree_results = getattr(self, "api_tree_results", {})
+            for bucket, node in [("specs", self.api_specs_node), ("endpoints", self.api_endpoints_node)]:
+                for iid in self.api_tree.get_children(node):
+                    item = self.api_tree.item(iid)
+                    entry = {
+                        "bucket": bucket,
+                        "text": item.get("text", ""),
+                        "values": list(item.get("values", ())),
+                        "open": bool(self.api_tree.item(iid, "open")),
+                        "info": self.api_tree_results.get(iid),
+                    }
+                    endpoint_state["results"].append(entry)
+            selection = self.api_tree.selection()
+            if selection:
+                iid = selection[0]
+                parent = self.api_tree.parent(iid)
+                bucket = "specs" if parent == self.api_specs_node else "endpoints"
+                siblings = list(self.api_tree.get_children(parent))
+                try:
+                    index = siblings.index(iid)
+                except ValueError:
+                    index = None
+                endpoint_state["selection"] = {"bucket": bucket, "index": index}
+        state["endpoint"] = endpoint_state
+
+        parameter_state: dict[str, Any] = {
+            "url": self.param_url.get() if hasattr(self, "param_url") else "",
+            "method": self.param_method.get() if hasattr(self, "param_method") else "GET",
+            "wordlist": self.param_wordlist.get() if hasattr(self, "param_wordlist") else "",
+            "use_custom": bool(self.param_use_custom.get()) if hasattr(self, "param_use_custom") else True,
+            "headers": self.param_headers.get("1.0", "end-1c") if hasattr(self, "param_headers") else "",
+            "body": self.param_body.get("1.0", "end-1c") if hasattr(self, "param_body") else "",
+            "status": self.param_status_var.get() if hasattr(self, "param_status_var") else "",
+            "results": [],
+            "selection": None,
+        }
+        if getattr(self, "param_tree", None):
+            for iid in self.param_tree.get_children():
+                item = self.param_tree.item(iid)
+                parameter_state["results"].append(
+                    {
+                        "values": list(item.get("values", ())),
+                        "info": self.parameter_results.get(iid) if hasattr(self, "parameter_results") else None,
+                    }
+                )
+            selection = self.param_tree.selection()
+            if selection:
+                siblings = list(self.param_tree.get_children())
+                try:
+                    index = siblings.index(selection[0])
+                except ValueError:
+                    index = None
+                parameter_state["selection"] = index
+        state["parameter"] = parameter_state
+
+        automations_state: dict[str, Any] = {
+            "base_url": self.automation_base_url.get() if hasattr(self, "automation_base_url") else "",
+            "ruleset_filter": self.automation_ruleset_filter_var.get()
+            if hasattr(self, "automation_ruleset_filter_var")
+            else "",
+            "ruleset_selected": self.automation_ruleset_var.get()
+            if hasattr(self, "automation_ruleset_var")
+            else "",
+            "status": self.automation_status_var.get() if hasattr(self, "automation_status_var") else "",
+            "progress": float(self.automation_progress["value"]) if hasattr(self, "automation_progress") else 0.0,
+            "template_selection": list(self.automation_template_tree.selection())
+            if getattr(self, "automation_template_tree", None)
+            else [],
+            "type_selection": list(self.automation_type_tree.selection())
+            if getattr(self, "automation_type_tree", None)
+            else [],
+            "type_focus": self.automation_type_selection,
+            "results": [],
+            "detail": self.automation_detail.get("1.0", "end-1c") if hasattr(self, "automation_detail") else "",
+        }
+        if getattr(self, "automation_results_tree", None):
+            for iid in self.automation_results_tree.get_children():
+                item = self.automation_results_tree.item(iid)
+                automations_state["results"].append(
+                    {
+                        "values": list(item.get("values", ())),
+                        "tags": list(item.get("tags", ())),
+                        "info": self.automation_results_lookup.get(iid, {}),
+                    }
+                )
+            selection = self.automation_results_tree.selection()
+            if selection:
+                siblings = list(self.automation_results_tree.get_children())
+                try:
+                    index = siblings.index(selection[0])
+                except ValueError:
+                    index = None
+                automations_state["selection"] = index
+        state["automations"] = automations_state
+
+        regex_state: dict[str, Any] = {
+            "selection": self.regex_tree.selection()[0] if getattr(self, "regex_tree", None) and self.regex_tree.selection() else None,
+            "open_nodes": [],
+            "focus": self.regex_selection,
+        }
+        if getattr(self, "regex_tree", None):
+            def collect_open(parent=""):
+                for iid in self.regex_tree.get_children(parent):
+                    if bool(self.regex_tree.item(iid, "open")):
+                        regex_state["open_nodes"].append(iid)
+                    collect_open(iid)
+
+            collect_open("")
+        state["regex"] = regex_state
+
+        state["scans"] = self._serialize_scans()
+        state["requests"] = self._serialize_request_tabs()
+        return state
+
+    def _serialize_scans(self) -> list[dict[str, Any]]:
+        data: list[dict[str, Any]] = []
+        for scan_id, view in sorted(self.scan_views.items()):
+            tab = view.get("tab")
+            tree = view.get("tree")
+            detail = view.get("detail")
+            results = view.get("results", {})
+            metrics = view.get("metrics", {})
+            if not tab or not tree or str(tab) not in self.nb.tabs():
+                continue
+            entries: list[dict[str, Any]] = []
+            for iid in tree.get_children():
+                item = tree.item(iid)
+                entries.append(
+                    {
+                        "values": list(item.get("values", ())),
+                        "tags": list(item.get("tags", ())),
+                        "info": results.get(iid, {}),
+                    }
+                )
+            selection = tree.selection()
+            selected_index = None
+            if selection:
+                siblings = list(tree.get_children())
+                try:
+                    selected_index = siblings.index(selection[0])
+                except ValueError:
+                    selected_index = None
+            detail_text = detail.get("1.0", "end-1c") if detail else ""
+            data.append(
+                {
+                    "id": scan_id,
+                    "title": self.nb.tab(tab, "text"),
+                    "entries": entries,
+                    "metrics": {key: value for key, value in metrics.items()},
+                    "detail": detail_text,
+                    "selection": selected_index,
+                }
+            )
+        return data
+
+    def _serialize_request_tabs(self) -> list[dict[str, Any]]:
+        payloads: list[dict[str, Any]] = []
+        for view in self.request_views.values():
+            tab = view.get("tab")
+            if not tab or str(tab) not in self.nb.tabs():
+                continue
+            method_var = view.get("method_var")
+            url_var = view.get("url_var")
+            headers_box = view.get("headers_box")
+            body_box = view.get("body_box")
+            response_box = view.get("response_box")
+            payloads.append(
+                {
+                    "title": self.nb.tab(tab, "text"),
+                    "method": method_var.get() if method_var else "GET",
+                    "url": url_var.get() if url_var else "",
+                    "headers": headers_box.get("1.0", "end-1c") if headers_box else "",
+                    "body": body_box.get("1.0", "end-1c") if body_box else "",
+                    "response": response_box.get("1.0", "end-1c") if response_box else "",
+                    "params": view.get("params") or {},
+                }
+            )
+        return payloads
+
+    def _save_session_state(self, manual: bool = False) -> None:
+        if not self.session_path:
+            if manual:
+                messagebox.showinfo("Session", "Temporary sessions cannot be saved.")
+            return
+        payload = self._serialize_app_state()
+        created = self.session_metadata.get("created") or datetime.utcnow().isoformat()
+        updated = datetime.utcnow().isoformat()
+        data = {
+            "name": self.session_name,
+            "created": created,
+            "updated": updated,
+            "version": SESSION_FILE_VERSION,
+            "state": payload,
+        }
+        self.session_metadata["created"] = created
+        self.session_metadata["updated"] = updated
+        try:
+            with open(self.session_path, "w", encoding="utf-8") as fh:
+                json.dump(data, fh, indent=2)
+        except Exception as exc:
+            if manual:
+                messagebox.showerror("Session", f"Failed to save session: {exc}")
+            return
+        if manual:
+            messagebox.showinfo("Session", f"Session saved to {self.session_path}")
+
+    def _apply_pending_session_state(self) -> None:
+        if self._restoring_state:
+            return
+        state = self._pending_session_state
+        self._pending_session_state = None
+        if not state:
+            return
+        self._restoring_state = True
+        try:
+            self._apply_app_state(state)
+        finally:
+            self._restoring_state = False
+        if self.session_path:
+            self.after(200, self._save_session_state)
+
+    def _apply_app_state(self, state: dict[str, Any]) -> None:
+        geometry = state.get("geometry")
+        if geometry:
+            try:
+                self.geometry(geometry)
+            except Exception:
+                pass
+        theme = state.get("theme")
+        if theme and theme in THEME_PRESETS:
+            self.theme_var.set(theme)
+        regex_total = state.get("regex_total")
+        if regex_total:
+            self.regex_total_var.set(regex_total)
+
+        settings_data = state.get("settings") or {}
+        if settings_data:
+            self.settings.data.update(settings_data)
+            for key, var in getattr(self, "_setting_vars", {}).items():
+                value = self.settings.data.get(key, Settings.DEFAULTS.get(key, ""))
+                var.set(str(value))
+            if hasattr(self, "follow_redirects"):
+                self.follow_redirects.set(bool(self.settings.data.get("follow_redirects", True)))
+            if hasattr(self, "enable_preflight"):
+                self.enable_preflight.set(bool(self.settings.data.get("enable_preflight", True)))
+            if hasattr(self, "probe_cors"):
+                self.probe_cors.set(bool(self.settings.data.get("probe_cors", True)))
+            if hasattr(self, "burp_enabled"):
+                self.burp_enabled.set(bool(self.settings.data.get("burp_proxy_enabled", False)))
+            if hasattr(self, "burp_host_var"):
+                self.burp_host_var.set(str(self.settings.data.get("burp_proxy_host", "127.0.0.1")))
+            if hasattr(self, "burp_port_var"):
+                self.burp_port_var.set(str(self.settings.data.get("burp_proxy_port", 8080)))
+            if hasattr(self, "_headers_text"):
+                self._headers_text.delete("1.0", "end")
+                self._headers_text.insert("1.0", str(self.settings.data.get("extra_headers", "")))
+            if hasattr(self, "_intel_text"):
+                self._intel_text.delete("1.0", "end")
+                self._intel_text.insert("1.0", str(self.settings.data.get("intel_paths", "")))
+            self._update_proxy_status()
+
+        recon = state.get("recon", {})
+        if recon:
+            if hasattr(self, "url"):
+                self.url.set(recon.get("url", ""))
+            if hasattr(self, "wordlist_path"):
+                self.wordlist_path.set(recon.get("wordlist_path", ""))
+            if hasattr(self, "scan_wordlist_choice"):
+                self.scan_wordlist_choice.set(recon.get("wordlist_choice", ""))
+            if hasattr(self, "scan_use_custom_wordlist"):
+                self.scan_use_custom_wordlist.set(bool(recon.get("use_custom", True)))
+            if hasattr(self, "status_var"):
+                self.status_var.set(recon.get("status", ""))
+            if hasattr(self, "proxy_status_var"):
+                proxy_value = recon.get("proxy")
+                if proxy_value:
+                    self.proxy_status_var.set(proxy_value)
+            hud_values = recon.get("hud", {})
+            for key, var in getattr(self, "hud_metrics", {}).items():
+                var.set(hud_values.get(key, var.get()))
+            cert_values = recon.get("certificate", {})
+            for key, var in getattr(self, "certificate_vars", {}).items():
+                var.set(cert_values.get(key, var.get()))
+            if hasattr(self, "progress"):
+                try:
+                    self.progress.configure(value=float(recon.get("progress", 0.0)))
+                except Exception:
+                    pass
+            self.latest_certificate = recon.get("latest_certificate") or None
+            if self.console:
+                self.console.configure(state="normal")
+                self.console.delete("1.0", "end")
+                self.console.insert("1.0", recon.get("console", ""))
+                self.console.configure(state="disabled")
+
+        endpoint = state.get("endpoint", {})
+        if endpoint:
+            if hasattr(self, "endpoint_url"):
+                self.endpoint_url.set(endpoint.get("url", ""))
+            if hasattr(self, "endpoint_wordlist"):
+                self.endpoint_wordlist.set(endpoint.get("wordlist", ""))
+            if hasattr(self, "endpoint_wordlist_choice"):
+                self.endpoint_wordlist_choice.set(endpoint.get("wordlist_choice", ""))
+            if hasattr(self, "endpoint_use_custom"):
+                self.endpoint_use_custom.set(bool(endpoint.get("use_custom", True)))
+            if hasattr(self, "api_status_var"):
+                self.api_status_var.set(endpoint.get("status", ""))
+            if getattr(self, "api_tree", None) and hasattr(self, "api_specs_node"):
+                for node in (self.api_specs_node, self.api_endpoints_node):
+                    for child in self.api_tree.get_children(node):
+                        self.api_tree.delete(child)
+                self.api_tree_results.clear()
+                for entry in endpoint.get("results", []):
+                    bucket = entry.get("bucket")
+                    parent = self.api_specs_node if bucket == "specs" else self.api_endpoints_node
+                    iid = self.api_tree.insert(
+                        parent,
+                        "end",
+                        text=entry.get("text", ""),
+                        values=tuple(entry.get("values", [])),
+                        open=bool(entry.get("open")),
+                    )
+                    info = entry.get("info")
+                    if info:
+                        self.api_tree_results[iid] = info
+                selection = endpoint.get("selection")
+                if isinstance(selection, dict):
+                    bucket = selection.get("bucket")
+                    index = selection.get("index")
+                    parent = self.api_specs_node if bucket == "specs" else self.api_endpoints_node
+                    children = list(self.api_tree.get_children(parent))
+                    if isinstance(index, int) and 0 <= index < len(children):
+                        target = children[index]
+                        self.api_tree.selection_set(target)
+                        self.api_tree.focus(target)
+                        self.api_tree.see(target)
+
+        parameter = state.get("parameter", {})
+        if parameter:
+            if hasattr(self, "param_url"):
+                self.param_url.set(parameter.get("url", ""))
+            if hasattr(self, "param_method"):
+                self.param_method.set(parameter.get("method", "GET"))
+            if hasattr(self, "param_wordlist"):
+                self.param_wordlist.set(parameter.get("wordlist", ""))
+            if hasattr(self, "param_use_custom"):
+                self.param_use_custom.set(bool(parameter.get("use_custom", True)))
+            if hasattr(self, "param_headers"):
+                self.param_headers.delete("1.0", "end")
+                self.param_headers.insert("1.0", parameter.get("headers", ""))
+            if hasattr(self, "param_body"):
+                self.param_body.delete("1.0", "end")
+                self.param_body.insert("1.0", parameter.get("body", ""))
+            if hasattr(self, "param_status_var"):
+                self.param_status_var.set(parameter.get("status", ""))
+            if getattr(self, "param_tree", None):
+                for child in self.param_tree.get_children():
+                    self.param_tree.delete(child)
+                self.parameter_results.clear()
+                for entry in parameter.get("results", []):
+                    iid = self.param_tree.insert("", "end", values=tuple(entry.get("values", [])))
+                    info = entry.get("info")
+                    if info:
+                        self.parameter_results[iid] = info
+                selection = parameter.get("selection")
+                if isinstance(selection, int):
+                    children = list(self.param_tree.get_children())
+                    if 0 <= selection < len(children):
+                        target = children[selection]
+                        self.param_tree.selection_set(target)
+                        self.param_tree.focus(target)
+                        self.param_tree.see(target)
+
+        automations = state.get("automations", {})
+        if automations:
+            if hasattr(self, "automation_base_url"):
+                self.automation_base_url.set(automations.get("base_url", ""))
+            if hasattr(self, "automation_ruleset_filter_var"):
+                self.automation_ruleset_filter_var.set(automations.get("ruleset_filter", ""))
+            if hasattr(self, "automation_ruleset_var"):
+                self.automation_ruleset_var.set(automations.get("ruleset_selected", ""))
+            if hasattr(self, "automation_status_var"):
+                self.automation_status_var.set(automations.get("status", ""))
+            if hasattr(self, "automation_progress"):
+                try:
+                    self.automation_progress.configure(value=float(automations.get("progress", 0.0)))
+                except Exception:
+                    pass
+            if getattr(self, "automation_template_tree", None):
+                selection = automations.get("template_selection", [])
+                try:
+                    self.automation_template_tree.selection_set(selection)
+                except Exception:
+                    pass
+            if getattr(self, "automation_type_tree", None):
+                selection = automations.get("type_selection", [])
+                try:
+                    self.automation_type_tree.selection_set(selection)
+                except Exception:
+                    pass
+            focus = automations.get("type_focus")
+            if focus:
+                self.automation_type_selection = focus
+            if getattr(self, "automation_results_tree", None):
+                for child in self.automation_results_tree.get_children():
+                    self.automation_results_tree.delete(child)
+                self.automation_results_lookup.clear()
+                for entry in automations.get("results", []):
+                    iid = self.automation_results_tree.insert(
+                        "",
+                        "end",
+                        values=tuple(entry.get("values", [])),
+                        tags=tuple(entry.get("tags", [])),
+                    )
+                    info = entry.get("info")
+                    if info:
+                        self.automation_results_lookup[iid] = info
+                selection = automations.get("selection")
+                if isinstance(selection, int):
+                    children = list(self.automation_results_tree.get_children())
+                    if 0 <= selection < len(children):
+                        target = children[selection]
+                        self.automation_results_tree.selection_set(target)
+                        self.automation_results_tree.focus(target)
+                        self.automation_results_tree.see(target)
+                        self._on_automation_result_select()
+            if hasattr(self, "automation_detail"):
+                self.automation_detail.configure(state="normal")
+                self.automation_detail.delete("1.0", "end")
+                self.automation_detail.insert("1.0", automations.get("detail", ""))
+                self.automation_detail.configure(state="disabled")
+            self._update_automation_ruleset_combo()
+
+        regex = state.get("regex", {})
+        if regex and getattr(self, "regex_tree", None):
+            for iid in regex.get("open_nodes", []):
+                try:
+                    self.regex_tree.item(iid, open=True)
+                except Exception:
+                    continue
+            selection = regex.get("selection")
+            if selection:
+                try:
+                    self.regex_tree.selection_set(selection)
+                    self.regex_tree.focus(selection)
+                    self.regex_tree.see(selection)
+                    self.regex_selection = self._parse_regex_tree_iid(selection)
+                except Exception:
+                    pass
+            focus = regex.get("focus")
+            if focus:
+                try:
+                    self.regex_selection = tuple(focus)
+                except Exception:
+                    self.regex_selection = focus
+            self._set_regex_actions_state()
+
+        # Restore scans and request workbenches
+        for view in list(self.scan_views.values()):
+            tab = view.get("tab")
+            if tab and str(tab) in self.nb.tabs():
+                self.nb.forget(tab)
+        self.scan_views.clear()
+        self.scan_count = 0
+        for scan in state.get("scans", []):
+            self._restore_scan_view(scan)
+
+        for key, view in list(self.request_views.items()):
+            tab = view.get("tab")
+            if tab and str(tab) in self.nb.tabs():
+                self.nb.forget(tab)
+        self.request_views.clear()
+        for payload in state.get("requests", []):
+            self._restore_request_tab(payload)
+
+        notebook_state = state.get("notebook", {})
+        selected_index = notebook_state.get("selected")
+        if isinstance(selected_index, int):
+            tabs = self.nb.tabs()
+            if tabs:
+                index = max(0, min(selected_index, len(tabs) - 1))
+                self.nb.select(tabs[index])
+
+    def _restore_scan_view(self, payload: dict[str, Any]) -> None:
+        scan_id = payload.get("id")
+        if not isinstance(scan_id, int):
+            self.scan_count += 1
+            scan_id = self.scan_count
+        else:
+            self.scan_count = max(self.scan_count, scan_id)
+        view = self._create_scan_view(scan_id, title=payload.get("title"))
+        tree = view.get("tree")
+        results = view.get("results", {})
+        for entry in payload.get("entries", []):
+            iid = tree.insert(
+                "",
+                "end",
+                values=tuple(entry.get("values", [])),
+                tags=tuple(entry.get("tags", [])),
+            )
+            info = entry.get("info")
+            if info:
+                results[iid] = info
+        selection = payload.get("selection")
+        if isinstance(selection, int):
+            children = list(tree.get_children())
+            if 0 <= selection < len(children):
+                target = children[selection]
+                tree.selection_set(target)
+                tree.focus(target)
+                tree.see(target)
+                view.get("update_detail")(target)
+        for key, value in payload.get("metrics", {}).items():
+            if key in view.get("metrics", {}):
+                view["metrics"][key] = value
+        view.get("refresh_hud")()
+        detail = view.get("detail")
+        if detail:
+            detail.configure(state="normal")
+            detail.delete("1.0", "end")
+            detail.insert("1.0", payload.get("detail", ""))
+            detail.configure(state="disabled")
+
+    def _restore_request_tab(self, payload: dict[str, Any]) -> None:
+        info = {
+            "method": payload.get("method", "GET"),
+            "url": payload.get("url", ""),
+            "headers": self._parse_headers_text(payload.get("headers", "")) if hasattr(self, "_parse_headers_text") else {},
+            "body": payload.get("body", ""),
+            "preview": payload.get("response", ""),
+            "params": payload.get("params") or {},
+        }
+        view = self._open_request_workbench(info)
+        if not view:
+            return
+        tab = view.get("tab")
+        if tab:
+            self.nb.tab(tab, text=payload.get("title", self.nb.tab(tab, "text")))
+        method_var = view.get("method_var")
+        url_var = view.get("url_var")
+        headers_box = view.get("headers_box")
+        body_box = view.get("body_box")
+        response_box = view.get("response_box")
+        if method_var:
+            method_var.set(payload.get("method", "GET"))
+        if url_var:
+            url_var.set(payload.get("url", ""))
+        if headers_box:
+            headers_box.delete("1.0", "end")
+            headers_box.insert("1.0", payload.get("headers", ""))
+        if body_box:
+            body_box.delete("1.0", "end")
+            body_box.insert("1.0", payload.get("body", ""))
+        if response_box:
+            response_box.configure(state="normal")
+            response_box.delete("1.0", "end")
+            response_box.insert("1.0", payload.get("response", ""))
+            response_box.configure(state="disabled")
+
+    def _create_scan_view(self, scan_id: int, title: Optional[str] = None) -> dict[str, Any]:
+        tab = ttk.Frame(self.nb, style="Card.TFrame")
+        tab_title = title or f"Scan #{scan_id}"
+        self.nb.add(tab, text=tab_title)
+        self.nb.select(tab)
+
+        columns = ("url", "method", "status", "delta", "latency", "type", "length", "notes")
+        tree = ttk.Treeview(
+            tab,
+            columns=columns,
+            show="headings",
+            displaycolumns=("url", "method", "status", "delta", "latency", "type"),
+            height=12,
+        )
+        tree.heading("url", text="URL")
+        tree.heading("method", text="METHOD")
+        tree.heading("status", text="STATUS")
+        tree.heading("delta", text="DRIFT")
+        tree.heading("latency", text="LATENCY")
+        tree.heading("type", text="TYPE")
+        tree.column("url", width=320, anchor="w")
+        tree.column("method", width=90, anchor="center")
+        tree.column("status", width=90, anchor="center")
+        tree.column("delta", width=140, anchor="center")
+        tree.column("latency", width=110, anchor="center")
+        tree.column("type", width=220, anchor="w")
+        tree.column("length", width=0, stretch=False)
+        tree.column("notes", width=0, stretch=False)
+        tree.pack(fill="both", expand=True, padx=10, pady=10)
+
+        tree.tag_configure("success", background="#064e3b", foreground="#22d3ee")
+        tree.tag_configure("redirect", background="#7c2d12", foreground="#fbbf24")
+        tree.tag_configure("client", background="#1f2937", foreground="#f87171")
+        tree.tag_configure("server", background="#450a0a", foreground="#f87171")
+        tree.tag_configure("cors", background="#7c3aed", foreground="#fde68a")
+        tree.tag_configure("intel", background="#1e3a8a", foreground="#f8fafc")
+        tree.tag_configure("secret", background="#831843", foreground="#fdf2f8")
+        tree.tag_configure("slow", background="#1f2937", foreground="#fde047")
+        tree.tag_configure("delta-new", background="#0f172a", foreground="#facc15")
+        tree.tag_configure("delta-changed", background="#0f172a", foreground="#c084fc")
+
+        detail = ScrolledText(tab, height=10, font=("Consolas", 10), bg="#111827", fg="#e2e8f0", insertbackground="#22d3ee")
+        detail.pack(fill="both", expand=True, padx=10, pady=(0, 10))
+        detail.configure(state="disabled")
+
+        btn_frame = ttk.Frame(tab, style="Card.TFrame")
+        btn_frame.pack(fill="x", padx=10, pady=5)
+
+        results: dict[str, dict[str, Any]] = {}
+        metrics = {
+            "total": 0,
+            "success": 0,
+            "alerts": 0,
+            "secrets": 0,
+            "slow": 0,
+            "drift": 0,
+            "drift_new": 0,
+            "drift_changed": 0,
+        }
+
+        self._attach_tree_context_menu(tree, lambda iid: results.get(iid))
+
+        def refresh_hud():
+            for key in ["total", "success", "alerts", "secrets", "slow", "drift"]:
+                if key in self.hud_metrics:
+                    self.hud_metrics[key].set(str(metrics.get(key, 0)))
+
+        def update_detail(item_id):
+            info = results.get(item_id)
+            if not info:
+                return
+            detail.configure(state="normal")
+            detail.delete("1.0", "end")
+            sections = [
+                f"URL: {info['url']}",
+                f"Method: {info['method']}",
+                f"Status: {info['status']}",
+                f"Baseline Delta: {info.get('delta', '-')}",
+                f"Type: {info['type']}",
+                f"Length: {info['length']} bytes",
+            ]
+            if info.get("previous_status") is not None:
+                sections.append(f"Baseline Status: {info['previous_status']}")
+            if info.get("latency") is not None:
+                sections.append(f"Latency: {info['latency']:.1f} ms")
+            detail.insert("end", "\n".join(sections) + "\n\n")
+            if info.get("signals"):
+                detail.insert("end", "Intel Signals:\n")
+                for note in info["signals"]:
+                    detail.insert("end", f"  • {note}\n")
+                detail.insert("end", "\n")
+            forensic = info.get("forensics") or {}
+            if forensic:
+                detail.insert("end", "Forensics Summary:\n")
+
+                def write_section(title: str, values: list[str], limit: int = 8):
+                    items = [str(v) for v in (values or []) if v]
+                    if not items:
+                        return
+                    display = items[:limit]
+                    if len(items) > limit:
+                        display.append("…")
+                    detail.insert("end", f"  {title}: {', '.join(display)}\n")
+
+                write_section("Parameters", forensic.get("parameters", []))
+                write_section("JSON Fields", forensic.get("json_fields", []))
+                write_section("Linked Paths", forensic.get("linked_paths", []))
+                write_section("Form Targets", forensic.get("form_targets", []))
+                write_section("JS Assets", forensic.get("asset_links", []))
+                write_section("Inline URLs", forensic.get("json_links", []))
+                write_section("WebSocket Links", forensic.get("websocket_links", []))
+                write_section("Header Link Targets", forensic.get("link_relations", []))
+                write_section("Robots Hints", forensic.get("robots_paths", []))
+                write_section("Sitemap URLs", forensic.get("sitemap_urls", []))
+                write_section("Well-known Paths", forensic.get("well_known_links", []))
+                write_section("Config Endpoints", forensic.get("config_endpoints", []))
+                write_section("CSP Reports", forensic.get("csp_reports", []))
+                write_section("Host Hints", forensic.get("host_hints", []))
+                write_section("Tech Hints", forensic.get("technologies", []))
+                write_section("Intel Notes", forensic.get("intel", []))
+                write_section("Secrets", forensic.get("secrets", []))
+                write_section("Rate Limits", forensic.get("rate_limits", []))
+                write_section("Auth Schemes", forensic.get("auth_schemes", []))
+                if forensic.get("graphql"):
+                    ops = forensic.get("graphql_operations", [])
+                    if ops:
+                        write_section("GraphQL Operations", ops, limit=10)
+                    else:
+                        detail.insert("end", "  GraphQL endpoint detected\n")
+                write_section("Global Stack", forensic.get("global_technologies", []))
+                write_section("Global Auth", forensic.get("global_auth_schemes", []))
+                write_section("Spec Clues", forensic.get("global_spec_documents", []))
+                write_section("Global JS Assets", forensic.get("global_asset_links", []))
+                write_section("Global Form Targets", forensic.get("global_form_targets", []))
+                write_section("Global Inline URLs", forensic.get("global_json_links", []))
+                write_section("Global WebSockets", forensic.get("global_websocket_links", []))
+                write_section("Global Link Targets", forensic.get("global_link_relations", []))
+                write_section("Global Host Hints", forensic.get("global_host_hints", []))
+                write_section("Global Robots Hints", forensic.get("global_robots_paths", []))
+                write_section("Global Sitemap URLs", forensic.get("global_sitemap_urls", []))
+                write_section("Global Well-known", forensic.get("global_well_known_links", []))
+                write_section("Global Config Endpoints", forensic.get("global_config_endpoints", []))
+                write_section("Global CSP Reports", forensic.get("global_csp_reports", []))
+                cert = forensic.get("certificate")
+                if isinstance(cert, dict) and cert:
+                    subject = cert.get("subject") or "-"
+                    issuer = cert.get("issuer") or "-"
+                    expires = cert.get("expires") or "-"
+                    alt_names = cert.get("alt_names") or []
+                    display_alt = ", ".join(alt_names[:4])
+                    if len(alt_names) > 4:
+                        display_alt += ", …"
+                    detail.insert("end", f"  TLS Subject: {subject}\n")
+                    detail.insert("end", f"  TLS Issuer: {issuer}\n")
+                    detail.insert("end", f"  TLS Expires: {expires}\n")
+                    if display_alt:
+                        detail.insert("end", f"  TLS Alt Names: {display_alt}\n")
+                detail.insert("end", "\n")
+            detail.insert("end", info["preview"])
+            detail.configure(state="disabled")
+
+        def render_info(info):
+            status = info["status"]
+            if 200 <= status < 300:
+                tag = "success"
+            elif 300 <= status < 400:
+                tag = "redirect"
+            elif 400 <= status < 500:
+                tag = "client"
+            else:
+                tag = "server"
+
+            tags = [tag]
+            if info.get("cors"):
+                tags.append("cors")
+            if info.get("signals"):
+                tags.append("intel")
+            if info.get("secrets"):
+                tags.append("secret")
+            if info.get("slow"):
+                tags.append("slow")
+            delta_label = info.get("delta")
+            if delta_label == "NEW":
+                tags.append("delta-new")
+            elif isinstance(delta_label, str) and delta_label.startswith("CHANGED"):
+                tags.append("delta-changed")
+            latency_display = "-"
+            if info.get("latency") is not None:
+                latency_display = f"{info['latency']:.0f} ms"
+            item_id = tree.insert(
+                "",
+                "end",
+                values=(
+                    info["url"],
+                    info["method"],
+                    info["status"],
+                    info.get("delta", "-"),
+                    latency_display,
+                    info["type"],
+                    info["length"],
+                    info.get("notes", ""),
+                ),
+                tags=tuple(tags),
+            )
+            results[item_id] = info
+            metrics["total"] += 1
+            if 200 <= status < 300:
+                metrics["success"] += 1
+            if info.get("signals"):
+                metrics["alerts"] += len(info["signals"])
+            status_message = None
+            if info.get("secrets"):
+                metrics["secrets"] += info.get("secrets", 0)
+                status_message = "Secret material detected! Review intel panel."
+            if info.get("slow"):
+                metrics["slow"] += 1
+            if delta_label == "NEW":
+                metrics["drift"] += 1
+                metrics["drift_new"] += 1
+                status_message = status_message or f"Surface drift: NEW endpoint {info['url']}"
+            elif isinstance(delta_label, str) and delta_label.startswith("CHANGED"):
+                metrics["drift"] += 1
+                metrics["drift_changed"] += 1
+                status_message = status_message or f"Surface drift: {delta_label} @ {info['url']}"
+            if status_message is None:
+                status_message = f"Latest hit: {info['url']} ({info['status']})"
+            self.status_var.set(status_message)
+            if (
+                info.get("secrets")
+                or delta_label == "NEW"
+                or (isinstance(delta_label, str) and delta_label.startswith("CHANGED"))
+                or info.get("signals")
+            ):
+                self._log_console(status_message)
+            refresh_hud()
+            if len(results) == 1:
+                tree.selection_set(item_id)
+                update_detail(item_id)
+            return item_id
+
+        def on_select(_event):
+            selection = tree.selection()
+            if selection:
+                update_detail(selection[0])
+
+        tree.bind("<<TreeviewSelect>>", on_select)
+
+        ttk.Button(
+            btn_frame,
+            text="Export CSV",
+            command=lambda t=tree, r=results: self._export_csv(t, r),
+        ).pack(side="left", padx=5)
+        ttk.Button(
+            btn_frame,
+            text="Export JSON",
+            command=lambda t=tree, r=results: self._export_json(t, r),
+        ).pack(side="left", padx=5)
+        ttk.Button(
+            btn_frame,
+            text="Copy URL",
+            command=lambda t=tree: self._copy_selected(t),
+        ).pack(side="left", padx=5)
+        ttk.Button(
+            btn_frame,
+            text="Export Forensics Map",
+            command=lambda sid=scan_id: self._export_forensics_map_for_scan(sid),
+        ).pack(side="left", padx=5)
+
+        view = {
+            "tab": tab,
+            "tree": tree,
+            "detail": detail,
+            "results": results,
+            "metrics": metrics,
+            "refresh_hud": refresh_hud,
+            "render_info": render_info,
+            "update_detail": update_detail,
+        }
+        self.scan_views[scan_id] = view
+        return view
+
+    def _on_theme_change(self, *_args: object) -> None:
+        self._apply_theme_palette()
+
+    def _apply_theme_palette(self) -> None:
+        palette = THEME_PRESETS.get(self.theme_var.get(), next(iter(THEME_PRESETS.values())))
+        self.theme_palette = palette
+        primary = palette["primary"]
+        surface = palette["surface"]
+        surface_alt = palette["surface_alt"]
+        card = palette["card"]
+        accent = palette["accent"]
+        accent_text = palette["accent_text"]
+        highlight = palette["highlight"]
+        text = palette["text"]
+        muted = palette["muted"]
+        badge = palette["badge"]
+        success = palette["success"]
+        alert = palette["alert"]
+        focus = palette["focus"]
+        self.configure(bg=primary)
+        self.style.configure("TFrame", background=primary)
+        self.style.configure("Header.TFrame", background=primary)
+        self.style.configure("Card.TFrame", background=card, relief="ridge", borderwidth=1)
+        self.style.configure("ConsoleFrame.TFrame", background=card, relief="ridge", borderwidth=1)
+        self.style.configure("TNotebook", background=primary, borderwidth=0)
+        self.style.configure("TNotebook.Tab", padding=(14, 6), background=surface_alt, foreground=muted)
+        self.style.map("TNotebook.Tab", background=[("selected", accent)], foreground=[("selected", accent_text)])
+        self.style.configure("TLabel", background=primary, foreground=text)
+        self.style.configure("Accent.TLabel", background=primary, foreground=accent, font=("Share Tech Mono", 18, "bold"))
+        self.style.configure("Glitch.TLabel", background=primary, foreground=highlight, font=("Share Tech Mono", 14, "bold"))
+        self.style.configure("TButton", background=surface_alt, foreground=text, padding=(12, 6))
+        self.style.map("TButton", background=[("active", accent)], foreground=[("active", accent_text)])
+        self.style.configure(
             "Treeview",
-            background="#030b16",
-            fieldbackground="#030b16",
-            foreground="#9ca3af",
+            background=palette["tree_bg"],
+            fieldbackground=palette["tree_field"],
+            foreground=palette["tree_fg"],
             bordercolor=accent,
             rowheight=26,
         )
-        style.configure("Treeview.Heading", background="#041024", foreground=accent, font=("Share Tech Mono", 11, "bold"))
-        style.configure("HUDCard.TFrame", background="#071127", relief="ridge", borderwidth=1)
-        style.configure("StatLabel.TLabel", background="#071127", foreground=highlight, font=("Share Tech Mono", 10, "bold"))
-        style.configure("StatValuePrimary.TLabel", background="#071127", foreground=accent, font=("Share Tech Mono", 20, "bold"))
-        style.configure("StatValueAlert.TLabel", background="#071127", foreground="#f97316", font=("Share Tech Mono", 20, "bold"))
-        style.configure("StatValueSuccess.TLabel", background="#071127", foreground="#4ade80", font=("Share Tech Mono", 20, "bold"))
-        style.configure("StatValueFocus.TLabel", background="#071127", foreground="#f472b6", font=("Share Tech Mono", 20, "bold"))
-        style.configure("StatusBadge.TLabel", background=panel, foreground="#fbbf24", font=("Share Tech Mono", 12, "bold"))
-        style.configure("TLSValue.TLabel", background=panel, foreground=accent, font=("Share Tech Mono", 11, "bold"))
-        style.configure("ConsoleTitle.TLabel", background=panel, foreground=accent, font=("Share Tech Mono", 12, "bold"))
-        style.configure("AutomationHit.TLabel", background=panel, foreground="#facc15", font=("Share Tech Mono", 12, "bold"))
-        style.configure("AutomationMiss.TLabel", background=panel, foreground="#94a3b8", font=("Share Tech Mono", 12, "bold"))
+        self.style.configure(
+            "Treeview.Heading",
+            background=palette["tree_head_bg"],
+            foreground=palette["tree_head_fg"],
+            font=("Share Tech Mono", 11, "bold"),
+        )
+        self.style.configure("HUDCard.TFrame", background=surface_alt, relief="ridge", borderwidth=1)
+        self.style.configure("StatLabel.TLabel", background=surface_alt, foreground=highlight, font=("Share Tech Mono", 10, "bold"))
+        self.style.configure("StatValuePrimary.TLabel", background=surface_alt, foreground=accent, font=("Share Tech Mono", 20, "bold"))
+        self.style.configure("StatValueAlert.TLabel", background=surface_alt, foreground=alert, font=("Share Tech Mono", 20, "bold"))
+        self.style.configure("StatValueSuccess.TLabel", background=surface_alt, foreground=success, font=("Share Tech Mono", 20, "bold"))
+        self.style.configure("StatValueFocus.TLabel", background=surface_alt, foreground=focus, font=("Share Tech Mono", 20, "bold"))
+        self.style.configure("StatusBadge.TLabel", background=card, foreground=badge, font=("Share Tech Mono", 12, "bold"))
+        self.style.configure("TLSValue.TLabel", background=card, foreground=accent, font=("Share Tech Mono", 11, "bold"))
+        self.style.configure("ConsoleTitle.TLabel", background=card, foreground=accent, font=("Share Tech Mono", 12, "bold"))
+        self.style.configure("AutomationHit.TLabel", background=card, foreground=badge, font=("Share Tech Mono", 12, "bold"))
+        self.style.configure("AutomationMiss.TLabel", background=card, foreground=muted, font=("Share Tech Mono", 12, "bold"))
+        self._update_theme_widgets()
+
+    def _register_text_widget(self, kind: str, widget: ScrolledText) -> None:
+        self.themable_text_widgets.append((kind, widget))
+        self._apply_text_widget_theme(widget, kind)
+
+    def _apply_text_widget_theme(self, widget: ScrolledText, kind: str) -> None:
+        palette = self.theme_palette
+        accent = palette["accent"]
+        if kind == "console":
+            widget.configure(bg=palette["console_bg"], fg=palette["console_fg"], insertbackground=accent)
+        elif kind == "detail":
+            widget.configure(bg=palette["detail_bg"], fg=palette["detail_fg"], insertbackground=accent)
+        elif kind == "editor":
+            widget.configure(bg=palette["surface"], fg=palette["text"], insertbackground=accent)
+        elif kind == "note":
+            widget.configure(bg=palette["surface_alt"], fg=palette["text"], insertbackground=accent)
+        else:
+            widget.configure(bg=palette["detail_bg"], fg=palette["text"], insertbackground=accent)
+
+    def _update_theme_widgets(self) -> None:
+        for kind, widget in list(self.themable_text_widgets):
+            try:
+                self._apply_text_widget_theme(widget, kind)
+            except tk.TclError:
+                continue
+        for helper in getattr(self, "_wordlist_helpers", []):
+            popup = helper.get("popup")
+            listbox = helper.get("listbox")
+            try:
+                if popup:
+                    popup.configure(bg=self.theme_palette.get("surface", "#0f172a"))
+                if listbox:
+                    listbox.configure(
+                        bg=self.theme_palette.get("surface_alt", "#0b1120"),
+                        fg=self.theme_palette.get("text", "#38bdf8"),
+                        selectbackground=self.theme_palette.get("accent", "#22d3ee"),
+                        selectforeground=self.theme_palette.get("accent_text", "#0f172a"),
+                    )
+            except tk.TclError:
+                continue
+        if getattr(self, "automation_results_tree", None):
+            self._apply_automation_tree_theme()
+
+    def _apply_automation_tree_theme(self) -> None:
+        tree = getattr(self, "automation_results_tree", None)
+        if not tree:
+            return
+        palette = self.theme_palette
+        tree.tag_configure("hit", background=palette["result_hit_bg"], foreground=palette["result_hit_fg"])
+        tree.tag_configure("miss", background=palette["result_miss_bg"], foreground=palette["result_miss_fg"])
+        tree.tag_configure("error", background=palette["result_error_bg"], foreground=palette["result_error_fg"])
 
     def _load_automation_assets(self) -> None:
         builtin = _load_all_builtin_templates()
@@ -2567,6 +4007,7 @@ class App(tk.Tk):
         self._automation_library_payload = {"custom_templates": custom, "rulesets": rulesets}
         self.regex_collections = _load_regex_collections_from_disk()
         self._apply_regex_collections_to_templates()
+        self._rebuild_automation_type_index()
         self._rebuild_ruleset_index()
 
     def _apply_regex_collections_to_templates(self) -> None:
@@ -2664,16 +4105,17 @@ class App(tk.Tk):
         return destination
 
     def _attach_wordlist_autocomplete(self, entry: ttk.Entry, variable: tk.StringVar) -> None:
+        palette = self.theme_palette
         popup = tk.Toplevel(self)
         popup.withdraw()
         popup.overrideredirect(True)
-        popup.configure(bg="#0f172a")
+        popup.configure(bg=palette.get("surface", "#0f172a"))
         listbox = tk.Listbox(
             popup,
-            bg="#0b1120",
-            fg="#38bdf8",
-            selectbackground="#22d3ee",
-            selectforeground="#0f172a",
+            bg=palette.get("surface_alt", "#0b1120"),
+            fg=palette.get("text", "#38bdf8"),
+            selectbackground=palette.get("accent", "#22d3ee"),
+            selectforeground=palette.get("accent_text", "#0f172a"),
             highlightthickness=0,
             relief="flat",
         )
@@ -2769,7 +4211,15 @@ class App(tk.Tk):
         return combined
 
     def _attach_tree_context_menu(self, tree: ttk.Treeview, lookup: Callable[[str], Optional[dict]]):
-        menu = tk.Menu(tree, tearoff=0, bg="#0b1120", fg="#38bdf8", activebackground="#22d3ee", activeforeground="#0f172a")
+        palette = self.theme_palette
+        menu = tk.Menu(
+            tree,
+            tearoff=0,
+            bg=palette.get("menu_bg", "#0b1120"),
+            fg=palette.get("menu_fg", "#38bdf8"),
+            activebackground=palette.get("menu_active_bg", "#22d3ee"),
+            activeforeground=palette.get("menu_active_fg", "#0f172a"),
+        )
         menu.add_command(
             label="Send to Parameter Explorer",
             command=lambda: self._tree_to_parameter_explorer(tree, lookup),
@@ -2841,6 +4291,25 @@ class App(tk.Tk):
             link.pack(side="right", padx=6)
             link.bind("<Button-1>", lambda _e, target=url: webbrowser.open(target))
 
+        session_frame = ttk.Frame(header, style="Header.TFrame")
+        session_frame.pack(side="right", padx=10)
+        ttk.Label(session_frame, textvariable=self.session_label_var, style="Glitch.TLabel").pack(anchor="e")
+        ttk.Button(session_frame, text="Save Session", command=lambda: self._save_session_state(manual=True)).pack(
+            anchor="e", pady=(2, 0)
+        )
+
+        theme_frame = ttk.Frame(header, style="Header.TFrame")
+        theme_frame.pack(side="right", padx=10)
+        ttk.Label(theme_frame, text="Theme", style="Glitch.TLabel").pack(anchor="e")
+        ttk.Combobox(
+            theme_frame,
+            textvariable=self.theme_var,
+            values=list(THEME_PRESETS.keys()),
+            state="readonly",
+            width=18,
+        ).pack(anchor="e", pady=2)
+
+        ttk.Label(header, textvariable=self.regex_total_var, style="Glitch.TLabel").pack(side="right", padx=10)
         ttk.Label(header, textvariable=self.proxy_status_var, style="Glitch.TLabel").pack(side="right", padx=10)
 
         progress_frame = ttk.Frame(header, style="Header.TFrame")
@@ -2865,16 +4334,9 @@ class App(tk.Tk):
     def _build_instructions_tab(self):
         frame = ttk.Frame(self.nb, style="Card.TFrame")
         self.nb.add(frame, text="Briefing")
-        text = ScrolledText(
-            frame,
-            wrap="word",
-            font=("Consolas", 11),
-            bg="#0f172a",
-            fg="#22d3ee",
-            insertbackground="#22d3ee",
-            relief="flat",
-        )
+        text = ScrolledText(frame, wrap="word", font=("Consolas", 11), relief="flat")
         text.pack(fill="both", expand=True, padx=10, pady=10)
+        self._register_text_widget("detail", text)
         briefing = (
             "Welcome to the HackXpert API Surface Explorer!\n\n"
             "Step 1 — Stage the target:\n"
@@ -2998,16 +4460,10 @@ class App(tk.Tk):
         console_frame = ttk.Frame(frame, style="ConsoleFrame.TFrame")
         console_frame.grid(row=9, column=0, columnspan=3, sticky="nsew", padx=5, pady=(0, 12))
         ttk.Label(console_frame, text="Recon Console", style="ConsoleTitle.TLabel").pack(anchor="w", padx=12, pady=(8, 0))
-        self.console = ScrolledText(
-            console_frame,
-            height=8,
-            bg="#010409",
-            fg="#3bff95",
-            insertbackground="#3bff95",
-            font=("Share Tech Mono", 10),
-        )
+        self.console = ScrolledText(console_frame, height=8, font=("Share Tech Mono", 10))
         self.console.pack(fill="both", expand=True, padx=10, pady=(4, 10))
         self.console.configure(state="disabled")
+        self._register_text_widget("console", self.console)
         frame.grid_rowconfigure(9, weight=1)
 
     def _build_endpoint_explorer(self):
@@ -3187,12 +4643,14 @@ class App(tk.Tk):
         ).grid(row=3, column=3, padx=6, pady=(0, 10), sticky="w")
 
         ttk.Label(frame, text="Headers (Key: Value per line):").grid(row=4, column=0, padx=6, pady=6, sticky="ne")
-        self.param_headers = ScrolledText(frame, height=6, width=40, bg="#0b1120", fg="#e2e8f0", insertbackground="#22d3ee")
+        self.param_headers = ScrolledText(frame, height=6, width=40)
         self.param_headers.grid(row=4, column=1, padx=6, pady=6, sticky="we")
+        self._register_text_widget("editor", self.param_headers)
 
         ttk.Label(frame, text="Body (optional):").grid(row=4, column=2, padx=6, pady=6, sticky="ne")
-        self.param_body = ScrolledText(frame, height=6, width=40, bg="#0b1120", fg="#e2e8f0", insertbackground="#22d3ee")
+        self.param_body = ScrolledText(frame, height=6, width=40)
         self.param_body.grid(row=4, column=3, padx=6, pady=6, sticky="we")
+        self._register_text_widget("editor", self.param_body)
 
         ttk.Button(frame, text="Launch Parameter Fuzz", command=self._start_parameter_explorer).grid(
             row=5, column=0, columnspan=4, pady=10
@@ -3226,7 +4684,8 @@ class App(tk.Tk):
         frame = ttk.Frame(self.nb, style="Card.TFrame")
         self.nb.add(frame, text="Automations")
         frame.grid_columnconfigure(0, weight=1)
-        frame.grid_columnconfigure(1, weight=1)
+        frame.grid_columnconfigure(1, weight=2)
+        frame.grid_columnconfigure(2, weight=2)
         frame.grid_rowconfigure(3, weight=3)
         frame.grid_rowconfigure(4, weight=2)
 
@@ -3234,16 +4693,16 @@ class App(tk.Tk):
             frame,
             text="Automations // Launch nuclei-style exploit templates with curated rulesets.",
             style="Glitch.TLabel",
-        ).grid(row=0, column=0, columnspan=2, sticky="w", padx=8, pady=(8, 2))
+        ).grid(row=0, column=0, columnspan=3, sticky="w", padx=8, pady=(8, 2))
 
         ttk.Label(frame, text="Base URL:").grid(row=1, column=0, sticky="e", padx=8, pady=4)
         self.automation_base_url = tk.StringVar()
         self.automation_base_entry = ttk.Entry(frame, textvariable=self.automation_base_url, width=60)
-        self.automation_base_entry.grid(row=1, column=1, sticky="we", padx=8, pady=4)
+        self.automation_base_entry.grid(row=1, column=1, columnspan=2, sticky="we", padx=8, pady=4)
 
         controls = ttk.Frame(frame, style="Card.TFrame")
-        controls.grid(row=2, column=0, columnspan=2, sticky="ew", padx=8, pady=(4, 6))
-        controls.columnconfigure(7, weight=1)
+        controls.grid(row=2, column=0, columnspan=3, sticky="ew", padx=8, pady=(4, 6))
+        controls.columnconfigure(9, weight=1)
 
         self.automation_ruleset_filter_var = tk.StringVar()
         self.automation_ruleset_filter_var.trace_add("write", self._on_ruleset_filter_changed)
@@ -3294,21 +4753,61 @@ class App(tk.Tk):
         )
         self.automation_new_button.grid(row=0, column=5, padx=4, pady=4)
 
-        ttk.Label(controls, text="Filter:").grid(row=0, column=6, padx=4, pady=4, sticky="e")
+        self.automation_add_type_button = ttk.Button(
+            controls,
+            text="Add Type to Selection",
+            command=self._add_type_to_selection,
+            state="disabled",
+        )
+        self.automation_add_type_button.grid(row=0, column=6, padx=4, pady=4)
+
+        self.automation_save_type_button = ttk.Button(
+            controls,
+            text="Save Type as Ruleset",
+            command=self._save_type_as_ruleset,
+            state="disabled",
+        )
+        self.automation_save_type_button.grid(row=0, column=7, padx=4, pady=4)
+
+        ttk.Label(controls, text="Filter:").grid(row=0, column=8, padx=4, pady=4, sticky="e")
         self.automation_ruleset_filter_entry = ttk.Entry(
             controls,
             textvariable=self.automation_ruleset_filter_var,
             width=26,
         )
-        self.automation_ruleset_filter_entry.grid(row=0, column=7, padx=4, pady=4, sticky="we")
+        self.automation_ruleset_filter_entry.grid(row=0, column=9, padx=4, pady=4, sticky="we")
         self.automation_ruleset_summary_label = ttk.Label(
             controls,
             textvariable=self.automation_ruleset_summary_var,
         )
-        self.automation_ruleset_summary_label.grid(row=0, column=8, padx=4, pady=4, sticky="w")
+        self.automation_ruleset_summary_label.grid(row=0, column=10, padx=4, pady=4, sticky="w")
+
+        type_container = ttk.Frame(frame, style="Card.TFrame")
+        type_container.grid(row=3, column=0, sticky="nsew", padx=(8, 4), pady=6)
+        type_container.grid_columnconfigure(0, weight=1)
+        type_container.grid_rowconfigure(1, weight=1)
+        ttk.Label(type_container, text="Pattern Types", style="Glitch.TLabel").grid(
+            row=0, column=0, sticky="w", padx=6, pady=(6, 0)
+        )
+        type_columns = ("details",)
+        self.automation_type_tree = ttk.Treeview(
+            type_container,
+            columns=type_columns,
+            show="tree headings",
+            selectmode="browse",
+            height=14,
+        )
+        self.automation_type_tree.heading("details", text="DETAILS")
+        self.automation_type_tree.column("#0", width=180, anchor="w")
+        self.automation_type_tree.column("details", width=160, anchor="w")
+        self.automation_type_tree.grid(row=1, column=0, sticky="nsew", padx=6, pady=6)
+        type_scroll = ttk.Scrollbar(type_container, orient="vertical", command=self.automation_type_tree.yview)
+        type_scroll.grid(row=1, column=1, sticky="ns", pady=6)
+        self.automation_type_tree.configure(yscrollcommand=type_scroll.set)
+        self.automation_type_tree.bind("<<TreeviewSelect>>", self._on_automation_type_select)
 
         template_container = ttk.Frame(frame, style="Card.TFrame")
-        template_container.grid(row=3, column=0, sticky="nsew", padx=(8, 4), pady=6)
+        template_container.grid(row=3, column=1, sticky="nsew", padx=(4, 4), pady=6)
         template_container.grid_columnconfigure(0, weight=1)
         template_container.grid_rowconfigure(1, weight=1)
         ttk.Label(template_container, text="Template Catalog", style="Glitch.TLabel").grid(
@@ -3336,7 +4835,7 @@ class App(tk.Tk):
         self.automation_template_tree.configure(yscrollcommand=template_scroll.set)
 
         results_container = ttk.Frame(frame, style="Card.TFrame")
-        results_container.grid(row=3, column=1, sticky="nsew", padx=(4, 8), pady=6)
+        results_container.grid(row=3, column=2, sticky="nsew", padx=(4, 8), pady=6)
         results_container.grid_columnconfigure(0, weight=1)
         results_container.grid_rowconfigure(1, weight=1)
         ttk.Label(results_container, text="Automation Findings", style="Glitch.TLabel").grid(
@@ -3365,26 +4864,18 @@ class App(tk.Tk):
         results_scroll = ttk.Scrollbar(results_container, orient="vertical", command=self.automation_results_tree.yview)
         results_scroll.grid(row=1, column=1, sticky="ns", pady=6)
         self.automation_results_tree.configure(yscrollcommand=results_scroll.set)
-        self.automation_results_tree.tag_configure("hit", background="#0f172a", foreground="#facc15")
-        self.automation_results_tree.tag_configure("miss", background="#111827", foreground="#94a3b8")
-        self.automation_results_tree.tag_configure("error", background="#450a0a", foreground="#fca5a5")
         self.automation_results_tree.bind("<<TreeviewSelect>>", self._on_automation_result_select)
+        self._apply_automation_tree_theme()
 
         self.automation_results_lookup: dict[str, dict[str, Any]] = {}
 
-        self.automation_detail = ScrolledText(
-            frame,
-            height=8,
-            bg="#0b1120",
-            fg="#e2e8f0",
-            insertbackground="#22d3ee",
-            font=("Consolas", 10),
-        )
-        self.automation_detail.grid(row=4, column=0, columnspan=2, sticky="nsew", padx=8, pady=(0, 6))
+        self.automation_detail = ScrolledText(frame, height=8, font=("Consolas", 10))
+        self.automation_detail.grid(row=4, column=0, columnspan=3, sticky="nsew", padx=8, pady=(0, 6))
         self.automation_detail.configure(state="disabled")
+        self._register_text_widget("detail", self.automation_detail)
 
         status_frame = ttk.Frame(frame, style="Card.TFrame")
-        status_frame.grid(row=5, column=0, columnspan=2, sticky="ew", padx=8, pady=(0, 8))
+        status_frame.grid(row=5, column=0, columnspan=3, sticky="ew", padx=8, pady=(0, 8))
         self.automation_status_var = tk.StringVar(value="Automations idle.")
         ttk.Label(status_frame, textvariable=self.automation_status_var, style="StatusBadge.TLabel").pack(
             side="left", padx=6, pady=6
@@ -3394,6 +4885,8 @@ class App(tk.Tk):
 
         self._update_automation_ruleset_combo()
         self._refresh_automation_template_tree()
+        self._refresh_automation_type_tree()
+        self._update_automation_type_buttons()
 
     def _update_automation_ruleset_combo(self) -> None:
         if not hasattr(self, "automation_ruleset_combo"):
@@ -3434,6 +4927,241 @@ class App(tk.Tk):
                     tags,
                 ),
             )
+
+    def _rebuild_automation_type_index(self) -> None:
+        categories: list[dict[str, Any]] = []
+        lookup: dict[str, dict[str, Any]] = {}
+        for category_id in sorted(self.regex_collections.keys()):
+            collection = self.regex_collections.get(category_id) or {}
+            title = collection.get("title") or category_id.replace("-", " ").title()
+            description = collection.get("description", "")
+            templates = collection.get("templates", {}) or {}
+            resolved_templates: list[dict[str, Any]] = []
+            pattern_total = 0
+            for template_id in sorted(templates.keys()):
+                template_info = templates.get(template_id) or {}
+                patterns = [
+                    pattern
+                    for pattern in template_info.get("regex", [])
+                    if isinstance(pattern, str) and pattern
+                ]
+                pattern_total += len(patterns)
+                template_entry = self.automation_templates.get(template_id, {})
+                resolved_templates.append(
+                    {
+                        "iid": f"tpl::{category_id}::{template_id}",
+                        "template_id": template_id,
+                        "title": template_entry.get("name") or template_id,
+                        "patterns": patterns,
+                    }
+                )
+            category_iid = f"cat::{category_id}"
+            category_entry = {
+                "iid": category_iid,
+                "kind": "category",
+                "category": category_id,
+                "title": title,
+                "description": description,
+                "templates": resolved_templates,
+                "template_ids": [item["template_id"] for item in resolved_templates],
+                "pattern_count": pattern_total,
+            }
+            categories.append(category_entry)
+            lookup[category_iid] = category_entry
+            for template in resolved_templates:
+                template_iid = template["iid"]
+                template_entry = {
+                    "iid": template_iid,
+                    "kind": "template",
+                    "category": category_id,
+                    "template_id": template["template_id"],
+                    "title": template["title"],
+                    "patterns": template["patterns"],
+                    "pattern_count": len(template["patterns"]),
+                }
+                lookup[template_iid] = template_entry
+                for index, pattern in enumerate(template["patterns"]):
+                    pattern_iid = f"rx::{category_id}::{template['template_id']}::{index}"
+                    lookup[pattern_iid] = {
+                        "iid": pattern_iid,
+                        "kind": "pattern",
+                        "category": category_id,
+                        "template_id": template["template_id"],
+                        "index": index,
+                        "pattern": pattern,
+                    }
+        self.automation_type_categories = categories
+        self.automation_type_lookup = lookup
+
+    def _refresh_automation_type_tree(self) -> None:
+        tree = getattr(self, "automation_type_tree", None)
+        if not tree:
+            return
+        previous = self.automation_type_selection
+        self._rebuild_automation_type_index()
+        tree.delete(*tree.get_children())
+        if not self.automation_type_categories:
+            tree.insert(
+                "",
+                "end",
+                text="No pattern types linked yet.",
+                values=("Create regex categories in the Regex Library to populate this view.",),
+            )
+            self.automation_type_selection = ""
+            self._update_automation_type_buttons()
+            return
+        for category in self.automation_type_categories:
+            details = category.get("description") or (
+                f"{len(category['template_ids'])} template(s) • {category['pattern_count']} regex pattern(s)"
+            )
+            tree.insert(
+                "",
+                "end",
+                iid=category["iid"],
+                text=category["title"],
+                values=(details,),
+                open=False,
+            )
+            for template in category.get("templates", []):
+                tree.insert(
+                    category["iid"],
+                    "end",
+                    iid=template["iid"],
+                    text=template["title"],
+                    values=(f"{len(template['patterns'])} regex pattern(s)",),
+                    open=False,
+                )
+                for index, pattern in enumerate(template.get("patterns", [])):
+                    tree.insert(
+                        template["iid"],
+                        "end",
+                        iid=f"rx::{category['category']}::{template['template_id']}::{index}",
+                        text=f"Pattern {index + 1}",
+                        values=(pattern,),
+                    )
+        if previous and tree.exists(previous):
+            try:
+                tree.selection_set(previous)
+                tree.focus(previous)
+                tree.see(previous)
+                self.automation_type_selection = previous
+            except tk.TclError:
+                self.automation_type_selection = ""
+        else:
+            self.automation_type_selection = ""
+        self._update_automation_type_buttons()
+
+    def _focus_automation_type_node(self, iid: str) -> None:
+        tree = getattr(self, "automation_type_tree", None)
+        if not tree or not iid:
+            return
+        try:
+            tree.see(iid)
+            tree.selection_set(iid)
+            tree.focus(iid)
+            self.automation_type_selection = iid
+        except tk.TclError:
+            self.automation_type_selection = ""
+        self._update_automation_type_buttons()
+
+    def _on_automation_type_select(self, _event=None) -> None:
+        tree = getattr(self, "automation_type_tree", None)
+        if not tree:
+            return
+        selection = tree.selection()
+        if not selection:
+            self.automation_type_selection = ""
+        else:
+            self.automation_type_selection = selection[0]
+        self._update_automation_type_buttons()
+
+    def _resolve_type_selection_templates(self) -> list[str]:
+        selection = self.automation_type_selection
+        if not selection:
+            return []
+        info = self.automation_type_lookup.get(selection) or {}
+        kind = info.get("kind")
+        if kind == "category":
+            return list(dict.fromkeys(info.get("template_ids", [])))
+        if kind == "template":
+            template_id = info.get("template_id")
+            return [template_id] if template_id else []
+        if kind == "pattern":
+            template_id = info.get("template_id")
+            return [template_id] if template_id else []
+        return []
+
+    def _add_type_to_selection(self) -> None:
+        tree = getattr(self, "automation_template_tree", None)
+        if not tree:
+            return
+        template_ids = self._resolve_type_selection_templates()
+        if not template_ids:
+            messagebox.showinfo("Automations", "Select a pattern type or template to add.")
+            return
+        added = 0
+        for template_id in template_ids:
+            if tree.exists(template_id):
+                try:
+                    tree.selection_add(template_id)
+                    tree.see(template_id)
+                    added += 1
+                except tk.TclError:
+                    continue
+        if added:
+            summary = f"Added {added} template(s) from pattern type selection."
+            self.automation_status_var.set(summary)
+        else:
+            messagebox.showerror(
+                "Automations",
+                "Selected pattern type is not linked to any available templates.",
+            )
+
+    def _save_type_as_ruleset(self) -> None:
+        info = self.automation_type_lookup.get(self.automation_type_selection)
+        if not info or info.get("kind") != "category":
+            messagebox.showinfo("Automations", "Select a pattern type to save as a ruleset.")
+            return
+        template_ids = self._resolve_type_selection_templates()
+        if not template_ids:
+            messagebox.showerror("Automations", "Pattern type has no linked templates.")
+            return
+        templates = list(dict.fromkeys(template_ids))
+        default_name = f"{info.get('title', 'Pattern Type')} Ruleset"
+        name = simpledialog.askstring(
+            "Ruleset Name",
+            "Name for the new ruleset:",
+            initialvalue=default_name,
+        )
+        if not name:
+            return
+        sanitized = name.strip()
+        if not sanitized:
+            messagebox.showerror("Automations", "Ruleset name cannot be blank.")
+            return
+        self.automation_rulesets[sanitized] = templates
+        self._persist_automation_library()
+        self._rebuild_ruleset_index()
+        self._update_automation_ruleset_combo()
+        self.automation_status_var.set(
+            f"Ruleset '{sanitized}' saved from pattern type {info.get('title', sanitized)}."
+        )
+
+    def _update_automation_type_buttons(self) -> None:
+        add_button = getattr(self, "automation_add_type_button", None)
+        save_button = getattr(self, "automation_save_type_button", None)
+        templates = self._resolve_type_selection_templates()
+        info = self.automation_type_lookup.get(self.automation_type_selection, {})
+        kind = info.get("kind")
+        can_add = bool(templates)
+        can_save = bool(templates) and kind == "category"
+        for widget, enabled in ((add_button, can_add), (save_button, can_save)):
+            if not widget:
+                continue
+            try:
+                widget.configure(state="normal" if enabled else "disabled")
+            except tk.TclError:
+                continue
 
     def _rebuild_ruleset_index(self) -> None:
         index: dict[str, dict[str, Any]] = {}
@@ -3529,6 +5257,8 @@ class App(tk.Tk):
             self.automation_save_ruleset_button,
             self.automation_load_button,
             self.automation_new_button,
+            self.automation_add_type_button,
+            self.automation_save_type_button,
         ]:
             try:
                 widget.configure(state=state)
@@ -3737,6 +5467,7 @@ class App(tk.Tk):
             self._persist_automation_library()
             self._refresh_automation_template_tree()
             self._rebuild_ruleset_index()
+            self._refresh_automation_type_tree()
             messagebox.showinfo("Automations", f"Imported {added} template(s).")
         else:
             messagebox.showinfo("Automations", "Templates already existed — nothing new imported.")
@@ -3744,7 +5475,7 @@ class App(tk.Tk):
     def _open_template_builder(self) -> None:
         builder = tk.Toplevel(self)
         builder.title("Automation Template Builder")
-        builder.configure(bg="#020617")
+        builder.configure(bg=self.theme_palette.get("primary", "#020617"))
         builder.transient(self)
         builder.grab_set()
 
@@ -3784,26 +5515,32 @@ class App(tk.Tk):
         ttk.Label(container, text="Body contains (comma/newline separated):").grid(row=6, column=0, sticky="e", padx=4, pady=4)
         contains_text = ScrolledText(container, height=3, width=40)
         contains_text.grid(row=6, column=1, sticky="we", padx=4, pady=4)
+        self._register_text_widget("editor", contains_text)
 
         ttk.Label(container, text="Body regex (comma/newline separated):").grid(row=7, column=0, sticky="e", padx=4, pady=4)
         regex_text = ScrolledText(container, height=3, width=40)
         regex_text.grid(row=7, column=1, sticky="we", padx=4, pady=4)
+        self._register_text_widget("editor", regex_text)
 
         ttk.Label(container, text="Negative contains (optional):").grid(row=8, column=0, sticky="e", padx=4, pady=4)
         negative_text = ScrolledText(container, height=2, width=40)
         negative_text.grid(row=8, column=1, sticky="we", padx=4, pady=4)
+        self._register_text_widget("editor", negative_text)
 
         ttk.Label(container, text="Header matchers (Header: value substring)").grid(row=9, column=0, sticky="e", padx=4, pady=4)
         header_match_text = ScrolledText(container, height=3, width=40)
         header_match_text.grid(row=9, column=1, sticky="we", padx=4, pady=4)
+        self._register_text_widget("editor", header_match_text)
 
         ttk.Label(container, text="Request headers (Header: value)").grid(row=10, column=0, sticky="e", padx=4, pady=4)
         headers_text = ScrolledText(container, height=3, width=40)
         headers_text.grid(row=10, column=1, sticky="we", padx=4, pady=4)
+        self._register_text_widget("editor", headers_text)
 
         ttk.Label(container, text="Request body (optional)").grid(row=11, column=0, sticky="e", padx=4, pady=4)
         body_text = ScrolledText(container, height=4, width=40)
         body_text.grid(row=11, column=1, sticky="we", padx=4, pady=4)
+        self._register_text_widget("editor", body_text)
 
         ttk.Label(container, text="Tags (comma separated)").grid(row=12, column=0, sticky="e", padx=4, pady=4)
         tags_var = tk.StringVar()
@@ -3812,6 +5549,7 @@ class App(tk.Tk):
         ttk.Label(container, text="Description").grid(row=13, column=0, sticky="ne", padx=4, pady=4)
         description_text = ScrolledText(container, height=4, width=40)
         description_text.grid(row=13, column=1, sticky="we", padx=4, pady=4)
+        self._register_text_widget("note", description_text)
 
         def parse_list(text_value: str) -> list[str]:
             items = []
@@ -3907,6 +5645,7 @@ class App(tk.Tk):
             self._persist_automation_library()
             self._refresh_automation_template_tree()
             self._rebuild_ruleset_index()
+            self._refresh_automation_type_tree()
             self.automation_status_var.set(f"Template '{name}' saved.")
             builder.destroy()
 
@@ -4088,18 +5827,21 @@ class App(tk.Tk):
         headers_box.pack(fill="x", padx=10, pady=(0, 6))
         if headers_text:
             headers_box.insert("1.0", headers_text)
+        self._register_text_widget("editor", headers_box)
 
         ttk.Label(tab, text="Body").pack(anchor="w", padx=10)
         body_box = ScrolledText(tab, height=8, bg="#0b1120", fg="#e2e8f0", insertbackground="#22d3ee")
         body_box.pack(fill="both", expand=True, padx=10, pady=(0, 6))
         if body_seed:
             body_box.insert("1.0", body_seed)
+        self._register_text_widget("editor", body_box)
 
         response_label = ttk.Label(tab, text="Response")
         response_label.pack(anchor="w", padx=10)
         response_box = ScrolledText(tab, height=14, bg="#030712", fg="#38bdf8", insertbackground="#22d3ee")
         response_box.pack(fill="both", expand=True, padx=10, pady=(0, 10))
         response_box.configure(state="disabled")
+        self._register_text_widget("detail", response_box)
 
         def send_request():
             method = method_var.get().strip().upper() or "GET"
@@ -4153,6 +5895,18 @@ class App(tk.Tk):
             "headers": self._parse_headers_text(headers_box.get("1.0", "end")),
             "body": body_box.get("1.0", "end").strip(),
         })).pack(side="left", padx=4, pady=4)
+
+        view = {
+            "tab": tab,
+            "method_var": method_var,
+            "url_var": url_var,
+            "headers_box": headers_box,
+            "body_box": body_box,
+            "response_box": response_box,
+            "params": params or {},
+        }
+        self.request_views[str(tab)] = view
+        return view
 
     def _build_regex_library_tab(self) -> None:
         frame = ttk.Frame(self.nb, style="Card.TFrame")
@@ -4341,6 +6095,8 @@ class App(tk.Tk):
         self.regex_collections[slug] = collection
         _persist_regex_collection(collection)
         self._refresh_regex_tree()
+        self._refresh_automation_type_tree()
+        self._focus_automation_type_node(f"cat::{slug}")
         self._focus_regex_node(f"cat::{slug}")
 
     def _add_regex_template(self) -> None:
@@ -4381,6 +6137,8 @@ class App(tk.Tk):
         _persist_regex_collection(collection)
         self._sync_template_regex_from_library(template_identifier)
         self._refresh_regex_tree()
+        self._refresh_automation_type_tree()
+        self._focus_automation_type_node(f"tpl::{target_category}::{template_identifier}")
         self._focus_regex_node(f"tpl::{target_category}::{template_identifier}")
 
     def _add_regex_pattern(self) -> None:
@@ -4400,7 +6158,9 @@ class App(tk.Tk):
         _persist_regex_collection(collection)
         self._sync_template_regex_from_library(template_id)
         self._refresh_regex_tree()
+        self._refresh_automation_type_tree()
         new_index = len(template_entry.get("regex", [])) - 1
+        self._focus_automation_type_node(f"rx::{category_id}::{template_id}::{new_index}")
         self._focus_regex_node(f"rx::{category_id}::{template_id}::{new_index}")
 
     def _edit_regex_node(self) -> None:
@@ -4427,6 +6187,7 @@ class App(tk.Tk):
             collection["description"] = description.strip()
             _persist_regex_collection(collection)
             self._refresh_regex_tree()
+            self._refresh_automation_type_tree()
             self._focus_regex_node(f"cat::{category_id}")
             return
         if kind == "template" and category_id and template_id:
@@ -4448,6 +6209,7 @@ class App(tk.Tk):
             _persist_regex_collection(collection)
             self._sync_template_regex_from_library(template_id)
             self._refresh_regex_tree()
+            self._refresh_automation_type_tree()
             self._focus_regex_node(f"tpl::{category_id}::{template_id}")
             return
         if kind == "regex" and category_id and template_id and index is not None:
@@ -4472,6 +6234,7 @@ class App(tk.Tk):
             _persist_regex_collection(collection)
             self._sync_template_regex_from_library(template_id)
             self._refresh_regex_tree()
+            self._refresh_automation_type_tree()
             self._focus_regex_node(f"rx::{category_id}::{template_id}::{index}")
 
     def _delete_regex_node(self) -> None:
@@ -4492,6 +6255,7 @@ class App(tk.Tk):
             _persist_regex_collection(collection)
             self._sync_template_regex_from_library(template_id)
             self._refresh_regex_tree()
+            self._refresh_automation_type_tree()
             self.regex_selection = ("", None, None, None)
             self._set_regex_actions_state()
             return
@@ -4505,6 +6269,7 @@ class App(tk.Tk):
             _persist_regex_collection(collection)
             self._sync_template_regex_from_library(template_id)
             self._refresh_regex_tree()
+            self._refresh_automation_type_tree()
             self.regex_selection = ("", None, None, None)
             self._set_regex_actions_state()
             return
@@ -4525,6 +6290,7 @@ class App(tk.Tk):
                     pass
             self.regex_collections.pop(category_id, None)
             self._refresh_regex_tree()
+            self._refresh_automation_type_tree()
             self.regex_selection = ("", None, None, None)
             self._set_regex_actions_state()
     def _parse_headers_text(self, text: str) -> dict[str, str]:
@@ -4814,267 +6580,14 @@ class App(tk.Tk):
         self.scan_count += 1
         scan_id = self.scan_count
 
-        tab = ttk.Frame(self.nb, style="Card.TFrame")
-        self.nb.add(tab, text=f"Scan #{scan_id}")
-        self.nb.select(tab)
-
-        columns = ("url", "method", "status", "delta", "latency", "type", "length", "notes")
-        tree = ttk.Treeview(
-            tab,
-            columns=columns,
-            show="headings",
-            displaycolumns=("url", "method", "status", "delta", "latency", "type"),
-            height=12,
-        )
-        tree.heading("url", text="URL")
-        tree.heading("method", text="METHOD")
-        tree.heading("status", text="STATUS")
-        tree.heading("delta", text="DRIFT")
-        tree.heading("latency", text="LATENCY")
-        tree.heading("type", text="TYPE")
-        tree.column("url", width=320, anchor="w")
-        tree.column("method", width=90, anchor="center")
-        tree.column("status", width=90, anchor="center")
-        tree.column("delta", width=140, anchor="center")
-        tree.column("latency", width=110, anchor="center")
-        tree.column("type", width=220, anchor="w")
-        tree.column("length", width=0, stretch=False)
-        tree.column("notes", width=0, stretch=False)
-        tree.pack(fill="both", expand=True, padx=10, pady=10)
-
-        tree.tag_configure("success", background="#064e3b", foreground="#22d3ee")
-        tree.tag_configure("redirect", background="#7c2d12", foreground="#fbbf24")
-        tree.tag_configure("client", background="#1f2937", foreground="#f87171")
-        tree.tag_configure("server", background="#450a0a", foreground="#f87171")
-        tree.tag_configure("cors", background="#7c3aed", foreground="#fde68a")
-        tree.tag_configure("intel", background="#1e3a8a", foreground="#f8fafc")
-        tree.tag_configure("secret", background="#831843", foreground="#fdf2f8")
-        tree.tag_configure("slow", background="#1f2937", foreground="#fde047")
-        tree.tag_configure("delta-new", background="#0f172a", foreground="#facc15")
-        tree.tag_configure("delta-changed", background="#0f172a", foreground="#c084fc")
-
-        detail = ScrolledText(tab, height=10, font=("Consolas", 10), bg="#111827", fg="#e2e8f0", insertbackground="#22d3ee")
-        detail.pack(fill="both", expand=True, padx=10, pady=(0, 10))
-        detail.configure(state="disabled")
-
-        btn_frame = ttk.Frame(tab, style="Card.TFrame")
-        btn_frame.pack(fill="x", padx=10, pady=5)
-        ttk.Button(
-            btn_frame,
-            text="Export CSV",
-            command=lambda t=tree, r=results: self._export_csv(t, r),
-        ).pack(side="left", padx=5)
-        ttk.Button(
-            btn_frame,
-            text="Export JSON",
-            command=lambda t=tree, r=results: self._export_json(t, r),
-        ).pack(side="left", padx=5)
-        ttk.Button(
-            btn_frame,
-            text="Copy URL",
-            command=lambda t=tree: self._copy_selected(t),
-        ).pack(side="left", padx=5)
-        ttk.Button(
-            btn_frame,
-            text="Export Forensics Map",
-            command=lambda sid=scan_id: self._export_forensics_map_for_scan(sid),
-        ).pack(side="left", padx=5)
-
-        results = {}
-        metrics = {
-            "total": 0,
-            "success": 0,
-            "alerts": 0,
-            "secrets": 0,
-            "slow": 0,
-            "drift": 0,
-            "drift_new": 0,
-            "drift_changed": 0,
-        }
-        self._attach_tree_context_menu(tree, lambda iid: results.get(iid))
-
-        def refresh_hud():
-            for key in ["total", "success", "alerts", "secrets", "slow", "drift"]:
-                self.hud_metrics[key].set(str(metrics[key]))
-
-        def render_info(info):
-            status = info["status"]
-            if 200 <= status < 300:
-                tag = "success"
-            elif 300 <= status < 400:
-                tag = "redirect"
-            elif 400 <= status < 500:
-                tag = "client"
-            else:
-                tag = "server"
-
-            tags = [tag]
-            if info.get("cors"):
-                tags.append("cors")
-            if info.get("signals"):
-                tags.append("intel")
-            if info.get("secrets"):
-                tags.append("secret")
-            if info.get("slow"):
-                tags.append("slow")
-            delta_label = info.get("delta")
-            if delta_label == "NEW":
-                tags.append("delta-new")
-            elif isinstance(delta_label, str) and delta_label.startswith("CHANGED"):
-                tags.append("delta-changed")
-            latency_display = "-"
-            if info.get("latency") is not None:
-                latency_display = f"{info['latency']:.0f} ms"
-            item_id = tree.insert(
-                "",
-                "end",
-                values=(
-                    info["url"],
-                    info["method"],
-                    info["status"],
-                    info.get("delta", "-"),
-                    latency_display,
-                    info["type"],
-                    info["length"],
-                    info.get("notes", ""),
-                ),
-                tags=tuple(tags),
-            )
-            results[item_id] = info
-            metrics["total"] += 1
-            if 200 <= status < 300:
-                metrics["success"] += 1
-            if info.get("signals"):
-                metrics["alerts"] += len(info["signals"])
-            status_message = None
-            if info.get("secrets"):
-                metrics["secrets"] += info.get("secrets", 0)
-                status_message = "Secret material detected! Review intel panel."
-            if info.get("slow"):
-                metrics["slow"] += 1
-            if delta_label == "NEW":
-                metrics["drift"] += 1
-                metrics["drift_new"] += 1
-                status_message = status_message or f"Surface drift: NEW endpoint {info['url']}"
-            elif isinstance(delta_label, str) and delta_label.startswith("CHANGED"):
-                metrics["drift"] += 1
-                metrics["drift_changed"] += 1
-                status_message = status_message or f"Surface drift: {delta_label} @ {info['url']}"
-            if status_message is None:
-                status_message = f"Latest hit: {info['url']} ({info['status']})"
-            self.status_var.set(status_message)
-            if (
-                info.get("secrets")
-                or delta_label == "NEW"
-                or (isinstance(delta_label, str) and delta_label.startswith("CHANGED"))
-                or info.get("signals")
-            ):
-                self._log_console(status_message)
-            refresh_hud()
-            if len(results) == 1:
-                tree.selection_set(item_id)
-                update_detail(item_id)
-
-        def update_detail(item_id):
-            info = results.get(item_id)
-            if not info:
-                return
-            detail.configure(state="normal")
-            detail.delete("1.0", "end")
-            sections = [
-                f"URL: {info['url']}",
-                f"Method: {info['method']}",
-                f"Status: {info['status']}",
-                f"Baseline Delta: {info.get('delta', '-')}",
-                f"Type: {info['type']}",
-                f"Length: {info['length']} bytes",
-            ]
-            if info.get("previous_status") is not None:
-                sections.append(f"Baseline Status: {info['previous_status']}")
-            if info.get("latency") is not None:
-                sections.append(f"Latency: {info['latency']:.1f} ms")
-            detail.insert("end", "\n".join(sections) + "\n\n")
-            if info.get("signals"):
-                detail.insert("end", "Intel Signals:\n")
-                for note in info["signals"]:
-                    detail.insert("end", f"  • {note}\n")
-                detail.insert("end", "\n")
-            forensic = info.get("forensics") or {}
-            if forensic:
-                detail.insert("end", "Forensics Summary:\n")
-
-                def write_section(title: str, values: list[str], limit: int = 8):
-                    items = [str(v) for v in (values or []) if v]
-                    if not items:
-                        return
-                    display = items[:limit]
-                    if len(items) > limit:
-                        display.append("…")
-                    detail.insert("end", f"  {title}: {', '.join(display)}\n")
-
-                write_section("Parameters", forensic.get("parameters", []))
-                write_section("JSON Fields", forensic.get("json_fields", []))
-                write_section("Linked Paths", forensic.get("linked_paths", []))
-                write_section("Form Targets", forensic.get("form_targets", []))
-                write_section("JS Assets", forensic.get("asset_links", []))
-                write_section("Inline URLs", forensic.get("json_links", []))
-                write_section("WebSocket Links", forensic.get("websocket_links", []))
-                write_section("Header Link Targets", forensic.get("link_relations", []))
-                write_section("Robots Hints", forensic.get("robots_paths", []))
-                write_section("Sitemap URLs", forensic.get("sitemap_urls", []))
-                write_section("Well-known Paths", forensic.get("well_known_links", []))
-                write_section("Config Endpoints", forensic.get("config_endpoints", []))
-                write_section("CSP Reports", forensic.get("csp_reports", []))
-                write_section("Host Hints", forensic.get("host_hints", []))
-                write_section("Tech Hints", forensic.get("technologies", []))
-                write_section("Intel Notes", forensic.get("intel", []))
-                write_section("Secrets", forensic.get("secrets", []))
-                write_section("Rate Limits", forensic.get("rate_limits", []))
-                write_section("Auth Schemes", forensic.get("auth_schemes", []))
-                if forensic.get("graphql"):
-                    ops = forensic.get("graphql_operations", [])
-                    if ops:
-                        write_section("GraphQL Operations", ops, limit=10)
-                    else:
-                        detail.insert("end", "  GraphQL endpoint detected\n")
-                write_section("Global Stack", forensic.get("global_technologies", []))
-                write_section("Global Auth", forensic.get("global_auth_schemes", []))
-                write_section("Spec Clues", forensic.get("global_spec_documents", []))
-                write_section("Global JS Assets", forensic.get("global_asset_links", []))
-                write_section("Global Form Targets", forensic.get("global_form_targets", []))
-                write_section("Global Inline URLs", forensic.get("global_json_links", []))
-                write_section("Global WebSockets", forensic.get("global_websocket_links", []))
-                write_section("Global Link Targets", forensic.get("global_link_relations", []))
-                write_section("Global Host Hints", forensic.get("global_host_hints", []))
-                write_section("Global Robots Hints", forensic.get("global_robots_paths", []))
-                write_section("Global Sitemap URLs", forensic.get("global_sitemap_urls", []))
-                write_section("Global Well-known", forensic.get("global_well_known_links", []))
-                write_section("Global Config Endpoints", forensic.get("global_config_endpoints", []))
-                write_section("Global CSP Reports", forensic.get("global_csp_reports", []))
-                cert = forensic.get("certificate")
-                if isinstance(cert, dict) and cert:
-                    subject = cert.get("subject") or "-"
-                    issuer = cert.get("issuer") or "-"
-                    expires = cert.get("expires") or "-"
-                    alt_names = cert.get("alt_names") or []
-                    display_alt = ", ".join(alt_names[:4])
-                    if len(alt_names) > 4:
-                        display_alt += ", …"
-                    detail.insert("end", f"  TLS Subject: {subject}\n")
-                    detail.insert("end", f"  TLS Issuer: {issuer}\n")
-                    detail.insert("end", f"  TLS Expires: {expires}\n")
-                    if display_alt:
-                        detail.insert("end", f"  TLS Alt Names: {display_alt}\n")
-                detail.insert("end", "\n")
-            detail.insert("end", info["preview"])
-            detail.configure(state="disabled")
-
-        def on_select(_event):
-            selected = tree.selection()
-            if selected:
-                update_detail(selected[0])
-
-        tree.bind("<<TreeviewSelect>>", on_select)
+        view = self._create_scan_view(scan_id)
+        tree = view["tree"]
+        detail = view["detail"]
+        results = view["results"]
+        metrics = view["metrics"]
+        refresh_hud = view["refresh_hud"]
+        render_info = view["render_info"]
+        update_detail = view["update_detail"]
 
         def finish_message():
             drift_total = metrics.get("drift", 0)
@@ -5251,6 +6764,11 @@ class App(tk.Tk):
             self.nb.tab(index, text=new_title)
 
     def on_close(self):
+        if self.session_path:
+            try:
+                self._save_session_state()
+            except Exception:
+                pass
         for forcer in self.forcers.values():
             forcer.stop()
         self.destroy()
