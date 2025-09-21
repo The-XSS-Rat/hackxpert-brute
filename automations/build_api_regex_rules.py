@@ -11,7 +11,7 @@ TEMPLATE_PATH = REPO_ROOT / "automations" / "templates.json"
 REGEX_SET_DIR = REPO_ROOT / "automations" / "regex_sets"
 
 
-INDEX_COUNT = 10
+INDEX_COUNT = 15
 
 
 BASE_SEVERITY = {

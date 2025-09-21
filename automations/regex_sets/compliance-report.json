@@ -84,6 +84,46 @@
       ]
     },
     {
+      "template_id": "api-regex-compliance-report-access-management-11",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-access-management-12",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-access-management-13",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-access-management-14",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-access-management-15",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
       "template_id": "api-regex-compliance-report-accounting-01",
       "regex": [
         "(?i)compliance",
@@ -157,6 +197,46 @@
     },
     {
       "template_id": "api-regex-compliance-report-accounting-10",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-accounting-11",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-accounting-12",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-accounting-13",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-accounting-14",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-accounting-15",
       "regex": [
         "(?i)compliance",
         "(?i)control",
@@ -244,6 +324,46 @@
       ]
     },
     {
+      "template_id": "api-regex-compliance-report-analytics-11",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-analytics-12",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-analytics-13",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-analytics-14",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-analytics-15",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
       "template_id": "api-regex-compliance-report-audit-01",
       "regex": [
         "(?i)compliance",
@@ -317,6 +437,46 @@
     },
     {
       "template_id": "api-regex-compliance-report-audit-10",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-audit-11",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-audit-12",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-audit-13",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-audit-14",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-audit-15",
       "regex": [
         "(?i)compliance",
         "(?i)control",
@@ -404,6 +564,46 @@
       ]
     },
     {
+      "template_id": "api-regex-compliance-report-billing-11",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-billing-12",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-billing-13",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-billing-14",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-billing-15",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
       "template_id": "api-regex-compliance-report-business-intelligence-01",
       "regex": [
         "(?i)compliance",
@@ -477,6 +677,46 @@
     },
     {
       "template_id": "api-regex-compliance-report-business-intelligence-10",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-business-intelligence-11",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-business-intelligence-12",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-business-intelligence-13",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-business-intelligence-14",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-business-intelligence-15",
       "regex": [
         "(?i)compliance",
         "(?i)control",
@@ -564,6 +804,46 @@
       ]
     },
     {
+      "template_id": "api-regex-compliance-report-cloud-ops-11",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-cloud-ops-12",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-cloud-ops-13",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-cloud-ops-14",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-cloud-ops-15",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
       "template_id": "api-regex-compliance-report-collaboration-01",
       "regex": [
         "(?i)compliance",
@@ -637,6 +917,46 @@
     },
     {
       "template_id": "api-regex-compliance-report-collaboration-10",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-collaboration-11",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-collaboration-12",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-collaboration-13",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-collaboration-14",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-collaboration-15",
       "regex": [
         "(?i)compliance",
         "(?i)control",
@@ -724,6 +1044,46 @@
       ]
     },
     {
+      "template_id": "api-regex-compliance-report-commerce-11",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-commerce-12",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-commerce-13",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-commerce-14",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-commerce-15",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
       "template_id": "api-regex-compliance-report-compliance-01",
       "regex": [
         "(?i)compliance",
@@ -797,6 +1157,46 @@
     },
     {
       "template_id": "api-regex-compliance-report-compliance-10",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-compliance-11",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-compliance-12",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-compliance-13",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-compliance-14",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-compliance-15",
       "regex": [
         "(?i)compliance",
         "(?i)control",
@@ -884,6 +1284,46 @@
       ]
     },
     {
+      "template_id": "api-regex-compliance-report-customer-success-11",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-customer-success-12",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-customer-success-13",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-customer-success-14",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-customer-success-15",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
       "template_id": "api-regex-compliance-report-devops-01",
       "regex": [
         "(?i)compliance",
@@ -957,6 +1397,46 @@
     },
     {
       "template_id": "api-regex-compliance-report-devops-10",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-devops-11",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-devops-12",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-devops-13",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-devops-14",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-devops-15",
       "regex": [
         "(?i)compliance",
         "(?i)control",
@@ -1044,6 +1524,46 @@
       ]
     },
     {
+      "template_id": "api-regex-compliance-report-finance-11",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-finance-12",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-finance-13",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-finance-14",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-finance-15",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
       "template_id": "api-regex-compliance-report-governance-01",
       "regex": [
         "(?i)compliance",
@@ -1117,6 +1637,46 @@
     },
     {
       "template_id": "api-regex-compliance-report-governance-10",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-governance-11",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-governance-12",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-governance-13",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-governance-14",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-governance-15",
       "regex": [
         "(?i)compliance",
         "(?i)control",
@@ -1204,6 +1764,46 @@
       ]
     },
     {
+      "template_id": "api-regex-compliance-report-identity-11",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-identity-12",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-identity-13",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-identity-14",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-identity-15",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
       "template_id": "api-regex-compliance-report-infrastructure-01",
       "regex": [
         "(?i)compliance",
@@ -1277,6 +1877,46 @@
     },
     {
       "template_id": "api-regex-compliance-report-infrastructure-10",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-infrastructure-11",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-infrastructure-12",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-infrastructure-13",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-infrastructure-14",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-infrastructure-15",
       "regex": [
         "(?i)compliance",
         "(?i)control",
@@ -1364,6 +2004,46 @@
       ]
     },
     {
+      "template_id": "api-regex-compliance-report-logistics-11",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-logistics-12",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-logistics-13",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-logistics-14",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-logistics-15",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
       "template_id": "api-regex-compliance-report-marketing-01",
       "regex": [
         "(?i)compliance",
@@ -1437,6 +2117,46 @@
     },
     {
       "template_id": "api-regex-compliance-report-marketing-10",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-marketing-11",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-marketing-12",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-marketing-13",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-marketing-14",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-marketing-15",
       "regex": [
         "(?i)compliance",
         "(?i)control",
@@ -1524,6 +2244,46 @@
       ]
     },
     {
+      "template_id": "api-regex-compliance-report-operations-11",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-operations-12",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-operations-13",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-operations-14",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-operations-15",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
       "template_id": "api-regex-compliance-report-product-01",
       "regex": [
         "(?i)compliance",
@@ -1597,6 +2357,46 @@
     },
     {
       "template_id": "api-regex-compliance-report-product-10",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-product-11",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-product-12",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-product-13",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-product-14",
+      "regex": [
+        "(?i)compliance",
+        "(?i)control",
+        "(?i)finding"
+      ]
+    },
+    {
+      "template_id": "api-regex-compliance-report-product-15",
       "regex": [
         "(?i)compliance",
         "(?i)control",
