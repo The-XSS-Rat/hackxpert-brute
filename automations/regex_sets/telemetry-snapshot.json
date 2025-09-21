@@ -84,6 +84,46 @@
       ]
     },
     {
+      "template_id": "api-regex-telemetry-snapshot-access-management-11",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-access-management-12",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-access-management-13",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-access-management-14",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-access-management-15",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
       "template_id": "api-regex-telemetry-snapshot-accounting-01",
       "regex": [
         "(?i)telemetry",
@@ -157,6 +197,46 @@
     },
     {
       "template_id": "api-regex-telemetry-snapshot-accounting-10",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-accounting-11",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-accounting-12",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-accounting-13",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-accounting-14",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-accounting-15",
       "regex": [
         "(?i)telemetry",
         "(?i)metric",
@@ -244,6 +324,46 @@
       ]
     },
     {
+      "template_id": "api-regex-telemetry-snapshot-analytics-11",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-analytics-12",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-analytics-13",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-analytics-14",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-analytics-15",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
       "template_id": "api-regex-telemetry-snapshot-audit-01",
       "regex": [
         "(?i)telemetry",
@@ -317,6 +437,46 @@
     },
     {
       "template_id": "api-regex-telemetry-snapshot-audit-10",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-audit-11",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-audit-12",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-audit-13",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-audit-14",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-audit-15",
       "regex": [
         "(?i)telemetry",
         "(?i)metric",
@@ -404,6 +564,46 @@
       ]
     },
     {
+      "template_id": "api-regex-telemetry-snapshot-billing-11",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-billing-12",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-billing-13",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-billing-14",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-billing-15",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
       "template_id": "api-regex-telemetry-snapshot-business-intelligence-01",
       "regex": [
         "(?i)telemetry",
@@ -477,6 +677,46 @@
     },
     {
       "template_id": "api-regex-telemetry-snapshot-business-intelligence-10",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-business-intelligence-11",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-business-intelligence-12",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-business-intelligence-13",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-business-intelligence-14",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-business-intelligence-15",
       "regex": [
         "(?i)telemetry",
         "(?i)metric",
@@ -564,6 +804,46 @@
       ]
     },
     {
+      "template_id": "api-regex-telemetry-snapshot-cloud-ops-11",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-cloud-ops-12",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-cloud-ops-13",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-cloud-ops-14",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-cloud-ops-15",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
       "template_id": "api-regex-telemetry-snapshot-collaboration-01",
       "regex": [
         "(?i)telemetry",
@@ -637,6 +917,46 @@
     },
     {
       "template_id": "api-regex-telemetry-snapshot-collaboration-10",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-collaboration-11",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-collaboration-12",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-collaboration-13",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-collaboration-14",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-collaboration-15",
       "regex": [
         "(?i)telemetry",
         "(?i)metric",
@@ -724,6 +1044,46 @@
       ]
     },
     {
+      "template_id": "api-regex-telemetry-snapshot-commerce-11",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-commerce-12",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-commerce-13",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-commerce-14",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-commerce-15",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
       "template_id": "api-regex-telemetry-snapshot-compliance-01",
       "regex": [
         "(?i)telemetry",
@@ -797,6 +1157,46 @@
     },
     {
       "template_id": "api-regex-telemetry-snapshot-compliance-10",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-compliance-11",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-compliance-12",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-compliance-13",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-compliance-14",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-compliance-15",
       "regex": [
         "(?i)telemetry",
         "(?i)metric",
@@ -884,6 +1284,46 @@
       ]
     },
     {
+      "template_id": "api-regex-telemetry-snapshot-customer-success-11",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-customer-success-12",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-customer-success-13",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-customer-success-14",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-customer-success-15",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
       "template_id": "api-regex-telemetry-snapshot-devops-01",
       "regex": [
         "(?i)telemetry",
@@ -957,6 +1397,46 @@
     },
     {
       "template_id": "api-regex-telemetry-snapshot-devops-10",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-devops-11",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-devops-12",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-devops-13",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-devops-14",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-devops-15",
       "regex": [
         "(?i)telemetry",
         "(?i)metric",
@@ -1044,6 +1524,46 @@
       ]
     },
     {
+      "template_id": "api-regex-telemetry-snapshot-finance-11",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-finance-12",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-finance-13",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-finance-14",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-finance-15",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
       "template_id": "api-regex-telemetry-snapshot-governance-01",
       "regex": [
         "(?i)telemetry",
@@ -1117,6 +1637,46 @@
     },
     {
       "template_id": "api-regex-telemetry-snapshot-governance-10",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-governance-11",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-governance-12",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-governance-13",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-governance-14",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-governance-15",
       "regex": [
         "(?i)telemetry",
         "(?i)metric",
@@ -1204,6 +1764,46 @@
       ]
     },
     {
+      "template_id": "api-regex-telemetry-snapshot-identity-11",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-identity-12",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-identity-13",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-identity-14",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-identity-15",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
       "template_id": "api-regex-telemetry-snapshot-infrastructure-01",
       "regex": [
         "(?i)telemetry",
@@ -1277,6 +1877,46 @@
     },
     {
       "template_id": "api-regex-telemetry-snapshot-infrastructure-10",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-infrastructure-11",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-infrastructure-12",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-infrastructure-13",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-infrastructure-14",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-infrastructure-15",
       "regex": [
         "(?i)telemetry",
         "(?i)metric",
@@ -1364,6 +2004,46 @@
       ]
     },
     {
+      "template_id": "api-regex-telemetry-snapshot-logistics-11",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-logistics-12",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-logistics-13",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-logistics-14",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-logistics-15",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
       "template_id": "api-regex-telemetry-snapshot-marketing-01",
       "regex": [
         "(?i)telemetry",
@@ -1437,6 +2117,46 @@
     },
     {
       "template_id": "api-regex-telemetry-snapshot-marketing-10",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-marketing-11",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-marketing-12",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-marketing-13",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-marketing-14",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-marketing-15",
       "regex": [
         "(?i)telemetry",
         "(?i)metric",
@@ -1524,6 +2244,46 @@
       ]
     },
     {
+      "template_id": "api-regex-telemetry-snapshot-operations-11",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-operations-12",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-operations-13",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-operations-14",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-operations-15",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
       "template_id": "api-regex-telemetry-snapshot-product-01",
       "regex": [
         "(?i)telemetry",
@@ -1597,6 +2357,46 @@
     },
     {
       "template_id": "api-regex-telemetry-snapshot-product-10",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-product-11",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-product-12",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-product-13",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-product-14",
+      "regex": [
+        "(?i)telemetry",
+        "(?i)metric",
+        "(?i)timestamp"
+      ]
+    },
+    {
+      "template_id": "api-regex-telemetry-snapshot-product-15",
       "regex": [
         "(?i)telemetry",
         "(?i)metric",

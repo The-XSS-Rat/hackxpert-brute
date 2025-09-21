@@ -3,15 +3,33 @@
 from __future__ import annotations
 
 import json
+import sys
+import types
 from pathlib import Path
-from typing import Iterable
+from typing import Iterable, List
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 TEMPLATE_PATH = REPO_ROOT / "automations" / "templates.json"
 REGEX_SET_DIR = REPO_ROOT / "automations" / "regex_sets"
 
+STUB_MODULES = {
+    "requests",
+    "tkinter",
+    "tkinter.ttk",
+    "tkinter.filedialog",
+    "tkinter.messagebox",
+    "tkinter.simpledialog",
+    "tkinter.scrolledtext",
+    "PIL",
+    "PIL.Image",
+    "PIL.ImageTk",
+}
 
-INDEX_COUNT = 10
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
+
+
+INDEX_COUNT = 15
 
 
 BASE_SEVERITY = {
@@ -137,6 +155,133 @@ EXPOSURES = [
 ]
 
 
+def _install_gui_stubs() -> None:
+    """Install lightweight stubs so ``main`` can be imported headlessly."""
+
+    dummy_modules: dict[str, types.ModuleType] = {}
+
+    class DummyModule(types.ModuleType):
+        def __getattr__(self, name: str) -> object:  # pragma: no cover - helper
+            value = type(name, (), {})
+            setattr(self, name, value)
+            return value
+
+    def ensure_module(name: str) -> types.ModuleType:
+        module = dummy_modules.get(name)
+        if module is None:
+            module = DummyModule(name)
+            dummy_modules[name] = module
+            sys.modules[name] = module
+        return module
+
+    requests_mod = ensure_module("requests")
+
+    class _StubSession:
+        def __init__(self, *args: object, **kwargs: object) -> None:
+            pass
+
+        def get(self, *args: object, **kwargs: object) -> object:  # pragma: no cover - helper
+            raise RuntimeError("requests stub invoked")
+
+    requests_mod.Session = _StubSession  # type: ignore[attr-defined]
+    requests_mod.get = lambda *args, **kwargs: (_ for _ in ()).throw(RuntimeError("requests stub invoked"))
+    requests_mod.exceptions = types.SimpleNamespace(RequestException=Exception)
+
+    tk_mod = ensure_module("tkinter")
+    tk_mod.END = "end"  # type: ignore[attr-defined]
+
+    ttk_mod = ensure_module("tkinter.ttk")
+    filedialog_mod = ensure_module("tkinter.filedialog")
+    messagebox_mod = ensure_module("tkinter.messagebox")
+    simpledialog_mod = ensure_module("tkinter.simpledialog")
+    scrolled_mod = ensure_module("tkinter.scrolledtext")
+
+    scrolled_mod.ScrolledText = type("ScrolledText", (), {})  # type: ignore[attr-defined]
+
+    def _dummy_return(*_args: object, **_kwargs: object) -> str:
+        return ""
+
+    def _dummy_none(*_args: object, **_kwargs: object) -> None:
+        return None
+
+    filedialog_mod.askopenfilename = _dummy_return  # type: ignore[attr-defined]
+    filedialog_mod.asksaveasfilename = _dummy_return  # type: ignore[attr-defined]
+    messagebox_mod.showinfo = _dummy_none  # type: ignore[attr-defined]
+    messagebox_mod.showwarning = _dummy_none  # type: ignore[attr-defined]
+    messagebox_mod.showerror = _dummy_none  # type: ignore[attr-defined]
+    messagebox_mod.askyesno = lambda *_args, **_kwargs: True  # type: ignore[attr-defined]
+    simpledialog_mod.askstring = _dummy_return  # type: ignore[attr-defined]
+    simpledialog_mod.askinteger = lambda *_args, **_kwargs: 0  # type: ignore[attr-defined]
+
+    for attr in [
+        "Tk",
+        "Toplevel",
+        "Frame",
+        "Label",
+        "Button",
+        "Menu",
+        "Scrollbar",
+        "Canvas",
+        "StringVar",
+        "BooleanVar",
+        "IntVar",
+    ]:
+        setattr(tk_mod, attr, type(attr, (), {}))
+
+    tk_mod.ttk = ttk_mod  # type: ignore[attr-defined]
+    tk_mod.filedialog = filedialog_mod  # type: ignore[attr-defined]
+    tk_mod.messagebox = messagebox_mod  # type: ignore[attr-defined]
+    tk_mod.simpledialog = simpledialog_mod  # type: ignore[attr-defined]
+    tk_mod.ScrolledText = scrolled_mod.ScrolledText  # type: ignore[attr-defined]
+
+    pil_mod = ensure_module("PIL")
+    image_mod = ensure_module("PIL.Image")
+    imagetk_mod = ensure_module("PIL.ImageTk")
+
+    image_mod.open = _dummy_none  # type: ignore[attr-defined]
+    image_mod.new = _dummy_none  # type: ignore[attr-defined]
+    image_mod.ANTIALIAS = 0  # type: ignore[attr-defined]
+    image_mod.LANCZOS = 0  # type: ignore[attr-defined]
+    imagetk_mod.PhotoImage = type("PhotoImage", (), {})  # type: ignore[attr-defined]
+
+    pil_mod.Image = image_mod  # type: ignore[attr-defined]
+    pil_mod.ImageTk = imagetk_mod  # type: ignore[attr-defined]
+
+
+def _load_default_templates() -> list[dict[str, object]]:
+    import importlib
+
+    try:
+        main_module = importlib.import_module("main")
+    except ImportError as exc:  # pragma: no cover - fallback path
+        missing = getattr(exc, "name", "")
+        if missing in STUB_MODULES:
+            _install_gui_stubs()
+            main_module = importlib.import_module("main")
+        else:
+            raise
+    templates = getattr(main_module, "DEFAULT_AUTOMATION_TEMPLATES", [])
+    return json.loads(json.dumps(list(templates)))
+
+
+def load_existing_templates() -> list[dict[str, object]]:
+    """Load persisted templates, falling back to the runtime defaults."""
+
+    def _copy_templates(templates: Iterable[dict[str, object]]) -> list[dict[str, object]]:
+        return json.loads(json.dumps(list(templates)))
+
+    if TEMPLATE_PATH.exists():
+        try:
+            payload = json.loads(TEMPLATE_PATH.read_text())
+        except json.JSONDecodeError:
+            payload = None
+        else:
+            if isinstance(payload, list):
+                return [entry for entry in payload if isinstance(entry, dict)]
+
+    return _copy_templates(_load_default_templates())
+
+
 def slugify(value: str) -> str:
     """Return a filesystem and URL friendly slug."""
     cleaned = "".join(ch if ch.isalnum() else "-" for ch in value.lower())
@@ -195,7 +340,7 @@ def build_regex_sets() -> dict[str, list[dict[str, object]]]:
 
 
 def main() -> None:
-    payload = json.loads(TEMPLATE_PATH.read_text())
+    payload: List[dict[str, object]] = load_existing_templates()
     existing_ids = {entry.get("id") for entry in payload if isinstance(entry, dict)}
     additions = build_templates(existing_ids)
     payload.extend(additions)
