@@ -3843,6 +3843,11 @@ class App(tk.Tk):
             text="Export Forensics Map",
             command=lambda sid=scan_id: self._export_forensics_map_for_scan(sid),
         ).pack(side="left", padx=5)
+        ttk.Button(
+            btn_frame,
+            text="Run Automations",
+            command=lambda sid=scan_id, t=tree, r=results: self._automate_selected_discoveries(sid, t, r),
+        ).pack(side="left", padx=5)
 
         view = {
             "tab": tab,
@@ -3856,6 +3861,233 @@ class App(tk.Tk):
         }
         self.scan_views[scan_id] = view
         return view
+
+    def _automate_selected_discoveries(
+        self,
+        scan_id: int,
+        tree: ttk.Treeview,
+        results: dict[str, dict[str, Any]],
+    ) -> None:
+        selection = tree.selection()
+        if not selection:
+            messagebox.showinfo("Automations", "Select a discovery row first.")
+            return
+        item_id = selection[0]
+        info = results.get(item_id)
+        if not info:
+            messagebox.showinfo("Automations", "No discovery information available for the selection.")
+            return
+        forcer = self.forcers.get(scan_id)
+        base_url = getattr(forcer, "base_url", "") if forcer else ""
+        targets = self._collect_discovery_targets(info, base_url)
+        if not targets:
+            messagebox.showinfo("Automations", "No discovered endpoints ready for automation on this hit.")
+            return
+        self._open_discovery_automation_tab(scan_id, info, targets, base_url)
+
+    def _collect_discovery_targets(self, info: dict[str, Any], base_url: str) -> list[str]:
+        forensics = info.get("forensics") or {}
+        buckets = [
+            "linked_paths",
+            "form_targets",
+            "json_links",
+            "config_endpoints",
+            "well_known_links",
+            "link_relations",
+            "asset_links",
+            "websocket_links",
+        ]
+        global_buckets = [
+            "global_asset_links",
+            "global_form_targets",
+            "global_json_links",
+            "global_link_relations",
+            "global_config_endpoints",
+            "global_well_known_links",
+            "global_websocket_links",
+        ]
+        discovered: set[str] = set()
+        base_reference = base_url or info.get("url") or ""
+        if base_reference and not base_reference.endswith("/"):
+            base_reference = base_reference + "/"
+
+        def _absolutize(value: str) -> Optional[str]:
+            candidate = (value or "").strip()
+            if not candidate:
+                return None
+            if candidate.startswith(("http://", "https://")):
+                return candidate
+            if not base_reference:
+                return None
+            return urllib.parse.urljoin(base_reference, candidate.lstrip("/"))
+
+        for bucket in buckets:
+            for item in forensics.get(bucket, []) or []:
+                absolute = _absolutize(item)
+                if absolute:
+                    discovered.add(absolute)
+        for bucket in global_buckets:
+            for item in forensics.get(bucket, []) or []:
+                absolute = _absolutize(item)
+                if absolute:
+                    discovered.add(absolute)
+
+        current_url = info.get("url")
+        if isinstance(current_url, str) and current_url.strip():
+            discovered.add(current_url.strip())
+
+        filtered = [item for item in discovered if item.startswith(("http://", "https://"))]
+        # Keep the list manageable for automation fan-out while preserving determinism.
+        filtered.sort()
+        return filtered[:64]
+
+    def _open_discovery_automation_tab(
+        self,
+        scan_id: int,
+        info: dict[str, Any],
+        targets: list[str],
+        base_url: str,
+    ) -> None:
+        templates = self._build_discovery_templates(targets)
+        if not templates:
+            messagebox.showinfo("Automations", "Unable to craft automation templates for the selected discovery.")
+            return
+
+        tab = ttk.Frame(self.nb, style="Card.TFrame")
+        url_label = info.get("url", f"Scan {scan_id}")
+        parsed = urllib.parse.urlparse(url_label)
+        descriptor = parsed.path or parsed.netloc or url_label
+        descriptor = descriptor[-24:] if descriptor else f"Scan {scan_id}"
+        tab_title = f"Discovery ▶ {descriptor}" if descriptor else f"Discovery ▶ {scan_id}"
+        self.nb.add(tab, text=tab_title)
+        self.nb.select(tab)
+
+        status_var = tk.StringVar(value=f"Running automations on {len(targets)} discovery target(s)…")
+        ttk.Label(tab, textvariable=status_var, style="StatusBadge.TLabel").pack(anchor="w", padx=10, pady=(10, 4))
+
+        progress = ttk.Progressbar(tab, mode="determinate")
+        progress.pack(fill="x", padx=10, pady=(0, 8))
+
+        ttk.Label(tab, text="Automation Targets", style="Glitch.TLabel").pack(anchor="w", padx=10)
+        targets_box = ScrolledText(tab, height=4, font=("Share Tech Mono", 9))
+        targets_box.pack(fill="x", padx=10, pady=(0, 10))
+        targets_box.insert("1.0", "\n".join(targets))
+        targets_box.configure(state="disabled")
+
+        columns = ("name", "url", "status", "matched", "elapsed")
+        tree = ttk.Treeview(tab, columns=columns, show="headings", height=12)
+        tree.heading("name", text="TEMPLATE")
+        tree.heading("url", text="URL")
+        tree.heading("status", text="STATUS")
+        tree.heading("matched", text="MATCHED")
+        tree.heading("elapsed", text="ELAPSED")
+        tree.column("name", width=200, anchor="w")
+        tree.column("url", width=320, anchor="w")
+        tree.column("status", width=90, anchor="center")
+        tree.column("matched", width=90, anchor="center")
+        tree.column("elapsed", width=110, anchor="center")
+        tree.pack(fill="both", expand=True, padx=10, pady=(0, 10))
+        tree.tag_configure("match", background="#065f46", foreground="#d1fae5")
+        tree.tag_configure("miss", background="#111827", foreground="#9ca3af")
+
+        detail = ScrolledText(tab, height=10, font=("Consolas", 10), bg="#030712", fg="#e2e8f0", insertbackground="#22d3ee")
+        detail.pack(fill="both", expand=True, padx=10, pady=(0, 10))
+        detail.configure(state="disabled")
+
+        results_lookup: dict[str, dict[str, Any]] = {}
+        matched_counter = {"hits": 0, "total": len(templates)}
+
+        def update_detail(item_id: str) -> None:
+            payload = results_lookup.get(item_id)
+            if not payload:
+                return
+            detail.configure(state="normal")
+            detail.delete("1.0", "end")
+            lines = [
+                f"Template: {payload.get('template_name') or payload.get('template_id')}",
+                f"URL: {payload.get('url')}",
+                f"Status: {payload.get('status')}",
+                f"Matched: {'yes' if payload.get('matched') else 'no'}",
+                f"Elapsed: {payload.get('elapsed_ms', 0):.0f} ms",
+                f"Severity: {payload.get('severity', 'info')}",
+            ]
+            evidence = payload.get("evidence") or []
+            if evidence:
+                lines.append("\nEvidence:")
+                lines.extend(f"  • {item}" for item in evidence)
+            preview = payload.get("response_preview")
+            if preview:
+                lines.append("\nResponse Preview:\n" + preview)
+            detail.insert("1.0", "\n".join(lines))
+            detail.configure(state="disabled")
+
+        def on_tree_select(_event):
+            selection = tree.selection()
+            if selection:
+                update_detail(selection[0])
+
+        tree.bind("<<TreeviewSelect>>", on_tree_select)
+
+        def handle_result(payload: dict[str, Any]) -> None:
+            matched = bool(payload.get("matched"))
+            if matched:
+                matched_counter["hits"] += 1
+            iid = tree.insert(
+                "",
+                "end",
+                values=(
+                    payload.get("template_name") or payload.get("template_id") or "Template",
+                    payload.get("url"),
+                    payload.get("status"),
+                    "yes" if matched else "no",
+                    f"{payload.get('elapsed_ms', 0):.0f} ms",
+                ),
+                tags=("match" if matched else "miss",),
+            )
+            results_lookup[iid] = payload
+            if len(results_lookup) == 1:
+                tree.selection_set(iid)
+                update_detail(iid)
+
+        def handle_finish() -> None:
+            summary = (
+                f"Discovery automations complete — {matched_counter['hits']} matched out of {matched_counter['total']} probes."
+            )
+            status_var.set(summary)
+
+        engine = AutomationEngine(
+            base_url=base_url or targets[0],
+            templates=templates,
+            timeout=self.settings.data.get("timeout", 5),
+            follow_redirects=self.settings.data.get("follow_redirects", True),
+            base_headers=self._compose_headers_from_settings(),
+            proxies=self._current_proxies(),
+            on_result=lambda data: self.after(0, lambda payload=data: handle_result(payload)),
+            on_finish=lambda: self.after(0, handle_finish),
+            on_status=lambda status: self.after(0, lambda text=status: status_var.set(text)),
+            on_progress=lambda pct: self.after(0, lambda value=pct: progress.configure(value=value)),
+        )
+        tab._automation_engine = engine  # type: ignore[attr-defined]
+        engine.start()
+
+    def _build_discovery_templates(self, targets: list[str]) -> list[dict[str, Any]]:
+        templates: list[dict[str, Any]] = []
+        for idx, url in enumerate(targets, start=1):
+            if not isinstance(url, str) or not url.strip():
+                continue
+            templates.append(
+                {
+                    "id": f"discovery::{idx}",
+                    "name": f"Discovery probe #{idx}",
+                    "description": "Automated follow-up probe for discovered surface item.",
+                    "url": url.strip(),
+                    "method": "GET",
+                    "matchers": {},
+                    "severity": "info",
+                    "tags": ["discovery", "autoprobe"],
+                }
+            )
+        return templates
 
     def _on_theme_change(self, *_args: object) -> None:
         self._apply_theme_palette()
