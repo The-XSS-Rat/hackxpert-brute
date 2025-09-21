@@ -8,7 +8,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -16,7 +18,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -24,7 +28,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -32,7 +38,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -40,7 +48,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -48,7 +58,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -56,7 +68,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -64,7 +78,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -72,7 +88,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -80,7 +98,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -88,7 +108,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -96,7 +118,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -104,7 +128,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -112,7 +138,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -120,7 +148,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -128,7 +158,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -136,7 +168,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -144,7 +178,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -152,7 +188,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -160,7 +198,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -168,7 +208,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -176,7 +218,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -184,7 +228,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -192,7 +238,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -200,7 +248,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -208,7 +258,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -216,7 +268,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -224,7 +278,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -232,7 +288,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -240,7 +298,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -248,7 +308,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -256,7 +318,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -264,7 +328,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -272,7 +338,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -280,7 +348,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -288,7 +358,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -296,7 +368,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -304,7 +378,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -312,7 +388,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -320,7 +398,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -328,7 +408,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -336,7 +418,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -344,7 +428,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -352,7 +438,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -360,7 +448,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -368,7 +458,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -376,7 +468,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -384,7 +478,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -392,7 +488,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -400,7 +498,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -408,7 +508,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -416,7 +518,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -424,7 +528,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -432,7 +538,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -440,7 +548,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -448,7 +558,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -456,7 +568,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -464,7 +578,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -472,7 +588,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -480,7 +598,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -488,7 +608,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -496,7 +618,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -504,7 +628,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -512,7 +638,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -520,7 +648,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -528,7 +658,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -536,7 +668,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -544,7 +678,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -552,7 +688,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -560,7 +698,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -568,7 +708,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -576,7 +718,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -584,7 +728,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -592,7 +738,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -600,7 +748,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -608,7 +758,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -616,7 +768,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -624,7 +778,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -632,7 +788,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -640,7 +798,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -648,7 +808,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -656,7 +818,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -664,7 +828,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -672,7 +838,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -680,7 +848,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -688,7 +858,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -696,7 +868,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -704,7 +878,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -712,7 +888,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -720,7 +898,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -728,7 +908,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -736,7 +918,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -744,7 +928,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -752,7 +938,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -760,7 +948,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -768,7 +958,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -776,7 +968,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -784,7 +978,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -792,7 +988,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -800,7 +998,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -808,7 +1008,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -816,7 +1018,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -824,7 +1028,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -832,7 +1038,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -840,7 +1048,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -848,7 +1058,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -856,7 +1068,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -864,7 +1078,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -872,7 +1088,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -880,7 +1098,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -888,7 +1108,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -896,7 +1118,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -904,7 +1128,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -912,7 +1138,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -920,7 +1148,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -928,7 +1158,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -936,7 +1168,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -944,7 +1178,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -952,7 +1188,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -960,7 +1198,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -968,7 +1208,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -976,7 +1218,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -984,7 +1228,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -992,7 +1238,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1000,7 +1248,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1008,7 +1258,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1016,7 +1268,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1024,7 +1278,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1032,7 +1288,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1040,7 +1298,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1048,7 +1308,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1056,7 +1318,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1064,7 +1328,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1072,7 +1338,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1080,7 +1348,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1088,7 +1358,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1096,7 +1368,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1104,7 +1378,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1112,7 +1388,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1120,7 +1398,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1128,7 +1408,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1136,7 +1418,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1144,7 +1428,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1152,7 +1438,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1160,7 +1448,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1168,7 +1458,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1176,7 +1468,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1184,7 +1478,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1192,7 +1488,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1200,7 +1498,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1208,7 +1508,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1216,7 +1518,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1224,7 +1528,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1232,7 +1538,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1240,7 +1548,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1248,7 +1558,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1256,7 +1568,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1264,7 +1578,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1272,7 +1588,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1280,7 +1598,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1288,7 +1608,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1296,7 +1618,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1304,7 +1628,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1312,7 +1638,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1320,7 +1648,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1328,7 +1658,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1336,7 +1668,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1344,7 +1678,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1352,7 +1688,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1360,7 +1698,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1368,7 +1708,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1376,7 +1718,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1384,7 +1728,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1392,7 +1738,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1400,7 +1748,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1408,7 +1758,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1416,7 +1768,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1424,7 +1778,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1432,7 +1788,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1440,7 +1798,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1448,7 +1808,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1456,7 +1818,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1464,7 +1828,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1472,7 +1838,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1480,7 +1848,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1488,7 +1858,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1496,7 +1868,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1504,7 +1878,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1512,7 +1888,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1520,7 +1898,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1528,7 +1908,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1536,7 +1918,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1544,7 +1928,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1552,7 +1938,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1560,7 +1948,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1568,7 +1958,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1576,7 +1968,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1584,7 +1978,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1592,7 +1988,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1600,7 +1998,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1608,7 +2008,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1616,7 +2018,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1624,7 +2028,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1632,7 +2038,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1640,7 +2048,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1648,7 +2058,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1656,7 +2068,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1664,7 +2078,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1672,7 +2088,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1680,7 +2098,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1688,7 +2108,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1696,7 +2118,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1704,7 +2128,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1712,7 +2138,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1720,7 +2148,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1728,7 +2158,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1736,7 +2168,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1744,7 +2178,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1752,7 +2188,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1760,7 +2198,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1768,7 +2208,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1776,7 +2218,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1784,7 +2228,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1792,7 +2238,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1800,7 +2248,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1808,7 +2258,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1816,7 +2268,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1824,7 +2278,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1832,7 +2288,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1840,7 +2298,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1848,7 +2308,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1856,7 +2318,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1864,7 +2328,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1872,7 +2338,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1880,7 +2348,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1888,7 +2358,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1896,7 +2368,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1904,7 +2378,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1912,7 +2388,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1920,7 +2398,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1928,7 +2408,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1936,7 +2418,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1944,7 +2428,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1952,7 +2438,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1960,7 +2448,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1968,7 +2458,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1976,7 +2468,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1984,7 +2478,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -1992,7 +2488,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2000,7 +2498,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2008,7 +2508,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2016,7 +2518,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2024,7 +2528,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2032,7 +2538,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2040,7 +2548,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2048,7 +2558,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2056,7 +2568,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2064,7 +2578,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2072,7 +2588,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2080,7 +2598,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2088,7 +2608,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2096,7 +2618,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2104,7 +2628,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2112,7 +2638,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2120,7 +2648,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2128,7 +2658,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2136,7 +2668,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2144,7 +2678,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2152,7 +2688,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2160,7 +2698,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2168,7 +2708,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2176,7 +2718,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2184,7 +2728,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2192,7 +2738,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2200,7 +2748,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2208,7 +2758,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2216,7 +2768,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2224,7 +2778,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2232,7 +2788,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2240,7 +2798,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2248,7 +2808,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2256,7 +2818,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2264,7 +2828,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2272,7 +2838,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2280,7 +2848,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2288,7 +2858,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2296,7 +2868,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2304,7 +2878,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2312,7 +2888,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2320,7 +2898,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2328,7 +2908,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2336,7 +2918,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2344,7 +2928,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2352,7 +2938,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2360,7 +2948,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2368,7 +2958,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2376,7 +2968,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2384,7 +2978,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2392,7 +2988,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     },
     {
@@ -2400,7 +2998,9 @@
       "regex": [
         "(?i)config",
         "(?i)environment",
-        "(?i)secret"
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
       ]
     }
   ]

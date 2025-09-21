@@ -68,7 +68,7 @@ EXPOSURES = [
         "path_template": "/api/{category_slug}/token-cache-{index_padded}.json",
         "description": "Detects exposed {category_title} token cache exports leaking bearer secrets.",
         "severity": "high",
-        "regex_terms": ["token", "secret", "bearer"],
+        "regex_terms": ["token", "secret", "bearer", "refresh", "session"],
         "tags": ["api", "credentials", "{category_slug}"],
     },
     {
@@ -77,7 +77,7 @@ EXPOSURES = [
         "path_template": "/api/{category_slug}/sessions-ledger-{index_padded}.log",
         "description": "Catches leaked {category_title} session ledgers disclosing JWTs and expirations.",
         "severity": "high",
-        "regex_terms": ["session", "jwt", "exp"],
+        "regex_terms": ["session", "jwt", "exp", "refresh_token", "cookie"],
         "tags": ["api", "sessions", "{category_slug}"],
     },
     {
@@ -86,7 +86,7 @@ EXPOSURES = [
         "path_template": "/api/{category_slug}/config-export-{index_padded}.yaml",
         "description": "Finds world-readable {category_title} configuration exports exposing environment secrets.",
         "severity": "high",
-        "regex_terms": ["config", "environment", "secret"],
+        "regex_terms": ["config", "environment", "secret", "settings", "credential"],
         "tags": ["api", "config", "{category_slug}"],
     },
     {
@@ -95,7 +95,7 @@ EXPOSURES = [
         "path_template": "/api/{category_slug}/user-dump-{index_padded}.csv",
         "description": "Detects exposed {category_title} user exports leaking directory records.",
         "severity": "medium",
-        "regex_terms": ["email", "user", "id"],
+        "regex_terms": ["email", "user", "id", "username", "profile"],
         "tags": ["api", "intel", "{category_slug}"],
     },
     {
@@ -104,7 +104,7 @@ EXPOSURES = [
         "path_template": "/api/{category_slug}/billing-export-{index_padded}.csv",
         "description": "Identifies {category_title} billing exports containing transaction data.",
         "severity": "medium",
-        "regex_terms": ["invoice", "amount", "currency"],
+        "regex_terms": ["invoice", "amount", "currency", "payment", "transaction"],
         "tags": ["api", "billing", "{category_slug}"],
     },
     {
@@ -113,7 +113,7 @@ EXPOSURES = [
         "path_template": "/api/{category_slug}/webhooks-registry-{index_padded}.json",
         "description": "Detects leaked {category_title} webhook registries exposing callback secrets.",
         "severity": "high",
-        "regex_terms": ["webhook", "callback", "signature"],
+        "regex_terms": ["webhook", "callback", "signature", "endpoint", "token"],
         "tags": ["api", "integrations", "{category_slug}"],
     },
     {
@@ -122,7 +122,7 @@ EXPOSURES = [
         "path_template": "/api/{category_slug}/telemetry-snapshot-{index_padded}.json",
         "description": "Surfaces exposed {category_title} telemetry snapshots leaking internal metrics.",
         "severity": "medium",
-        "regex_terms": ["telemetry", "metric", "timestamp"],
+        "regex_terms": ["telemetry", "metric", "timestamp", "event", "payload"],
         "tags": ["api", "telemetry", "{category_slug}"],
     },
     {
@@ -131,7 +131,7 @@ EXPOSURES = [
         "path_template": "/api/{category_slug}/debug-trace-{index_padded}.log",
         "description": "Detects leaked {category_title} debug traces revealing stack data.",
         "severity": "medium",
-        "regex_terms": ["trace", "exception", "stack"],
+        "regex_terms": ["trace", "exception", "stack", "debug", "error"],
         "tags": ["api", "debug", "{category_slug}"],
     },
     {
@@ -140,7 +140,7 @@ EXPOSURES = [
         "path_template": "/api/{category_slug}/db-backup-{index_padded}.sql",
         "description": "Finds exposed {category_title} database backups with raw records.",
         "severity": "high",
-        "regex_terms": ["insert", "password", "api_key"],
+        "regex_terms": ["insert", "password", "api_key", "create table", "dump"],
         "tags": ["api", "database", "{category_slug}"],
     },
     {
@@ -149,7 +149,7 @@ EXPOSURES = [
         "path_template": "/api/{category_slug}/compliance-report-{index_padded}.pdf",
         "description": "Detects leaked {category_title} compliance reports disclosing control evidence.",
         "severity": "medium",
-        "regex_terms": ["compliance", "control", "finding"],
+        "regex_terms": ["compliance", "control", "finding", "audit", "evidence"],
         "tags": ["api", "compliance", "{category_slug}"],
     },
 ]

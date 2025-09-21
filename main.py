@@ -593,6 +593,92 @@ def _generate_bulk_automation_templates(target: int = 1000) -> list[dict[str, An
 DEFAULT_AUTOMATION_TEMPLATES.extend(_generate_bulk_automation_templates(1000))
 
 
+PRESET_AUTOMATION_RULESETS: dict[str, list[str]] = {
+    "Rapid Secrets Sweep": [
+        "dotenv-exposure",
+        "git-config-exposure",
+        "config-json",
+        "spring-actuator-env",
+        "credential-export-leak-okta-01",
+        "integration-token-leak-github-01",
+    ],
+    "Framework Config Recon": [
+        "framework-config-leak-laravel-01",
+        "framework-config-leak-django-01",
+        "framework-config-leak-rails-01",
+        "framework-config-leak-express-01",
+        "framework-config-leak-symfony-01",
+        "framework-config-leak-angular-01",
+        "framework-config-leak-react-01",
+        "framework-config-leak-nextjs-01",
+    ],
+    "Environment Snapshot Recon": [
+        "environment-snapshot-leak-production-01",
+        "environment-snapshot-leak-staging-01",
+        "environment-snapshot-leak-qa-01",
+        "environment-snapshot-leak-dev-01",
+        "environment-snapshot-leak-sandbox-01",
+        "environment-snapshot-leak-training-01",
+    ],
+    "Pipeline Artifact Sweep": [
+        "pipeline-log-exposure-github-actions-01",
+        "pipeline-log-exposure-gitlab-ci-01",
+        "pipeline-log-exposure-jenkins-01",
+        "pipeline-log-exposure-azure-devops-01",
+        "pipeline-log-exposure-circleci-01",
+        "pipeline-log-exposure-travis-ci-01",
+    ],
+    "Backup Vault Sweep": [
+        "backup-archive-exposure-mysql-01",
+        "backup-archive-exposure-postgresql-01",
+        "backup-archive-exposure-mongodb-01",
+        "backup-archive-exposure-redis-01",
+        "backup-archive-exposure-elasticsearch-01",
+    ],
+    "Credential Export Audit": [
+        "credential-export-leak-salesforce-01",
+        "credential-export-leak-okta-01",
+        "credential-export-leak-servicenow-01",
+        "credential-export-leak-workday-01",
+        "credential-export-leak-slack-01",
+        "credential-export-leak-zendesk-01",
+    ],
+    "Admin Intel Sweep": [
+        "admin-report-exposure-usage-01",
+        "admin-report-exposure-security-01",
+        "admin-report-exposure-risk-01",
+        "admin-report-exposure-billing-01",
+        "admin-report-exposure-availability-01",
+        "admin-report-exposure-product-01",
+    ],
+    "Debug Portal Recon": [
+        "debug-portal-dump-beta-01",
+        "debug-portal-dump-gamma-01",
+        "debug-portal-dump-delta-01",
+        "debug-portal-dump-theta-01",
+        "debug-portal-dump-omega-01",
+        "debug-portal-dump-sigma-01",
+    ],
+    "Product Intelligence Sweep": [
+        "dataset-export-leak-customers-01",
+        "dataset-export-leak-analytics-01",
+        "dataset-export-leak-marketing-01",
+        "dataset-export-leak-operations-01",
+        "feature-flag-export-mobile-app-01",
+        "feature-flag-export-web-app-01",
+        "feature-flag-export-platform-01",
+    ],
+    "Integration Token Audit": [
+        "integration-token-leak-github-01",
+        "integration-token-leak-gitlab-01",
+        "integration-token-leak-bitbucket-01",
+        "integration-token-leak-jira-01",
+        "integration-token-leak-slack-01",
+        "integration-token-leak-zoom-01",
+    ],
+}
+
+
 def _load_automation_templates_from_disk(path: Path) -> list[dict[str, Any]]:
     if not path.exists():
         return []
@@ -2380,6 +2466,7 @@ class App(tk.Tk):
         self.automation_templates: dict[str, dict[str, Any]] = {}
         self.automation_custom_templates: list[dict[str, Any]] = []
         self.automation_rulesets: dict[str, list[str]] = {}
+        self.automation_ruleset_index: dict[str, dict[str, Any]] = {}
         self._automation_library_payload: dict[str, Any] = {}
         self.regex_collections: dict[str, dict[str, Any]] = {}
         self.regex_selection: tuple[str, Optional[str], Optional[str], Optional[int]] = ("", None, None, None)
@@ -2468,12 +2555,19 @@ class App(tk.Tk):
             filtered = [tid for tid in template_ids if tid in combined]
             if filtered:
                 rulesets[str(name)] = filtered
+        for name, template_ids in PRESET_AUTOMATION_RULESETS.items():
+            if name in rulesets:
+                continue
+            filtered = [tid for tid in template_ids if tid in combined]
+            if filtered:
+                rulesets[name] = filtered
         self.automation_templates = combined
         self.automation_custom_templates = custom
         self.automation_rulesets = rulesets
         self._automation_library_payload = {"custom_templates": custom, "rulesets": rulesets}
         self.regex_collections = _load_regex_collections_from_disk()
         self._apply_regex_collections_to_templates()
+        self._rebuild_ruleset_index()
 
     def _apply_regex_collections_to_templates(self) -> None:
         if not self.regex_collections:
@@ -3149,7 +3243,11 @@ class App(tk.Tk):
 
         controls = ttk.Frame(frame, style="Card.TFrame")
         controls.grid(row=2, column=0, columnspan=2, sticky="ew", padx=8, pady=(4, 6))
-        controls.columnconfigure(6, weight=1)
+        controls.columnconfigure(7, weight=1)
+
+        self.automation_ruleset_filter_var = tk.StringVar()
+        self.automation_ruleset_filter_var.trace_add("write", self._on_ruleset_filter_changed)
+        self.automation_ruleset_summary_var = tk.StringVar()
 
         self.automation_run_button = ttk.Button(
             controls,
@@ -3164,7 +3262,7 @@ class App(tk.Tk):
             textvariable=self.automation_ruleset_var,
             state="readonly",
             width=26,
-            values=sorted(self.automation_rulesets.keys()),
+            values=self._filtered_ruleset_names(),
         )
         self.automation_ruleset_combo.grid(row=0, column=1, padx=4, pady=4)
 
@@ -3195,6 +3293,19 @@ class App(tk.Tk):
             command=self._open_template_builder,
         )
         self.automation_new_button.grid(row=0, column=5, padx=4, pady=4)
+
+        ttk.Label(controls, text="Filter:").grid(row=0, column=6, padx=4, pady=4, sticky="e")
+        self.automation_ruleset_filter_entry = ttk.Entry(
+            controls,
+            textvariable=self.automation_ruleset_filter_var,
+            width=26,
+        )
+        self.automation_ruleset_filter_entry.grid(row=0, column=7, padx=4, pady=4, sticky="we")
+        self.automation_ruleset_summary_label = ttk.Label(
+            controls,
+            textvariable=self.automation_ruleset_summary_var,
+        )
+        self.automation_ruleset_summary_label.grid(row=0, column=8, padx=4, pady=4, sticky="w")
 
         template_container = ttk.Frame(frame, style="Card.TFrame")
         template_container.grid(row=3, column=0, sticky="nsew", padx=(8, 4), pady=6)
@@ -3287,13 +3398,16 @@ class App(tk.Tk):
     def _update_automation_ruleset_combo(self) -> None:
         if not hasattr(self, "automation_ruleset_combo"):
             return
-        names = sorted(self.automation_rulesets.keys())
+        names = self._filtered_ruleset_names()
+        current = self.automation_ruleset_var.get()
         self.automation_ruleset_combo.configure(values=names)
-        if names:
-            if self.automation_ruleset_var.get() not in names:
-                self.automation_ruleset_var.set(names[0])
+        if current in names:
+            self.automation_ruleset_var.set(current)
+        elif names:
+            self.automation_ruleset_var.set(names[0])
         else:
             self.automation_ruleset_var.set("")
+        self._update_ruleset_summary(names)
 
     def _refresh_automation_template_tree(self) -> None:
         tree = getattr(self, "automation_template_tree", None)
@@ -3321,6 +3435,91 @@ class App(tk.Tk):
                 ),
             )
 
+    def _rebuild_ruleset_index(self) -> None:
+        index: dict[str, dict[str, Any]] = {}
+        for name, template_ids in self.automation_rulesets.items():
+            template_names: set[str] = set()
+            severities: set[str] = set()
+            tags: set[str] = set()
+            targets: set[str] = set()
+            methods: set[str] = set()
+            for tid in template_ids:
+                template = self.automation_templates.get(tid)
+                if not template:
+                    continue
+                template_names.add(str(template.get("name", tid)))
+                severity = template.get("severity")
+                if severity:
+                    severities.add(str(severity).upper())
+                methods.add(str(template.get("method", "GET")).upper())
+                location = template.get("url") or template.get("path")
+                if location:
+                    targets.add(str(location))
+                for tag in template.get("tags", []):
+                    if isinstance(tag, str) and tag:
+                        tags.add(tag)
+            blob_parts = [
+                name.lower(),
+                " ".join(sorted(template_names)).lower(),
+                " ".join(sorted(severities)).lower(),
+                " ".join(sorted(tags)).lower(),
+                " ".join(sorted(targets)).lower(),
+                " ".join(sorted(methods)).lower(),
+            ]
+            index[name] = {
+                "templates": list(template_ids),
+                "template_names": sorted(template_names),
+                "severities": sorted(severities),
+                "tags": sorted(tags),
+                "targets": sorted(targets),
+                "methods": sorted(methods),
+                "search_blob": " ".join(blob_parts),
+            }
+        self.automation_ruleset_index = index
+
+    def _filtered_ruleset_names(self) -> list[str]:
+        names = sorted(self.automation_rulesets.keys())
+        query_var = getattr(self, "automation_ruleset_filter_var", None)
+        text = query_var.get().strip().lower() if isinstance(query_var, tk.StringVar) else ""
+        if text:
+            tokens = [token for token in text.split() if token]
+            if tokens:
+                names = [
+                    name
+                    for name in names
+                    if all(
+                        token
+                        in (
+                            self.automation_ruleset_index.get(name, {}).get("search_blob")
+                            or name.lower()
+                        )
+                    for token in tokens
+                    )
+                ]
+        return names
+
+    def _update_ruleset_summary(self, visible: Optional[list[str]] = None) -> None:
+        summary_var = getattr(self, "automation_ruleset_summary_var", None)
+        if not isinstance(summary_var, tk.StringVar):
+            return
+        total = len(self.automation_rulesets)
+        names = visible if visible is not None else self._filtered_ruleset_names()
+        query = (
+            self.automation_ruleset_filter_var.get().strip()
+            if hasattr(self, "automation_ruleset_filter_var")
+            else ""
+        )
+        if total == 0:
+            message = "No rulesets available."
+        elif not query:
+            message = f"{len(names)} rulesets available."
+        else:
+            message = f"Showing {len(names)} of {total} rulesets for \"{query}\"."
+        summary_var.set(message)
+
+    def _on_ruleset_filter_changed(self, *_args: object) -> None:
+        self._update_automation_ruleset_combo()
+
     def _set_automation_controls_enabled(self, enabled: bool) -> None:
         state = "normal" if enabled else "disabled"
         combo_state = "readonly" if enabled else "disabled"
@@ -3337,6 +3536,10 @@ class App(tk.Tk):
                 continue
         try:
             self.automation_ruleset_combo.configure(state=combo_state)
+        except tk.TclError:
+            pass
+        try:
+            self.automation_ruleset_filter_entry.configure(state="normal" if enabled else "disabled")
         except tk.TclError:
             pass
         try:
@@ -3498,6 +3701,7 @@ class App(tk.Tk):
             return
         self.automation_rulesets[sanitized] = template_ids
         self._persist_automation_library()
+        self._rebuild_ruleset_index()
         self._update_automation_ruleset_combo()
         self.automation_status_var.set(f"Ruleset '{sanitized}' saved.")
 
@@ -3532,6 +3736,7 @@ class App(tk.Tk):
         if added:
             self._persist_automation_library()
             self._refresh_automation_template_tree()
+            self._rebuild_ruleset_index()
             messagebox.showinfo("Automations", f"Imported {added} template(s).")
         else:
             messagebox.showinfo("Automations", "Templates already existed — nothing new imported.")
@@ -3701,6 +3906,7 @@ class App(tk.Tk):
             self.automation_templates[template_id] = template
             self._persist_automation_library()
             self._refresh_automation_template_tree()
+            self._rebuild_ruleset_index()
             self.automation_status_var.set(f"Template '{name}' saved.")
             builder.destroy()
 
