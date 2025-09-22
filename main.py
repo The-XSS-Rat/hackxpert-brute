@@ -2778,9 +2778,21 @@ class App(tk.Tk):
         self._apply_theme_palette()
 
     def _show_initial_session_prompt(self) -> None:
-        self._prompt_session_choice(initial=True)
+        # Always make sure the root window is visible before interacting with the
+        # user.  Some environments never paint the window again if we keep it
+        # withdrawn until after the modal dialog closes.
         self.deiconify()
-        self.after(0, self._finalize_session_start)
+        self.lift()
+        try:
+            self._prompt_session_choice(initial=True)
+        except Exception as exc:  # pragma: no cover - defensive UI guard
+            messagebox.showerror(
+                "Session",
+                f"Failed to open the session selector: {exc}",
+                parent=self if self.winfo_exists() else None,
+            )
+        finally:
+            self.after(0, self._finalize_session_start)
 
     def _prompt_session_choice(self, initial: bool = False) -> None:
         sessions = self._list_saved_sessions()
