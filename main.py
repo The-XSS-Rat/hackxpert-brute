@@ -1,4 +1,5 @@
 import argparse
+import importlib.util
 import json
 import os
 import queue
@@ -6,6 +7,7 @@ import random
 import re
 import socket
 import ssl
+import sys
 import threading
 import time
 import urllib.parse
@@ -2754,10 +2756,30 @@ class App(tk.Tk):
         self.regex_delete_button: Optional[ttk.Button] = None
         self.automation_engine: Optional[AutomationEngine] = None
         self.automation_results_lookup: dict[str, dict[str, Any]] = {}
+        self.automation_results_tree: Optional[ttk.Treeview] = None
+        self.automation_detail: Optional[ScrolledText] = None
+        self.automation_runs: dict[str, dict[str, Any]] = {}
+        self.automation_run_counter: int = 0
+        self.automation_current_run_id: Optional[str] = None
         self.automation_type_selection: str = ""
         self.automation_type_categories: list[dict[str, Any]] = []
         self.automation_type_tree: Optional[ttk.Treeview] = None
         self.automation_type_lookup: dict[str, dict[str, Any]] = {}
+        self.swagger_tree: Optional[ttk.Treeview] = None
+        self.swagger_tree_results: dict[str, dict[str, Any]] = {}
+        self.swagger_detail: Optional[ScrolledText] = None
+        self.swagger_spec: Optional[dict[str, Any]] = None
+        self.swagger_status_var = tk.StringVar(value="Swagger Studio idle.")
+        self.swagger_summary_vars: dict[str, tk.StringVar] = {
+            "title": tk.StringVar(value="-"),
+            "version": tk.StringVar(value="-"),
+            "servers": tk.StringVar(value="0"),
+            "operations": tk.StringVar(value="0"),
+            "kind": tk.StringVar(value="Unknown"),
+        }
+        self.swagger_url_var = tk.StringVar()
+        self.swagger_base_url_var = tk.StringVar()
+        self.swagger_loaded_source: str = ""
         self.theme_var.trace_add("write", self._on_theme_change)
 
         self.withdraw()
@@ -3106,27 +3128,9 @@ class App(tk.Tk):
             if getattr(self, "automation_type_tree", None)
             else [],
             "type_focus": self.automation_type_selection,
-            "results": [],
-            "detail": self.automation_detail.get("1.0", "end-1c") if hasattr(self, "automation_detail") else "",
+            "runs": self._serialize_automation_runs(),
+            "active_run": self._current_automation_run_index(),
         }
-        if getattr(self, "automation_results_tree", None):
-            for iid in self.automation_results_tree.get_children():
-                item = self.automation_results_tree.item(iid)
-                automations_state["results"].append(
-                    {
-                        "values": list(item.get("values", ())),
-                        "tags": list(item.get("tags", ())),
-                        "info": self.automation_results_lookup.get(iid, {}),
-                    }
-                )
-            selection = self.automation_results_tree.selection()
-            if selection:
-                siblings = list(self.automation_results_tree.get_children())
-                try:
-                    index = siblings.index(selection[0])
-                except ValueError:
-                    index = None
-                automations_state["selection"] = index
         state["automations"] = automations_state
 
         regex_state: dict[str, Any] = {
@@ -3147,6 +3151,50 @@ class App(tk.Tk):
         state["scans"] = self._serialize_scans()
         state["requests"] = self._serialize_request_tabs()
         return state
+
+    def _serialize_automation_runs(self) -> list[dict[str, Any]]:
+        notebook = getattr(self, "automation_runs_nb", None)
+        if not notebook:
+            return []
+        payloads: list[dict[str, Any]] = []
+        for tab_id in notebook.tabs():
+            context = self.automation_runs.get(tab_id)
+            if not context:
+                continue
+            tree: Optional[ttk.Treeview] = context.get("tree")
+            detail: Optional[ScrolledText] = context.get("detail")
+            lookup: dict[str, dict[str, Any]] = context.get("lookup", {})
+            if not tree or not detail:
+                continue
+            entries: list[dict[str, Any]] = []
+            for iid in tree.get_children():
+                item = tree.item(iid)
+                entries.append(
+                    {
+                        "values": list(item.get("values", ())),
+                        "tags": list(item.get("tags", ())),
+                        "info": lookup.get(iid, {}),
+                    }
+                )
+            selection = tree.selection()
+            selected_index = None
+            if selection:
+                siblings = list(tree.get_children())
+                try:
+                    selected_index = siblings.index(selection[0])
+                except ValueError:
+                    selected_index = None
+            detail_text = detail.get("1.0", "end-1c")
+            payloads.append(
+                {
+                    "title": notebook.tab(tab_id, "text"),
+                    "entries": entries,
+                    "detail": detail_text,
+                    "selection": selected_index,
+                    "base_title": context.get("base_title"),
+                }
+            )
+        return payloads
 
     def _serialize_scans(self) -> list[dict[str, Any]]:
         data: list[dict[str, Any]] = []
@@ -3437,35 +3485,12 @@ class App(tk.Tk):
             focus = automations.get("type_focus")
             if focus:
                 self.automation_type_selection = focus
-            if getattr(self, "automation_results_tree", None):
-                for child in self.automation_results_tree.get_children():
-                    self.automation_results_tree.delete(child)
-                self.automation_results_lookup.clear()
-                for entry in automations.get("results", []):
-                    iid = self.automation_results_tree.insert(
-                        "",
-                        "end",
-                        values=tuple(entry.get("values", [])),
-                        tags=tuple(entry.get("tags", [])),
-                    )
-                    info = entry.get("info")
-                    if info:
-                        self.automation_results_lookup[iid] = info
-                selection = automations.get("selection")
-                if isinstance(selection, int):
-                    children = list(self.automation_results_tree.get_children())
-                    if 0 <= selection < len(children):
-                        target = children[selection]
-                        self.automation_results_tree.selection_set(target)
-                        self.automation_results_tree.focus(target)
-                        self.automation_results_tree.see(target)
-                        self._on_automation_result_select()
-            if hasattr(self, "automation_detail"):
-                self.automation_detail.configure(state="normal")
-                self.automation_detail.delete("1.0", "end")
-                self.automation_detail.insert("1.0", automations.get("detail", ""))
-                self.automation_detail.configure(state="disabled")
-            self._update_automation_ruleset_combo()
+            runs = automations.get("runs", [])
+            active = automations.get("active_run")
+            self._restore_automation_runs(runs, active)
+        else:
+            self._restore_automation_runs([], None)
+        self._update_automation_ruleset_combo()
 
         regex = state.get("regex", {})
         if regex and getattr(self, "regex_tree", None):
@@ -4163,7 +4188,16 @@ class App(tk.Tk):
         self.style.configure("ConsoleTitle.TLabel", background=card, foreground=accent, font=("Share Tech Mono", 12, "bold"))
         self.style.configure("AutomationHit.TLabel", background=card, foreground=badge, font=("Share Tech Mono", 12, "bold"))
         self.style.configure("AutomationMiss.TLabel", background=card, foreground=muted, font=("Share Tech Mono", 12, "bold"))
+        self.style.configure("Hero.TFrame", background=surface_alt, relief="ridge", borderwidth=2)
+        self.style.configure("HeroTitle.TLabel", background=surface_alt, foreground=accent, font=("Share Tech Mono", 24, "bold"))
+        self.style.configure(
+            "HeroSubtitle.TLabel",
+            background=surface_alt,
+            foreground=highlight,
+            font=("Share Tech Mono", 12, "bold"),
+        )
         self._update_theme_widgets()
+        self._update_swagger_method_tags()
 
     def _register_text_widget(self, kind: str, widget: ScrolledText) -> None:
         self.themable_text_widgets.append((kind, widget))
@@ -4204,11 +4238,38 @@ class App(tk.Tk):
                     )
             except tk.TclError:
                 continue
-        if getattr(self, "automation_results_tree", None):
-            self._apply_automation_tree_theme()
+        notebook = getattr(self, "automation_runs_nb", None)
+        if notebook:
+            for tab_id in notebook.tabs():
+                context = self.automation_runs.get(tab_id)
+                if not context:
+                    continue
+                self._apply_automation_tree_theme(context.get("tree"))
+        self._update_swagger_method_tags()
 
-    def _apply_automation_tree_theme(self) -> None:
-        tree = getattr(self, "automation_results_tree", None)
+    def _update_swagger_method_tags(self) -> None:
+        tree = getattr(self, "swagger_tree", None)
+        if not tree:
+            return
+        palette = self.theme_palette
+        accents = {
+            "GET": palette.get("success", "#4ade80"),
+            "POST": palette.get("accent", "#38bdf8"),
+            "PUT": palette.get("focus", "#f472b6"),
+            "DELETE": palette.get("alert", "#f97316"),
+            "PATCH": palette.get("badge", "#facc15"),
+            "OPTIONS": palette.get("muted", "#94a3b8"),
+            "HEAD": palette.get("muted", "#94a3b8"),
+        }
+        for method, colour in accents.items():
+            try:
+                tree.tag_configure(f"method_{method}", foreground=colour)
+            except tk.TclError:
+                continue
+
+    def _apply_automation_tree_theme(self, tree: Optional[ttk.Treeview] = None) -> None:
+        if tree is None:
+            tree = getattr(self, "automation_results_tree", None)
         if not tree:
             return
         palette = self.theme_palette
@@ -4576,6 +4637,7 @@ class App(tk.Tk):
         self._build_scan_tab()
         self._build_endpoint_explorer()
         self._build_parameter_explorer()
+        self._build_swagger_studio()
         self._build_automations_tab()
         self._build_regex_library_tab()
         self._build_settings_tab()
@@ -4936,7 +4998,7 @@ class App(tk.Tk):
         frame.grid_columnconfigure(1, weight=2)
         frame.grid_columnconfigure(2, weight=2)
         frame.grid_rowconfigure(3, weight=3)
-        frame.grid_rowconfigure(4, weight=2)
+        frame.grid_rowconfigure(4, weight=0)
 
         ttk.Label(
             frame,
@@ -5090,38 +5152,20 @@ class App(tk.Tk):
         ttk.Label(results_container, text="Automation Findings", style="Glitch.TLabel").grid(
             row=0, column=0, sticky="w", padx=6, pady=(6, 0)
         )
-        results_columns = ("template", "severity", "status", "match", "evidence", "ms")
-        self.automation_results_tree = ttk.Treeview(
+        self.automation_runs_nb = ttk.Notebook(results_container)
+        self.automation_runs_nb.grid(row=1, column=0, sticky="nsew", padx=6, pady=6)
+        self.automation_runs_nb.bind("<<NotebookTabChanged>>", self._on_automation_run_tab_changed)
+        self.automation_runs_placeholder = ttk.Label(
             results_container,
-            columns=results_columns,
-            show="headings",
-            height=14,
+            text="Automation findings will appear in dedicated tabs for each run.",
+            justify="left",
+            wraplength=360,
         )
-        self.automation_results_tree.heading("template", text="TEMPLATE")
-        self.automation_results_tree.heading("severity", text="SEVERITY")
-        self.automation_results_tree.heading("status", text="STATUS")
-        self.automation_results_tree.heading("match", text="MATCH")
-        self.automation_results_tree.heading("evidence", text="EVIDENCE")
-        self.automation_results_tree.heading("ms", text="TIME (MS)")
-        self.automation_results_tree.column("template", width=200, anchor="w")
-        self.automation_results_tree.column("severity", width=90, anchor="center")
-        self.automation_results_tree.column("status", width=80, anchor="center")
-        self.automation_results_tree.column("match", width=80, anchor="center")
-        self.automation_results_tree.column("evidence", width=220, anchor="w")
-        self.automation_results_tree.column("ms", width=90, anchor="center")
-        self.automation_results_tree.grid(row=1, column=0, sticky="nsew", padx=6, pady=6)
-        results_scroll = ttk.Scrollbar(results_container, orient="vertical", command=self.automation_results_tree.yview)
-        results_scroll.grid(row=1, column=1, sticky="ns", pady=6)
-        self.automation_results_tree.configure(yscrollcommand=results_scroll.set)
-        self.automation_results_tree.bind("<<TreeviewSelect>>", self._on_automation_result_select)
-        self._apply_automation_tree_theme()
-
-        self.automation_results_lookup: dict[str, dict[str, Any]] = {}
-
-        self.automation_detail = ScrolledText(frame, height=8, font=("Consolas", 10))
-        self.automation_detail.grid(row=4, column=0, columnspan=3, sticky="nsew", padx=8, pady=(0, 6))
-        self.automation_detail.configure(state="disabled")
-        self._register_text_widget("detail", self.automation_detail)
+        self.automation_runs_placeholder.grid(row=1, column=0, sticky="nsew", padx=6, pady=6)
+        self.automation_runs_nb.grid_remove()
+        self.automation_results_lookup = {}
+        self.automation_results_tree = None
+        self.automation_detail = None
 
         status_frame = ttk.Frame(frame, style="Card.TFrame")
         status_frame.grid(row=5, column=0, columnspan=3, sticky="ew", padx=8, pady=(0, 8))
@@ -5136,6 +5180,697 @@ class App(tk.Tk):
         self._refresh_automation_template_tree()
         self._refresh_automation_type_tree()
         self._update_automation_type_buttons()
+        self._update_automation_runs_visibility()
+
+    def _build_swagger_studio(self) -> None:
+        frame = ttk.Frame(self.nb, style="Card.TFrame")
+        self.nb.add(frame, text="Swagger Studio")
+
+        frame.grid_columnconfigure(0, weight=2)
+        frame.grid_columnconfigure(1, weight=3)
+        frame.grid_rowconfigure(3, weight=1)
+
+        hero = ttk.Frame(frame, style="Hero.TFrame", padding=12)
+        hero.grid(row=0, column=0, columnspan=2, sticky="ew", padx=8, pady=(8, 4))
+        ttk.Label(hero, text="Swagger Studio", style="HeroTitle.TLabel").pack(anchor="w")
+        ttk.Label(
+            hero,
+            text="Load OpenAPI / Swagger specs to auto-map endpoints, verbs and response contracts.",
+            style="HeroSubtitle.TLabel",
+        ).pack(anchor="w", pady=(4, 0))
+
+        controls = ttk.Frame(frame, style="Card.TFrame")
+        controls.grid(row=1, column=0, columnspan=2, sticky="ew", padx=8, pady=4)
+        controls.grid_columnconfigure(1, weight=1)
+        controls.grid_columnconfigure(3, weight=1)
+
+        ttk.Label(controls, text="Spec URL:").grid(row=0, column=0, padx=6, pady=6, sticky="e")
+        url_entry = ttk.Entry(controls, textvariable=self.swagger_url_var, width=58)
+        url_entry.grid(row=0, column=1, padx=6, pady=6, sticky="ew")
+        ttk.Button(controls, text="Fetch", command=self._load_swagger_from_url).grid(row=0, column=2, padx=6, pady=6)
+        ttk.Button(controls, text="Open File…", command=self._load_swagger_from_file).grid(row=0, column=3, padx=6, pady=6)
+
+        ttk.Label(controls, text="Base URL override:").grid(row=1, column=0, padx=6, pady=6, sticky="e")
+        base_entry = ttk.Entry(controls, textvariable=self.swagger_base_url_var, width=58)
+        base_entry.grid(row=1, column=1, padx=6, pady=6, sticky="ew")
+        ttk.Button(controls, text="Apply", command=self._update_swagger_tree_urls).grid(row=1, column=2, padx=6, pady=6)
+        ttk.Label(
+            controls,
+            text="Use servers from the spec or override with your target staging host.",
+            style="Glitch.TLabel",
+        ).grid(row=1, column=3, padx=6, pady=6, sticky="w")
+        self.swagger_base_url_var.trace_add("write", lambda *_: self._update_swagger_tree_urls())
+
+        summary = ttk.Frame(frame, style="Card.TFrame")
+        summary.grid(row=2, column=0, columnspan=2, sticky="ew", padx=8, pady=4)
+        for idx in range(4):
+            summary.grid_columnconfigure(idx, weight=1)
+        cards = [
+            ("API TITLE", "title", "StatValueFocus.TLabel"),
+            ("SPEC VERSION", "version", "StatValuePrimary.TLabel"),
+            ("SERVERS", "servers", "StatValueSuccess.TLabel"),
+            ("OPERATIONS", "operations", "StatValueAlert.TLabel"),
+            ("FORMAT", "kind", "StatValueFocus.TLabel"),
+        ]
+        for idx, (label, key, style_name) in enumerate(cards):
+            card = ttk.Frame(summary, style="HUDCard.TFrame", padding=10)
+            row, col = divmod(idx, 4)
+            summary.grid_rowconfigure(row, weight=1)
+            card.grid(row=row, column=col, padx=6, pady=6, sticky="nsew")
+            ttk.Label(card, text=label, style="StatLabel.TLabel").pack(anchor="w")
+            ttk.Label(card, textvariable=self.swagger_summary_vars[key], style=style_name).pack(anchor="w")
+
+        tree_frame = ttk.Frame(frame, style="Card.TFrame")
+        tree_frame.grid(row=3, column=0, sticky="nsew", padx=(8, 4), pady=6)
+        tree_frame.grid_columnconfigure(0, weight=1)
+        tree_frame.grid_rowconfigure(1, weight=1)
+        ttk.Label(tree_frame, text="Endpoints", style="Glitch.TLabel").grid(row=0, column=0, sticky="w", padx=6, pady=(6, 0))
+        columns = ("summary", "url", "auth")
+        tree = ttk.Treeview(tree_frame, columns=columns, show="tree headings", height=18)
+        tree.heading("#0", text="PATH / METHOD")
+        tree.column("#0", width=200, anchor="w")
+        tree.heading("summary", text="SUMMARY")
+        tree.column("summary", width=220, anchor="w")
+        tree.heading("url", text="RESOLVED URL")
+        tree.column("url", width=280, anchor="w")
+        tree.heading("auth", text="AUTH")
+        tree.column("auth", width=140, anchor="center")
+        tree.grid(row=1, column=0, sticky="nsew", padx=6, pady=6)
+        scroll = ttk.Scrollbar(tree_frame, orient="vertical", command=tree.yview)
+        scroll.grid(row=1, column=1, sticky="ns", pady=6)
+        tree.configure(yscrollcommand=scroll.set)
+        tree.bind("<<TreeviewSelect>>", self._on_swagger_tree_select)
+        self.swagger_tree = tree
+        self.swagger_tree_results = {}
+        self._attach_tree_context_menu(tree, lambda iid: self.swagger_tree_results.get(iid))
+
+        detail_frame = ttk.Frame(frame, style="Card.TFrame")
+        detail_frame.grid(row=3, column=1, sticky="nsew", padx=(4, 8), pady=6)
+        detail_frame.grid_columnconfigure(0, weight=1)
+        detail_frame.grid_rowconfigure(1, weight=1)
+        ttk.Label(detail_frame, text="Operation Detail", style="Glitch.TLabel").grid(
+            row=0, column=0, sticky="w", padx=6, pady=(6, 0)
+        )
+        detail = ScrolledText(detail_frame, wrap="word", font=("Consolas", 10), height=20)
+        detail.grid(row=1, column=0, sticky="nsew", padx=6, pady=6)
+        self._register_text_widget("detail", detail)
+        detail.insert("1.0", "Load a spec to view summaries, parameters and responses here.")
+        detail.configure(state="disabled")
+        self.swagger_detail = detail
+
+        status_frame = ttk.Frame(frame, style="Card.TFrame")
+        status_frame.grid(row=4, column=0, columnspan=2, sticky="ew", padx=8, pady=(0, 8))
+        ttk.Label(status_frame, textvariable=self.swagger_status_var, style="StatusBadge.TLabel").pack(
+            anchor="w", padx=6, pady=6
+        )
+        self.swagger_status_var.set("Load a Swagger or OpenAPI file to start exploring endpoints.")
+
+    def _load_swagger_from_file(self) -> None:
+        path = filedialog.askopenfilename(
+            title="Open Swagger/OpenAPI file",
+            filetypes=[
+                ("Swagger/OpenAPI", "*.json *.yaml *.yml"),
+                ("JSON", "*.json"),
+                ("YAML", "*.yaml *.yml"),
+                ("All files", "*.*"),
+            ],
+        )
+        if not path:
+            return
+        try:
+            raw = Path(path).read_bytes()
+            text = raw.decode("utf-8", errors="ignore")
+        except Exception as exc:
+            messagebox.showerror("Swagger Studio", f"Failed to read file: {exc}")
+            return
+        try:
+            spec = self._parse_swagger_spec(text)
+        except ValueError as exc:
+            messagebox.showerror("Swagger Studio", str(exc))
+            self.swagger_status_var.set(f"Failed to parse spec: {exc}")
+            return
+        source = os.path.basename(path)
+        self.swagger_loaded_source = source
+        self.swagger_url_var.set(path)
+        self._render_swagger_spec(spec, source)
+
+    def _load_swagger_from_url(self) -> None:
+        url = self.swagger_url_var.get().strip()
+        if not url:
+            messagebox.showinfo("Swagger Studio", "Enter a URL to fetch a spec.")
+            return
+        self.swagger_status_var.set(f"Fetching {url}…")
+        try:
+            response = requests.get(url, timeout=30, proxies=self._current_proxies(), verify=False)
+            response.raise_for_status()
+        except Exception as exc:
+            messagebox.showerror("Swagger Studio", f"Failed to fetch spec: {exc}")
+            self.swagger_status_var.set(f"Fetch failed for {url}: {exc}")
+            return
+        try:
+            spec = self._parse_swagger_spec(response.text)
+        except ValueError as exc:
+            messagebox.showerror("Swagger Studio", str(exc))
+            self.swagger_status_var.set(f"Failed to parse spec from {url}: {exc}")
+            return
+        self.swagger_loaded_source = url
+        inferred = self._infer_swagger_base_url(spec) or self._guess_base_from_url(url)
+        if inferred:
+            self.swagger_base_url_var.set(inferred)
+        self._render_swagger_spec(spec, url)
+
+    def _parse_swagger_spec(self, text: str) -> dict[str, Any]:
+        try:
+            data = json.loads(text)
+        except json.JSONDecodeError:
+            spec = importlib.util.find_spec("yaml")
+            if spec is None or spec.loader is None:
+                raise ValueError(
+                    "Spec is not valid JSON and PyYAML is unavailable to parse YAML payloads."
+                )
+            module = sys.modules.get("yaml")
+            if module is None:
+                module = importlib.util.module_from_spec(spec)
+                loader = spec.loader
+                if loader is None or not hasattr(loader, "exec_module"):
+                    raise ValueError("Unable to initialise PyYAML loader.")
+                try:
+                    loader.exec_module(module)  # type: ignore[attr-defined]
+                except Exception as exc:
+                    raise ValueError(f"Unable to load PyYAML: {exc}") from exc
+                sys.modules["yaml"] = module
+            try:
+                data = module.safe_load(text)  # type: ignore[attr-defined]
+            except Exception as exc:
+                raise ValueError(f"Unable to parse spec as YAML: {exc}") from exc
+        if not isinstance(data, dict):
+            raise ValueError("Swagger/OpenAPI document must deserialize into an object.")
+        return data
+
+    def _render_swagger_spec(self, spec: dict[str, Any], source: str) -> None:
+        tree = getattr(self, "swagger_tree", None)
+        if not tree:
+            return
+        self.swagger_spec = spec
+        self.swagger_tree_results = {}
+        tree.delete(*tree.get_children())
+        info = spec.get("info") if isinstance(spec.get("info"), dict) else {}
+        title = str(info.get("title") or "Untitled API")
+        version = str(spec.get("openapi") or spec.get("swagger") or info.get("version") or "-")
+        kind = "OpenAPI" if spec.get("openapi") else "Swagger" if spec.get("swagger") else "Spec"
+        servers: list[str] = []
+        for entry in spec.get("servers", []) if isinstance(spec.get("servers"), list) else []:
+            if isinstance(entry, dict):
+                url = str(entry.get("url") or "").strip()
+                if url:
+                    servers.append(url)
+        host = str(spec.get("host") or "").strip()
+        if host:
+            schemes = spec.get("schemes") if isinstance(spec.get("schemes"), list) else []
+            scheme = str(schemes[0]) if schemes else "https"
+            base_path = str(spec.get("basePath") or "")
+            if base_path and not base_path.startswith("/"):
+                base_path = f"/{base_path}"
+            servers.append(f"{scheme}://{host}{base_path}")
+        inferred_base = self._infer_swagger_base_url(spec)
+        if inferred_base:
+            self.swagger_base_url_var.set(inferred_base)
+            if inferred_base not in servers:
+                servers.append(inferred_base)
+        base = self.swagger_base_url_var.get().strip()
+        paths = spec.get("paths") if isinstance(spec.get("paths"), dict) else {}
+        operations = 0
+        http_methods = {"GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS", "HEAD"}
+        for path_key in sorted(paths.keys(), key=lambda value: str(value)):
+            path = str(path_key)
+            operations_map = paths[path_key]
+            parent = tree.insert("", "end", text=path, open=True)
+            self.swagger_tree_results[parent] = None
+            if not isinstance(operations_map, dict):
+                continue
+            for method, payload in sorted(operations_map.items()):
+                method_upper = method.upper()
+                if method_upper not in http_methods:
+                    continue
+                operations += 1
+                operation = payload if isinstance(payload, dict) else {}
+                params = operation.get("parameters") if isinstance(operation.get("parameters"), list) else []
+                summary = operation.get("summary") or operation.get("operationId") or "—"
+                display_url = self._compose_swagger_url(base, path)
+                auth_display = self._format_swagger_security(operation)
+                accept_header: Optional[str] = None
+                produces = operation.get("produces")
+                if isinstance(produces, list) and produces:
+                    accept_header = str(produces[0])
+                elif isinstance(produces, str) and produces:
+                    accept_header = produces
+                if not accept_header:
+                    responses = operation.get("responses") if isinstance(operation.get("responses"), dict) else {}
+                    for response_meta in responses.values():
+                        if isinstance(response_meta, dict):
+                            content = response_meta.get("content")
+                            if isinstance(content, dict) and content:
+                                candidate = next((ct for ct in content if isinstance(ct, str)), None)
+                                if candidate:
+                                    accept_header = candidate
+                                    break
+                request_body = operation.get("requestBody") if isinstance(operation.get("requestBody"), dict) else None
+                content_type: Optional[str] = None
+                if request_body:
+                    content = request_body.get("content") if isinstance(request_body.get("content"), dict) else {}
+                    if isinstance(content, dict) and content:
+                        content_type = next((ct for ct in content if isinstance(ct, str)), None)
+                consumes = operation.get("consumes")
+                if not content_type:
+                    if isinstance(consumes, list) and consumes:
+                        content_type = str(consumes[0])
+                    elif isinstance(consumes, str) and consumes:
+                        content_type = consumes
+                headers: dict[str, str] = {}
+                if accept_header:
+                    headers["Accept"] = accept_header
+                if content_type:
+                    headers["Content-Type"] = content_type
+                body_preview = ""
+                if request_body:
+                    content = request_body.get("content") if isinstance(request_body.get("content"), dict) else {}
+                    if isinstance(content, dict):
+                        for meta in content.values():
+                            if not isinstance(meta, dict):
+                                continue
+                            example = meta.get("example")
+                            if example is None and isinstance(meta.get("examples"), dict):
+                                first_example = next(iter(meta["examples"].values()), None)
+                                if isinstance(first_example, dict):
+                                    example = first_example.get("value")
+                                else:
+                                    example = first_example
+                            schema = meta.get("schema") if isinstance(meta.get("schema"), dict) else {}
+                            if example is None:
+                                example = schema.get("example") or schema.get("default")
+                            if example is not None:
+                                if isinstance(example, (dict, list)):
+                                    body_preview = json.dumps(example, indent=2)
+                                else:
+                                    body_preview = str(example)
+                                break
+                        if not body_preview and isinstance(content_type, str) and content_type.endswith("json"):
+                            body_preview = "{}"
+                if not body_preview:
+                    for param in params:
+                        if isinstance(param, dict) and param.get("in") == "body":
+                            example = param.get("example") or param.get("default")
+                            schema = param.get("schema") if isinstance(param.get("schema"), dict) else {}
+                            if example is None:
+                                example = schema.get("example") or schema.get("default")
+                            if example is not None:
+                                if isinstance(example, (dict, list)):
+                                    body_preview = json.dumps(example, indent=2)
+                                else:
+                                    body_preview = str(example)
+                                break
+                item = tree.insert(
+                    parent,
+                    "end",
+                    text=method_upper,
+                    values=(summary, display_url, auth_display),
+                    tags=(f"method_{method_upper}",),
+                )
+                self.swagger_tree_results[item] = {
+                    "path": path,
+                    "method": method_upper,
+                    "operation": operation,
+                    "url": display_url,
+                    "auth": auth_display,
+                    "headers": headers,
+                    "body": body_preview,
+                }
+        self._update_swagger_tree_urls()
+        self.swagger_summary_vars["title"].set(title)
+        self.swagger_summary_vars["version"].set(version)
+        self.swagger_summary_vars["servers"].set(str(len({entry for entry in servers if entry})))
+        self.swagger_summary_vars["operations"].set(str(operations))
+        self.swagger_summary_vars["kind"].set(kind)
+        display_source = source if len(source) < 80 else source[:77] + "…"
+        self.swagger_status_var.set(
+            f"Loaded {display_source} — {operations} operations across {len(paths)} paths."
+        )
+        first_operation = next((iid for iid, info in self.swagger_tree_results.items() if info), None)
+        if first_operation:
+            try:
+                tree.selection_set(first_operation)
+                tree.focus(first_operation)
+            except tk.TclError:
+                pass
+            self._update_swagger_detail(self.swagger_tree_results[first_operation])
+        else:
+            self._update_swagger_detail(None)
+
+    def _infer_swagger_base_url(self, spec: dict[str, Any]) -> Optional[str]:
+        servers = spec.get("servers") if isinstance(spec.get("servers"), list) else []
+        for entry in servers:
+            if isinstance(entry, dict):
+                url = str(entry.get("url") or "").strip()
+                if url:
+                    return url
+        host = str(spec.get("host") or "").strip()
+        if host:
+            schemes = spec.get("schemes") if isinstance(spec.get("schemes"), list) else []
+            scheme = str(schemes[0]) if schemes else "https"
+            base_path = str(spec.get("basePath") or "")
+            if base_path and not base_path.startswith("/"):
+                base_path = f"/{base_path}"
+            return f"{scheme}://{host}{base_path}".rstrip("/")
+        return None
+
+    def _guess_base_from_url(self, url: str) -> str:
+        if not url:
+            return ""
+        parsed = urllib.parse.urlsplit(url)
+        if not parsed.scheme or not parsed.netloc:
+            return ""
+        path = parsed.path or ""
+        if "/" in path:
+            path = path.rsplit("/", 1)[0]
+        base = urllib.parse.urlunsplit((parsed.scheme, parsed.netloc, path, "", ""))
+        return base.rstrip("/")
+
+    def _compose_swagger_url(self, base: str, path: str) -> str:
+        if not base:
+            return path
+        base_normalized = base.rstrip("/") + "/"
+        return urllib.parse.urljoin(base_normalized, path.lstrip("/"))
+
+    def _format_swagger_security(self, operation: dict[str, Any]) -> str:
+        security = operation.get("security")
+        if not security:
+            return "—"
+        names: list[str] = []
+        if isinstance(security, list):
+            for entry in security:
+                if isinstance(entry, dict):
+                    for key in entry.keys():
+                        if key not in names:
+                            names.append(key)
+        return ", ".join(names) if names else "—"
+
+    def _update_swagger_tree_urls(self, *_args: object) -> None:
+        tree = getattr(self, "swagger_tree", None)
+        if not tree:
+            return
+        base = self.swagger_base_url_var.get().strip()
+        for iid, info in list(self.swagger_tree_results.items()):
+            if not info:
+                continue
+            resolved = self._compose_swagger_url(base, info.get("path", ""))
+            info["url"] = resolved
+            current = list(tree.item(iid, "values"))
+            if len(current) >= 2:
+                current[1] = resolved
+                tree.item(iid, values=tuple(current))
+        selection = tree.selection()
+        if selection:
+            info = self.swagger_tree_results.get(selection[0])
+            if info:
+                self._update_swagger_detail(info)
+
+    def _on_swagger_tree_select(self, _event=None):
+        tree = getattr(self, "swagger_tree", None)
+        if not tree:
+            return
+        selection = tree.selection()
+        if not selection:
+            self._update_swagger_detail(None)
+            return
+        info = self.swagger_tree_results.get(selection[0])
+        self._update_swagger_detail(info if info else None)
+
+    def _update_swagger_detail(self, info: Optional[dict[str, Any]]) -> None:
+        detail = getattr(self, "swagger_detail", None)
+        if not detail:
+            return
+        detail.configure(state="normal")
+        detail.delete("1.0", "end")
+        if not info:
+            if self.swagger_spec:
+                description = ""
+                info_block = self.swagger_spec.get("info")
+                if isinstance(info_block, dict):
+                    description = str(info_block.get("description") or "")
+                if description:
+                    detail.insert("1.0", description.strip() + "\n\n")
+            detail.insert("end", "Select an operation from the tree to inspect parameters and responses.")
+            detail.configure(state="disabled")
+            return
+        operation = info.get("operation") or {}
+        lines = [f"{info.get('method', '?')} {info.get('path', '')}"]
+        summary = operation.get("summary") or operation.get("operationId")
+        if summary:
+            lines.append(f"Summary: {summary}")
+        description = operation.get("description")
+        if description:
+            lines.append("")
+            lines.append(str(description).strip())
+        params = operation.get("parameters") if isinstance(operation.get("parameters"), list) else []
+        if params:
+            lines.append("")
+            lines.append("Parameters:")
+            for param in params:
+                if not isinstance(param, dict):
+                    continue
+                name = param.get("name") or "?"
+                location = param.get("in") or "body"
+                required = "required" if param.get("required") else "optional"
+                schema = param.get("schema") if isinstance(param.get("schema"), dict) else {}
+                schema_type = schema.get("type") or param.get("type") or schema.get("$ref") or "object"
+                lines.append(f"  • {name} ({location}, {required}) → {schema_type}")
+        request_body = operation.get("requestBody") if isinstance(operation.get("requestBody"), dict) else None
+        if request_body:
+            content = request_body.get("content") if isinstance(request_body.get("content"), dict) else {}
+            if content:
+                lines.append("")
+                lines.append("Request Body:")
+                for mime, meta in content.items():
+                    if not isinstance(meta, dict):
+                        continue
+                    schema = meta.get("schema") if isinstance(meta.get("schema"), dict) else {}
+                    schema_desc = schema.get("type") or schema.get("$ref") or "object"
+                    lines.append(f"  • {mime} → {schema_desc}")
+        responses = operation.get("responses") if isinstance(operation.get("responses"), dict) else {}
+        if responses:
+            lines.append("")
+            lines.append("Responses:")
+            for code, meta in sorted(responses.items()):
+                if isinstance(meta, dict):
+                    desc = str(meta.get("description") or "").strip() or "(no description)"
+                    lines.append(f"  • {code}: {desc}")
+                    content = meta.get("content") if isinstance(meta.get("content"), dict) else {}
+                    if content:
+                        mime_list = ", ".join(sorted(ct for ct in content.keys() if isinstance(ct, str)))
+                        if mime_list:
+                            lines.append(f"      produces: {mime_list}")
+                else:
+                    lines.append(f"  • {code}")
+        security = info.get("auth")
+        if security and security != "—":
+            lines.append("")
+            lines.append(f"Security: {security}")
+        headers = info.get("headers") if isinstance(info.get("headers"), dict) else {}
+        if headers:
+            lines.append("")
+            lines.append("Suggested Headers:")
+            for key, value in headers.items():
+                lines.append(f"  • {key}: {value}")
+        body_preview = info.get("body")
+        if body_preview:
+            lines.append("")
+            lines.append("Sample Body:")
+            snippet = str(body_preview)
+            for line in snippet.splitlines():
+                lines.append(f"    {line}")
+        lines.append("")
+        lines.append(f"Resolved URL: {info.get('url', info.get('path', ''))}")
+        detail.insert("1.0", "\n".join(lines).strip())
+        detail.configure(state="disabled")
+
+    def _update_automation_runs_visibility(self) -> None:
+        notebook = getattr(self, "automation_runs_nb", None)
+        placeholder = getattr(self, "automation_runs_placeholder", None)
+        if not notebook:
+            return
+        tabs = notebook.tabs()
+        if tabs:
+            notebook.grid()
+            if placeholder:
+                placeholder.grid_remove()
+        else:
+            notebook.grid_remove()
+            if placeholder:
+                placeholder.grid()
+            self.automation_current_run_id = None
+            self.automation_results_tree = None
+            self.automation_results_lookup = {}
+            self.automation_detail = None
+
+    def _current_automation_context(self) -> Optional[dict[str, Any]]:
+        if not self.automation_current_run_id:
+            return None
+        return self.automation_runs.get(self.automation_current_run_id)
+
+    def _activate_automation_run(self, tab_id: str) -> None:
+        notebook = getattr(self, "automation_runs_nb", None)
+        if not notebook:
+            return
+        context = self.automation_runs.get(tab_id)
+        if not context:
+            return
+        try:
+            notebook.select(tab_id)
+        except tk.TclError:
+            pass
+        self.automation_current_run_id = tab_id
+        self.automation_results_tree = context.get("tree")
+        self.automation_results_lookup = context.get("lookup", {})
+        self.automation_detail = context.get("detail")
+
+    def _create_automation_run_tab(self, title: Optional[str] = None, *, increment_counter: bool = True) -> dict[str, Any]:
+        notebook = getattr(self, "automation_runs_nb", None)
+        if not notebook:
+            raise RuntimeError("Automation results notebook not initialised")
+        if increment_counter:
+            self.automation_run_counter += 1
+            tab_title = title or f"Automation Run #{self.automation_run_counter}"
+        else:
+            tab_title = title or f"Automation Run #{len(notebook.tabs()) + 1}"
+        frame = ttk.Frame(notebook, style="Card.TFrame")
+        frame.grid_columnconfigure(0, weight=1)
+        frame.grid_rowconfigure(0, weight=1)
+        frame.grid_rowconfigure(1, weight=1)
+        notebook.add(frame, text=tab_title)
+        tab_id = str(frame)
+        columns = ("template", "severity", "status", "match", "evidence", "ms")
+        tree = ttk.Treeview(frame, columns=columns, show="headings", height=14)
+        tree.heading("template", text="TEMPLATE")
+        tree.heading("severity", text="SEVERITY")
+        tree.heading("status", text="STATUS")
+        tree.heading("match", text="MATCH")
+        tree.heading("evidence", text="EVIDENCE")
+        tree.heading("ms", text="TIME (MS)")
+        tree.column("template", width=200, anchor="w")
+        tree.column("severity", width=90, anchor="center")
+        tree.column("status", width=80, anchor="center")
+        tree.column("match", width=80, anchor="center")
+        tree.column("evidence", width=220, anchor="w")
+        tree.column("ms", width=90, anchor="center")
+        tree.grid(row=0, column=0, sticky="nsew", padx=6, pady=6)
+        scrollbar = ttk.Scrollbar(frame, orient="vertical", command=tree.yview)
+        scrollbar.grid(row=0, column=1, sticky="ns", pady=6)
+        tree.configure(yscrollcommand=scrollbar.set)
+        detail = ScrolledText(frame, height=8, font=("Consolas", 10))
+        detail.grid(row=1, column=0, columnspan=2, sticky="nsew", padx=6, pady=(0, 6))
+        detail.configure(state="disabled")
+        self._register_text_widget("detail", detail)
+        lookup: dict[str, dict[str, Any]] = {}
+        context = {
+            "id": tab_id,
+            "tab": frame,
+            "tree": tree,
+            "detail": detail,
+            "lookup": lookup,
+            "base_title": tab_title,
+        }
+        self.automation_runs[tab_id] = context
+        tree.bind("<<TreeviewSelect>>", lambda _e, run_id=tab_id: self._on_automation_result_select(run_id))
+        self._apply_automation_tree_theme(tree)
+        self._activate_automation_run(tab_id)
+        self._update_automation_runs_visibility()
+        return context
+
+    def _on_automation_run_tab_changed(self, event: tk.Event) -> None:
+        widget = event.widget
+        if widget is None:
+            return
+        try:
+            selected = widget.select()
+        except tk.TclError:
+            return
+        if not selected:
+            return
+        self._activate_automation_run(selected)
+
+    def _current_automation_run_index(self) -> Optional[int]:
+        notebook = getattr(self, "automation_runs_nb", None)
+        if not notebook:
+            return None
+        try:
+            selected = notebook.select()
+        except tk.TclError:
+            return None
+        if not selected:
+            return None
+        try:
+            return notebook.index(selected)
+        except tk.TclError:
+            return None
+
+    def _restore_automation_runs(self, runs: list[dict[str, Any]], active_index: Optional[int] = None) -> None:
+        notebook = getattr(self, "automation_runs_nb", None)
+        if not notebook:
+            return
+        for tab_id in list(notebook.tabs()):
+            try:
+                notebook.forget(tab_id)
+            except tk.TclError:
+                continue
+        self.automation_runs.clear()
+        self.automation_current_run_id = None
+        self.automation_results_lookup = {}
+        self.automation_results_tree = None
+        self.automation_detail = None
+        for run in runs:
+            title = run.get("title")
+            context = self._create_automation_run_tab(title or None, increment_counter=False)
+            tab_id = context.get("id") or str(context.get("tab"))
+            tree: Optional[ttk.Treeview] = context.get("tree")
+            detail: Optional[ScrolledText] = context.get("detail")
+            lookup: dict[str, dict[str, Any]] = context.get("lookup", {})
+            base_title = run.get("base_title")
+            if base_title:
+                context["base_title"] = base_title
+            if tree:
+                for entry in run.get("entries", []):
+                    values = entry.get("values", [])
+                    tags = entry.get("tags", [])
+                    info = entry.get("info", {})
+                    iid = tree.insert("", "end", values=tuple(values), tags=tuple(tags))
+                    lookup[iid] = info
+                selection = run.get("selection")
+                if isinstance(selection, int):
+                    children = list(tree.get_children())
+                    if 0 <= selection < len(children):
+                        target = children[selection]
+                        tree.selection_set(target)
+                        tree.focus(target)
+                        tree.see(target)
+            if detail:
+                detail.configure(state="normal")
+                detail.delete("1.0", "end")
+                text = run.get("detail", "")
+                if text:
+                    detail.insert("1.0", text)
+                detail.configure(state="disabled")
+        if runs:
+            tabs = notebook.tabs()
+            if tabs:
+                index = active_index if isinstance(active_index, int) else 0
+                index = max(0, min(index, len(tabs) - 1))
+                try:
+                    notebook.select(tabs[index])
+                except tk.TclError:
+                    pass
+                self._activate_automation_run(tabs[index])
+        self.automation_run_counter = max(self.automation_run_counter, len(notebook.tabs()))
+        self._update_automation_runs_visibility()
 
     def _update_automation_ruleset_combo(self) -> None:
         if not hasattr(self, "automation_ruleset_combo"):
@@ -5528,12 +6263,20 @@ class App(tk.Tk):
         self.automation_template_tree.configure(selectmode="extended" if enabled else "none")
 
     def _reset_automation_results(self) -> None:
-        for child in self.automation_results_tree.get_children():
-            self.automation_results_tree.delete(child)
-        self.automation_results_lookup.clear()
-        self.automation_detail.configure(state="normal")
-        self.automation_detail.delete("1.0", "end")
-        self.automation_detail.configure(state="disabled")
+        context = self._current_automation_context()
+        if not context:
+            return
+        tree: ttk.Treeview = context.get("tree")
+        detail: Optional[ScrolledText] = context.get("detail")
+        lookup: dict[str, dict[str, Any]] = context.get("lookup", {})
+        if tree:
+            for child in tree.get_children():
+                tree.delete(child)
+        lookup.clear()
+        if detail:
+            detail.configure(state="normal")
+            detail.delete("1.0", "end")
+            detail.configure(state="disabled")
         self.automation_progress.configure(value=0)
 
     def _selected_automation_templates(self) -> list[str]:
@@ -5569,12 +6312,20 @@ class App(tk.Tk):
             messagebox.showerror("Automations", "Selected templates could not be resolved.")
             return
         base_url = base if "://" in base else f"http://{base}"
-        self._reset_automation_results()
+        preview_index = self.automation_run_counter + 1
+        host = urllib.parse.urlparse(base_url).netloc or urllib.parse.urlparse(base_url).path or base_url
+        tab_title = f"Automation Run #{preview_index} • {host}"
+        context = self._create_automation_run_tab(tab_title)
+        context["base_url"] = base_url
+        context["template_ids"] = [tpl.get("id") for tpl in templates]
+        context["templates"] = templates
         self._set_automation_controls_enabled(False)
+        self.automation_progress.configure(value=0)
         self.automation_status_var.set(f"Running {len(templates)} templates against {base_url}…")
         headers = self._compose_headers_from_settings()
         timeout = self.settings.data.get("timeout", 5)
         follow = self.settings.data.get("follow_redirects", True)
+        tab_id = context.get("id") or str(context.get("tab"))
         engine = AutomationEngine(
             base_url,
             templates,
@@ -5582,17 +6333,24 @@ class App(tk.Tk):
             follow_redirects=follow,
             base_headers=headers,
             proxies=self._current_proxies(),
-            on_result=lambda info: self.after(0, lambda data=info: self._add_automation_result(data)),
-            on_finish=lambda: self.after(0, self._automation_run_finished),
+            on_result=lambda info: self.after(0, lambda data=info: self._add_automation_result(tab_id, data)),
+            on_finish=lambda: self.after(0, lambda rid=tab_id: self._automation_run_finished(rid)),
             on_status=lambda status: self.after(0, lambda text=status: self.automation_status_var.set(text)),
             on_progress=lambda pct: self.after(0, lambda value=pct: self.automation_progress.configure(value=value)),
         )
         self.automation_engine = engine
+        context["engine"] = engine
         engine.start()
 
-    def _automation_run_finished(self) -> None:
-        hits = sum(1 for info in self.automation_results_lookup.values() if info.get("matched"))
-        total = len(self.automation_results_lookup)
+    def _automation_run_finished(self, run_id: Optional[str] = None) -> None:
+        context = None
+        if run_id:
+            context = self.automation_runs.get(run_id)
+        if context is None:
+            context = self._current_automation_context()
+        lookup = context.get("lookup", {}) if context else self.automation_results_lookup
+        hits = sum(1 for info in lookup.values() if info.get("matched"))
+        total = len(lookup)
         summary = f"Automations finished — {hits} hit(s) across {total} templates."
         if total == 0:
             summary = "Automations finished — no responses logged."
@@ -5600,7 +6358,19 @@ class App(tk.Tk):
         self._set_automation_controls_enabled(True)
         self.automation_engine = None
 
-    def _add_automation_result(self, info: dict[str, Any]) -> None:
+        notebook = getattr(self, "automation_runs_nb", None)
+        if context and notebook and run_id:
+            base_title = context.get("base_title") or notebook.tab(run_id, "text")
+            notebook.tab(run_id, text=f"{base_title} • {hits}/{total} hits")
+
+    def _add_automation_result(self, run_id: str, info: dict[str, Any]) -> None:
+        context = self.automation_runs.get(run_id)
+        if not context:
+            return
+        tree: Optional[ttk.Treeview] = context.get("tree")
+        if not tree:
+            return
+        lookup: dict[str, dict[str, Any]] = context.get("lookup", {})
         template_name = info.get("template_name") or info.get("template_id") or "Template"
         severity = str(info.get("severity", "info")).upper()
         status = info.get("status")
@@ -5611,23 +6381,35 @@ class App(tk.Tk):
         elapsed_display = f"{elapsed:.0f}" if isinstance(elapsed, (int, float)) else "-"
         match_label = "HIT" if matched else ("ERROR" if error else "MISS")
         tag = "hit" if matched else ("error" if error else "miss")
-        item_id = self.automation_results_tree.insert(
+        item_id = tree.insert(
             "",
             "end",
             values=(template_name, severity, status, match_label, evidence[:120], elapsed_display),
             tags=(tag,),
         )
-        self.automation_results_lookup[item_id] = info
+        lookup[item_id] = info
         if matched:
             self._log_console(f"[AUTO] {template_name} matched {info.get('url')}")
         elif error:
             self._log_console(f"[AUTO] {template_name} error: {error}")
 
-    def _on_automation_result_select(self, _event=None) -> None:
-        selection = self.automation_results_tree.selection()
+    def _on_automation_result_select(self, run_id: Optional[str] = None) -> None:
+        context = None
+        if run_id:
+            context = self.automation_runs.get(run_id)
+        if context is None:
+            context = self._current_automation_context()
+        if not context:
+            return
+        tree: Optional[ttk.Treeview] = context.get("tree")
+        lookup: dict[str, dict[str, Any]] = context.get("lookup", {})
+        detail: Optional[ScrolledText] = context.get("detail")
+        if not tree or not detail:
+            return
+        selection = tree.selection()
         if not selection:
             return
-        info = self.automation_results_lookup.get(selection[0])
+        info = lookup.get(selection[0])
         if not info:
             return
         lines = [
@@ -5661,10 +6443,10 @@ class App(tk.Tk):
             lines.append("")
             lines.append("Preview:")
             lines.append(preview)
-        self.automation_detail.configure(state="normal")
-        self.automation_detail.delete("1.0", "end")
-        self.automation_detail.insert("1.0", "\n".join(lines))
-        self.automation_detail.configure(state="disabled")
+        detail.configure(state="normal")
+        detail.delete("1.0", "end")
+        detail.insert("1.0", "\n".join(lines))
+        detail.configure(state="disabled")
 
     def _save_automation_ruleset(self) -> None:
         template_ids = self._selected_automation_templates()
