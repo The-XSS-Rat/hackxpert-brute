@@ -2762,15 +2762,13 @@ class App(tk.Tk):
 
         self.withdraw()
         self.update_idletasks()
-        self._prompt_session_choice(initial=True)
-        self.deiconify()
 
         self._init_style()
         self._load_automation_assets()
         self._build_header()
         self._build_notebook()
         self.base_tab_ids = set(self.nb.tabs())
-        self.after(0, self._finalize_session_start)
+        self.after_idle(self._show_initial_session_prompt)
 
     def _init_style(self):
         try:
@@ -2778,6 +2776,11 @@ class App(tk.Tk):
         except tk.TclError:
             pass
         self._apply_theme_palette()
+
+    def _show_initial_session_prompt(self) -> None:
+        self._prompt_session_choice(initial=True)
+        self.deiconify()
+        self.after(0, self._finalize_session_start)
 
     def _prompt_session_choice(self, initial: bool = False) -> None:
         sessions = self._list_saved_sessions()
