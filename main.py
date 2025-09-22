@@ -364,7 +364,9 @@ def _generate_secret_pattern_catalog(additional_count: int = 1000) -> list[tuple
         for suffix, template in SECRET_PATTERN_BLUEPRINTS:
             if len(extras) >= additional_count:
                 break
-            compiled = re.compile(template.format(keyword=keyword_regex))
+            rendered = template.replace("{keyword}", keyword_regex)
+            rendered = rendered.replace("{{", "{").replace("}}", "}")
+            compiled = re.compile(rendered)
             extras.append((f"{keyword_title} {suffix}", compiled))
         if len(extras) >= additional_count:
             break
