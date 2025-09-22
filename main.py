@@ -339,7 +339,7 @@ SECRET_PATTERN_BLUEPRINTS: list[tuple[str, str]] = [
     ("Header Bearer", r"(?i){keyword}\s+Bearer\s+[A-Za-z0-9\-._~+/]+=*"),
     ("JWT Blob", r"(?i){keyword}\s*[:=]\s*['\"]?ey[A-Za-z0-9_-]{{10,}}\.[A-Za-z0-9_-]{{10,}}\.[A-Za-z0-9_-]{{10,}}"),
     ("UUID Token", r"(?i){keyword}\s*[:=]\s*['\"]?[0-9a-f]{{8}}-[0-9a-f]{{4}}-[0-9a-f]{{4}}-[0-9a-f]{{4}}-[0-9a-f]{{12}}"),
-    ("Base64 Secret", r"(?i){keyword}\s*[:=]\s*['\"]?[A-Za-z0-9/+]{32,}={0,2}"),
+    ("Base64 Secret", r"(?i){keyword}\s*[:=]\s*['\"]?[A-Za-z0-9/+]{{32,}}={{0,2}}"),
     ("Comment Hint", r"(?i)//\s*{keyword}\s*[:=]\s*[A-Za-z0-9\-_/]{{12,}}"),
     ("HTML Data Attribute", r"(?i)data-{keyword}=['\"]?[A-Za-z0-9\-_/]{{16,}}"),
     ("Env Export", r"(?i)export\s+{keyword}\s*=\s*['\"]?[A-Za-z0-9\-_/]{{16,}}"),
