@@ -494,6 +494,56 @@ DEFAULT_AUTOMATION_TEMPLATES = [
         "matchers": {"status": [200], "regex": ["(?i)(api_key|authToken|clientSecret)"]},
         "tags": ["config", "secrets"],
     },
+    {
+        "id": "openapi-spec-exposure",
+        "name": "OpenAPI Spec Exposure",
+        "description": "Fetches /openapi.json to surface documented endpoints and models.",
+        "severity": "medium",
+        "method": "GET",
+        "path": "/openapi.json",
+        "matchers": {"status": [200], "regex": [r'(?i)"openapi"\s*:\s*"']},
+        "tags": ["documentation", "intel"],
+    },
+    {
+        "id": "swagger-spec-exposure",
+        "name": "Swagger Spec Exposure",
+        "description": "Captures swagger.json contracts that often reveal hidden operations.",
+        "severity": "medium",
+        "method": "GET",
+        "path": "/swagger.json",
+        "matchers": {"status": [200], "regex": [r'(?i)"swagger"\s*:\s*"']},
+        "tags": ["documentation", "intel"],
+    },
+    {
+        "id": "postman-collection-leak",
+        "name": "Postman Collection Leak",
+        "description": "Looks for shared Postman collections exposing preauth API requests.",
+        "severity": "high",
+        "method": "GET",
+        "path": "/postman_collection.json",
+        "matchers": {"status": [200], "regex": [r'(?i)"item"\s*:\s*\[']},
+        "tags": ["collections", "intel"],
+    },
+    {
+        "id": "traffic-har-exposure",
+        "name": "Traffic HAR Exposure",
+        "description": "Finds exported HTTP archives leaking tokens and request bodies.",
+        "severity": "high",
+        "method": "GET",
+        "path": "/debug/traffic.har",
+        "matchers": {"status": [200], "regex": [r'(?i)"log"\s*:\s*\{"version"']},
+        "tags": ["logs", "intel"],
+    },
+    {
+        "id": "database-backup-dump",
+        "name": "Database Backup Dump",
+        "description": "Checks for exposed SQL backups containing production records.",
+        "severity": "critical",
+        "method": "GET",
+        "path": "/backups/database.sql",
+        "matchers": {"status": [200], "regex": ["(?i)(CREATE TABLE|INSERT INTO)"]},
+        "tags": ["backups", "secrets"],
+    },
 ]
 
 
@@ -2780,6 +2830,14 @@ class App(tk.Tk):
         self.swagger_url_var = tk.StringVar()
         self.swagger_base_url_var = tk.StringVar()
         self.swagger_loaded_source: str = ""
+        self.swagger_tab: Optional[ttk.Frame] = None
+        self.swagger_autoloaded_sources: set[str] = set()
+        self.spotlight_frame: Optional[ttk.Frame] = None
+        self.spotlight_latest_url: str = ""
+        self.spotlight_target_var = tk.StringVar(value="Recon Spotlight idle — lock a target URL.")
+        self.spotlight_wordlist_var = tk.StringVar(value="Wordlist: -")
+        self.spotlight_hits_var = tk.StringVar(value="0 hits • 0 drift • 0 secrets • 0 intel")
+        self.spotlight_alert_var = tk.StringVar(value="Awaiting mission launch.")
         self.theme_var.trace_add("write", self._on_theme_change)
 
         self.withdraw()
@@ -3684,6 +3742,7 @@ class App(tk.Tk):
             for key in ["total", "success", "alerts", "secrets", "slow", "drift"]:
                 if key in self.hud_metrics:
                     self.hud_metrics[key].set(str(metrics.get(key, 0)))
+            self._update_spotlight_counts(metrics)
 
         def update_detail(item_id):
             info = results.get(item_id)
@@ -3852,6 +3911,7 @@ class App(tk.Tk):
                 or info.get("signals")
             ):
                 self._log_console(status_message)
+            self._spotlight_on_new_hit(info, metrics)
             refresh_hud()
             if len(results) == 1:
                 tree.selection_set(item_id)
@@ -4194,6 +4254,31 @@ class App(tk.Tk):
             "HeroSubtitle.TLabel",
             background=surface_alt,
             foreground=highlight,
+            font=("Share Tech Mono", 12, "bold"),
+        )
+        self.style.configure("Spotlight.TFrame", background=accent, relief="ridge", borderwidth=2)
+        self.style.configure(
+            "SpotlightTitle.TLabel",
+            background=accent,
+            foreground=accent_text,
+            font=("Share Tech Mono", 18, "bold"),
+        )
+        self.style.configure(
+            "SpotlightBadge.TLabel",
+            background=accent,
+            foreground=accent_text,
+            font=("Share Tech Mono", 12, "bold"),
+        )
+        self.style.configure(
+            "SpotlightValue.TLabel",
+            background=accent,
+            foreground=badge,
+            font=("Share Tech Mono", 28, "bold"),
+        )
+        self.style.configure(
+            "SpotlightCallout.TLabel",
+            background=accent,
+            foreground=accent_text,
             font=("Share Tech Mono", 12, "bold"),
         )
         self._update_theme_widgets()
@@ -4567,6 +4652,123 @@ class App(tk.Tk):
         headers.setdefault("User-Agent", self.settings.data.get("user_agent", Settings.DEFAULTS["user_agent"]))
         return headers
 
+    def _spotlight_trim(self, value: str, limit: int = 64) -> str:
+        text = (value or "").strip()
+        if len(text) <= limit:
+            return text
+        return text[: max(0, limit - 1)] + "…"
+
+    def _on_spotlight_target_change(self, *_args: object) -> None:
+        if not hasattr(self, "spotlight_target_var"):
+            return
+        target = self.url.get().strip() if hasattr(self, "url") else ""
+        if not target:
+            self.spotlight_target_var.set("Recon Spotlight idle — lock a target URL.")
+            return
+        parsed = urllib.parse.urlparse(target)
+        display = target
+        if parsed.scheme and parsed.netloc:
+            display = f"{parsed.scheme}://{parsed.netloc}"
+        self.spotlight_target_var.set(f"Target locked: {self._spotlight_trim(display, 56)}")
+
+    def _on_spotlight_wordlist_change(self, *_args: object) -> None:
+        if not hasattr(self, "spotlight_wordlist_var"):
+            return
+        path = self.wordlist_path.get().strip() if hasattr(self, "wordlist_path") else ""
+        if not path:
+            self.spotlight_wordlist_var.set("Wordlist: -")
+            return
+        name = os.path.basename(path)
+        self.spotlight_wordlist_var.set(f"Wordlist: {self._spotlight_trim(name, 42)}")
+
+    def _update_spotlight_counts(self, metrics: dict[str, Any]) -> None:
+        if not hasattr(self, "spotlight_hits_var"):
+            return
+        total = int(metrics.get("total", 0) or 0)
+        drift = int(metrics.get("drift", 0) or 0)
+        secrets = int(metrics.get("secrets", 0) or 0)
+        intel = int(metrics.get("alerts", 0) or 0)
+        summary = f"{total} hits • {drift} drift • {secrets} secrets • {intel} intel"
+        self.spotlight_hits_var.set(summary)
+
+    def _prime_spotlight_for_scan(self, url: str, wordlist_label: str) -> None:
+        if not hasattr(self, "spotlight_target_var"):
+            return
+        if url:
+            parsed = urllib.parse.urlparse(url)
+            display = url
+            if parsed.scheme and parsed.netloc:
+                display = f"{parsed.scheme}://{parsed.netloc}"
+            self.spotlight_target_var.set(f"Target locked: {self._spotlight_trim(display, 56)}")
+        else:
+            self.spotlight_target_var.set("Recon Spotlight idle — lock a target URL.")
+        if wordlist_label:
+            self.spotlight_wordlist_var.set(f"Wordlist: {self._spotlight_trim(wordlist_label, 42)}")
+        else:
+            self.spotlight_wordlist_var.set("Wordlist: -")
+        self.spotlight_hits_var.set("0 hits • 0 drift • 0 secrets • 0 intel")
+        self.spotlight_alert_var.set("Recon launched — awaiting first highlight.")
+        self.spotlight_latest_url = ""
+
+    def _spotlight_on_new_hit(self, info: dict[str, Any], metrics: dict[str, Any]) -> None:
+        if not hasattr(self, "spotlight_alert_var"):
+            return
+        self._update_spotlight_counts(metrics)
+        url = str(info.get("url") or "").strip()
+        if not url:
+            self.spotlight_alert_var.set("Awaiting mission launch.")
+            return
+        method = str(info.get("method") or "GET").upper()
+        status = info.get("status")
+        status_display = str(status) if status not in (None, "") else "-"
+        parsed = urllib.parse.urlparse(url)
+        display = url
+        if parsed.netloc:
+            path = parsed.path or "/"
+            display = parsed.netloc + path
+            if parsed.query:
+                display += "?…"
+        highlight_bits: list[str] = []
+        secrets = info.get("secrets")
+        if isinstance(secrets, int) and secrets > 0:
+            label = "SECRET LOOT" if secrets == 1 else f"{secrets} SECRETS"
+            highlight_bits.append(label)
+        elif secrets:
+            highlight_bits.append("SECRET LOOT")
+        signals = info.get("signals") or []
+        if isinstance(signals, list) and signals:
+            highlight_bits.append(f"{len(signals)} INTEL")
+        elif signals:
+            highlight_bits.append("INTEL")
+        delta_label = info.get("delta")
+        if delta_label == "NEW":
+            highlight_bits.append("NEW SURFACE")
+        elif isinstance(delta_label, str) and delta_label.startswith("CHANGED"):
+            highlight_bits.append("DRIFT ALERT")
+        if info.get("slow"):
+            highlight_bits.append("SLOW BURN")
+        badges = " • ".join(bit.upper() for bit in highlight_bits)
+        summary = f"{method} {status_display} → {self._spotlight_trim(display, 68)}"
+        if badges:
+            summary += f"  //  {badges}"
+        self.spotlight_alert_var.set(summary)
+        self.spotlight_latest_url = url
+
+    def _copy_spotlight_latest(self) -> None:
+        url = getattr(self, "spotlight_latest_url", "")
+        if not url:
+            messagebox.showinfo("Recon Spotlight", "No spotlight hit captured yet — run a scan first.")
+            return
+        try:
+            self.clipboard_clear()
+            self.clipboard_append(url)
+        except tk.TclError as exc:
+            messagebox.showerror("Recon Spotlight", f"Unable to access clipboard: {exc}")
+            return
+        if hasattr(self, "status_var"):
+            self.status_var.set(f"Spotlight URL copied: {url}")
+        self._log_console(f"[*] Spotlight copied {url}")
+
     def _build_header(self):
         header = ttk.Frame(self, style="Header.TFrame")
         header.pack(fill="x", pady=5)
@@ -4682,10 +4884,12 @@ class App(tk.Tk):
 
         ttk.Label(frame, text="API Base URL:").grid(row=1, column=0, padx=5, pady=5, sticky="e")
         self.url = tk.StringVar()
+        self.url.trace_add("write", self._on_spotlight_target_change)
         ttk.Entry(frame, textvariable=self.url, width=60).grid(row=1, column=1, padx=5, pady=5, sticky="w")
 
         ttk.Label(frame, text="Wordlist:").grid(row=2, column=0, padx=5, pady=5, sticky="e")
         self.wordlist_path = tk.StringVar()
+        self.wordlist_path.trace_add("write", self._on_spotlight_wordlist_change)
         wordlist_entry = ttk.Entry(frame, textvariable=self.wordlist_path, width=50)
         wordlist_entry.grid(row=2, column=1, padx=5, pady=5, sticky="w")
         self._attach_wordlist_autocomplete(wordlist_entry, self.wordlist_path)
@@ -4745,8 +4949,46 @@ class App(tk.Tk):
             ttk.Label(card, text=label, style="StatLabel.TLabel").pack(anchor="w")
             ttk.Label(card, textvariable=self.hud_metrics[key], style=style_name).pack(anchor="w")
 
+        self.spotlight_frame = ttk.Frame(frame, style="Spotlight.TFrame", padding=16)
+        self.spotlight_frame.grid(row=7, column=0, columnspan=3, sticky="ew", padx=5, pady=(0, 12))
+        for idx in range(3):
+            self.spotlight_frame.grid_columnconfigure(idx, weight=1)
+        ttk.Label(
+            self.spotlight_frame,
+            text="Recon Spotlight",
+            style="SpotlightTitle.TLabel",
+        ).grid(row=0, column=0, columnspan=3, sticky="w")
+        ttk.Label(
+            self.spotlight_frame,
+            textvariable=self.spotlight_target_var,
+            style="SpotlightBadge.TLabel",
+        ).grid(row=1, column=0, sticky="w", pady=(8, 0))
+        ttk.Label(
+            self.spotlight_frame,
+            textvariable=self.spotlight_wordlist_var,
+            style="SpotlightBadge.TLabel",
+        ).grid(row=2, column=0, sticky="w", pady=(2, 8))
+        ttk.Label(
+            self.spotlight_frame,
+            textvariable=self.spotlight_hits_var,
+            style="SpotlightValue.TLabel",
+        ).grid(row=1, column=1, rowspan=2, sticky="w", padx=(12, 0))
+        spotlight_callout = ttk.Label(
+            self.spotlight_frame,
+            textvariable=self.spotlight_alert_var,
+            style="SpotlightCallout.TLabel",
+            wraplength=280,
+            justify="left",
+        )
+        spotlight_callout.grid(row=1, column=2, rowspan=2, sticky="ne", padx=(12, 0))
+        ttk.Button(
+            self.spotlight_frame,
+            text="Copy latest spotlight URL",
+            command=self._copy_spotlight_latest,
+        ).grid(row=3, column=2, sticky="e", pady=(8, 0))
+
         tls_frame = ttk.Frame(frame, style="Card.TFrame")
-        tls_frame.grid(row=7, column=0, columnspan=3, sticky="ew", padx=5, pady=(0, 10))
+        tls_frame.grid(row=8, column=0, columnspan=3, sticky="ew", padx=5, pady=(0, 10))
         ttk.Label(tls_frame, text="TLS Reconnaissance", style="Glitch.TLabel").grid(row=0, column=0, padx=12, pady=(8, 2), sticky="w")
         labels = [
             ("Subject", "subject"),
@@ -4762,7 +5004,7 @@ class App(tk.Tk):
             )
 
         status_frame = ttk.Frame(frame, style="Card.TFrame")
-        status_frame.grid(row=8, column=0, columnspan=3, sticky="ew", padx=5, pady=(0, 10))
+        status_frame.grid(row=9, column=0, columnspan=3, sticky="ew", padx=5, pady=(0, 10))
         self.status_var = tk.StringVar(value="Awaiting mission launch…")
         ttk.Label(status_frame, textvariable=self.status_var, style="StatusBadge.TLabel").pack(
             anchor="w", padx=12, pady=8
@@ -5185,6 +5427,7 @@ class App(tk.Tk):
     def _build_swagger_studio(self) -> None:
         frame = ttk.Frame(self.nb, style="Card.TFrame")
         self.nb.add(frame, text="Swagger Studio")
+        self.swagger_tab = frame
 
         frame.grid_columnconfigure(0, weight=2)
         frame.grid_columnconfigure(1, weight=3)
@@ -5260,6 +5503,7 @@ class App(tk.Tk):
         scroll.grid(row=1, column=1, sticky="ns", pady=6)
         tree.configure(yscrollcommand=scroll.set)
         tree.bind("<<TreeviewSelect>>", self._on_swagger_tree_select)
+        tree.bind("<Double-1>", self._on_swagger_tree_double)
         self.swagger_tree = tree
         self.swagger_tree_results = {}
         self._attach_tree_context_menu(tree, lambda iid: self.swagger_tree_results.get(iid))
@@ -5339,6 +5583,28 @@ class App(tk.Tk):
             self.swagger_base_url_var.set(inferred)
         self._render_swagger_spec(spec, url)
 
+    def _auto_bootstrap_swagger_studio(self, source: str, text: str) -> None:
+        if not source or not text:
+            return
+        if source in self.swagger_autoloaded_sources:
+            return
+        try:
+            spec = self._parse_swagger_spec(text)
+        except ValueError as exc:
+            self._log_console(f"[!] Failed to auto-load spec from {source}: {exc}")
+            return
+        self.swagger_autoloaded_sources.add(source)
+        self.swagger_loaded_source = source
+        self.swagger_url_var.set(source)
+        self._render_swagger_spec(spec, source)
+        if self.swagger_tab and str(self.swagger_tab) in self.nb.tabs():
+            try:
+                self.nb.select(self.swagger_tab)
+            except Exception:
+                pass
+        self.swagger_status_var.set(f"Auto-loaded {source}")
+        self._log_console(f"[+] Swagger Studio auto-loaded {source}")
+
     def _parse_swagger_spec(self, text: str) -> dict[str, Any]:
         try:
             data = json.loads(text)
@@ -5408,6 +5674,11 @@ class App(tk.Tk):
             self.swagger_tree_results[parent] = None
             if not isinstance(operations_map, dict):
                 continue
+            path_level_params = (
+                operations_map.get("parameters")
+                if isinstance(operations_map.get("parameters"), list)
+                else []
+            )
             for method, payload in sorted(operations_map.items()):
                 method_upper = method.upper()
                 if method_upper not in http_methods:
@@ -5415,8 +5686,11 @@ class App(tk.Tk):
                 operations += 1
                 operation = payload if isinstance(payload, dict) else {}
                 params = operation.get("parameters") if isinstance(operation.get("parameters"), list) else []
+                combined_params = []
+                if isinstance(path_level_params, list):
+                    combined_params.extend([param for param in path_level_params if isinstance(param, dict)])
+                combined_params.extend([param for param in params if isinstance(param, dict)])
                 summary = operation.get("summary") or operation.get("operationId") or "—"
-                display_url = self._compose_swagger_url(base, path)
                 auth_display = self._format_swagger_security(operation)
                 accept_header: Optional[str] = None
                 produces = operation.get("produces")
@@ -5451,6 +5725,39 @@ class App(tk.Tk):
                     headers["Accept"] = accept_header
                 if content_type:
                     headers["Content-Type"] = content_type
+                query_params: dict[str, str] = {}
+                path_param_values: dict[str, Optional[str]] = {}
+                cookie_values: dict[str, Optional[str]] = {}
+                for param in combined_params:
+                    name = str(param.get("name") or "").strip()
+                    if not name:
+                        continue
+                    location = str(param.get("in") or "").strip().lower()
+                    value = self._swagger_param_value(param)
+                    if location == "query":
+                        query_params[name] = value if value is not None else ""
+                    elif location == "path":
+                        path_param_values[name] = value
+                    elif location == "header":
+                        if value is not None:
+                            headers[name] = value
+                        else:
+                            headers.setdefault(name, "")
+                    elif location == "cookie":
+                        cookie_values[name] = value
+                if cookie_values:
+                    existing_cookie = str(headers.get("Cookie", "")).strip()
+                    cookie_parts: list[str] = []
+                    if existing_cookie:
+                        cookie_parts.append(existing_cookie)
+                    for key, value in cookie_values.items():
+                        if value in (None, ""):
+                            cookie_parts.append(key)
+                        else:
+                            cookie_parts.append(f"{key}={value}")
+                    headers["Cookie"] = "; ".join(part for part in cookie_parts if part)
+                filled_path = self._fill_swagger_path(path, path_param_values)
+                display_url = self._compose_swagger_url(base, filled_path or path)
                 body_preview = ""
                 if request_body:
                     content = request_body.get("content") if isinstance(request_body.get("content"), dict) else {}
@@ -5498,12 +5805,16 @@ class App(tk.Tk):
                 )
                 self.swagger_tree_results[item] = {
                     "path": path,
+                    "resolved_path": filled_path or path,
                     "method": method_upper,
                     "operation": operation,
                     "url": display_url,
                     "auth": auth_display,
                     "headers": headers,
                     "body": body_preview,
+                    "params": query_params,
+                    "path_params": path_param_values,
+                    "cookie_params": cookie_values,
                 }
         self._update_swagger_tree_urls()
         self.swagger_summary_vars["title"].set(title)
@@ -5561,6 +5872,42 @@ class App(tk.Tk):
         base_normalized = base.rstrip("/") + "/"
         return urllib.parse.urljoin(base_normalized, path.lstrip("/"))
 
+    def _swagger_param_value(self, param: dict[str, Any]) -> Optional[str]:
+        if not isinstance(param, dict):
+            return None
+        candidate = param.get("example")
+        if candidate is None:
+            candidate = param.get("default")
+        schema = param.get("schema") if isinstance(param.get("schema"), dict) else {}
+        if candidate is None and isinstance(schema, dict):
+            candidate = schema.get("example")
+        if candidate is None and isinstance(schema, dict):
+            candidate = schema.get("default")
+        if candidate is None:
+            enum_values = param.get("enum")
+            if not enum_values and isinstance(schema, dict):
+                enum_values = schema.get("enum")
+            if isinstance(enum_values, list) and enum_values:
+                candidate = enum_values[0]
+        if isinstance(candidate, (dict, list)):
+            try:
+                return json.dumps(candidate)
+            except Exception:
+                return str(candidate)
+        if candidate is not None:
+            return str(candidate)
+        return None
+
+    def _fill_swagger_path(self, template: str, values: dict[str, Optional[str]]) -> str:
+        if not template:
+            return template
+        filled = template
+        for key, raw_value in (values or {}).items():
+            placeholder = f"{{{key}}}"
+            value = raw_value if raw_value not in (None, "") else f"<{key}>"
+            filled = filled.replace(placeholder, str(value))
+        return filled
+
     def _format_swagger_security(self, operation: dict[str, Any]) -> str:
         security = operation.get("security")
         if not security:
@@ -5582,7 +5929,8 @@ class App(tk.Tk):
         for iid, info in list(self.swagger_tree_results.items()):
             if not info:
                 continue
-            resolved = self._compose_swagger_url(base, info.get("path", ""))
+            resolved_path = info.get("resolved_path") or info.get("path", "")
+            resolved = self._compose_swagger_url(base, resolved_path)
             info["url"] = resolved
             current = list(tree.item(iid, "values"))
             if len(current) >= 2:
@@ -5604,6 +5952,46 @@ class App(tk.Tk):
             return
         info = self.swagger_tree_results.get(selection[0])
         self._update_swagger_detail(info if info else None)
+
+    def _on_swagger_tree_double(self, _event=None):
+        tree = getattr(self, "swagger_tree", None)
+        if not tree:
+            return
+        selection = tree.selection()
+        if not selection:
+            return
+        info = self.swagger_tree_results.get(selection[0])
+        payload = self._build_swagger_request_payload(info)
+        if payload:
+            self._open_request_workbench(payload)
+
+    def _build_swagger_request_payload(self, info: Optional[dict[str, Any]]) -> Optional[dict[str, Any]]:
+        if not info:
+            return None
+        method = str(info.get("method") or "GET").upper()
+        url = str(info.get("url") or "").strip()
+        if not url:
+            base = self.swagger_base_url_var.get().strip()
+            resolved_path = info.get("resolved_path") or info.get("path", "")
+            url = self._compose_swagger_url(base, resolved_path)
+        headers = {}
+        for key, value in (info.get("headers") or {}).items():
+            headers[str(key)] = str(value)
+        params: dict[str, str] = {}
+        for key, value in (info.get("params") or {}).items():
+            params[str(key)] = "" if value is None else str(value)
+        body = info.get("body") or ""
+        operation = info.get("operation") if isinstance(info.get("operation"), dict) else {}
+        if not body and isinstance(operation.get("requestBody"), dict):
+            body = ""
+        payload = {
+            "method": method,
+            "url": url,
+            "headers": headers,
+            "body": body,
+            "params": params,
+        }
+        return payload
 
     def _update_swagger_detail(self, info: Optional[dict[str, Any]]) -> None:
         detail = getattr(self, "swagger_detail", None)
@@ -5681,6 +6069,19 @@ class App(tk.Tk):
             lines.append("Suggested Headers:")
             for key, value in headers.items():
                 lines.append(f"  • {key}: {value}")
+        query_defaults = info.get("params") if isinstance(info.get("params"), dict) else {}
+        if query_defaults:
+            lines.append("")
+            lines.append("Query Parameters (defaults):")
+            for key, value in query_defaults.items():
+                lines.append(f"  • {key} = {value}")
+        path_defaults = info.get("path_params") if isinstance(info.get("path_params"), dict) else {}
+        if path_defaults:
+            lines.append("")
+            lines.append("Path Placeholders:")
+            for key, value in path_defaults.items():
+                placeholder = value if value not in (None, "") else f"<{key}>"
+                lines.append(f"  • {{{key}}} → {placeholder}")
         body_preview = info.get("body")
         if body_preview:
             lines.append("")
@@ -6763,6 +7164,13 @@ class App(tk.Tk):
                     proxies=self._current_proxies(),
                 )
                 length = len(response.content)
+                try:
+                    spec_text = response.text
+                except Exception:
+                    spec_text = response.content.decode("utf-8", "ignore")
+                body_preview = (
+                    spec_text if length < 50_000 else spec_text[:2000]
+                )
                 info = {
                     "url": target,
                     "method": "GET",
@@ -6770,11 +7178,13 @@ class App(tk.Tk):
                     "detail": f"{length} bytes",
                     "label": path,
                     "headers": dict(response.headers),
-                    "body": response.text if length < 50_000 else response.content[:2000].decode("utf-8", "ignore"),
+                    "body": body_preview,
                 }
                 if response.status_code < 400:
                     spec_hits += 1
                     self._log_console(f"[+] Spec hit {path} -> {response.status_code}")
+                    if spec_text:
+                        self.after(0, lambda u=target, text=spec_text: self._auto_bootstrap_swagger_studio(u, text))
                 self.after(0, lambda data=info: self._insert_api_result(self.api_specs_node, data))
             except Exception as exc:
                 note = {
@@ -7605,6 +8015,7 @@ class App(tk.Tk):
             self.status_var.set(f"Deploying recon on {url} with HackXpert custom blend…")
         else:
             self.status_var.set(f"Deploying recon on {url}…")
+        self._prime_spotlight_for_scan(url, wordlist_name)
         for key in self.hud_metrics:
             self.hud_metrics[key].set("0")
 
