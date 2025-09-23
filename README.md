@@ -2,9 +2,13 @@
 
 HackXpert API Surface Explorer is a hybrid GUI/CLI recon assistant purpose-built for quickly enumerating API endpoints, collecting live response context, and exporting results in formats your blueprints or reports can use. It fuses the speed of threaded brute-forcing with recursive discovery smarts inside a polished dark UI, while still offering a scriptable command line for pipelines and servers.
 
+<img width="946" height="736" alt="image" src="https://github.com/user-attachments/assets/cd73ac17-fa15-4643-9b02-9202c7dcf8be" />
+
+
 ## Why choose HackXpert over other API discovery tools?
 
 * **Surface Drift Radar** – HackXpert baselines every environment locally, then live-flags brand new, status-changed, or vanished endpoints so you spot release drift before it lands in prod.
+* <img width="1613" height="1053" alt="image" src="https://github.com/user-attachments/assets/e44c43fa-3e5d-4c0d-b5f6-0e7a07358e8e" />
 * **High-signal previews** – Every hit in the GUI streams a syntax-aware preview, letting you triage JSON/text responses in seconds without juggling a separate HTTP client.
 * **Recursive intelligence** – Responses that look like HTML get parsed automatically so newly uncovered paths, forms, scripts, and inline URLs are scheduled without you lifting a finger.
 * **Rapid iteration controls** – Fine-tune threads, timeouts, recursion depth, status filters, and extension permutations, then persist the profile for your next engagement.
@@ -13,6 +17,7 @@ HackXpert API Surface Explorer is a hybrid GUI/CLI recon assistant purpose-built
 * **OffSec preflight** – The engine auto-hunts `robots.txt`, `.well-known/security.txt`, Swagger/OpenAPI docs, and GraphQL introspection targets before the main brute-force wave so you never miss low-hanging intel.
 
 ## Ten power features ethical hackers asked for
+<img width="1898" height="1051" alt="image" src="https://github.com/user-attachments/assets/ccf00845-8b21-45de-a3c8-30b0bfc1fd92" />
 
 1. **Multi-method blasting** – Supply `GET,HEAD,POST` (or any combo) and the explorer will cycle through each verb per path so you can spot sneaky behaviour differences or method-specific exposures.
 2. **Header loadouts** – Drop custom headers (auth tokens, API keys, experimental Origins) into the Settings tab once and every request—GUI, CLI, and preflight—will reuse them.
@@ -24,6 +29,8 @@ HackXpert API Surface Explorer is a hybrid GUI/CLI recon assistant purpose-built
 8. **Secret sniffer** – The preview pane flags JWTs, AWS keys, API tokens, and other credential patterns as soon as they appear so you can escalate quickly.
 9. **Directory exposure watch** – Classic “Index of /” listings and other directory disclosures are labelled the moment they appear.
 10. **Rate-limit and auth mapping** – 401/403/429/500 responses receive contextual notes so you can chart the access boundaries while the scan runs.
+<img width="1889" height="1053" alt="image" src="https://github.com/user-attachments/assets/1847bec8-a272-4ec1-9a04-c36769acfe81" />
+<img width="1897" height="1037" alt="image" src="https://github.com/user-attachments/assets/ef586d23-890c-4edf-92da-8624c663b3f3" />
 
 ### New: API forensics engine
 
@@ -48,6 +55,10 @@ HackXpert now ships with a deep API forensics engine to map the entire surface e
 * **Config leak detector** – JavaScript configuration blobs (`apiUrl`, `endpointUri`, etc.) and JSON payloads leaking service URLs are lifted automatically into the recon queue.
 * **Well-known hunter** – Any `/\.well-known/...` references discovered in HTML, JSON, or configs are promoted to first-class targets and highlighted in the forensics view.
 * **CSP report radar** – `Content-Security-Policy` and `Report-To` directives are parsed for reporting endpoints, exposing monitoring infrastructure and alternate ingestion hosts.
+
+  <img width="1889" height="1040" alt="image" src="https://github.com/user-attachments/assets/a8090d65-84e2-402e-a8ff-715cfcb50327" />
+<img width="1887" height="951" alt="image" src="https://github.com/user-attachments/assets/16eb6c56-f99b-48f2-a5b0-eb1d313244a5" />
+
 
 ## Requirements
 
