@@ -59,6 +59,22 @@ CATEGORIES = [
     "marketing",
     "operations",
     "product",
+    "ai-ml",
+    "architecture",
+    "business-systems",
+    "customer-support",
+    "data-science",
+    "enablement",
+    "field-operations",
+    "growth",
+    "hardware",
+    "innovation",
+    "iot",
+    "legal",
+    "platform",
+    "quality-assurance",
+    "research",
+    "sales-operations",
 ]
 
 EXPOSURES = [

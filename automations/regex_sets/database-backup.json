@@ -3002,6 +3002,2406 @@
         "(?i)create table",
         "(?i)dump"
       ]
+    },
+    {
+      "template_id": "api-regex-database-backup-ai-ml-01",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-ai-ml-02",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-ai-ml-03",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-ai-ml-04",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-ai-ml-05",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-ai-ml-06",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-ai-ml-07",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-ai-ml-08",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-ai-ml-09",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-ai-ml-10",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-ai-ml-11",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-ai-ml-12",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-ai-ml-13",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-ai-ml-14",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-ai-ml-15",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-architecture-01",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-architecture-02",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-architecture-03",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-architecture-04",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-architecture-05",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-architecture-06",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-architecture-07",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-architecture-08",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-architecture-09",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-architecture-10",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-architecture-11",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-architecture-12",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-architecture-13",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-architecture-14",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-architecture-15",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-business-systems-01",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-business-systems-02",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-business-systems-03",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-business-systems-04",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-business-systems-05",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-business-systems-06",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-business-systems-07",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-business-systems-08",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-business-systems-09",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-business-systems-10",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-business-systems-11",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-business-systems-12",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-business-systems-13",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-business-systems-14",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-business-systems-15",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-customer-support-01",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-customer-support-02",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-customer-support-03",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-customer-support-04",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-customer-support-05",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-customer-support-06",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-customer-support-07",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-customer-support-08",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-customer-support-09",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-customer-support-10",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-customer-support-11",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-customer-support-12",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-customer-support-13",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-customer-support-14",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-customer-support-15",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-data-science-01",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-data-science-02",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-data-science-03",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-data-science-04",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-data-science-05",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-data-science-06",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-data-science-07",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-data-science-08",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-data-science-09",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-data-science-10",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-data-science-11",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-data-science-12",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-data-science-13",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-data-science-14",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-data-science-15",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-enablement-01",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-enablement-02",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-enablement-03",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-enablement-04",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-enablement-05",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-enablement-06",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-enablement-07",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-enablement-08",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-enablement-09",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-enablement-10",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-enablement-11",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-enablement-12",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-enablement-13",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-enablement-14",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-enablement-15",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-field-operations-01",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-field-operations-02",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-field-operations-03",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-field-operations-04",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-field-operations-05",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-field-operations-06",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-field-operations-07",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-field-operations-08",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-field-operations-09",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-field-operations-10",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-field-operations-11",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-field-operations-12",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-field-operations-13",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-field-operations-14",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-field-operations-15",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-growth-01",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-growth-02",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-growth-03",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-growth-04",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-growth-05",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-growth-06",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-growth-07",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-growth-08",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-growth-09",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-growth-10",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-growth-11",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-growth-12",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-growth-13",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-growth-14",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-growth-15",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-hardware-01",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-hardware-02",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-hardware-03",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-hardware-04",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-hardware-05",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-hardware-06",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-hardware-07",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-hardware-08",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-hardware-09",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-hardware-10",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-hardware-11",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-hardware-12",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-hardware-13",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-hardware-14",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-hardware-15",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-innovation-01",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-innovation-02",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-innovation-03",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-innovation-04",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-innovation-05",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-innovation-06",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-innovation-07",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-innovation-08",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-innovation-09",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-innovation-10",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-innovation-11",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-innovation-12",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-innovation-13",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-innovation-14",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-innovation-15",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-iot-01",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-iot-02",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-iot-03",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-iot-04",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-iot-05",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-iot-06",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-iot-07",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-iot-08",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-iot-09",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-iot-10",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-iot-11",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-iot-12",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-iot-13",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-iot-14",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-iot-15",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-legal-01",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-legal-02",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-legal-03",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-legal-04",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-legal-05",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-legal-06",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-legal-07",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-legal-08",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-legal-09",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-legal-10",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-legal-11",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-legal-12",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-legal-13",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-legal-14",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-legal-15",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-platform-01",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-platform-02",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-platform-03",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-platform-04",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-platform-05",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-platform-06",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-platform-07",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-platform-08",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-platform-09",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-platform-10",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-platform-11",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-platform-12",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-platform-13",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-platform-14",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-platform-15",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-quality-assurance-01",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-quality-assurance-02",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-quality-assurance-03",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-quality-assurance-04",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-quality-assurance-05",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-quality-assurance-06",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-quality-assurance-07",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-quality-assurance-08",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-quality-assurance-09",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-quality-assurance-10",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-quality-assurance-11",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-quality-assurance-12",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-quality-assurance-13",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-quality-assurance-14",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-quality-assurance-15",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-research-01",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-research-02",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-research-03",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-research-04",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-research-05",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-research-06",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-research-07",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-research-08",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-research-09",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-research-10",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-research-11",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-research-12",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-research-13",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-research-14",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-research-15",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-sales-operations-01",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-sales-operations-02",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-sales-operations-03",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-sales-operations-04",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-sales-operations-05",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-sales-operations-06",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-sales-operations-07",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-sales-operations-08",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-sales-operations-09",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-sales-operations-10",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-sales-operations-11",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-sales-operations-12",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-sales-operations-13",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-sales-operations-14",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
+    },
+    {
+      "template_id": "api-regex-database-backup-sales-operations-15",
+      "regex": [
+        "(?i)insert",
+        "(?i)password",
+        "(?i)api_key",
+        "(?i)create table",
+        "(?i)dump"
+      ]
     }
   ]
 }
