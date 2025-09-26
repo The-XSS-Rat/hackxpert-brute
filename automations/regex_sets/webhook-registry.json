@@ -3002,6 +3002,2406 @@
         "(?i)endpoint",
         "(?i)token"
       ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-ai-ml-01",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-ai-ml-02",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-ai-ml-03",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-ai-ml-04",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-ai-ml-05",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-ai-ml-06",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-ai-ml-07",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-ai-ml-08",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-ai-ml-09",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-ai-ml-10",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-ai-ml-11",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-ai-ml-12",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-ai-ml-13",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-ai-ml-14",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-ai-ml-15",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-architecture-01",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-architecture-02",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-architecture-03",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-architecture-04",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-architecture-05",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-architecture-06",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-architecture-07",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-architecture-08",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-architecture-09",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-architecture-10",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-architecture-11",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-architecture-12",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-architecture-13",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-architecture-14",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-architecture-15",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-business-systems-01",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-business-systems-02",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-business-systems-03",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-business-systems-04",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-business-systems-05",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-business-systems-06",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-business-systems-07",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-business-systems-08",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-business-systems-09",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-business-systems-10",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-business-systems-11",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-business-systems-12",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-business-systems-13",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-business-systems-14",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-business-systems-15",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-customer-support-01",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-customer-support-02",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-customer-support-03",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-customer-support-04",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-customer-support-05",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-customer-support-06",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-customer-support-07",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-customer-support-08",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-customer-support-09",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-customer-support-10",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-customer-support-11",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-customer-support-12",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-customer-support-13",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-customer-support-14",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-customer-support-15",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-data-science-01",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-data-science-02",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-data-science-03",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-data-science-04",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-data-science-05",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-data-science-06",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-data-science-07",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-data-science-08",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-data-science-09",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-data-science-10",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-data-science-11",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-data-science-12",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-data-science-13",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-data-science-14",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-data-science-15",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-enablement-01",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-enablement-02",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-enablement-03",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-enablement-04",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-enablement-05",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-enablement-06",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-enablement-07",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-enablement-08",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-enablement-09",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-enablement-10",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-enablement-11",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-enablement-12",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-enablement-13",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-enablement-14",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-enablement-15",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-field-operations-01",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-field-operations-02",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-field-operations-03",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-field-operations-04",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-field-operations-05",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-field-operations-06",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-field-operations-07",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-field-operations-08",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-field-operations-09",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-field-operations-10",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-field-operations-11",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-field-operations-12",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-field-operations-13",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-field-operations-14",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-field-operations-15",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-growth-01",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-growth-02",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-growth-03",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-growth-04",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-growth-05",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-growth-06",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-growth-07",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-growth-08",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-growth-09",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-growth-10",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-growth-11",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-growth-12",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-growth-13",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-growth-14",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-growth-15",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-hardware-01",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-hardware-02",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-hardware-03",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-hardware-04",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-hardware-05",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-hardware-06",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-hardware-07",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-hardware-08",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-hardware-09",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-hardware-10",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-hardware-11",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-hardware-12",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-hardware-13",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-hardware-14",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-hardware-15",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-innovation-01",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-innovation-02",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-innovation-03",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-innovation-04",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-innovation-05",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-innovation-06",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-innovation-07",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-innovation-08",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-innovation-09",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-innovation-10",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-innovation-11",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-innovation-12",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-innovation-13",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-innovation-14",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-innovation-15",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-iot-01",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-iot-02",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-iot-03",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-iot-04",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-iot-05",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-iot-06",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-iot-07",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-iot-08",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-iot-09",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-iot-10",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-iot-11",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-iot-12",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-iot-13",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-iot-14",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-iot-15",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-legal-01",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-legal-02",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-legal-03",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-legal-04",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-legal-05",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-legal-06",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-legal-07",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-legal-08",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-legal-09",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-legal-10",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-legal-11",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-legal-12",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-legal-13",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-legal-14",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-legal-15",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-platform-01",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-platform-02",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-platform-03",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-platform-04",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-platform-05",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-platform-06",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-platform-07",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-platform-08",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-platform-09",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-platform-10",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-platform-11",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-platform-12",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-platform-13",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-platform-14",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-platform-15",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-quality-assurance-01",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-quality-assurance-02",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-quality-assurance-03",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-quality-assurance-04",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-quality-assurance-05",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-quality-assurance-06",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-quality-assurance-07",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-quality-assurance-08",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-quality-assurance-09",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-quality-assurance-10",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-quality-assurance-11",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-quality-assurance-12",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-quality-assurance-13",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-quality-assurance-14",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-quality-assurance-15",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-research-01",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-research-02",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-research-03",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-research-04",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-research-05",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-research-06",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-research-07",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-research-08",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-research-09",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-research-10",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-research-11",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-research-12",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-research-13",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-research-14",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-research-15",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-sales-operations-01",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-sales-operations-02",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-sales-operations-03",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-sales-operations-04",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-sales-operations-05",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-sales-operations-06",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-sales-operations-07",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-sales-operations-08",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-sales-operations-09",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-sales-operations-10",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-sales-operations-11",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-sales-operations-12",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-sales-operations-13",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-sales-operations-14",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
+    },
+    {
+      "template_id": "api-regex-webhook-registry-sales-operations-15",
+      "regex": [
+        "(?i)webhook",
+        "(?i)callback",
+        "(?i)signature",
+        "(?i)endpoint",
+        "(?i)token"
+      ]
     }
   ]
 }

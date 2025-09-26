@@ -3002,6 +3002,2406 @@
         "(?i)refresh_token",
         "(?i)cookie"
       ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-ai-ml-01",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-ai-ml-02",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-ai-ml-03",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-ai-ml-04",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-ai-ml-05",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-ai-ml-06",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-ai-ml-07",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-ai-ml-08",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-ai-ml-09",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-ai-ml-10",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-ai-ml-11",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-ai-ml-12",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-ai-ml-13",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-ai-ml-14",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-ai-ml-15",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-architecture-01",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-architecture-02",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-architecture-03",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-architecture-04",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-architecture-05",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-architecture-06",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-architecture-07",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-architecture-08",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-architecture-09",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-architecture-10",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-architecture-11",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-architecture-12",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-architecture-13",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-architecture-14",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-architecture-15",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-business-systems-01",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-business-systems-02",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-business-systems-03",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-business-systems-04",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-business-systems-05",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-business-systems-06",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-business-systems-07",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-business-systems-08",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-business-systems-09",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-business-systems-10",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-business-systems-11",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-business-systems-12",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-business-systems-13",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-business-systems-14",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-business-systems-15",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-customer-support-01",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-customer-support-02",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-customer-support-03",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-customer-support-04",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-customer-support-05",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-customer-support-06",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-customer-support-07",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-customer-support-08",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-customer-support-09",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-customer-support-10",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-customer-support-11",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-customer-support-12",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-customer-support-13",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-customer-support-14",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-customer-support-15",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-data-science-01",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-data-science-02",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-data-science-03",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-data-science-04",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-data-science-05",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-data-science-06",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-data-science-07",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-data-science-08",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-data-science-09",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-data-science-10",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-data-science-11",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-data-science-12",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-data-science-13",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-data-science-14",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-data-science-15",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-enablement-01",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-enablement-02",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-enablement-03",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-enablement-04",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-enablement-05",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-enablement-06",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-enablement-07",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-enablement-08",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-enablement-09",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-enablement-10",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-enablement-11",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-enablement-12",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-enablement-13",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-enablement-14",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-enablement-15",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-field-operations-01",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-field-operations-02",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-field-operations-03",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-field-operations-04",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-field-operations-05",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-field-operations-06",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-field-operations-07",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-field-operations-08",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-field-operations-09",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-field-operations-10",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-field-operations-11",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-field-operations-12",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-field-operations-13",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-field-operations-14",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-field-operations-15",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-growth-01",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-growth-02",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-growth-03",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-growth-04",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-growth-05",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-growth-06",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-growth-07",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-growth-08",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-growth-09",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-growth-10",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-growth-11",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-growth-12",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-growth-13",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-growth-14",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-growth-15",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-hardware-01",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-hardware-02",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-hardware-03",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-hardware-04",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-hardware-05",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-hardware-06",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-hardware-07",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-hardware-08",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-hardware-09",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-hardware-10",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-hardware-11",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-hardware-12",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-hardware-13",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-hardware-14",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-hardware-15",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-innovation-01",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-innovation-02",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-innovation-03",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-innovation-04",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-innovation-05",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-innovation-06",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-innovation-07",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-innovation-08",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-innovation-09",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-innovation-10",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-innovation-11",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-innovation-12",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-innovation-13",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-innovation-14",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-innovation-15",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-iot-01",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-iot-02",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-iot-03",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-iot-04",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-iot-05",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-iot-06",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-iot-07",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-iot-08",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-iot-09",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-iot-10",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-iot-11",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-iot-12",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-iot-13",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-iot-14",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-iot-15",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-legal-01",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-legal-02",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-legal-03",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-legal-04",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-legal-05",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-legal-06",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-legal-07",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-legal-08",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-legal-09",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-legal-10",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-legal-11",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-legal-12",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-legal-13",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-legal-14",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-legal-15",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-platform-01",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-platform-02",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-platform-03",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-platform-04",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-platform-05",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-platform-06",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-platform-07",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-platform-08",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-platform-09",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-platform-10",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-platform-11",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-platform-12",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-platform-13",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-platform-14",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-platform-15",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-quality-assurance-01",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-quality-assurance-02",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-quality-assurance-03",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-quality-assurance-04",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-quality-assurance-05",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-quality-assurance-06",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-quality-assurance-07",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-quality-assurance-08",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-quality-assurance-09",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-quality-assurance-10",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-quality-assurance-11",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-quality-assurance-12",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-quality-assurance-13",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-quality-assurance-14",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-quality-assurance-15",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-research-01",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-research-02",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-research-03",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-research-04",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-research-05",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-research-06",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-research-07",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-research-08",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-research-09",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-research-10",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-research-11",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-research-12",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-research-13",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-research-14",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-research-15",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-sales-operations-01",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-sales-operations-02",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-sales-operations-03",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-sales-operations-04",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-sales-operations-05",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-sales-operations-06",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-sales-operations-07",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-sales-operations-08",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-sales-operations-09",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-sales-operations-10",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-sales-operations-11",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-sales-operations-12",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-sales-operations-13",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-sales-operations-14",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
+    },
+    {
+      "template_id": "api-regex-session-ledger-sales-operations-15",
+      "regex": [
+        "(?i)session",
+        "(?i)jwt",
+        "(?i)exp",
+        "(?i)refresh_token",
+        "(?i)cookie"
+      ]
     }
   ]
 }

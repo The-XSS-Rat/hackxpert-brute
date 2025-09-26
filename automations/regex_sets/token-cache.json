@@ -3002,6 +3002,2406 @@
         "(?i)refresh",
         "(?i)session"
       ]
+    },
+    {
+      "template_id": "api-regex-token-cache-ai-ml-01",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-ai-ml-02",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-ai-ml-03",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-ai-ml-04",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-ai-ml-05",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-ai-ml-06",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-ai-ml-07",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-ai-ml-08",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-ai-ml-09",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-ai-ml-10",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-ai-ml-11",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-ai-ml-12",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-ai-ml-13",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-ai-ml-14",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-ai-ml-15",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-architecture-01",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-architecture-02",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-architecture-03",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-architecture-04",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-architecture-05",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-architecture-06",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-architecture-07",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-architecture-08",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-architecture-09",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-architecture-10",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-architecture-11",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-architecture-12",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-architecture-13",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-architecture-14",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-architecture-15",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-business-systems-01",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-business-systems-02",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-business-systems-03",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-business-systems-04",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-business-systems-05",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-business-systems-06",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-business-systems-07",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-business-systems-08",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-business-systems-09",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-business-systems-10",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-business-systems-11",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-business-systems-12",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-business-systems-13",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-business-systems-14",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-business-systems-15",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-customer-support-01",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-customer-support-02",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-customer-support-03",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-customer-support-04",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-customer-support-05",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-customer-support-06",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-customer-support-07",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-customer-support-08",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-customer-support-09",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-customer-support-10",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-customer-support-11",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-customer-support-12",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-customer-support-13",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-customer-support-14",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-customer-support-15",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-data-science-01",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-data-science-02",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-data-science-03",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-data-science-04",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-data-science-05",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-data-science-06",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-data-science-07",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-data-science-08",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-data-science-09",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-data-science-10",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-data-science-11",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-data-science-12",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-data-science-13",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-data-science-14",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-data-science-15",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-enablement-01",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-enablement-02",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-enablement-03",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-enablement-04",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-enablement-05",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-enablement-06",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-enablement-07",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-enablement-08",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-enablement-09",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-enablement-10",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-enablement-11",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-enablement-12",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-enablement-13",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-enablement-14",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-enablement-15",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-field-operations-01",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-field-operations-02",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-field-operations-03",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-field-operations-04",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-field-operations-05",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-field-operations-06",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-field-operations-07",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-field-operations-08",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-field-operations-09",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-field-operations-10",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-field-operations-11",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-field-operations-12",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-field-operations-13",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-field-operations-14",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-field-operations-15",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-growth-01",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-growth-02",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-growth-03",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-growth-04",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-growth-05",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-growth-06",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-growth-07",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-growth-08",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-growth-09",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-growth-10",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-growth-11",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-growth-12",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-growth-13",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-growth-14",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-growth-15",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-hardware-01",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-hardware-02",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-hardware-03",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-hardware-04",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-hardware-05",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-hardware-06",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-hardware-07",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-hardware-08",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-hardware-09",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-hardware-10",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-hardware-11",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-hardware-12",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-hardware-13",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-hardware-14",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-hardware-15",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-innovation-01",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-innovation-02",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-innovation-03",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-innovation-04",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-innovation-05",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-innovation-06",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-innovation-07",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-innovation-08",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-innovation-09",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-innovation-10",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-innovation-11",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-innovation-12",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-innovation-13",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-innovation-14",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-innovation-15",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-iot-01",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-iot-02",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-iot-03",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-iot-04",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-iot-05",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-iot-06",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-iot-07",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-iot-08",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-iot-09",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-iot-10",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-iot-11",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-iot-12",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-iot-13",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-iot-14",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-iot-15",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-legal-01",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-legal-02",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-legal-03",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-legal-04",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-legal-05",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-legal-06",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-legal-07",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-legal-08",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-legal-09",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-legal-10",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-legal-11",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-legal-12",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-legal-13",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-legal-14",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-legal-15",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-platform-01",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-platform-02",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-platform-03",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-platform-04",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-platform-05",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-platform-06",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-platform-07",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-platform-08",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-platform-09",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-platform-10",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-platform-11",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-platform-12",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-platform-13",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-platform-14",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-platform-15",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-quality-assurance-01",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-quality-assurance-02",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-quality-assurance-03",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-quality-assurance-04",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-quality-assurance-05",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-quality-assurance-06",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-quality-assurance-07",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-quality-assurance-08",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-quality-assurance-09",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-quality-assurance-10",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-quality-assurance-11",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-quality-assurance-12",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-quality-assurance-13",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-quality-assurance-14",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-quality-assurance-15",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-research-01",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-research-02",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-research-03",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-research-04",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-research-05",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-research-06",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-research-07",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-research-08",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-research-09",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-research-10",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-research-11",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-research-12",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-research-13",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-research-14",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-research-15",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-sales-operations-01",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-sales-operations-02",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-sales-operations-03",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-sales-operations-04",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-sales-operations-05",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-sales-operations-06",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-sales-operations-07",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-sales-operations-08",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-sales-operations-09",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-sales-operations-10",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-sales-operations-11",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-sales-operations-12",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-sales-operations-13",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-sales-operations-14",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
+    },
+    {
+      "template_id": "api-regex-token-cache-sales-operations-15",
+      "regex": [
+        "(?i)token",
+        "(?i)secret",
+        "(?i)bearer",
+        "(?i)refresh",
+        "(?i)session"
+      ]
     }
   ]
 }

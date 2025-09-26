@@ -3002,6 +3002,2406 @@
         "(?i)username",
         "(?i)profile"
       ]
+    },
+    {
+      "template_id": "api-regex-user-dump-ai-ml-01",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-ai-ml-02",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-ai-ml-03",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-ai-ml-04",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-ai-ml-05",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-ai-ml-06",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-ai-ml-07",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-ai-ml-08",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-ai-ml-09",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-ai-ml-10",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-ai-ml-11",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-ai-ml-12",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-ai-ml-13",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-ai-ml-14",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-ai-ml-15",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-architecture-01",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-architecture-02",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-architecture-03",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-architecture-04",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-architecture-05",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-architecture-06",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-architecture-07",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-architecture-08",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-architecture-09",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-architecture-10",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-architecture-11",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-architecture-12",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-architecture-13",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-architecture-14",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-architecture-15",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-business-systems-01",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-business-systems-02",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-business-systems-03",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-business-systems-04",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-business-systems-05",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-business-systems-06",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-business-systems-07",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-business-systems-08",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-business-systems-09",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-business-systems-10",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-business-systems-11",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-business-systems-12",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-business-systems-13",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-business-systems-14",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-business-systems-15",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-customer-support-01",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-customer-support-02",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-customer-support-03",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-customer-support-04",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-customer-support-05",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-customer-support-06",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-customer-support-07",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-customer-support-08",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-customer-support-09",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-customer-support-10",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-customer-support-11",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-customer-support-12",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-customer-support-13",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-customer-support-14",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-customer-support-15",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-data-science-01",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-data-science-02",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-data-science-03",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-data-science-04",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-data-science-05",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-data-science-06",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-data-science-07",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-data-science-08",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-data-science-09",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-data-science-10",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-data-science-11",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-data-science-12",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-data-science-13",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-data-science-14",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-data-science-15",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-enablement-01",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-enablement-02",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-enablement-03",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-enablement-04",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-enablement-05",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-enablement-06",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-enablement-07",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-enablement-08",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-enablement-09",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-enablement-10",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-enablement-11",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-enablement-12",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-enablement-13",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-enablement-14",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-enablement-15",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-field-operations-01",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-field-operations-02",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-field-operations-03",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-field-operations-04",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-field-operations-05",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-field-operations-06",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-field-operations-07",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-field-operations-08",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-field-operations-09",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-field-operations-10",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-field-operations-11",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-field-operations-12",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-field-operations-13",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-field-operations-14",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-field-operations-15",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-growth-01",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-growth-02",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-growth-03",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-growth-04",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-growth-05",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-growth-06",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-growth-07",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-growth-08",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-growth-09",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-growth-10",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-growth-11",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-growth-12",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-growth-13",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-growth-14",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-growth-15",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-hardware-01",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-hardware-02",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-hardware-03",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-hardware-04",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-hardware-05",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-hardware-06",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-hardware-07",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-hardware-08",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-hardware-09",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-hardware-10",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-hardware-11",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-hardware-12",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-hardware-13",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-hardware-14",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-hardware-15",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-innovation-01",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-innovation-02",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-innovation-03",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-innovation-04",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-innovation-05",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-innovation-06",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-innovation-07",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-innovation-08",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-innovation-09",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-innovation-10",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-innovation-11",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-innovation-12",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-innovation-13",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-innovation-14",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-innovation-15",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-iot-01",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-iot-02",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-iot-03",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-iot-04",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-iot-05",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-iot-06",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-iot-07",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-iot-08",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-iot-09",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-iot-10",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-iot-11",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-iot-12",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-iot-13",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-iot-14",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-iot-15",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-legal-01",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-legal-02",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-legal-03",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-legal-04",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-legal-05",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-legal-06",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-legal-07",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-legal-08",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-legal-09",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-legal-10",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-legal-11",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-legal-12",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-legal-13",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-legal-14",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-legal-15",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-platform-01",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-platform-02",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-platform-03",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-platform-04",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-platform-05",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-platform-06",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-platform-07",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-platform-08",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-platform-09",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-platform-10",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-platform-11",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-platform-12",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-platform-13",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-platform-14",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-platform-15",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-quality-assurance-01",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-quality-assurance-02",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-quality-assurance-03",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-quality-assurance-04",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-quality-assurance-05",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-quality-assurance-06",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-quality-assurance-07",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-quality-assurance-08",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-quality-assurance-09",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-quality-assurance-10",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-quality-assurance-11",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-quality-assurance-12",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-quality-assurance-13",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-quality-assurance-14",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-quality-assurance-15",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-research-01",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-research-02",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-research-03",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-research-04",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-research-05",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-research-06",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-research-07",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-research-08",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-research-09",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-research-10",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-research-11",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-research-12",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-research-13",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-research-14",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-research-15",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-sales-operations-01",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-sales-operations-02",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-sales-operations-03",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-sales-operations-04",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-sales-operations-05",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-sales-operations-06",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-sales-operations-07",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-sales-operations-08",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-sales-operations-09",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-sales-operations-10",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-sales-operations-11",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-sales-operations-12",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-sales-operations-13",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-sales-operations-14",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
+    },
+    {
+      "template_id": "api-regex-user-dump-sales-operations-15",
+      "regex": [
+        "(?i)email",
+        "(?i)user",
+        "(?i)id",
+        "(?i)username",
+        "(?i)profile"
+      ]
     }
   ]
 }

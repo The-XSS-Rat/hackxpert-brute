@@ -3002,6 +3002,2406 @@
         "(?i)settings",
         "(?i)credential"
       ]
+    },
+    {
+      "template_id": "api-regex-config-export-ai-ml-01",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-ai-ml-02",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-ai-ml-03",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-ai-ml-04",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-ai-ml-05",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-ai-ml-06",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-ai-ml-07",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-ai-ml-08",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-ai-ml-09",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-ai-ml-10",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-ai-ml-11",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-ai-ml-12",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-ai-ml-13",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-ai-ml-14",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-ai-ml-15",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-architecture-01",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-architecture-02",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-architecture-03",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-architecture-04",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-architecture-05",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-architecture-06",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-architecture-07",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-architecture-08",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-architecture-09",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-architecture-10",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-architecture-11",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-architecture-12",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-architecture-13",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-architecture-14",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-architecture-15",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-business-systems-01",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-business-systems-02",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-business-systems-03",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-business-systems-04",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-business-systems-05",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-business-systems-06",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-business-systems-07",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-business-systems-08",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-business-systems-09",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-business-systems-10",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-business-systems-11",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-business-systems-12",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-business-systems-13",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-business-systems-14",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-business-systems-15",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-customer-support-01",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-customer-support-02",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-customer-support-03",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-customer-support-04",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-customer-support-05",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-customer-support-06",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-customer-support-07",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-customer-support-08",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-customer-support-09",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-customer-support-10",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-customer-support-11",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-customer-support-12",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-customer-support-13",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-customer-support-14",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-customer-support-15",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-data-science-01",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-data-science-02",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-data-science-03",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-data-science-04",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-data-science-05",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-data-science-06",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-data-science-07",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-data-science-08",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-data-science-09",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-data-science-10",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-data-science-11",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-data-science-12",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-data-science-13",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-data-science-14",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-data-science-15",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-enablement-01",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-enablement-02",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-enablement-03",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-enablement-04",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-enablement-05",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-enablement-06",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-enablement-07",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-enablement-08",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-enablement-09",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-enablement-10",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-enablement-11",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-enablement-12",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-enablement-13",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-enablement-14",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-enablement-15",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-field-operations-01",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-field-operations-02",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-field-operations-03",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-field-operations-04",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-field-operations-05",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-field-operations-06",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-field-operations-07",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-field-operations-08",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-field-operations-09",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-field-operations-10",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-field-operations-11",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-field-operations-12",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-field-operations-13",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-field-operations-14",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-field-operations-15",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-growth-01",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-growth-02",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-growth-03",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-growth-04",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-growth-05",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-growth-06",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-growth-07",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-growth-08",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-growth-09",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-growth-10",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-growth-11",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-growth-12",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-growth-13",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-growth-14",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-growth-15",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-hardware-01",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-hardware-02",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-hardware-03",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-hardware-04",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-hardware-05",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-hardware-06",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-hardware-07",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-hardware-08",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-hardware-09",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-hardware-10",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-hardware-11",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-hardware-12",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-hardware-13",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-hardware-14",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-hardware-15",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-innovation-01",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-innovation-02",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-innovation-03",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-innovation-04",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-innovation-05",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-innovation-06",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-innovation-07",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-innovation-08",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-innovation-09",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-innovation-10",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-innovation-11",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-innovation-12",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-innovation-13",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-innovation-14",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-innovation-15",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-iot-01",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-iot-02",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-iot-03",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-iot-04",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-iot-05",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-iot-06",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-iot-07",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-iot-08",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-iot-09",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-iot-10",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-iot-11",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-iot-12",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-iot-13",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-iot-14",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-iot-15",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-legal-01",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-legal-02",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-legal-03",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-legal-04",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-legal-05",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-legal-06",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-legal-07",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-legal-08",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-legal-09",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-legal-10",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-legal-11",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-legal-12",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-legal-13",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-legal-14",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-legal-15",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-platform-01",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-platform-02",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-platform-03",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-platform-04",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-platform-05",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-platform-06",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-platform-07",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-platform-08",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-platform-09",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-platform-10",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-platform-11",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-platform-12",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-platform-13",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-platform-14",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-platform-15",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-quality-assurance-01",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-quality-assurance-02",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-quality-assurance-03",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-quality-assurance-04",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-quality-assurance-05",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-quality-assurance-06",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-quality-assurance-07",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-quality-assurance-08",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-quality-assurance-09",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-quality-assurance-10",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-quality-assurance-11",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-quality-assurance-12",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-quality-assurance-13",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-quality-assurance-14",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-quality-assurance-15",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-research-01",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-research-02",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-research-03",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-research-04",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-research-05",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-research-06",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-research-07",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-research-08",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-research-09",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-research-10",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-research-11",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-research-12",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-research-13",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-research-14",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-research-15",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-sales-operations-01",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-sales-operations-02",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-sales-operations-03",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-sales-operations-04",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-sales-operations-05",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-sales-operations-06",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-sales-operations-07",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-sales-operations-08",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-sales-operations-09",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-sales-operations-10",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-sales-operations-11",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-sales-operations-12",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-sales-operations-13",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-sales-operations-14",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
+    },
+    {
+      "template_id": "api-regex-config-export-sales-operations-15",
+      "regex": [
+        "(?i)config",
+        "(?i)environment",
+        "(?i)secret",
+        "(?i)settings",
+        "(?i)credential"
+      ]
     }
   ]
 }
