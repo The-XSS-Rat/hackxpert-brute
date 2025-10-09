@@ -1186,6 +1186,7 @@ class APISurfaceReport:
         self.csp_report_uris: set[str] = set()
         self.well_known_links: set[str] = set()
         self.config_endpoints: set[str] = set()
+        self.regex_matches: set[str] = set()
         self.certificate: Optional[dict[str, Any]] = None
 
     def _safe_json(self, response) -> Any:
@@ -1364,6 +1365,7 @@ class APISurfaceReport:
         well_known_links: Optional[set[str]] = None,
         config_endpoints: Optional[set[str]] = None,
         json_payload: Any = None,
+        regex_hits: Optional[list[dict[str, Any]]] = None,
     ) -> dict[str, Any]:
         if json_payload is None:
             json_payload = self._safe_json(response)
@@ -1432,6 +1434,7 @@ class APISurfaceReport:
                     "config_endpoints": set(),
                     "intel": set(),
                     "secrets": set(),
+                    "regex_hits": set(),
                     "technologies": set(),
                     "auth_schemes": set(),
                     "graphql": False,
@@ -1463,6 +1466,21 @@ class APISurfaceReport:
             record["config_endpoints"].update(normalized_config)
             record["intel"].update(intel_notes)
             record["secrets"].update(secret_hits)
+            regex_bucket = record.setdefault("regex_hits", set())
+            for entry in regex_hits or []:
+                if not isinstance(entry, dict):
+                    continue
+                label = str(entry.get("label") or entry.get("pattern") or "regex")
+                snippet = str(entry.get("match") or entry.get("snippet") or "").strip()
+                pattern = str(entry.get("pattern") or "")
+                if snippet:
+                    cleaned = snippet.replace("\n", " ")
+                    if len(cleaned) > 120:
+                        cleaned = cleaned[:117] + "…"
+                else:
+                    cleaned = ""
+                regex_bucket.add((label, cleaned, pattern))
+                self.regex_matches.add(label)
             record["technologies"].update(technologies)
             record["auth_schemes"].update(auth_schemes)
             record["spec_hints"].update(spec_hints)
@@ -1505,6 +1523,14 @@ class APISurfaceReport:
                 "technologies": sorted(record["technologies"]),
                 "intel": sorted(record["intel"])[:20],
                 "secrets": sorted(record["secrets"]),
+                "regex_hits": [
+                    {
+                        "label": item[0],
+                        "snippet": item[1],
+                        "pattern": item[2],
+                    }
+                    for item in sorted(record["regex_hits"])
+                ],
                 "auth_schemes": sorted(record["auth_schemes"]),
                 "graphql": record["graphql"],
                 "graphql_operations": sorted(record["graphql_operations"])[:20],
@@ -1524,6 +1550,7 @@ class APISurfaceReport:
                 "global_csp_reports": sorted(self.csp_report_uris)[:60],
                 "global_well_known_links": sorted(self.well_known_links)[:60],
                 "global_config_endpoints": sorted(self.config_endpoints)[:60],
+                "global_regex_hits": sorted(self.regex_matches),
                 "certificate": self.certificate,
             }
 
@@ -1555,6 +1582,14 @@ class APISurfaceReport:
                         "config_endpoints": sorted(record["config_endpoints"]),
                         "intel": sorted(record["intel"]),
                         "secrets": sorted(record["secrets"]),
+                        "regex_hits": [
+                            {
+                                "label": item[0],
+                                "snippet": item[1],
+                                "pattern": item[2],
+                            }
+                            for item in sorted(record.get("regex_hits", set()))
+                        ],
                         "technologies": sorted(record["technologies"]),
                         "auth_schemes": sorted(record["auth_schemes"]),
                         "graphql": record["graphql"],
@@ -1581,6 +1616,7 @@ class APISurfaceReport:
                 "csp_reports": sorted(self.csp_report_uris),
                 "well_known_links": sorted(self.well_known_links),
                 "config_endpoints": sorted(self.config_endpoints),
+                "regex_matches": sorted(self.regex_matches),
                 "certificate": self.certificate,
                 "endpoints": endpoints,
             }
@@ -1598,6 +1634,8 @@ class APISurfaceReport:
                 )
             if self.spec_documents:
                 highlights.append(f"Spec clues: {', '.join(sorted(self.spec_documents))}")
+            if self.regex_matches:
+                highlights.append(f"Regex hits: {len(self.regex_matches)} pattern(s)")
             if self.websocket_links:
                 highlights.append(f"WebSocket hints: {len(self.websocket_links)}")
             if self.link_relations:
@@ -1649,6 +1687,7 @@ class DirBruteForcer:
         on_finish,
         on_progress=None,
         on_certificate=None,
+        regex_catalog: Optional[list[dict[str, Any]]] = None,
     ):
         self.base_url = base_url.rstrip("/")
         self.wordlist_file = wordlist_file
@@ -1657,6 +1696,7 @@ class DirBruteForcer:
         self.on_finish = on_finish
         self.on_progress = on_progress or (lambda p: None)
         self.on_certificate = on_certificate
+        self.regex_catalog = self._compile_regex_catalog(regex_catalog)
         self.to_scan: queue.Queue = queue.Queue()
         self.seen = set()
         self.path_seen = set()
@@ -1683,6 +1723,7 @@ class DirBruteForcer:
         self.forensics = APISurfaceReport(self.base_url)
         self.proxies: Optional[dict[str, str]] = None
         self.certificate_info: Optional[dict[str, Any]] = None
+        self.regex_total_matches: int = 0
         base_reference = self.base_url if "://" in self.base_url else f"http://{self.base_url}"
         self.base_host = urllib.parse.urlsplit(base_reference).netloc
 
@@ -1708,6 +1749,38 @@ class DirBruteForcer:
     def _normalize(self, url):
         stripped = url.rstrip("/")
         return stripped or url
+
+    def _compile_regex_catalog(self, catalog: Optional[list[dict[str, Any]]]) -> list[dict[str, Any]]:
+        compiled: list[dict[str, Any]] = []
+        if not catalog:
+            return compiled
+        seen: set[tuple[str, str, str]] = set()
+        for entry in catalog:
+            if not isinstance(entry, dict):
+                continue
+            category = str(entry.get("category") or "Regex")
+            template = str(entry.get("template") or "")
+            pattern = entry.get("pattern")
+            if not isinstance(pattern, str) or not pattern:
+                continue
+            key = (category, template, pattern)
+            if key in seen:
+                continue
+            seen.add(key)
+            try:
+                compiled_regex = re.compile(pattern)
+            except re.error:
+                continue
+            compiled.append(
+                {
+                    "category": category,
+                    "template": template,
+                    "pattern": pattern,
+                    "compiled": compiled_regex,
+                    "label": f"{category}::{template}".strip(":"),
+                }
+            )
+        return compiled
 
     def _build_headers(self, user_agent):
         headers = {}
@@ -2081,6 +2154,7 @@ class DirBruteForcer:
         self.baseline_snapshot = snapshot
         self.current_snapshot = {}
         self.baseline_highlights = {"new": 0, "changed": 0, "retired": 0, "retired_items": []}
+        self.regex_total_matches = 0
         self.preflight_targets = [
             urllib.parse.urljoin(f"{self.base_url}/", path.lstrip("/"))
             for path in self.intel_paths
@@ -2323,6 +2397,32 @@ class DirBruteForcer:
             hits.append("Generic API token keyword + value")
         return hits
 
+    def _scan_regex(self, body_text: str) -> list[dict[str, Any]]:
+        if not self.regex_catalog or not body_text:
+            return []
+        sample = body_text if len(body_text) <= 120_000 else body_text[:120_000]
+        hits: list[dict[str, Any]] = []
+        for entry in self.regex_catalog:
+            pattern = entry.get("compiled")
+            if not hasattr(pattern, "search"):
+                continue
+            match = pattern.search(sample)
+            if not match:
+                continue
+            snippet = match.group(0) if match.group(0) else ""
+            if len(snippet) > 160:
+                snippet = snippet[:157] + "…"
+            hits.append(
+                {
+                    "category": entry.get("category"),
+                    "template": entry.get("template"),
+                    "pattern": entry.get("pattern"),
+                    "match": snippet,
+                    "label": entry.get("label"),
+                }
+            )
+        return hits
+
     def _read_baseline_store(self):
         if not BASELINE_PATH.exists():
             return {}
@@ -2382,6 +2482,10 @@ class DirBruteForcer:
             intel_notes.append("Directory listing exposure")
         secret_hits = self._body_secrets(body_text)
         intel_notes.extend(secret_hits)
+        regex_hits = self._scan_regex(body_text)
+        if regex_hits:
+            intel_notes.append(f"Regex sweep: {len(regex_hits)} pattern hit(s)")
+            self.regex_total_matches += len(regex_hits)
         normalized_target = self._normalize(target)
         signature = self._signature(method, normalized_target)
         previous_status = self.baseline_snapshot.get(signature)
@@ -2462,6 +2566,7 @@ class DirBruteForcer:
             well_known_links=passive["well_known_links"],
             config_endpoints=passive["config_endpoints"],
             json_payload=json_payload,
+            regex_hits=regex_hits,
         )
         info = {
             "url": target,
@@ -2476,6 +2581,8 @@ class DirBruteForcer:
             "latency": latency_ms,
             "slow": slow_hit,
             "secrets": len(secret_hits),
+            "regex_hits": regex_hits,
+            "regex_count": len(regex_hits),
             "delta": delta,
             "previous_status": previous_status,
             "forensics": forensics_snapshot,
@@ -2787,6 +2894,8 @@ class App(tk.Tk):
         self.wordlist_store.mkdir(parents=True, exist_ok=True)
         self._wordlist_helpers = []
         self.api_tree_results = {}
+        self.api_auto_report: Optional[APISurfaceReport] = None
+        self.api_auto_forcer: Optional[DirBruteForcer] = None
         self.console: Optional[ScrolledText] = None
         self.certificate_vars: dict[str, tk.StringVar] = {}
         self.latest_certificate: Optional[dict[str, Any]] = None
@@ -3797,6 +3906,19 @@ class App(tk.Tk):
                 write_section("Host Hints", forensic.get("host_hints", []))
                 write_section("Tech Hints", forensic.get("technologies", []))
                 write_section("Intel Notes", forensic.get("intel", []))
+                regex_hits = forensic.get("regex_hits", []) or []
+                if regex_hits:
+                    regex_lines: list[str] = []
+                    for hit in regex_hits:
+                        if isinstance(hit, dict):
+                            label = str(hit.get("label") or hit.get("pattern") or "pattern")
+                            snippet = str(hit.get("snippet") or hit.get("match") or "").replace("\n", " ")
+                            if len(snippet) > 120:
+                                snippet = snippet[:117] + "…"
+                            regex_lines.append(f"{label} → {snippet}" if snippet else label)
+                        else:
+                            regex_lines.append(str(hit))
+                    write_section("Regex Hits", regex_lines)
                 write_section("Secrets", forensic.get("secrets", []))
                 write_section("Rate Limits", forensic.get("rate_limits", []))
                 write_section("Auth Schemes", forensic.get("auth_schemes", []))
@@ -3820,6 +3942,7 @@ class App(tk.Tk):
                 write_section("Global Well-known", forensic.get("global_well_known_links", []))
                 write_section("Global Config Endpoints", forensic.get("global_config_endpoints", []))
                 write_section("Global CSP Reports", forensic.get("global_csp_reports", []))
+                write_section("Global Regex Patterns", forensic.get("global_regex_hits", []))
                 cert = forensic.get("certificate")
                 if isinstance(cert, dict) and cert:
                     subject = cert.get("subject") or "-"
@@ -4421,6 +4544,46 @@ class App(tk.Tk):
                     continue
                 matchers = template.setdefault("matchers", {})
                 matchers["regex"] = patterns
+
+    def _collect_regex_catalog(self) -> list[dict[str, str]]:
+        catalog: list[dict[str, str]] = []
+        seen: set[tuple[str, str, str]] = set()
+        for collection in self.regex_collections.values():
+            title = str(collection.get("title") or collection.get("id") or "Regex")
+            templates = collection.get("templates", {}) or {}
+            for template_id, info in templates.items():
+                for pattern in info.get("regex", []) or []:
+                    if not isinstance(pattern, str) or not pattern:
+                        continue
+                    key = (title, str(template_id), pattern)
+                    if key in seen:
+                        continue
+                    seen.add(key)
+                    catalog.append(
+                        {
+                            "category": title,
+                            "template": str(template_id),
+                            "pattern": pattern,
+                        }
+                    )
+        if not catalog:
+            for template_id, template in self.automation_templates.items():
+                matchers = template.get("matchers") or {}
+                for pattern in matchers.get("regex", []) or []:
+                    if not isinstance(pattern, str) or not pattern:
+                        continue
+                    key = ("Automation Templates", str(template_id), pattern)
+                    if key in seen:
+                        continue
+                    seen.add(key)
+                    catalog.append(
+                        {
+                            "category": "Automation Templates",
+                            "template": str(template_id),
+                            "pattern": pattern,
+                        }
+                    )
+        return catalog
 
     def _sync_template_regex_from_library(self, template_id: str) -> None:
         patterns: list[str] = []
@@ -5067,9 +5230,20 @@ class App(tk.Tk):
             variable=self.endpoint_use_custom,
         ).grid(row=4, column=1, padx=6, pady=(0, 10), sticky="w")
 
+        self.api_auto_button = ttk.Button(
+            frame, text="Auto Explore + Regex Sweep", command=self._start_auto_api_exploration
+        )
+        self.api_auto_button.grid(row=5, column=0, pady=8, padx=6, sticky="w")
         ttk.Button(frame, text="Run Discovery", command=self._start_api_endpoint_explorer).grid(
             row=5, column=1, pady=8
         )
+        self.api_map_button = ttk.Button(
+            frame,
+            text="Open Surface Map",
+            command=self._open_last_auto_map,
+            state="disabled",
+        )
+        self.api_map_button.grid(row=5, column=2, pady=8, padx=6, sticky="w")
 
         columns = ("status", "detail")
         tree = ttk.Treeview(
@@ -5088,6 +5262,12 @@ class App(tk.Tk):
         frame.grid_columnconfigure(1, weight=1)
 
         self.api_tree = tree
+        palette = self.theme_palette
+        tree.tag_configure(
+            "regex-hit",
+            background=palette.get("result_hit_bg", "#14532d"),
+            foreground=palette.get("result_hit_fg", "#facc15"),
+        )
         self.api_specs_node = tree.insert("", "end", text="Specification Hunts", values=("", ""), open=True)
         self.api_endpoints_node = tree.insert("", "end", text="Endpoint Hits", values=("", ""), open=True)
         self.api_tree_results = {}
@@ -7094,11 +7274,11 @@ class App(tk.Tk):
         if path:
             variable.set(path)
 
-    def _start_api_endpoint_explorer(self) -> None:
+    def _prepare_api_explorer_inputs(self) -> Optional[tuple[str, str]]:
         base = self.endpoint_url.get().strip()
         if not base:
             messagebox.showerror("API Explorer", "Provide a base URL to explore.")
-            return
+            return None
         wordlist_path = self.endpoint_wordlist.get().strip()
         if not wordlist_path or not os.path.isfile(wordlist_path):
             fallback = self._ensure_wordlist("HackXpert Essentials (custom)")
@@ -7109,7 +7289,7 @@ class App(tk.Tk):
                     self.endpoint_wordlist_choice.set("HackXpert Essentials (custom)")
             else:
                 messagebox.showerror("API Explorer", "Select or download a valid wordlist first.")
-                return
+                return None
         prepared = self._materialise_wordlist(
             wordlist_path,
             include_custom=self.endpoint_use_custom.get(),
@@ -7117,8 +7297,14 @@ class App(tk.Tk):
         )
         if not prepared or not os.path.isfile(prepared):
             messagebox.showerror("API Explorer", "Unable to prepare the endpoint wordlist.")
+            return None
+        return base, prepared
+
+    def _start_api_endpoint_explorer(self) -> None:
+        prepared_inputs = self._prepare_api_explorer_inputs()
+        if not prepared_inputs:
             return
-        wordlist_path = prepared
+        base, wordlist_path = prepared_inputs
         if self.endpoint_use_custom.get():
             self.api_status_var.set(
                 f"Reconning {base} — stacking HackXpert essentials with the selected catalog…"
@@ -7136,7 +7322,51 @@ class App(tk.Tk):
         )
         thread.start()
 
-    def _run_api_endpoint_explorer(self, base_url: str, wordlist_path: str) -> None:
+    def _start_auto_api_exploration(self) -> None:
+        prepared_inputs = self._prepare_api_explorer_inputs()
+        if not prepared_inputs:
+            return
+        base, wordlist_path = prepared_inputs
+        regex_catalog = self._collect_regex_catalog()
+        pattern_count = len(regex_catalog)
+        if pattern_count == 0:
+            messagebox.showwarning(
+                "Auto Explore",
+                "No regex patterns are available from the library — running without extra signatures.",
+            )
+        status_message = (
+            f"Auto exploring {base} — building surface map with {pattern_count} regex pattern(s)."
+            if pattern_count
+            else f"Auto exploring {base} — building surface map (regex library empty)."
+        )
+        self.api_status_var.set(status_message)
+        self._log_console(
+            f"[*] Auto exploration engaged for {base} using {pattern_count} regex pattern(s) from the library."
+        )
+        for node in (self.api_specs_node, self.api_endpoints_node):
+            for child in self.api_tree.get_children(node):
+                self.api_tree.delete(child)
+        self.api_tree_results.clear()
+        self.api_auto_report = None
+        if getattr(self, "api_map_button", None):
+            try:
+                self.api_map_button.configure(state="disabled")
+            except tk.TclError:
+                pass
+        thread = threading.Thread(
+            target=self._run_api_endpoint_explorer,
+            args=(base, wordlist_path, regex_catalog, True),
+            daemon=True,
+        )
+        thread.start()
+
+    def _run_api_endpoint_explorer(
+        self,
+        base_url: str,
+        wordlist_path: str,
+        regex_catalog: Optional[list[dict[str, str]]] = None,
+        capture_map: bool = False,
+    ) -> None:
         parsed = urllib.parse.urlparse(base_url)
         if not parsed.scheme:
             base_url = f"http://{base_url}"
@@ -7199,28 +7429,271 @@ class App(tk.Tk):
                 self.after(0, lambda data=note: self._insert_api_result(self.api_specs_node, data))
 
         if spec_hits == 0:
-            self.after(0, lambda: self.api_status_var.set("No live specs detected — brute forcing endpoints."))
+            def _no_spec_status() -> None:
+                message = "No live specs detected — brute forcing endpoints."
+                if capture_map:
+                    total_patterns = len(regex_catalog or [])
+                    message += f" Regex sweep armed ({total_patterns} pattern(s))."
+                self.api_status_var.set(message)
+
+            self.after(0, _no_spec_status)
         else:
-            self.after(0, lambda: self.api_status_var.set(f"Captured {spec_hits} spec artefacts — sweeping endpoints next."))
+            def _update_spec_status() -> None:
+                message = f"Captured {spec_hits} spec artefacts — sweeping endpoints next."
+                if capture_map:
+                    total_patterns = len(regex_catalog or [])
+                    message += f" Regex sweep armed ({total_patterns} pattern(s))."
+                self.api_status_var.set(message)
+
+            self.after(0, _update_spec_status)
 
         def on_found(info):
             self.after(0, lambda data=info: self._insert_api_result(self.api_endpoints_node, data))
 
+        forcer_ref: dict[str, DirBruteForcer] = {}
+
         def on_finish():
-            self.after(0, lambda: self.api_status_var.set("API endpoint sweep complete."))
+            def _finish() -> None:
+                forcer_obj = forcer_ref.get("forcer")
+                if capture_map and forcer_obj:
+                    self._on_auto_explore_complete(forcer_obj)
+                else:
+                    self.api_status_var.set("API endpoint sweep complete.")
+
+            self.after(0, _finish)
 
         def on_progress(pct):
             self.after(0, lambda: self.progress.configure(value=pct))
 
-        forcer = DirBruteForcer(base_url, wordlist_path, self.settings, on_found=on_found, on_finish=on_finish, on_progress=on_progress)
-        self.api_forcer = forcer
+        forcer = DirBruteForcer(
+            base_url,
+            wordlist_path,
+            self.settings,
+            on_found=on_found,
+            on_finish=on_finish,
+            on_progress=on_progress,
+            regex_catalog=regex_catalog,
+        )
+        forcer_ref["forcer"] = forcer
+        if capture_map:
+            self.api_auto_forcer = forcer
+        else:
+            self.api_forcer = forcer
         forcer.start()
+
+    def _on_auto_explore_complete(self, forcer: DirBruteForcer) -> None:
+        report = getattr(forcer, "forensics", None)
+        if not isinstance(report, APISurfaceReport):
+            self.api_status_var.set("Auto exploration complete.")
+            return
+        self.api_auto_report = report
+        data = report.to_dict()
+        endpoints = data.get("endpoints", {}) or {}
+        total_urls = len(endpoints)
+        total_methods = sum(len(methods) for methods in endpoints.values())
+        regex_patterns = len(data.get("regex_matches", []))
+        total_regex_hits = getattr(forcer, "regex_total_matches", 0)
+        summary = (
+            f"Auto exploration complete — mapped {total_methods} endpoint variants across {total_urls} URL(s); "
+            f"{total_regex_hits} regex hit(s) across {regex_patterns} pattern(s)."
+        )
+        self.api_status_var.set(summary)
+        self._log_console(summary)
+        if getattr(self, "api_map_button", None):
+            try:
+                self.api_map_button.configure(state="normal")
+            except tk.TclError:
+                pass
+        self.after(0, self._open_last_auto_map)
+
+    def _open_last_auto_map(self) -> None:
+        report = getattr(self, "api_auto_report", None)
+        if not isinstance(report, APISurfaceReport):
+            messagebox.showinfo("Surface Map", "Run Auto Explore + Regex Sweep to generate a surface map first.")
+            return
+        self._show_auto_map(report)
+
+    def _show_auto_map(self, report: APISurfaceReport) -> None:
+        data = report.to_dict()
+        endpoints = data.get("endpoints", {}) or {}
+        total_methods = sum(len(methods) for methods in endpoints.values())
+        regex_patterns = len(data.get("regex_matches", []))
+        regex_hit_sum = 0
+        for methods in endpoints.values():
+            for record in methods.values():
+                regex_hit_sum += len(record.get("regex_hits", []))
+
+        top = tk.Toplevel(self)
+        top.title("Auto Exploration Surface Map")
+        top.configure(bg=self.theme_palette.get("primary", "#0f172a"))
+        top.geometry("940x640")
+
+        container = ttk.Frame(top, style="Card.TFrame")
+        container.pack(fill="both", expand=True)
+
+        summary_var = tk.StringVar(
+            value=(
+                f"{len(endpoints)} URL(s) • {total_methods} method entries • "
+                f"{regex_hit_sum} regex hit(s) across {regex_patterns} pattern(s)"
+            )
+        )
+        ttk.Label(container, textvariable=summary_var, style="StatusBadge.TLabel").pack(
+            anchor="w", padx=12, pady=(12, 6)
+        )
+
+        columns = ("status", "regex", "intel")
+        tree = ttk.Treeview(
+            container,
+            columns=columns,
+            show="tree headings",
+            height=16,
+        )
+        tree.heading("status", text="STATUS")
+        tree.heading("regex", text="REGEX HITS")
+        tree.heading("intel", text="INTEL")
+        tree.heading("#0", text="ENDPOINT")
+        tree.column("#0", width=360, anchor="w", stretch=True)
+        tree.column("status", width=90, anchor="center")
+        tree.column("regex", width=120, anchor="center")
+        tree.column("intel", width=320, anchor="w")
+        tree.pack(fill="both", expand=True, padx=12, pady=6)
+
+        tree_data: dict[str, dict[str, Any]] = {}
+
+        for url, methods in sorted(endpoints.items()):
+            method_records = methods or {}
+            url_regex_hits = sum(len(record.get("regex_hits", [])) for record in method_records.values())
+            url_intel = [f"{len(method_records)} method(s)"]
+            if url_regex_hits:
+                url_intel.append(f"{url_regex_hits} regex hit(s)")
+            url_item = tree.insert(
+                "",
+                "end",
+                text=url,
+                values=("", url_regex_hits or "", " • ".join(url_intel)),
+                open=True,
+            )
+            tree_data[url_item] = {"type": "url", "url": url, "methods": method_records}
+            for method, record in sorted(method_records.items()):
+                status = record.get("last_status")
+                status_display = str(status) if status is not None else ""
+                regex_hits = record.get("regex_hits", []) or []
+                regex_count = len(regex_hits)
+                intel_bits: list[str] = []
+                secrets = record.get("secrets", [])
+                if secrets:
+                    intel_bits.append(f"Secrets:{len(secrets)}")
+                intel_notes = record.get("intel", [])
+                if intel_notes:
+                    intel_bits.append(f"Intel:{len(intel_notes)}")
+                if regex_count:
+                    intel_bits.append(f"Regex:{regex_count}")
+                child = tree.insert(
+                    url_item,
+                    "end",
+                    text=method,
+                    values=(status_display, regex_count or "", ", ".join(intel_bits)),
+                )
+                tree_data[child] = {
+                    "type": "method",
+                    "url": url,
+                    "method": method,
+                    "record": record,
+                }
+
+        detail = ScrolledText(container, height=10)
+        detail.pack(fill="both", expand=False, padx=12, pady=(0, 10))
+        detail.configure(state="disabled")
+        self._register_text_widget("detail", detail)
+
+        def render_detail(item_id: str) -> None:
+            payload = tree_data.get(item_id)
+            detail.configure(state="normal")
+            detail.delete("1.0", "end")
+            if not payload:
+                detail.configure(state="disabled")
+                return
+            if payload.get("type") == "url":
+                detail.insert("end", f"URL: {payload['url']}\n")
+                methods = payload.get("methods", {})
+                detail.insert("end", f"Methods discovered: {len(methods)}\n")
+                regex_total = sum(len(record.get("regex_hits", [])) for record in methods.values())
+                if regex_total:
+                    detail.insert("end", f"Regex hits: {regex_total}\n")
+            else:
+                record = payload.get("record", {})
+                detail.insert("end", f"URL: {payload.get('url')}\n")
+                detail.insert("end", f"Method: {payload.get('method')}\n")
+                detail.insert("end", f"Last status: {record.get('last_status')}\n")
+                history = record.get("status_history", [])
+                if history:
+                    detail.insert("end", f"Status history: {', '.join(str(code) for code in history)}\n")
+                content_types = record.get("content_types", [])
+                if content_types:
+                    detail.insert("end", f"Content-Types: {', '.join(content_types)}\n")
+                params = record.get("parameters", [])
+                if params:
+                    detail.insert("end", f"Parameters: {', '.join(params[:12])}\n")
+                json_fields = record.get("json_fields", [])
+                if json_fields:
+                    detail.insert("end", f"JSON fields: {', '.join(json_fields[:12])}\n")
+                intel_notes = record.get("intel", [])
+                if intel_notes:
+                    detail.insert("end", "Intel notes:\n")
+                    for note in intel_notes[:10]:
+                        detail.insert("end", f"  • {note}\n")
+                secrets = record.get("secrets", [])
+                if secrets:
+                    detail.insert("end", "Secrets:\n")
+                    for secret in secrets[:10]:
+                        detail.insert("end", f"  • {secret}\n")
+                regex_hits = record.get("regex_hits", [])
+                if regex_hits:
+                    detail.insert("end", "Regex Hits:\n")
+                    for hit in regex_hits:
+                        label = hit.get("label") or hit.get("pattern") or "pattern"
+                        snippet = hit.get("snippet") or hit.get("match") or ""
+                        detail.insert("end", f"  • {label}\n")
+                        if snippet:
+                            detail.insert("end", f"      ↳ {snippet}\n")
+            detail.configure(state="disabled")
+
+        def on_select(_event=None) -> None:
+            selection = tree.selection()
+            if selection:
+                render_detail(selection[0])
+
+        tree.bind("<<TreeviewSelect>>", on_select)
+
+        if tree.get_children():
+            first = tree.get_children()[0]
+            tree.selection_set(first)
+            tree.focus(first)
+            render_detail(first)
+
+        btn_frame = ttk.Frame(container, style="Card.TFrame")
+        btn_frame.pack(fill="x", padx=12, pady=(0, 12))
+        ttk.Button(btn_frame, text="Export JSON Map", command=lambda: self._export_forensics_map(report)).pack(
+            side="right", padx=6
+        )
+        ttk.Button(btn_frame, text="Close", command=top.destroy).pack(side="right")
 
     def _insert_api_result(self, parent, info):
         label = info.get("label") or info.get("url", "")
         status = info.get("status", "-")
         detail = info.get("detail") or info.get("notes") or info.get("type", "")
-        item = self.api_tree.insert(parent, "end", text=label, values=(status, detail))
+        regex_hits = info.get("regex_hits") or []
+        if regex_hits:
+            labels = sorted({str(hit.get("label") or hit.get("pattern") or "regex") for hit in regex_hits})
+            preview = ", ".join(labels[:3])
+            if len(labels) > 3:
+                preview += ", …"
+            regex_summary = f"Regex hits: {len(regex_hits)}"
+            if preview:
+                regex_summary += f" ({preview})"
+            detail = f"{detail} | {regex_summary}" if detail else regex_summary
+        tags = ("regex-hit",) if regex_hits else ()
+        item = self.api_tree.insert(parent, "end", text=label, values=(status, detail), tags=tags)
         enriched = dict(info)
         enriched.setdefault("headers", self._compose_headers_from_settings())
         self.api_tree_results[item] = enriched
