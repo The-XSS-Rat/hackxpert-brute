@@ -1,4 +1,4 @@
-# HackXpert API Surface Explorer
+# HackXpert BRUTE
 
 HackXpert API Surface Explorer is a hybrid GUI/CLI recon assistant purpose-built for quickly enumerating API endpoints, collecting live response context, and exporting results in formats your blueprints or reports can use. It fuses the speed of threaded brute-forcing with recursive discovery smarts inside a polished dark UI, while still offering a scriptable command line for pipelines and servers.
 
