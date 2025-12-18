@@ -48,6 +48,8 @@ The interface is organised into modular tabs inside a neon-styled notebook:
 2. Start the run to sweep OpenAPI/Swagger definitions, `/docs`, GraphQL docs, and endpoints derived from the selected wordlist.
 3. Double-click results to open the **Request Workbench** for replaying or mutating calls.
 4. Right-click to send hits into the Parameter Explorer for deeper fuzzing.
+5. Use **Auto Explore + Regex Sweep** to launch a full surface crawl that also applies every regex signature from the automation library. Regex hits are highlighted inline and persisted to the forensics map.
+6. When the sweep completes, click **Open Surface Map** to browse a tree of URLs, methods, status history, regex evidence, and export the entire dataset to JSON.
 
 ## 5. API Parameter Explorer
 
