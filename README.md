@@ -42,6 +42,12 @@ HackXpert now ships with a deep API forensics engine to map the entire surface e
 * **GraphQL & spec detection** – GraphQL operations, introspection data, Swagger/OpenAPI documents, and other spec artefacts are highlighted as soon as they surface.
 * **One-click export** – Every scan tab exposes an **Export Forensics Map** action that saves a structured JSON map of all observations for reporting or replay.
 
+### New: One-click Auto Exploration & Regex Sweep
+
+* **Auto Explore + Regex Sweep** – A new control in the API Endpoint Explorer clears the slate, hunts Swagger/OpenAPI specs, runs the recursive brute-force engine, and automatically applies every curated regex signature from the automation library against live responses.
+* **Regex-aware intel** – Regex hits are called out inline in the explorer tree, appended to the intel console, and written into the forensics dossier so secret or high-risk patterns surface instantly.
+* **Interactive surface map** – When the sweep finishes a themed window summarises every URL/method, status history, and regex evidence with export-to-JSON baked in, so teams can review the entire API map in one place.
+
 ### New: Burp chaining & passive discovery arsenal
 
 * **Burp Suite proxy chaining** – Route every GUI/CLI request (preflight, recon sweeps, parameter fuzzing, manual requests) through your Burp listener via the Settings toggle. The neon header surfaces a live proxy status badge so you know when traffic is flowing through Burp.
